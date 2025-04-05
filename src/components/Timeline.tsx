@@ -68,6 +68,14 @@ const timelineData: Milestone[] = [
     ]
   },
   {
+    id: "1999",
+    year: "1999",
+    title: "Inter-School Initiatives",
+    achievements: [
+      "Initiated the first inter-school Quran recitation and cultural contest between UAE schools"
+    ]
+  },
+  {
     id: "2000",
     year: "2000",
     title: "Diplomatic Education",
@@ -84,12 +92,28 @@ const timelineData: Milestone[] = [
     ]
   },
   {
+    id: "2004",
+    year: "2004",
+    title: "Humanitarian Recognition",
+    achievements: [
+      "Organized the largest humanitarian event under the Islamic Affairs DSF Pavilion, receiving special honours"
+    ]
+  },
+  {
     id: "2005",
     year: "2005",
     title: "Entrepreneurial Venture",
     achievements: [
       "Resigned from the Islamic Affairs Department",
       "Founded the Insight Group and assumed the role of Managing Director"
+    ]
+  },
+  {
+    id: "2006",
+    year: "2006",
+    title: "Media Influence",
+    achievements: [
+      "Became a recognized columnist, addressing significant global issues"
     ]
   },
   {
@@ -158,10 +182,10 @@ const Timeline = () => {
   }, []);
 
   return (
-    <section id="timeline" className="py-24 bg-white">
+    <section id="timeline" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12">Timeline of Impact</h2>
+          <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12 text-royal-800">Timeline of Impact</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Spanning three decades, Dr. Rahman's journey has been marked by significant milestones in education, 
             interfaith unity, humanitarian service, and community development.
@@ -173,14 +197,14 @@ const Timeline = () => {
             <div 
               key={milestone.id}
               id={milestone.id}
-              className={`timeline-item relative mb-20 ${visibleItems.includes(milestone.id) ? 'animate-fade-in opacity-0' : 'opacity-0'}`}
+              className={`timeline-item relative mb-12 md:mb-20 ${visibleItems.includes(milestone.id) ? 'animate-fade-in opacity-0' : 'opacity-0'}`}
               style={{ animationDelay: `${0.2 * index}s` }}
             >
               <div className="timeline-dot"></div>
-              <div className={`timeline-content ${index % 2 === 0 ? 'left text-right' : 'right'}`}>
-                <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-                  <h3 className="text-xl font-bold text-royal-800">{milestone.year}</h3>
-                  <h4 className="text-lg font-semibold mb-3">{milestone.title}</h4>
+              <div className={`timeline-content ${index % 2 === 0 ? 'left text-md-right' : 'right'}`}>
+                <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100 hover:border-golden-300 transition-all duration-300">
+                  <h3 className="text-xl font-bold text-golden-800">{milestone.year}</h3>
+                  <h4 className="text-lg font-semibold mb-3 text-royal-700">{milestone.title}</h4>
                   
                   {/* Show only the first achievement in the preview */}
                   <p className="text-gray-700 mb-4">{milestone.achievements[0]}</p>
@@ -192,7 +216,7 @@ const Timeline = () => {
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="text-royal-700 border-royal-700 hover:bg-royal-50"
+                    className="text-golden-700 border-golden-300 hover:bg-golden-50"
                     onClick={() => handleOpenMilestone(milestone)}
                   >
                     Read More

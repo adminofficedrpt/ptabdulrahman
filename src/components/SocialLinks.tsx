@@ -1,5 +1,5 @@
 
-import { Linkedin, Youtube, MessageSquare, Facebook, Instagram } from 'lucide-react';
+import { Linkedin, Youtube, Facebook, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const SocialLinks = () => {
@@ -8,31 +8,25 @@ const SocialLinks = () => {
       name: "LinkedIn", 
       icon: <Linkedin className="mr-2" />, 
       url: "#", 
-      color: "bg-[#0077B5] hover:bg-[#0077B5]/90" 
+      color: "bg-[#0077B5] hover:bg-[#0077B5]/80" 
     },
     { 
       name: "YouTube", 
       icon: <Youtube className="mr-2" />, 
       url: "#", 
-      color: "bg-[#FF0000] hover:bg-[#FF0000]/90" 
-    },
-    { 
-      name: "WhatsApp", 
-      icon: <MessageSquare className="mr-2" />, 
-      url: "#", 
-      color: "bg-[#25D366] hover:bg-[#25D366]/90" 
+      color: "bg-[#FF0000] hover:bg-[#FF0000]/80" 
     },
     { 
       name: "Facebook", 
       icon: <Facebook className="mr-2" />, 
       url: "#", 
-      color: "bg-[#1877F2] hover:bg-[#1877F2]/90" 
+      color: "bg-[#1877F2] hover:bg-[#1877F2]/80" 
     },
     { 
       name: "Instagram", 
       icon: <Instagram className="mr-2" />, 
       url: "#", 
-      color: "bg-[#E4405F] hover:bg-[#E4405F]/90" 
+      color: "bg-[#E4405F] hover:bg-[#E4405F]/80" 
     }
   ];
 

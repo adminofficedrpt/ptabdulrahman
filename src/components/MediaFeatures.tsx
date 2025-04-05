@@ -88,7 +88,7 @@ const MediaFeatures = () => {
     <section id="media" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12">In the Media</h2>
+          <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12 text-royal-800">In the Media</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Dr. P.T. Abdul Rahman's initiatives and contributions have been featured in numerous 
             publications across the Middle East and beyond, highlighting the impact of his work.
@@ -107,20 +107,58 @@ const MediaFeatures = () => {
                 href={item.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block bg-white rounded-lg shadow-lg p-6 border border-gray-100 h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                className="media-card block bg-white rounded-lg shadow-lg p-6 border border-gray-100 h-full transition-all duration-300"
               >
                 <h3 className="text-lg font-bold text-royal-800 mb-3">{item.title}</h3>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600 font-medium">{item.source}</span>
                   {item.date && <span className="text-gray-500 text-sm">{item.date}</span>}
                 </div>
-                <div className="mt-4 flex items-center text-royal-700 hover:text-royal-900 font-medium">
+                <div className="mt-4 flex items-center text-golden-700 hover:text-golden-900 font-medium">
                   Read article
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </div>
               </a>
             </div>
           ))}
+        </div>
+
+        <div className="mt-20 max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-center mb-8 text-royal-800">Dharmarekha | ധർമ്മരേഖ</h3>
+          <p className="text-lg text-center mb-8">
+            In 2001, PT Abdul Rahman pioneered the first-ever televised Islamic program on Asianet, An Indian Malayalam language television channel. 
+            The videos in the playlist are few parts of that breakthrough program under the name Dharmarekha | ധർമ്മരേഖ.
+          </p>
+          
+          <div className="video-container mb-8">
+            <iframe 
+              width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/videoseries?si=IlWMVc-TRL_XpZH6&amp;list=PLAabyVEuDJuNQuvOfInZOow3WO56edEo_" 
+              title="Dharmarekha by Dr. P.T. Abdul Rahman" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen>
+            </iframe>
+          </div>
+          
+          <p className="text-lg text-center mb-4">
+            The latest in the Dharmarekha's continuation in 2022-2023:
+          </p>
+          
+          <div className="video-container">
+            <iframe 
+              width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/j0s21rGpqxo?si=iYH2lBwTd52PYV9C" 
+              title="Recent Dharmarekha episode" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen>
+            </iframe>
+          </div>
         </div>
       </div>
     </section>

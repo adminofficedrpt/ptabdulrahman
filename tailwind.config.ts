@@ -80,6 +80,18 @@ export default {
 					900: '#15396a',
 					950: '#0f2546',
 				},
+				golden: {
+					50: '#fdf8e9',
+					100: '#f5e7b8',
+					200: '#edd791',
+					300: '#e6c76a',
+					400: '#e0b846',
+					500: '#d2a529',
+					600: '#b38a1e',
+					700: '#8c6c17',
+					800: '#664e12',
+					900: '#3f3009',
+				},
 				earth: {
 					50: '#fcf8f7',
 					100: '#f8f0ec',
@@ -133,9 +145,6 @@ export default {
 				'fade-left': 'fade-left 0.5s ease-out forwards',
 				'scale-in': 'scale-in 0.4s ease-out forwards',
 			},
-			backgroundImage: {
-				'hero-pattern': "url('/public/lovable-uploads/a2dcccaa-70f3-45a6-98e2-cc8928dcdafc.png')"
-			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

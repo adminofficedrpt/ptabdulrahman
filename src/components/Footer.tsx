@@ -13,7 +13,13 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-2xl font-playfair font-bold mb-6">Dr. P.T. Abdul Rahman</h3>
+            <div className="mb-6">
+              <img 
+                src="/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png" 
+                alt="Dr. P.T. Abdul Rahman Logo" 
+                className="h-16 md:h-20"
+              />
+            </div>
             <p className="mb-6">
               A lifelong dedication to elevating education, humanitarian service, and spiritual guidance.
             </p>
@@ -26,12 +32,12 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#biography" className="hover:text-royal-300 transition-colors">About</a></li>
-              <li><a href="#timeline" className="hover:text-royal-300 transition-colors">Timeline</a></li>
-              <li><a href="#books" className="hover:text-royal-300 transition-colors">Books</a></li>
-              <li><a href="#humanitarian" className="hover:text-royal-300 transition-colors">Humanitarian Work</a></li>
-              <li><a href="#awards" className="hover:text-royal-300 transition-colors">Awards</a></li>
-              <li><a href="#media" className="hover:text-royal-300 transition-colors">Media Features</a></li>
+              <li><a href="#biography" className="hover:text-golden-300 transition-colors">About</a></li>
+              <li><a href="#timeline" className="hover:text-golden-300 transition-colors">Timeline</a></li>
+              <li><a href="#books" className="hover:text-golden-300 transition-colors">Books</a></li>
+              <li><a href="#humanitarian" className="hover:text-golden-300 transition-colors">Humanitarian Work</a></li>
+              <li><a href="#awards" className="hover:text-golden-300 transition-colors">Awards</a></li>
+              <li><a href="#media" className="hover:text-golden-300 transition-colors">Media Features</a></li>
             </ul>
           </div>
           

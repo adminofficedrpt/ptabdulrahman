@@ -25,6 +25,21 @@ const Index = () => {
         }
       });
     });
+
+    // Add meta tags for mobile optimization
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (!viewport) {
+      const meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+    }
+
+    // Add touch icons for iOS
+    const linkIcon = document.createElement('link');
+    linkIcon.rel = 'apple-touch-icon';
+    linkIcon.href = '/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png';
+    document.getElementsByTagName('head')[0].appendChild(linkIcon);
   }, []);
 
   return (

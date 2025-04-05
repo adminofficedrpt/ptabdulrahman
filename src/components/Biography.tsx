@@ -7,15 +7,15 @@ const Biography = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12">About Dr. P.T. Abdul Rahman</h2>
+            <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12 text-royal-800">About Dr. P.T. Abdul Rahman</h2>
             <p className="text-lg text-gray-700">A distinguished scholar, visionary leader, and humanitarian whose influence spans continents.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="absolute -top-3 -left-3 w-64 h-64 bg-earth-100 rounded-lg"></div>
+              <div className="absolute -top-3 -left-3 w-64 h-64 bg-golden-100 rounded-lg"></div>
               <img 
-                src="/lovable-uploads/76eef9a7-0487-4c6f-b458-32397f9edbd6.png" 
+                src="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" 
                 alt="Dr. P.T. Abdul Rahman" 
                 className="relative z-10 w-full h-auto rounded-lg shadow-lg"
               />
@@ -25,25 +25,25 @@ const Biography = () => {
               <div>
                 <h3 className="text-2xl font-bold text-royal-800">Early Life & Education</h3>
                 <p className="text-gray-700 mt-2">
-                  Born in Kerala, Dr. Rahman was raised by his grandmother after the early loss of his father. His academic journey began under the tutelage of renowned scholars like T.P. Muhammad Musliar, setting the foundation for his intellectual pursuits. He later attained his M.A. in Sociology from the University of Mysore.
+                  P.T. Abdul Rahman, native to Kerala, India, emerged from a lineage characterized by profound Islamic erudition and cultural tradition. The premature demise of his father notwithstanding, he exhibited extraordinary fortitude and an unyielding dedication to intellectual pursuits. Under the aegis of his grandmother, he confronted challenges with remarkable tenacity.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-royal-800">Academic Pursuits</h3>
+                <p className="text-gray-700 mt-2">
+                  His formative education was conducted in Palakkod, Kothakurushi, and Ananganadi, subsequent to which he undertook advanced theological studies (Dars) at venerable institutions such as Palakkod East Masjid and Edakazhiyoor Juma Masjid. Under the instruction of eminent scholars, notably T.P. Muhammad Musliar and Kallur Abdullah Musliar, he cultivated a comprehensive comprehension of Islamic jurisprudence and philosophy.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-2xl font-bold text-royal-800">Linguistic Mastery</h3>
                 <p className="text-gray-700 mt-2">
-                  Dr. Rahman is fluent in multiple languages including Arabic, English, Hindi, Urdu, Malayalam, and Tamil, enabling him to connect with diverse communities and bridge cultural divides through his work.
+                  P.T. Abdul Rahman possesses a Master of Arts in Sociology from the University of Mysore, India. His multilingual proficiency, encompassing Arabic, English, Hindi, Urdu, Malayalam, and Tamil, facilitates engagement with disparate communities and intellectual fora globally.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-2xl font-bold text-royal-800">Professional Journey</h3>
-                <p className="text-gray-700 mt-2">
-                  His career has spanned prestigious positions, from the Dubai Government Awqaf & Islamic Affairs Department to founding the Insight Group, where he continues to foster educational and humanitarian initiatives that transcend national boundaries.
-                </p>
-              </div>
-
-              <Button asChild className="bg-royal-700 hover:bg-royal-800 mt-4">
+              <Button asChild className="bg-golden-600 hover:bg-golden-700 text-white mt-4">
                 <a href="#timeline">Explore His Journey</a>
               </Button>
             </div>
