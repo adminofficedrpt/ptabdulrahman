@@ -267,7 +267,7 @@ const Timeline = () => {
               key={milestone.id}
               id={milestone.id}
               className={`timeline-item relative mb-12 md:mb-20 ${visibleItems.includes(milestone.id) ? 'animate-fade-in opacity-0' : 'opacity-0'}`}
-              style={{ animationDelay: `${0.2 * index}s` }}
+              style={{ animationDelay: `${0.1 * Math.min(index, 3)}s` }}
             >
               <div className="timeline-dot"></div>
               <div className={`timeline-content ${index % 2 === 0 ? 'left text-md-right' : 'right'}`}>
