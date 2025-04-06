@@ -37,11 +37,11 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#hero" className="flex items-center">
-          {isScrolled ? (
-            <img src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" alt="Logo" className="h-10" />
-          ) : (
-            <span className="text-xl font-bold text-white">Dr. P.T. Abdul Rahman</span>
-          )}
+          <img 
+            src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" 
+            alt="Dr. P.T. Abdul Rahman Logo" 
+            className={`h-10 ${!isScrolled ? 'filter brightness-0 invert' : ''}`}
+          />
         </a>
 
         {/* Desktop Navigation */}
