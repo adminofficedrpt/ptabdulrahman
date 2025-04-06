@@ -38,7 +38,7 @@ const Index = () => {
     // Add touch icons for iOS
     const linkIcon = document.createElement('link');
     linkIcon.rel = 'apple-touch-icon';
-    linkIcon.href = '/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png';
+    linkIcon.href = '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png';
     document.getElementsByTagName('head')[0].appendChild(linkIcon);
   }, []);
 

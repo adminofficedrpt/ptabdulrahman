@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 z-10 text-center">
         <div className="mb-8">
           <img 
-            src="/lovable-uploads/5d0ee704-bb81-4964-888b-60af01b062bb.png" 
+            src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" 
             alt="Dr. P.T. Abdul Rahman Logo" 
             className="h-24 md:h-28 mx-auto"
           />

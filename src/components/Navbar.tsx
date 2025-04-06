@@ -38,7 +38,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#hero" className="flex items-center">
           {isScrolled ? (
-            <img src="/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png" alt="Logo" className="h-10" />
+            <img src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" alt="Logo" className="h-10" />
           ) : (
             <span className="text-xl font-bold text-white">Dr. P.T. Abdul Rahman</span>
           )}
