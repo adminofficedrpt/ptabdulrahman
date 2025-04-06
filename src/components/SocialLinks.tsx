@@ -1,48 +1,52 @@
 
 import { Linkedin, Youtube, Facebook, Instagram } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const SocialLinks = () => {
   const socialLinks = [
     { 
       name: "LinkedIn", 
-      icon: <Linkedin className="mr-2" />, 
+      icon: <Linkedin />, 
       url: "https://linkedin.com/in/dr-pt-abdul-rahman-mohd-52538a68", 
-      color: "bg-[#0077B5] hover:bg-[#0077B5]/80" 
+      ariaLabel: "Visit LinkedIn profile"
     },
     { 
       name: "YouTube", 
-      icon: <Youtube className="mr-2" />, 
+      icon: <Youtube />, 
       url: "https://youtube.com/@dharmarekha?si=GkXfmYn3h71k0aSB", 
-      color: "bg-[#FF0000] hover:bg-[#FF0000]/80" 
+      ariaLabel: "Visit YouTube channel"
     },
     { 
       name: "Facebook", 
-      icon: <Facebook className="mr-2" />, 
+      icon: <Facebook />, 
       url: "https://www.facebook.com/abdulrahman.peetee?mibextid=2JQ9oc", 
-      color: "bg-[#1877F2] hover:bg-[#1877F2]/80" 
+      ariaLabel: "Visit Facebook profile" 
     },
     { 
       name: "Instagram", 
-      icon: <Instagram className="mr-2" />, 
+      icon: <Instagram />, 
       url: "https://instagram.com/drpt7", 
-      color: "bg-[#E4405F] hover:bg-[#E4405F]/80" 
+      ariaLabel: "Visit Instagram profile"
     }
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-3">
+    <div className="flex flex-wrap justify-center gap-4">
       {socialLinks.map((link) => (
-        <Button 
+        <a 
           key={link.name}
-          className={`${link.color} text-white`}
-          asChild
+          href={link.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label={link.ariaLabel}
+          className="w-12 h-12 flex items-center justify-center rounded-full 
+                    border border-golden-400 
+                    bg-gradient-to-br from-royal-800 to-royal-900 
+                    text-golden-300 hover:text-golden-200
+                    shadow-md hover:shadow-lg
+                    transition-all duration-300 hover:-translate-y-1"
         >
-          <a href={link.url} target="_blank" rel="noopener noreferrer">
-            {link.icon}
-            {link.name}
-          </a>
-        </Button>
+          {link.icon}
+        </a>
       ))}
     </div>
   );
