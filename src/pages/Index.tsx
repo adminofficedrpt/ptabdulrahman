@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Biography from '@/components/Biography';
@@ -15,9 +15,23 @@ import DQAADonate from '@/components/DQAADonate';
 import Footer from '@/components/Footer';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [sectionsLoaded, setSectionsLoaded] = useState({
+    hero: false,
+    biography: false,
+    timeline: false,
+    dqaa: false,
+  });
+
   useEffect(() => {
+    // Start loading immediately
+    window.requestAnimationFrame(() => {
+      setIsLoading(false);
+    });
+
     // Smooth scroll functionality for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -42,6 +56,15 @@ const Index = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          
+          // Track which major sections have been loaded
+          if (entry.target.id) {
+            setSectionsLoaded(prev => ({
+              ...prev,
+              [entry.target.id]: true
+            }));
+          }
+          
           observer.unobserve(entry.target);
         }
       });
@@ -52,6 +75,22 @@ const Index = () => {
     // Observe elements with animation classes
     document.querySelectorAll('.fade-in, .slide-from-left, .slide-from-right, .scale-in').forEach(el => {
       observer.observe(el);
+    });
+
+    // Observe major sections for loading tracking
+    document.querySelectorAll('#hero, #biography, #timeline, #dqaa').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Preload important images
+    const preloadImages = [
+      '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png',
+      '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png'
+    ];
+    
+    preloadImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
     });
 
     return () => {
@@ -81,6 +120,9 @@ const Index = () => {
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://www.ptabdulrahman.com/" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" as="image" />
       </Helmet>
       
       <Navbar />

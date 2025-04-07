@@ -1,8 +1,12 @@
 
-import { useState, useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { ArrowRight, FastForward } from 'lucide-react';
 import MilestoneDetails from './MilestoneDetails';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
 
 // We'll restructure the data to have each achievement as a separate entry
 const timelineData = [
@@ -215,83 +219,160 @@ const Timeline = () => {
   const [selectedMilestone, setSelectedMilestone] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [visibleItems, setVisibleItems] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [fastScroll, setFastScroll] = useState(false);
   const timelineRef = useRef(null);
+  const observerRef = useRef(null);
 
   const handleOpenMilestone = (milestone) => {
     setSelectedMilestone(milestone);
     setIsDialogOpen(true);
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleItems((prev) => [...prev, entry.target.id]);
+  // Memoize the intersection observer callback
+  const observerCallback = useCallback((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setVisibleItems((prev) => {
+          if (!prev.includes(entry.target.id)) {
+            return [...prev, entry.target.id];
           }
+          return prev;
         });
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1,
       }
-    );
-
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach((item) => {
-      observer.observe(item);
     });
+  }, []);
+
+  // Initialize and cleanup intersection observer
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+    
+    // Create observer
+    observerRef.current = new IntersectionObserver(observerCallback, options);
+    
+    // Observe all timeline items after a short delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      timelineItems.forEach((item) => {
+        observerRef.current.observe(item);
+      });
+      setIsLoaded(true);
+    }, 100);
 
     return () => {
-      timelineItems.forEach((item) => {
-        observer.unobserve(item);
-      });
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+      clearTimeout(timer);
     };
-  }, []);
+  }, [observerCallback]);
+
+  // Handle fast scroll effect
+  useEffect(() => {
+    if (!timelineRef.current) return;
+    
+    const handleScroll = (e) => {
+      if (fastScroll) {
+        // Apply 2x scroll speed when fast scroll is enabled
+        e.preventDefault();
+        const scrollAmount = e.deltaY * 2;
+        timelineRef.current.scrollTop += scrollAmount;
+      }
+    };
+
+    const timelineElement = timelineRef.current;
+    if (timelineElement) {
+      timelineElement.addEventListener('wheel', handleScroll, { passive: false });
+    }
+    
+    return () => {
+      if (timelineElement) {
+        timelineElement.removeEventListener('wheel', handleScroll);
+      }
+    };
+  }, [fastScroll]);
 
   return (
     <section id="timeline" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12 text-royal-800">Timeline of Impact</h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-6">
             Spanning three decades, Dr. Rahman's journey has been marked by significant milestones in education, 
             interfaith unity, humanitarian service, and community development.
           </p>
+          
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <Switch 
+              id="fast-scroll" 
+              checked={fastScroll}
+              onCheckedChange={setFastScroll}
+              className="data-[state=checked]:bg-golden-600"
+            />
+            <Label htmlFor="fast-scroll" className="flex items-center cursor-pointer">
+              <FastForward className="h-4 w-4 mr-2 text-golden-600" />
+              <span className="text-sm font-medium">2x Scroll Speed</span>
+            </Label>
+          </div>
         </div>
 
-        <div className="relative max-w-5xl mx-auto" ref={timelineRef}>
-          {timelineData.map((milestone, index) => (
-            <div 
-              key={milestone.id}
-              id={milestone.id}
-              className={`timeline-item relative mb-12 md:mb-20 ${visibleItems.includes(milestone.id) ? 'animate-fade-in opacity-0' : 'opacity-0'}`}
-              style={{ animationDelay: `${0.1 * Math.min(index, 3)}s` }}
-            >
-              <div className="timeline-dot"></div>
-              <div className={`timeline-content ${index % 2 === 0 ? 'left text-md-right' : 'right'}`}>
-                <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100 hover:border-golden-300 transition-all duration-300">
-                  <h3 className="text-xl font-bold text-golden-800">{milestone.year}</h3>
-                  <h4 className="text-lg font-semibold mb-3 text-royal-700">{milestone.title}</h4>
-                  
-                  {/* Show the achievement */}
-                  <p className="text-gray-700 mb-4">{milestone.achievements[0]}</p>
-                  
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="text-golden-700 border-golden-300 hover:bg-golden-50"
-                    onClick={() => handleOpenMilestone(milestone)}
-                  >
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+        <ScrollArea className="relative h-[600px] max-w-5xl mx-auto pr-4" ref={timelineRef}>
+          {!isLoaded ? (
+            <div className="space-y-10">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                  <div className="space-y-2 w-full">
+                    <Skeleton className="h-4 w-24" />
+                    <Skeleton className="h-12 w-full" />
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          ) : (
+            <div className="relative">
+              {timelineData.map((milestone, index) => (
+                <div 
+                  key={milestone.id}
+                  id={milestone.id}
+                  className={`timeline-item relative mb-12 md:mb-16 ${
+                    visibleItems.includes(milestone.id) ? 
+                    'animate-fade-in opacity-100' : 'opacity-0'
+                  }`}
+                  style={{ 
+                    animationDelay: `${0.1 * Math.min(index, 3)}s`,
+                    transitionDuration: fastScroll ? '0.2s' : '0.5s'
+                  }}
+                >
+                  <div className="timeline-dot"></div>
+                  <div className={`timeline-content ${index % 2 === 0 ? 'left text-md-right' : 'right'}`}>
+                    <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100 hover:border-golden-300 transition-all duration-300">
+                      <h3 className="text-xl font-bold text-golden-800">{milestone.year}</h3>
+                      <h4 className="text-lg font-semibold mb-3 text-royal-700">{milestone.title}</h4>
+                      
+                      {/* Show the achievement */}
+                      <p className="text-gray-700 mb-4">{milestone.achievements[0]}</p>
+                      
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="text-golden-700 border-golden-300 hover:bg-golden-50"
+                        onClick={() => handleOpenMilestone(milestone)}
+                      >
+                        Read More
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </ScrollArea>
       </div>
 
       <MilestoneDetails 
