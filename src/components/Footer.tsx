@@ -21,7 +21,7 @@ const Footer = () => {
               />
             </div>
             <p className="mb-6 text-golden-200/90">
-              A lifelong dedication to elevating education, humanitarian service, and spiritual guidance.
+              A lifelong dedication to elevating education, humanitarian service, and spiritual guidance through initiatives like Darul Quran Abdulla Academy.
             </p>
             <Button 
               variant="outline" 
@@ -38,10 +38,13 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="#biography" className="hover:text-golden-300 transition-colors">About</a></li>
               <li><a href="#timeline" className="hover:text-golden-300 transition-colors">Timeline</a></li>
+              <li><a href="#dqaa" className="hover:text-golden-300 transition-colors">DQAA</a></li>
+              <li><a href="#admission" className="hover:text-golden-300 transition-colors">Admission</a></li>
               <li><a href="#books" className="hover:text-golden-300 transition-colors">Books</a></li>
               <li><a href="#humanitarian" className="hover:text-golden-300 transition-colors">Humanitarian Work</a></li>
               <li><a href="#awards" className="hover:text-golden-300 transition-colors">Awards</a></li>
               <li><a href="#media" className="hover:text-golden-300 transition-colors">Media Features</a></li>
+              <li><a href="#donate" className="hover:text-golden-300 transition-colors">Support DQAA</a></li>
             </ul>
           </div>
           
@@ -50,13 +53,13 @@ const Footer = () => {
             <SocialLinks />
             
             <p className="mt-8 text-sm text-golden-200/70">
-              For speaking engagements, interviews, or other inquiries, please reach out through the social media channels above.
+              For speaking engagements, interviews, DQAA admissions, or other inquiries, please reach out through the social media channels above.
             </p>
           </div>
         </div>
         
         <div className="border-t border-royal-800 mt-12 pt-8 text-center">
-          <p className="text-golden-200/50">&copy; {new Date().getFullYear()} All Rights Reserved | Dr. P.T. Abdul Rahman</p>
+          <p className="text-golden-200/50">&copy; {new Date().getFullYear()} All Rights Reserved | Dr. P.T. Abdul Rahman | Darul Quran Abdulla Academy</p>
         </div>
       </div>
     </footer>

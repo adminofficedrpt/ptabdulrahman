@@ -26,10 +26,13 @@ const Navbar = () => {
     { name: "Home", href: "#hero" },
     { name: "About", href: "#biography" },
     { name: "Timeline", href: "#timeline" },
+    { name: "DQAA", href: "#dqaa" },
+    { name: "Admission", href: "#admission" },
     { name: "Books", href: "#books" },
     { name: "Humanitarian", href: "#humanitarian" },
     { name: "Awards", href: "#awards" },
     { name: "Media", href: "#media" },
+    { name: "Donate", href: "#donate" },
     { name: "Legacy", href: "#legacy" }
   ];
 
@@ -45,7 +48,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-6">
           {navLinks.map((link) => (
             <a 
               key={link.name}
@@ -58,7 +61,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation Toggle */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Button 
             variant="ghost" 
             size="icon"
@@ -73,7 +76,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="lg:hidden bg-white shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
