@@ -3,7 +3,7 @@ import { Coins, School, GraduationCap, Award } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
 const DQAADonate = () => {
-  const razorpayRef = useRef<HTMLDivElement>(null);
+  const razorpayRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     // Load the Razorpay script and button
@@ -120,9 +120,9 @@ const DQAADonate = () => {
               <div className="text-center my-8">
                 <h3 className="text-2xl font-bold text-royal-800 mb-6">Support DQAA Today</h3>
                 <div className="max-w-md mx-auto">
-                  <div ref={razorpayRef} className="razorpay-embed-btn">
+                  <form ref={razorpayRef} className="razorpay-embed-btn">
                     {/* The Razorpay button will be injected here via the script */}
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
