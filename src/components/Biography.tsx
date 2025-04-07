@@ -1,9 +1,6 @@
-
 import { Button } from '@/components/ui/button';
-
 const Biography = () => {
-  return (
-    <section id="biography" className="py-24 islamic-pattern">
+  return <section id="biography" className="py-24 islamic-pattern">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
@@ -14,11 +11,7 @@ const Biography = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="absolute -top-3 -left-3 w-64 h-64 bg-golden-100 rounded-lg"></div>
-              <img 
-                src="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" 
-                alt="Dr. P.T. Abdul Rahman" 
-                className="relative z-10 w-full h-auto rounded-lg shadow-lg"
-              />
+              <img alt="Dr. P.T. Abdul Rahman" className="relative z-10 w-full h-auto rounded-lg shadow-lg" src="/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg" />
             </div>
 
             <div className="space-y-6">
@@ -50,8 +43,6 @@ const Biography = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Biography;
