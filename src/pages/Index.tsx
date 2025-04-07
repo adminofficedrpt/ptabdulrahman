@@ -31,21 +31,6 @@ const Index = () => {
       });
     });
 
-    // Add meta tags for mobile optimization
-    const viewport = document.querySelector('meta[name="viewport"]');
-    if (!viewport) {
-      const meta = document.createElement('meta');
-      meta.name = 'viewport';
-      meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
-      document.getElementsByTagName('head')[0].appendChild(meta);
-    }
-
-    // Add touch icons for iOS
-    const linkIcon = document.createElement('link');
-    linkIcon.rel = 'apple-touch-icon';
-    linkIcon.href = '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png';
-    document.getElementsByTagName('head')[0].appendChild(linkIcon);
-
     // Initialize animation observers
     const observerOptions = {
       root: null,
