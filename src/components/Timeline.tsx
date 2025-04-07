@@ -288,7 +288,7 @@ const Timeline = () => {
           }} className="">
                   <div className="timeline-dot"></div>
                   <div className={`timeline-content ${index % 2 === 0 ? 'left text-md-right' : 'right'}`}>
-                    <div className="bg-white shadow-lg p-6 border border-gray-100 hover:border-golden-300 transition-all duration-300 px-[20px] py-[9px] rounded-lg">
+                    <div className="shadow-lg p-6 border border-gray-100 hover:border-golden-300 transition-all duration-300 px-[20px] bg-[#fff5d8]/[0.29] py-[5px] rounded-xl mx-0">
                       <h3 className="text-xl font-bold text-golden-800">{milestone.year}</h3>
                       <h4 className="text-lg font-semibold mb-3 text-royal-700">{milestone.title}</h4>
                       
