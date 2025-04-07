@@ -13,7 +13,7 @@ import DQAA from '@/components/DQAA';
 import DQAAAdmission from '@/components/DQAAAdmission';
 import DQAADonate from '@/components/DQAADonate';
 import Footer from '@/components/Footer';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
