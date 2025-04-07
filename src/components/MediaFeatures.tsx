@@ -53,6 +53,48 @@ const MediaFeatures = () => {
       title: "Kerala Muslim art forms get a big boost in Dubai",
       source: "Khaleej Times",
       url: "https://www.khaleejtimes.com/uae/kerala-muslim-art-forms-get-a-big-boost-in-dubai",
+    },
+    {
+      id: "media7",
+      title: "DIIC embarks on fourth TV project",
+      source: "Khaleej Times",
+      url: "https://www.khaleejtimes.com/uae/diic-embarks-on-fourth-tv-project-2",
+    },
+    {
+      id: "media8",
+      title: "UAE center teaches expats Islamic values",
+      source: "Arab News",
+      url: "https://www.arabnews.com/node/224995",
+    },
+    {
+      id: "media9",
+      title: "Medical camp for DIIC members in Sharjah",
+      source: "Gulf News",
+      url: "https://gulfnews.com/uae/medical-camp-for-diic-members-in-sharjah-1.425825",
+    },
+    {
+      id: "media10",
+      title: "Quran recitation contest",
+      source: "Khaleej Times",
+      url: "https://www.khaleejtimes.com/article/quran-recitation-contest",
+    },
+    {
+      id: "media11",
+      title: "GMC Hospital & Research Centre & Dubai Indian Islamic Center Organizes Mega Free Health Camp",
+      source: "Thumbay",
+      url: "https://www.thumbay.com/news/gmc-hospital-research-centre-dubai-indian-islamic-center-organizes-mega-free-health-camp/",
+    },
+    {
+      id: "media12",
+      title: "Inter-school Quran contest",
+      source: "Khaleej Times",
+      url: "https://www.khaleejtimes.com/uae/inter-school-quran-contest?amp=1",
+    },
+    {
+      id: "media13",
+      title: "Islamic centre provides free medical check-up for 800",
+      source: "Gulf News",
+      url: "https://gulfnews.com/uae/islamic-centre-provides-free-medical-check-up-for-800-1.421491",
     }
   ];
 
