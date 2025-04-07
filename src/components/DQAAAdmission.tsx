@@ -1,5 +1,5 @@
 
-import { BookOpen, Star, Certificate, Users } from 'lucide-react';
+import { BookOpen, Star, Award, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
@@ -53,7 +53,7 @@ const DQAAAdmission = () => {
 
                   <div className="flex items-start">
                     <div className="mr-4 mt-1">
-                      <Certificate className="h-5 w-5 text-golden-600" />
+                      <Award className="h-5 w-5 text-golden-600" />
                     </div>
                     <div>
                       <h4 className="font-bold text-royal-800 mb-2">Academic Excellence</h4>
