@@ -2,6 +2,7 @@
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import SocialLinks from './SocialLinks';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -44,6 +45,7 @@ const Footer = () => {
               <li><a href="#humanitarian" className="hover:text-golden-300 transition-colors">Humanitarian Work</a></li>
               <li><a href="#awards" className="hover:text-golden-300 transition-colors">Awards</a></li>
               <li><a href="#media" className="hover:text-golden-300 transition-colors">Media Features</a></li>
+              <li><Link to="/gallery" className="hover:text-golden-300 transition-colors">Photo Gallery</Link></li>
               <li><a href="#donate" className="hover:text-golden-300 transition-colors">Support DQAA</a></li>
             </ul>
           </div>
