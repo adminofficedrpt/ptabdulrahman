@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="mb-8">
           <img 
             src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" 
-            alt="Dr. P.T. Abdul Rahman Logo" 
+            alt="Dr. P.T. Abdul Rahman - Islamic Scholar UAE Logo" 
             className="h-24 md:h-28 mx-auto"
           />
         </div>
@@ -28,13 +28,14 @@ const Hero = () => {
         </h1>
         
         <h2 className="text-xl md:text-2xl text-golden-300 mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
-          Visionary Leader | Humanitarian | Author | Educator
+          Islamic Scholar UAE | Indian Humanitarian in Dubai | Author | Founder of Darul Quran Abdulla Academy
         </h2>
         
         <div className="max-w-2xl mx-auto mb-12 animate-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
           <p className="text-white/90 text-lg">
-            Dedicated humanitarian & legal expert. Progressing education & community upliftment. 
-            Prolific author, insightful columnist, humbly devoted to Allah.
+            A distinguished Malayali scholar in UAE, devoted humanitarian, and legal expert. 
+            Advancing education & community upliftment through Darul Quran Abdulla Academy. 
+            Author of "Is the Creation Meaningless?" and prolific columnist.
           </p>
         </div>
 
@@ -43,7 +44,7 @@ const Hero = () => {
         </div>
 
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <a href="#biography" className="text-golden-300 hover:text-golden-200 transition-colors" aria-label="Scroll down">
+          <a href="#biography" className="text-golden-300 hover:text-golden-200 transition-colors" aria-label="Learn more about Dr. P.T. Abdul Rahman">
             <ArrowDownIcon size={36} />
           </a>
         </div>

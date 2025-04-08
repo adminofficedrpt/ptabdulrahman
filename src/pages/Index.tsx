@@ -85,7 +85,9 @@ const Index = () => {
     // Preload important images
     const preloadImages = [
       '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png',
-      '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png'
+      '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png',
+      '/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg',
+      '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png'
     ];
     
     preloadImages.forEach(src => {
@@ -101,21 +103,23 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Dr. P.T. Abdul Rahman - Visionary Leader | Humanitarian | Author | Educator | DQAA Founder Chairman</title>
-        <meta name="description" content="Dr. P.T. Abdul Rahman is a distinguished scholar, visionary leader, humanitarian, and Founder Chairman of Darul Quran Abdulla Academy (DQAA), whose influence spans continents through education, philanthropy, and literature." />
-        <meta name="keywords" content="PT Abdul Rahman, Dr PT Abdul Rahman, PT Abdul Rahman author, PT Abdul Rahman humanitarian, PT Abdul Rahman educator, Darul Quran Abdulla Academy, DQAA Kerala, Hafiz program India, Islamic boarding school Kerala, Quran memorization school, Insight Group founder, Dubai Indian Islamic Centre founder, Humanitarian work UAE, Islamic scholar" />
+        <title>Dr. P.T. Abdul Rahman - Islamic Scholar | Humanitarian | Author | DQAA Founder Chairman</title>
+        <meta name="description" content="Dr. P.T. Abdul Rahman is a distinguished Islamic scholar in UAE, humanitarian in Dubai, author of 'Is the Creation Meaningless?', and Founder Chairman of Darul Quran Abdulla Academy (DQAA)." />
+        <meta name="keywords" content="PT Abdul Rahman, Dr PT Abdul Rahman, Islamic scholar UAE, Founder of Darul Quran Abdulla Academy, Indian humanitarian in Dubai, Malayali scholar in UAE, Author of Is the Creation Meaningless, DQAA Kerala, Hafiz program India, Islamic boarding school Kerala, Quran memorization school, Insight Group founder, Dubai Indian Islamic Centre founder, Humanitarian work UAE" />
         
         {/* Open Graph / Social Media */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Dr. P.T. Abdul Rahman - Visionary Leader & DQAA Founder" />
-        <meta property="og:description" content="Distinguished scholar, visionary leader, humanitarian, and founder of Darul Quran Abdulla Academy (DQAA)." />
+        <meta property="og:title" content="Dr. P.T. Abdul Rahman - Islamic Scholar UAE & DQAA Founder" />
+        <meta property="og:description" content="Distinguished Islamic scholar in UAE, Indian humanitarian in Dubai, and founder of Darul Quran Abdulla Academy (DQAA)." />
         <meta property="og:url" content="https://www.ptabdulrahman.com/" />
         <meta property="og:image" content="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" />
+        <meta property="og:site_name" content="Dr. P.T. Abdul Rahman" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Dr. P.T. Abdul Rahman" />
-        <meta name="twitter:description" content="Distinguished scholar, visionary leader, humanitarian, and founder of Darul Quran Abdulla Academy (DQAA)." />
+        <meta name="twitter:title" content="Dr. P.T. Abdul Rahman - Islamic Scholar UAE" />
+        <meta name="twitter:description" content="Distinguished Islamic scholar, Malayali humanitarian in Dubai, author of 'Is the Creation Meaningless?', and founder of Darul Quran Abdulla Academy." />
         <meta name="twitter:image" content="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" />
         
         {/* Canonical URL */}

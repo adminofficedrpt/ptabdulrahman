@@ -1,5 +1,5 @@
 
-import { Linkedin, Youtube, Facebook, Instagram } from 'lucide-react';
+import { Linkedin, Youtube, Facebook, Instagram, MessageSquare, ArrowUpRight } from 'lucide-react';
 
 const SocialLinks = () => {
   const socialLinks = [
@@ -7,25 +7,37 @@ const SocialLinks = () => {
       name: "LinkedIn", 
       icon: <Linkedin />, 
       url: "https://linkedin.com/in/dr-pt-abdul-rahman-mohd-52538a68", 
-      ariaLabel: "Visit LinkedIn profile"
+      ariaLabel: "Visit Dr. PT Abdul Rahman's LinkedIn profile"
     },
     { 
       name: "YouTube", 
       icon: <Youtube />, 
       url: "https://youtube.com/@dharmarekha?si=GkXfmYn3h71k0aSB", 
-      ariaLabel: "Visit YouTube channel"
+      ariaLabel: "Visit Dr. PT Abdul Rahman's YouTube channel"
     },
     { 
       name: "Facebook", 
       icon: <Facebook />, 
       url: "https://www.facebook.com/abdulrahman.peetee?mibextid=2JQ9oc", 
-      ariaLabel: "Visit Facebook profile" 
+      ariaLabel: "Visit Dr. PT Abdul Rahman's Facebook profile" 
     },
     { 
       name: "Instagram", 
       icon: <Instagram />, 
       url: "https://instagram.com/drpt7", 
-      ariaLabel: "Visit Instagram profile"
+      ariaLabel: "Visit Dr. PT Abdul Rahman's Instagram profile"
+    },
+    { 
+      name: "WhatsApp", 
+      icon: <MessageSquare />, 
+      url: "https://wa.me/message/XXXXXXXX", 
+      ariaLabel: "Contact Dr. PT Abdul Rahman on WhatsApp"
+    },
+    { 
+      name: "Website", 
+      icon: <ArrowUpRight />, 
+      url: "https://www.dqaa.org", 
+      ariaLabel: "Visit Darul Quran Abdulla Academy official website"
     }
   ];
 

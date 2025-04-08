@@ -41,7 +41,7 @@ const DQAA = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12 text-royal-800">Darul Quran Abdulla Academy (DQAA)</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Established by Dr. PT Abdul Rahman as Founder Chairman in 2013, DQAA represents the culmination of a vision 
+            Established by Dr. PT Abdul Rahman as Founder Chairman in 2013, Darul Quran Abdulla Academy represents the culmination of a vision 
             for holistic Islamic education that seamlessly integrates Quranic memorization with modern academic excellence.
           </p>
         </div>
@@ -51,7 +51,7 @@ const DQAA = () => {
             <div className="absolute -bottom-3 -right-3 w-64 h-64 bg-golden-100 rounded-lg"></div>
             <img 
               src="/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png" 
-              alt="Darul Quran Abdulla Academy" 
+              alt="Darul Quran Abdulla Academy - Founded by PT Abdul Rahman" 
               className="relative z-10 w-full h-auto rounded-lg shadow-lg"
             />
           </div>
@@ -62,16 +62,17 @@ const DQAA = () => {
               <p className="text-gray-700 mt-2">
                 As Founder Chairman, Dr. PT Abdul Rahman established DQAA with a clear mission: to nurture future generations 
                 grounded in faith, equipped with knowledge, and guided by strong moral character. The academy stands as a testament 
-                to his commitment to educational excellence that honors Islamic traditions while preparing students for modern challenges.
+                to his commitment as an Islamic scholar in UAE dedicated to educational excellence that honors Islamic traditions 
+                while preparing students for modern challenges.
               </p>
             </div>
 
             <div>
               <h3 className="text-2xl font-bold text-royal-800">Integrated Education</h3>
               <p className="text-gray-700 mt-2">
-                DQAA offers a unique educational model that blends authentic Hifz training with robust academic schooling. 
+                Darul Quran Abdulla Academy offers a unique educational model that blends authentic Hifz training with robust academic schooling. 
                 Students not only memorize the Holy Quran but also receive comprehensive education that ensures they are prepared 
-                for further academic and professional pursuits.
+                for further academic and professional pursuits, reflecting the vision of its founder, a leading Indian humanitarian in Dubai.
               </p>
             </div>
 
@@ -94,7 +95,7 @@ const DQAA = () => {
               </div>
               <h3 className="text-xl font-bold text-royal-800">Quranic Excellence</h3>
               <p className="text-gray-700">
-                Dedicated Tahfeez program with expert instructors guiding students through memorization of the Holy Quran with proper tajweed.
+                Dedicated Tahfeez program with expert instructors guiding students through memorization of the Holy Quran with proper tajweed at Darul Quran Abdulla Academy.
               </p>
             </div>
           </div>
@@ -112,7 +113,7 @@ const DQAA = () => {
               </div>
               <h3 className="text-xl font-bold text-royal-800">Academic Success</h3>
               <p className="text-gray-700">
-                Integrated academic curriculum ensuring students excel in both religious studies and modern subjects.
+                Integrated academic curriculum ensuring students excel in both religious studies and modern subjects, a hallmark of Dr. PT Abdul Rahman's educational vision.
               </p>
             </div>
           </div>
@@ -130,7 +131,7 @@ const DQAA = () => {
               </div>
               <h3 className="text-xl font-bold text-royal-800">Character Development</h3>
               <p className="text-gray-700">
-                Holistic education focused on developing moral character, leadership skills, and community service values.
+                Holistic education focused on developing moral character, leadership skills, and community service values, reflecting the humanitarian principles of the Malayali scholar in UAE.
               </p>
             </div>
           </div>
