@@ -1,26 +1,42 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Main pages -->
   <url>
     <loc>https://www.ptabdulrahman.com/</loc>
     <lastmod>2025-04-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png</image:loc>
+      <image:caption>Dr. P.T. Abdul Rahman portrait</image:caption>
+      <image:title>Dr. P.T. Abdul Rahman - Islamic Scholar UAE</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.ptabdulrahman.com/gallery</loc>
     <lastmod>2025-04-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png</image:loc>
+      <image:caption>Darul Quran Abdulla Academy campus</image:caption>
+      <image:title>DQAA Campus View</image:title>
+    </image:image>
   </url>
   
-  <!-- Main sections -->
+  <!-- Main sections with detailed image information -->
   <url>
     <loc>https://www.ptabdulrahman.com/#biography</loc>
     <lastmod>2025-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png</image:loc>
+      <image:caption>Dr. P.T. Abdul Rahman profile</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.ptabdulrahman.com/#timeline</loc>
@@ -33,6 +49,10 @@
     <lastmod>2025-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png</image:loc>
+      <image:caption>Darul Quran Abdulla Academy main building</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.ptabdulrahman.com/#admission</loc>
@@ -45,6 +65,10 @@
     <lastmod>2025-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/6856dd37-63cb-4029-b897-0b2143071d2f.png</image:loc>
+      <image:caption>Dr. P.T. Abdul Rahman's books collection</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.ptabdulrahman.com/#humanitarian</loc>
@@ -77,7 +101,7 @@
     <priority>0.6</priority>
   </url>
   
-  <!-- Timeline milestone individual pages -->
+  <!-- Timeline milestone individual pages with enhanced metadata -->
   <url>
     <loc>https://www.ptabdulrahman.com/timeline/1992-foundation</loc>
     <lastmod>2025-04-09</lastmod>
@@ -97,12 +121,16 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Books -->
+  <!-- Books with enhanced metadata -->
   <url>
     <loc>https://www.ptabdulrahman.com/books/is-the-creation-meaningless</loc>
     <lastmod>2025-04-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/6856dd37-63cb-4029-b897-0b2143071d2f.png</image:loc>
+      <image:caption>Book: Is the Creation Meaningless?</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.ptabdulrahman.com/books/towards-the-creator</loc>
@@ -115,5 +143,29 @@
     <lastmod>2025-04-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+  </url>
+  
+  <!-- Images in gallery - ensuring all images are properly indexed -->
+  <url>
+    <loc>https://www.ptabdulrahman.com/gallery</loc>
+    <lastmod>2025-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png</image:loc>
+      <image:caption>Dr. P.T. Abdul Rahman portrait</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/02a7f6e7-40d5-49af-ad68-279b52a2688a.png</image:loc>
+      <image:caption>Dr. P.T. Abdul Rahman receiving award</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png</image:loc>
+      <image:caption>Darul Quran Abdulla Academy campus</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png</image:loc>
+      <image:caption>Dr. P.T. Abdul Rahman logo</image:caption>
+    </image:image>
   </url>
 </urlset>

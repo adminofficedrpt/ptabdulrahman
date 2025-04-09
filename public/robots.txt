@@ -1,19 +1,23 @@
 
+# Allow all search engines and crawlers
 User-agent: *
 Allow: /
 
-# Priority pages
+# Sitemap location
 Sitemap: https://www.ptabdulrahman.com/sitemap.xml
 
-# Search engine specific rules
+# Search engine specific rules - ensure full access
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
@@ -24,7 +28,7 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
-# Allow social media crawlers to access all pages for proper previews
+# Allow social media crawlers for proper previews
 User-agent: Twitterbot
 Allow: /
 
@@ -40,9 +44,6 @@ Allow: /
 User-agent: Discordbot
 Allow: /
 
-# Recommended crawl rate for optimal performance
-Crawl-delay: 1
-
-# Ensure no crawl traps
+# Only block error pages and PDF files - keep this limited
 Disallow: /error
 Disallow: /*.pdf$

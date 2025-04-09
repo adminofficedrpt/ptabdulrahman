@@ -1,18 +1,22 @@
 
-# Permanent redirects
+# Permanent redirects - using 301 for SEO value
 /about              /#biography         301
 /biography          /#biography         301
 /dqaa-academy       /#dqaa             301
 /admission          /#admission         301
 /book               /#books            301
+/books              /#books            301
 /donations          /#donate           301
 /contact            /#footer           301
 /timeline-history   /#timeline         301
+/gallery-page       /gallery           301
+/photos             /gallery           301
+/image-gallery      /gallery           301
 
-# Ensure SPA routing works correctly
+# Ensure SPA routing works correctly with status 200
 /*                  /index.html        200
 
-# Handle common 404 errors
+# Handle common error paths
 /home               /                  301
 /index              /                  301
 /index.php          /                  301
