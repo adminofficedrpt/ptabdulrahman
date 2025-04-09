@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight, Search, Filter, Download } from 'lucide-react';
@@ -8,120 +7,88 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Sample photo data - in a real app this would likely come from an API or database
-const generatePhotos = () => {
-  // Generate 100 photos with placeholder data
-  const categories = [
-    'portrait', 'awards', 'dqaa', 'branding', 'events', 
-    'community', 'books', 'humanitarian', 'speeches', 'conferences'
-  ];
-  
-  const basePhotos = [
-    {
-      id: 1,
-      src: '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png',
-      alt: 'Dr. P.T. Abdul Rahman portrait',
-      caption: 'Official portrait of Dr. P.T. Abdul Rahman, Islamic Scholar UAE',
-      category: 'portrait',
-      year: '2023'
-    },
-    {
-      id: 2,
-      src: '/lovable-uploads/02a7f6e7-40d5-49af-ad68-279b52a2688a.png',
-      alt: 'Dr. P.T. Abdul Rahman receiving award',
-      caption: 'Dr. P.T. Abdul Rahman receiving recognition from UAE leadership',
-      category: 'awards',
-      year: '2022'
-    },
-    {
-      id: 3,
-      src: '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png',
-      alt: 'Darul Quran Abdulla Academy campus',
-      caption: 'Aerial view of the Darul Quran Abdulla Academy campus in Kerala',
-      category: 'dqaa',
-      year: '2023'
-    },
-    {
-      id: 4,
-      src: '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png',
-      alt: 'Dr. P.T. Abdul Rahman logo',
-      caption: 'Official logo of Dr. P.T. Abdul Rahman - Founder of DQAA',
-      category: 'branding',
-      year: '2021'
-    },
-    {
-      id: 5,
-      src: '/lovable-uploads/37251c4b-0591-433c-bbce-ac4291fc7ddb.png',
-      alt: 'Dr. P.T. Abdul Rahman at a conference',
-      caption: 'Dr. P.T. Abdul Rahman speaking at International Islamic Conference in Dubai',
-      category: 'events',
-      year: '2022'
-    },
-    {
-      id: 6,
-      src: '/lovable-uploads/5d0ee704-bb81-4964-888b-60af01b062bb.png',
-      alt: 'Dr. P.T. Abdul Rahman with community leaders',
-      caption: 'Dr. P.T. Abdul Rahman meeting with Indian community leaders in UAE',
-      category: 'community',
-      year: '2021'
-    },
-    {
-      id: 7,
-      src: '/lovable-uploads/6856dd37-63cb-4029-b897-0b2143071d2f.png',
-      alt: 'Dr. P.T. Abdul Rahman book signing',
-      caption: 'Book signing event for "Is the Creation Meaningless?" in Dubai',
-      category: 'books',
-      year: '2020'
-    },
-    {
-      id: 8,
-      src: '/lovable-uploads/76eef9a7-0487-4c6f-b458-32397f9edbd6.png',
-      alt: 'Dr. P.T. Abdul Rahman humanitarian work',
-      caption: 'Dr. P.T. Abdul Rahman during humanitarian mission with UAE Red Crescent',
-      category: 'humanitarian',
-      year: '2019'
-    },
-    {
-      id: 9,
-      src: '/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png',
-      alt: 'Darul Quran Abdulla Academy students',
-      caption: 'Students of Darul Quran Abdulla Academy during graduation ceremony',
-      category: 'dqaa',
-      year: '2023'
-    },
-    {
-      id: 10,
-      src: '/lovable-uploads/ff033cfa-8c52-470c-af76-d48b0136aabc.png',
-      alt: 'Dr. P.T. Abdul Rahman giving speech',
-      caption: 'Dr. P.T. Abdul Rahman delivering keynote address at UAE National Day celebration',
-      category: 'events',
-      year: '2022'
-    }
-  ];
-  
-  // Generate additional photos
-  const allPhotos = [...basePhotos];
-  
-  for (let i = 11; i <= 100; i++) {
-    // Reuse base photos for additional entries with different captions
-    const basePhoto = basePhotos[i % 10];
-    const category = categories[Math.floor(Math.random() * categories.length)];
-    const year = String(2015 + Math.floor(Math.random() * 9)); // Years between 2015-2023
-    
-    allPhotos.push({
-      id: i,
-      src: basePhoto.src,
-      alt: `${basePhoto.alt} - ${i}`,
-      caption: `${category.charAt(0).toUpperCase() + category.slice(1)} - ${i}: Dr. P.T. Abdul Rahman's contribution to ${category} (${year})`,
-      category: category,
-      year: year
-    });
+const photos = [
+  {
+    id: 1,
+    src: '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png',
+    alt: 'Dr. P.T. Abdul Rahman portrait',
+    caption: 'Official portrait of Dr. P.T. Abdul Rahman, Islamic Scholar UAE',
+    category: 'portrait',
+    year: '2023'
+  },
+  {
+    id: 2,
+    src: '/lovable-uploads/02a7f6e7-40d5-49af-ad68-279b52a2688a.png',
+    alt: 'Dr. P.T. Abdul Rahman receiving award',
+    caption: 'Dr. P.T. Abdul Rahman receiving recognition from UAE leadership',
+    category: 'awards',
+    year: '2022'
+  },
+  {
+    id: 3,
+    src: '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png',
+    alt: 'Darul Quran Abdulla Academy campus',
+    caption: 'Aerial view of the Darul Quran Abdulla Academy campus in Kerala',
+    category: 'dqaa',
+    year: '2023'
+  },
+  {
+    id: 4,
+    src: '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png',
+    alt: 'Dr. P.T. Abdul Rahman logo',
+    caption: 'Official logo of Dr. P.T. Abdul Rahman - Founder of DQAA',
+    category: 'branding',
+    year: '2021'
+  },
+  {
+    id: 5,
+    src: '/lovable-uploads/37251c4b-0591-433c-bbce-ac4291fc7ddb.png',
+    alt: 'Dr. P.T. Abdul Rahman at a conference',
+    caption: 'Dr. P.T. Abdul Rahman speaking at International Islamic Conference in Dubai',
+    category: 'events',
+    year: '2022'
+  },
+  {
+    id: 6,
+    src: '/lovable-uploads/5d0ee704-bb81-4964-888b-60af01b062bb.png',
+    alt: 'Dr. P.T. Abdul Rahman with community leaders',
+    caption: 'Dr. P.T. Abdul Rahman meeting with Indian community leaders in UAE',
+    category: 'community',
+    year: '2021'
+  },
+  {
+    id: 7,
+    src: '/lovable-uploads/6856dd37-63cb-4029-b897-0b2143071d2f.png',
+    alt: 'Dr. P.T. Abdul Rahman book signing',
+    caption: 'Book signing event for "Is the Creation Meaningless?" in Dubai',
+    category: 'books',
+    year: '2020'
+  },
+  {
+    id: 8,
+    src: '/lovable-uploads/76eef9a7-0487-4c6f-b458-32397f9edbd6.png',
+    alt: 'Dr. P.T. Abdul Rahman humanitarian work',
+    caption: 'Dr. P.T. Abdul Rahman during humanitarian mission with UAE Red Crescent',
+    category: 'humanitarian',
+    year: '2019'
+  },
+  {
+    id: 9,
+    src: '/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png',
+    alt: 'Darul Quran Abdulla Academy students',
+    caption: 'Students of Darul Quran Abdulla Academy during graduation ceremony',
+    category: 'dqaa',
+    year: '2023'
+  },
+  {
+    id: 10,
+    src: '/lovable-uploads/ff033cfa-8c52-470c-af76-d48b0136aabc.png',
+    alt: 'Dr. P.T. Abdul Rahman giving speech',
+    caption: 'Dr. P.T. Abdul Rahman delivering keynote address at UAE National Day celebration',
+    category: 'events',
+    year: '2022'
   }
-  
-  return allPhotos;
-};
-
-const photos = generatePhotos();
+];
 
 const categories = [
   { id: 'all', name: 'All Photos' },
@@ -150,7 +117,6 @@ const PhotoGallery = () => {
   const navigate = useNavigate();
   const galleryRef = useRef<HTMLDivElement>(null);
   
-  // Filter photos based on selected criteria
   const filteredPhotos = photos.filter(photo => {
     const matchesCategory = selectedCategory === 'all' || photo.category === selectedCategory;
     const matchesYear = selectedYear === 'All Years' || photo.year === selectedYear;
@@ -162,7 +128,6 @@ const PhotoGallery = () => {
     return matchesCategory && matchesYear && matchesSearch;
   });
   
-  // Pagination
   const totalPages = Math.ceil(filteredPhotos.length / photosPerPage);
   const indexOfLastPhoto = currentPage * photosPerPage;
   const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
@@ -182,7 +147,6 @@ const PhotoGallery = () => {
     setCurrentPage(1);
   };
   
-  // Handle lightbox controls
   const openLightbox = (photoId: number) => {
     setSelectedPhoto(photoId);
     document.body.classList.add('overflow-hidden');
@@ -214,14 +178,12 @@ const PhotoGallery = () => {
     if (e.key === 'ArrowLeft') navigatePhoto('prev');
   };
 
-  // Reset page when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, selectedYear, searchQuery]);
   
   const currentPhoto = selectedPhoto !== null ? photos.find(photo => photo.id === selectedPhoto) : null;
   
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -358,7 +320,6 @@ const PhotoGallery = () => {
             </AnimatePresence>
           </div>
           
-          {/* Results Summary */}
           <div className="mb-8 flex justify-between items-center">
             <p className="text-gray-600">
               Showing {filteredPhotos.length} {filteredPhotos.length === 1 ? 'photo' : 'photos'}
@@ -372,7 +333,6 @@ const PhotoGallery = () => {
             </div>
           </div>
           
-          {/* Photo Grid */}
           <motion.div 
             ref={galleryRef}
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10"
@@ -403,7 +363,6 @@ const PhotoGallery = () => {
             ))}
           </motion.div>
           
-          {/* Empty State */}
           {filteredPhotos.length === 0 && (
             <div className="text-center py-20">
               <div className="mb-4 text-gray-400">
@@ -417,7 +376,6 @@ const PhotoGallery = () => {
             </div>
           )}
           
-          {/* Pagination Controls */}
           {totalPages > 1 && (
             <div className="flex justify-center mt-10">
               <div className="flex items-center space-x-1">
@@ -433,7 +391,6 @@ const PhotoGallery = () => {
                 
                 <div className="flex items-center space-x-1">
                   {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
-                    // Logic to show pagination around current page
                     let pageNum;
                     if (totalPages <= 5) {
                       pageNum = i + 1;
@@ -486,7 +443,6 @@ const PhotoGallery = () => {
         </div>
       </section>
       
-      {/* Lightbox */}
       <AnimatePresence>
         {selectedPhoto !== null && currentPhoto && (
           <motion.div 
