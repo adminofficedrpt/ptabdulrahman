@@ -1,9 +1,51 @@
+
 import { BookOpen, Star, Award, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+
 const DQAAAdmission = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  return <section id="admission" className="py-24 bg-white">
+
+  return (
+    <section id="admission" className="py-24 bg-white">
+      <Helmet>
+        {/* Add structured data for the educational organization */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              "name": "Darul Quran Abdulla Academy",
+              "description": "An educational institution founded by Dr. P.T. Abdul Rahman that integrates Quranic memorization with modern academic excellence",
+              "url": "https://www.ptabdulrahman.com/#admission",
+              "sameAs": ["https://www.darul-quran.com"],
+              "founder": {
+                "@type": "Person",
+                "name": "Dr. P.T. Abdul Rahman"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "India",
+                "addressRegion": "Kerala"
+              },
+              "member": {
+                "@type": "OrganizationRole",
+                "roleName": "Chairman",
+                "member": {
+                  "@type": "Person",
+                  "name": "Dr. P.T. Abdul Rahman"
+                }
+              },
+              "alumni": {
+                "@type": "Person",
+                "name": "Hafiz Students"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
+
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12 text-royal-800">
@@ -24,7 +66,8 @@ const DQAAAdmission = () => {
               well-rounded education that prepares them for both spiritual and worldly success.
             </p>
 
-            {isExpanded && <>
+            {isExpanded && (
+              <>
                 <p className="text-gray-700 mb-6">
                   Our unique approach integrates:
                 </p>
@@ -32,7 +75,7 @@ const DQAAAdmission = () => {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div className="flex items-start">
                     <div className="mr-4 mt-1">
-                      <BookOpen className="h-5 w-5 text-golden-600" />
+                      <BookOpen className="h-5 w-5 text-golden-600" aria-hidden="true" />
                     </div>
                     <div>
                       <h4 className="font-bold text-royal-800 mb-2">Sacred Memorization</h4>
@@ -42,7 +85,7 @@ const DQAAAdmission = () => {
 
                   <div className="flex items-start">
                     <div className="mr-4 mt-1">
-                      <Award className="h-5 w-5 text-golden-600" />
+                      <Award className="h-5 w-5 text-golden-600" aria-hidden="true" />
                     </div>
                     <div>
                       <h4 className="font-bold text-royal-800 mb-2">Academic Excellence</h4>
@@ -52,7 +95,7 @@ const DQAAAdmission = () => {
 
                   <div className="flex items-start">
                     <div className="mr-4 mt-1">
-                      <Star className="h-5 w-5 text-golden-600" />
+                      <Star className="h-5 w-5 text-golden-600" aria-hidden="true" />
                     </div>
                     <div>
                       <h4 className="font-bold text-royal-800 mb-2">Character Formation</h4>
@@ -62,7 +105,7 @@ const DQAAAdmission = () => {
 
                   <div className="flex items-start">
                     <div className="mr-4 mt-1">
-                      <Users className="h-5 w-5 text-golden-600" />
+                      <Users className="h-5 w-5 text-golden-600" aria-hidden="true" />
                     </div>
                     <div>
                       <h4 className="font-bold text-royal-800 mb-2">Supportive Community</h4>
@@ -87,16 +130,24 @@ const DQAAAdmission = () => {
                   faculty, comprehensive facilities, and balanced approach ensure that students graduate not only as memorizers of the 
                   Quran but as confident young men prepared to face the modern world while remaining firmly rooted in their faith.
                 </p>
-              </>}
+              </>
+            )}
 
             <div className="flex justify-center mt-8">
-              <Button onClick={() => setIsExpanded(!isExpanded)} className="bg-golden-600 hover:bg-golden-700 text-white">
+              <Button 
+                onClick={() => setIsExpanded(!isExpanded)} 
+                className="bg-golden-600 hover:bg-golden-700 text-white"
+                aria-expanded={isExpanded}
+                aria-controls="expanded-content"
+              >
                 {isExpanded ? "Read Less" : "Read More"}
               </Button>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default DQAAAdmission;

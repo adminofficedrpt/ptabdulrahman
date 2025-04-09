@@ -1,2 +1,22 @@
 
-/* /index.html 200
+# Permanent redirects
+/about              /#biography         301
+/biography          /#biography         301
+/dqaa-academy       /#dqaa             301
+/admission          /#admission         301
+/book               /#books            301
+/donations          /#donate           301
+/contact            /#footer           301
+/timeline-history   /#timeline         301
+
+# Ensure SPA routing works correctly
+/*                  /index.html        200
+
+# Handle common 404 errors
+/home               /                  301
+/index              /                  301
+/index.php          /                  301
+/index.html         /                  301
+/default            /                  301
+/default.html       /                  301
+/default.php        /                  301

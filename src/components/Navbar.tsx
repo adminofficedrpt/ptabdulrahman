@@ -34,18 +34,18 @@ const Navbar = () => {
   }, [handleScroll]);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/#biography" },
-    { name: "Timeline", href: "/#timeline" },
-    { name: "DQAA", href: "/#dqaa" },
-    { name: "Admission", href: "/#admission" },
-    { name: "Books", href: "/#books" },
-    { name: "Humanitarian", href: "/#humanitarian" },
-    { name: "Awards", href: "/#awards" },
-    { name: "Media", href: "/#media" },
-    { name: "Gallery", href: "/gallery" },
-    { name: "Donate", href: "/#donate" },
-    { name: "Legacy", href: "/#legacy" }
+    { name: "Home", href: "/", ariaLabel: "Navigate to homepage" },
+    { name: "About", href: "/#biography", ariaLabel: "Learn about Dr. P.T. Abdul Rahman" },
+    { name: "Timeline", href: "/#timeline", ariaLabel: "View Dr. Rahman's timeline of achievements" },
+    { name: "DQAA", href: "/#dqaa", ariaLabel: "Information about Darul Quran Abdulla Academy" },
+    { name: "Admission", href: "/#admission", ariaLabel: "DQAA admission information" },
+    { name: "Books", href: "/#books", ariaLabel: "Books authored by Dr. Rahman" },
+    { name: "Humanitarian", href: "/#humanitarian", ariaLabel: "Dr. Rahman's humanitarian work" },
+    { name: "Awards", href: "/#awards", ariaLabel: "Awards and recognitions received" },
+    { name: "Media", href: "/#media", ariaLabel: "Media features and coverage" },
+    { name: "Gallery", href: "/gallery", ariaLabel: "View photo gallery" },
+    { name: "Donate", href: "/#donate", ariaLabel: "Support DQAA through donations" },
+    { name: "Legacy", href: "/#legacy", ariaLabel: "Dr. Rahman's enduring legacy" }
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -56,6 +56,8 @@ const Navbar = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
         setIsOpen(false);
+        // Update URL without page reload - helps with analytics and bookmarking
+        window.history.pushState({}, '', href);
       } else {
         window.location.href = href;
       }
@@ -72,18 +74,22 @@ const Navbar = () => {
       initial={{ y: 0 }}
       animate={{ y: visible ? 0 : -100 }}
       transition={{ duration: 0.3 }}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center z-10">
+        <Link to="/" className="flex items-center z-10" aria-label="Homepage">
           <img 
             src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" 
             alt="Dr. P.T. Abdul Rahman Logo" 
             className={`h-12 transition-all duration-300 ${!isScrolled ? 'filter brightness-0 invert' : ''}`}
+            width="48"
+            height="48"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-8">
+        <div className="hidden lg:flex items-center space-x-8" role="menubar">
           {navLinks.map((link) => (
             link.href.startsWith('/#') ? (
               <a 
@@ -93,6 +99,8 @@ const Navbar = () => {
                 className={`text-sm font-medium tracking-wide transition duration-300 relative group ${
                   isScrolled ? 'text-royal-800' : 'text-white'
                 }`}
+                role="menuitem"
+                aria-label={link.ariaLabel}
               >
                 <span>{link.name}</span>
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${
@@ -107,6 +115,8 @@ const Navbar = () => {
                   isScrolled ? 'text-royal-800' : 'text-white'
                 }`}
                 onClick={() => setIsOpen(false)}
+                role="menuitem"
+                aria-label={link.ariaLabel}
               >
                 <span>{link.name}</span>
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${
@@ -125,8 +135,10 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             className={isScrolled ? 'text-royal-800' : 'text-white'}
             aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </Button>
         </div>
       </div>
@@ -135,11 +147,13 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
+            id="mobile-menu"
             className="lg:hidden bg-white/95 backdrop-blur-sm shadow-xl absolute top-full left-0 right-0 overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
+            role="menu"
           >
             <div className="container mx-auto px-4 py-6 flex flex-col space-y-6">
               {navLinks.map((link, index) => (
@@ -155,6 +169,8 @@ const Navbar = () => {
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
                       className="text-royal-800 hover:text-golden-600 transition duration-300 py-3 border-b border-gray-100 block font-medium"
+                      role="menuitem"
+                      aria-label={link.ariaLabel}
                     >
                       {link.name}
                     </a>
@@ -163,6 +179,8 @@ const Navbar = () => {
                       to={link.href}
                       className="text-royal-800 hover:text-golden-600 transition duration-300 py-3 border-b border-gray-100 block font-medium"
                       onClick={() => setIsOpen(false)}
+                      role="menuitem"
+                      aria-label={link.ariaLabel}
                     >
                       {link.name}
                     </Link>

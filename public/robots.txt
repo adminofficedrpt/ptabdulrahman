@@ -24,13 +24,13 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
+# Allow social media crawlers to access all pages for proper previews
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-# Make sure social media preview bots can access all pages
 User-agent: LinkedInBot
 Allow: /
 
@@ -40,5 +40,9 @@ Allow: /
 User-agent: Discordbot
 Allow: /
 
-# Optimize crawl rate
+# Recommended crawl rate for optimal performance
 Crawl-delay: 1
+
+# Ensure no crawl traps
+Disallow: /error
+Disallow: /*.pdf$
