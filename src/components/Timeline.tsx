@@ -260,7 +260,7 @@ const Timeline = () => {
       }
     };
   }, [fastScroll]);
-  return <section id="timeline" className="bg-slate-100 mx-[2px] my-0 py-[8px] px-[13px]">
+  return <section id="timeline" className="mx-[2px] my-0 py-[8px] px-[13px] bg-slate-100">
       <div className="container mx-auto px-0">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12 text-royal-800">Timeline of Impact</h2>
@@ -295,7 +295,7 @@ const Timeline = () => {
                       {/* Show the achievement */}
                       <p className="mb-4 text-gray-50">{milestone.achievements[0]}</p>
                       
-                      <Button variant="outline" size="sm" onClick={() => handleOpenMilestone(milestone)} className="border-golden-300 bg-royal-900 hover:bg-royal-800 rounded-full text-base font-light text-slate-50">
+                      <Button variant="outline" size="sm" onClick={() => handleOpenMilestone(milestone)} className="border-golden-300 bg-royal-900 hover:bg-royal-800 rounded-full text-base font-light text-slate-50 mx-[3px] py-[11px] my-[23px] px-[13px]">
                         Read More
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
