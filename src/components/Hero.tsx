@@ -43,11 +43,7 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto mb-14 animate-fade-in opacity-0" style={{
         animationDelay: '0.7s'
       }}>
-          <p className="text-white/90 text-lg md:text-xl font-light">
-            A distinguished Malayali scholar in UAE, devoted humanitarian, and legal expert. 
-            Advancing education & community upliftment through Darul Quran Abdulla Academy. 
-            Author of "Is the Creation Meaningless?" and prolific columnist.
-          </p>
+          <p className="text-white/90 text-lg md:text-xl font-light">PT Abdul Rahman is a visionary leader in education, humanitarian service, and Islamic thought. Hailing from Kerala, India, and shaped by a lineage of Islamic scholarship, he has dedicated over three decades to community upliftment, interfaith harmony, and academic excellence. With an MA in Sociology from the University of Mysore and multilingual fluency in Arabic, English, Hindi, Malayalam, Urdu, and Tamil, he has served as a bridge between diverse communities in India and the UAE.</p>
         </div>
 
         <div className="animate-fade-in opacity-0" style={{
