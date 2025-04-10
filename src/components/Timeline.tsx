@@ -260,8 +260,8 @@ const Timeline = () => {
       }
     };
   }, [fastScroll]);
-  return <section id="timeline" className="py-24 bg-gray-50">
-      <div className="container mx-auto px-4">
+  return <section id="timeline" className="bg-slate-100 mx-[2px] my-0 py-[8px] px-[13px]">
+      <div className="container mx-auto px-0">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold islamic-border mb-12 text-royal-800">Timeline of Impact</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-6">
@@ -285,17 +285,17 @@ const Timeline = () => {
               {timelineData.map((milestone, index) => <div key={milestone.id} id={milestone.id} style={{
             animationDelay: `${0.1 * Math.min(index, 3)}s`,
             transitionDuration: fastScroll ? '0.2s' : '0.5s'
-          }} className="">
+          }} className="py-0 px-0 mx-0 my-0">
                   <div className="timeline-dot"></div>
                   <div className={`timeline-content ${index % 2 === 0 ? 'left text-md-right' : 'right'}`}>
-                    <div className="shadow-lg p-6 border border-gray-100 hover:border-golden-300 transition-all duration-300 px-[20px] bg-[#fff5d8]/[0.29] py-[5px] rounded-xl mx-0">
-                      <h3 className="text-xl font-bold text-golden-800">{milestone.year}</h3>
-                      <h4 className="text-lg font-semibold mb-3 text-royal-700">{milestone.title}</h4>
+                    <div className="shadow-lg p-6 border border-gray-100 hover:border-golden-300 transition-all duration-300 px-[20px] py-[5px] mx-0 bg-royal-900 rounded-3xl">
+                      <h3 className="text-xl font-bold text-golden-50">{milestone.year}</h3>
+                      <h4 className="text-lg font-semibold mb-3 text-golden-300">{milestone.title}</h4>
                       
                       {/* Show the achievement */}
-                      <p className="text-gray-700 mb-4">{milestone.achievements[0]}</p>
+                      <p className="mb-4 text-gray-50">{milestone.achievements[0]}</p>
                       
-                      <Button variant="outline" size="sm" className="text-golden-700 border-golden-300 hover:bg-golden-50" onClick={() => handleOpenMilestone(milestone)}>
+                      <Button variant="outline" size="sm" onClick={() => handleOpenMilestone(milestone)} className="border-golden-300 bg-royal-900 hover:bg-royal-800 rounded-full text-base font-light text-slate-50">
                         Read More
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
