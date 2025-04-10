@@ -7,10 +7,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Photos are now defined with direct references to images rather than using variables
 const photos = [
   {
     id: 1,
-    src: '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png',
     alt: 'Dr. P.T. Abdul Rahman portrait',
     caption: 'Official portrait of Dr. P.T. Abdul Rahman, Islamic Scholar UAE',
     category: 'portrait',
@@ -18,7 +18,6 @@ const photos = [
   },
   {
     id: 2,
-    src: '/lovable-uploads/02a7f6e7-40d5-49af-ad68-279b52a2688a.png',
     alt: 'Dr. P.T. Abdul Rahman receiving award',
     caption: 'Dr. P.T. Abdul Rahman receiving recognition from UAE leadership',
     category: 'awards',
@@ -26,7 +25,6 @@ const photos = [
   },
   {
     id: 3,
-    src: '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png',
     alt: 'Darul Quran Abdulla Academy campus',
     caption: 'Aerial view of the Darul Quran Abdulla Academy campus in Kerala',
     category: 'dqaa',
@@ -34,7 +32,6 @@ const photos = [
   },
   {
     id: 4,
-    src: '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png',
     alt: 'Dr. P.T. Abdul Rahman logo',
     caption: 'Official logo of Dr. P.T. Abdul Rahman - Founder of DQAA',
     category: 'branding',
@@ -42,7 +39,6 @@ const photos = [
   },
   {
     id: 5,
-    src: '/lovable-uploads/37251c4b-0591-433c-bbce-ac4291fc7ddb.png',
     alt: 'Dr. P.T. Abdul Rahman at a conference',
     caption: 'Dr. P.T. Abdul Rahman speaking at International Islamic Conference in Dubai',
     category: 'events',
@@ -50,7 +46,6 @@ const photos = [
   },
   {
     id: 6,
-    src: '/lovable-uploads/5d0ee704-bb81-4964-888b-60af01b062bb.png',
     alt: 'Dr. P.T. Abdul Rahman with community leaders',
     caption: 'Dr. P.T. Abdul Rahman meeting with Indian community leaders in UAE',
     category: 'community',
@@ -58,7 +53,6 @@ const photos = [
   },
   {
     id: 7,
-    src: '/lovable-uploads/6856dd37-63cb-4029-b897-0b2143071d2f.png',
     alt: 'Dr. P.T. Abdul Rahman book signing',
     caption: 'Book signing event for "Is the Creation Meaningless?" in Dubai',
     category: 'books',
@@ -66,7 +60,6 @@ const photos = [
   },
   {
     id: 8,
-    src: '/lovable-uploads/76eef9a7-0487-4c6f-b458-32397f9edbd6.png',
     alt: 'Dr. P.T. Abdul Rahman humanitarian work',
     caption: 'Dr. P.T. Abdul Rahman during humanitarian mission with UAE Red Crescent',
     category: 'humanitarian',
@@ -74,7 +67,6 @@ const photos = [
   },
   {
     id: 9,
-    src: '/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png',
     alt: 'Darul Quran Abdulla Academy students',
     caption: 'Students of Darul Quran Abdulla Academy during graduation ceremony',
     category: 'dqaa',
@@ -82,7 +74,6 @@ const photos = [
   },
   {
     id: 10,
-    src: '/lovable-uploads/ff033cfa-8c52-470c-af76-d48b0136aabc.png',
     alt: 'Dr. P.T. Abdul Rahman giving speech',
     caption: 'Dr. P.T. Abdul Rahman delivering keynote address at UAE National Day celebration',
     category: 'events',
@@ -202,6 +193,34 @@ const PhotoGallery = () => {
       transition: {
         duration: 0.5
       }
+    }
+  };
+
+  // Map to get the image source for each photo based on its ID
+  const getPhotoSrc = (photoId: number) => {
+    switch (photoId) {
+      case 1:
+        return '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png';
+      case 2:
+        return '/lovable-uploads/02a7f6e7-40d5-49af-ad68-279b52a2688a.png';
+      case 3:
+        return '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png';
+      case 4:
+        return '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png';
+      case 5:
+        return '/lovable-uploads/37251c4b-0591-433c-bbce-ac4291fc7ddb.png';
+      case 6:
+        return '/lovable-uploads/5d0ee704-bb81-4964-888b-60af01b062bb.png';
+      case 7:
+        return '/lovable-uploads/6856dd37-63cb-4029-b897-0b2143071d2f.png';
+      case 8:
+        return '/lovable-uploads/76eef9a7-0487-4c6f-b458-32397f9edbd6.png';
+      case 9:
+        return '/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png';
+      case 10:
+        return '/lovable-uploads/ff033cfa-8c52-470c-af76-d48b0136aabc.png';
+      default:
+        return '/placeholder.svg';
     }
   };
 
@@ -340,27 +359,225 @@ const PhotoGallery = () => {
             initial="hidden"
             animate="visible"
           >
-            {currentPhotos.map((photo) => (
+            {/* Gallery Item 1 */}
+            {currentPhotos.includes(photos[0]) && (
               <motion.div 
-                key={photo.id}
                 variants={photoVariants}
                 className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
-                onClick={() => openLightbox(photo.id)}
+                onClick={() => openLightbox(1)}
               >
                 <div className="h-56 overflow-hidden">
                   <img 
-                    src={photo.src} 
-                    alt={photo.alt}
+                    src="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" 
+                    alt={photos[0].alt}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                     loading="lazy"
                   />
                 </div>
                 <div className="p-4 flex flex-col flex-grow">
-                  <p className="text-xs text-golden-600 font-medium">{photo.year} · {photo.category}</p>
-                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photo.caption}</p>
+                  <p className="text-xs text-golden-600 font-medium">{photos[0].year} · {photos[0].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[0].caption}</p>
                 </div>
               </motion.div>
-            ))}
+            )}
+            
+            {/* Gallery Item 2 */}
+            {currentPhotos.includes(photos[1]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(2)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/02a7f6e7-40d5-49af-ad68-279b52a2688a.png" 
+                    alt={photos[1].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[1].year} · {photos[1].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[1].caption}</p>
+                </div>
+              </motion.div>
+            )}
+            
+            {/* Gallery Item 3 */}
+            {currentPhotos.includes(photos[2]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(3)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png" 
+                    alt={photos[2].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[2].year} · {photos[2].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[2].caption}</p>
+                </div>
+              </motion.div>
+            )}
+            
+            {/* Gallery Item 4 */}
+            {currentPhotos.includes(photos[3]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(4)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" 
+                    alt={photos[3].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[3].year} · {photos[3].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[3].caption}</p>
+                </div>
+              </motion.div>
+            )}
+            
+            {/* Gallery Item 5 */}
+            {currentPhotos.includes(photos[4]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(5)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/37251c4b-0591-433c-bbce-ac4291fc7ddb.png" 
+                    alt={photos[4].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[4].year} · {photos[4].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[4].caption}</p>
+                </div>
+              </motion.div>
+            )}
+            
+            {/* Gallery Item 6 */}
+            {currentPhotos.includes(photos[5]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(6)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/5d0ee704-bb81-4964-888b-60af01b062bb.png" 
+                    alt={photos[5].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[5].year} · {photos[5].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[5].caption}</p>
+                </div>
+              </motion.div>
+            )}
+            
+            {/* Gallery Item 7 */}
+            {currentPhotos.includes(photos[6]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(7)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/6856dd37-63cb-4029-b897-0b2143071d2f.png" 
+                    alt={photos[6].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[6].year} · {photos[6].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[6].caption}</p>
+                </div>
+              </motion.div>
+            )}
+            
+            {/* Gallery Item 8 */}
+            {currentPhotos.includes(photos[7]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(8)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/76eef9a7-0487-4c6f-b458-32397f9edbd6.png" 
+                    alt={photos[7].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[7].year} · {photos[7].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[7].caption}</p>
+                </div>
+              </motion.div>
+            )}
+            
+            {/* Gallery Item 9 */}
+            {currentPhotos.includes(photos[8]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(9)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/bdaaf13f-2912-4e1d-b6d7-eb5852916364.png" 
+                    alt={photos[8].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[8].year} · {photos[8].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[8].caption}</p>
+                </div>
+              </motion.div>
+            )}
+            
+            {/* Gallery Item 10 */}
+            {currentPhotos.includes(photos[9]) && (
+              <motion.div 
+                variants={photoVariants}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                onClick={() => openLightbox(10)}
+              >
+                <div className="h-56 overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/ff033cfa-8c52-470c-af76-d48b0136aabc.png" 
+                    alt={photos[9].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-grow">
+                  <p className="text-xs text-golden-600 font-medium">{photos[9].year} · {photos[9].category}</p>
+                  <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photos[9].caption}</p>
+                </div>
+              </motion.div>
+            )}
           </motion.div>
           
           {filteredPhotos.length === 0 && (
@@ -443,6 +660,7 @@ const PhotoGallery = () => {
         </div>
       </section>
       
+      {/* Lightbox */}
       <AnimatePresence>
         {selectedPhoto !== null && currentPhoto && (
           <motion.div 
@@ -458,7 +676,7 @@ const PhotoGallery = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <motion.img 
-                src={currentPhoto.src} 
+                src={getPhotoSrc(selectedPhoto)}
                 alt={currentPhoto.alt}
                 className="max-h-[80vh] max-w-full object-contain"
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -474,54 +692,4 @@ const PhotoGallery = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
               >
-                <div className="max-w-3xl mx-auto">
-                  <p className="text-xs text-golden-300 font-medium mb-1">{currentPhoto.year} · {currentPhoto.category}</p>
-                  <p className="text-white text-lg">{currentPhoto.caption}</p>
-                </div>
-              </motion.div>
-              
-              <button 
-                onClick={closeLightbox}
-                className="absolute top-4 right-4 text-white hover:text-golden-300 transition-colors bg-black/20 rounded-full p-2"
-                aria-label="Close lightbox"
-              >
-                <X size={24} />
-              </button>
-              
-              <button 
-                onClick={() => navigatePhoto('prev')}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 rounded-full p-3 text-white hover:text-golden-300 transition-all"
-                aria-label="Previous photo"
-              >
-                <ChevronLeft size={30} />
-              </button>
-              
-              <button 
-                onClick={() => navigatePhoto('next')}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 rounded-full p-3 text-white hover:text-golden-300 transition-all"
-                aria-label="Next photo"
-              >
-                <ChevronRight size={30} />
-              </button>
-              
-              <button 
-                className="absolute top-4 left-4 text-white hover:text-golden-300 transition-colors bg-black/20 hover:bg-black/40 rounded-full p-2"
-                aria-label="Download photo"
-              >
-                <Download size={20} />
-              </button>
-              
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white/50 text-sm">
-                {filteredPhotos.findIndex(photo => photo.id === selectedPhoto) + 1} / {filteredPhotos.length}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      
-      <Footer />
-    </div>
-  );
-};
-
-export default PhotoGallery;
+                <div className="max-w-3
