@@ -1,14 +1,13 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { X, ChevronLeft, ChevronRight, Search, Filter, Download } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Search, Filter } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Skeleton } from '@/components/ui/skeleton';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Photos are now defined with direct references to images rather than using variables
 const photos = [
   {
     id: 1,
@@ -115,50 +114,50 @@ const PhotoGallery = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [loadingImages, setLoadingImages] = useState<{[id: number]: boolean}>({});
   const photosPerPage = 12;
   const navigate = useNavigate();
   const galleryRef = useRef<HTMLDivElement>(null);
-  
+
   const filteredPhotos = photos.filter(photo => {
     const matchesCategory = selectedCategory === 'all' || photo.category === selectedCategory;
     const matchesYear = selectedYear === 'All Years' || photo.year === selectedYear;
     const matchesSearch = searchQuery === '' || 
-                         photo.caption.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                         photo.alt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         photo.category.toLowerCase().includes(searchQuery.toLowerCase());
-    
+      photo.caption.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      photo.alt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      photo.category.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesYear && matchesSearch;
   });
-  
+
   const totalPages = Math.ceil(filteredPhotos.length / photosPerPage);
   const indexOfLastPhoto = currentPage * photosPerPage;
   const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
   const currentPhotos = filteredPhotos.slice(indexOfFirstPhoto, indexOfLastPhoto);
-  
+
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
     if (galleryRef.current) {
       galleryRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-  
+
   const resetFilters = () => {
     setSelectedCategory('all');
     setSelectedYear('All Years');
     setSearchQuery('');
     setCurrentPage(1);
   };
-  
+
   const openLightbox = (photoId: number) => {
     setSelectedPhoto(photoId);
     document.body.classList.add('overflow-hidden');
   };
-  
+
   const closeLightbox = () => {
     setSelectedPhoto(null);
     document.body.classList.remove('overflow-hidden');
   };
-  
+
   const navigatePhoto = (direction: 'next' | 'prev') => {
     if (selectedPhoto === null) return;
     
@@ -173,7 +172,7 @@ const PhotoGallery = () => {
     
     setSelectedPhoto(filteredPhotos[newIndex].id);
   };
-  
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowRight') navigatePhoto('next');
@@ -183,9 +182,18 @@ const PhotoGallery = () => {
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, selectedYear, searchQuery]);
-  
+
+  useEffect(() => {
+    if (isFiltersOpen) {
+      setTimeout(() => {
+        const firstFilter = document.querySelector('[data-filter-focus]');
+        (firstFilter as HTMLElement)?.focus();
+      }, 200);
+    }
+  }, [isFiltersOpen]);
+
   const currentPhoto = selectedPhoto !== null ? photos.find(photo => photo.id === selectedPhoto) : null;
-  
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -195,7 +203,7 @@ const PhotoGallery = () => {
       }
     }
   };
-  
+
   const photoVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -207,10 +215,18 @@ const PhotoGallery = () => {
     }
   };
 
+  const handleImgLoad = (id: number) => {
+    setLoadingImages((prev) => ({ ...prev, [id]: false }));
+  };
+
+  const handleImgLoadStart = (id: number) => {
+    setLoadingImages((prev) => ({ ...prev, [id]: true }));
+  };
+
   return (
     <div className="min-h-screen bg-gray-50" onKeyDown={handleKeyDown} tabIndex={0}>
       <Navbar />
-      
+
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <motion.div 
@@ -228,7 +244,7 @@ const PhotoGallery = () => {
               Founder Chairman of Darul Quran Abdulla Academy.
             </p>
           </motion.div>
-          
+
           <div className="mb-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
               <div className="w-full md:w-1/3">
@@ -239,6 +255,7 @@ const PhotoGallery = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10 pr-4 py-3 border-gray-200 focus:border-golden-500 focus:ring focus:ring-golden-200 focus:ring-opacity-50 rounded-full"
+                    aria-label="Search photos"
                   />
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
                 </div>
@@ -256,7 +273,6 @@ const PhotoGallery = () => {
                     <span className="ml-2 w-2 h-2 rounded-full bg-golden-500"></span>
                   )}
                 </Button>
-                
                 {(selectedCategory !== 'all' || selectedYear !== 'All Years' || searchQuery !== '') && (
                   <Button
                     onClick={resetFilters}
@@ -282,22 +298,25 @@ const PhotoGallery = () => {
                     <div className="mb-4">
                       <h3 className="font-medium text-royal-800 mb-2">Categories</h3>
                       <div className="flex flex-wrap gap-2">
-                        {categories.map((category) => (
+                        {categories.map((category, idx) => (
                           <button
                             key={category.id}
                             onClick={() => setSelectedCategory(category.id)}
-                            className={`px-3 py-1.5 rounded-full text-sm transition-all duration-300 ${
-                              selectedCategory === category.id 
-                                ? 'bg-royal-700 text-white' 
-                                : 'bg-white border border-gray-200 text-gray-700 hover:bg-royal-50'
-                            }`}
+                            data-filter-focus={idx === 0 ? true : undefined}
+                            className={
+                              `px-3 py-1.5 rounded-full text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-golden-500 focus-visible:ring-offset-2 transition-all duration-300 
+                              ${selectedCategory === category.id 
+                                ? 'bg-royal-600 text-white shadow-inner scale-105 border-royal-700'
+                                : 'bg-white border border-gray-200 text-gray-700 hover:bg-royal-50'}`
+                            }
+                            style={{ boxShadow: selectedCategory === category.id ? "0 2px 12px 0 #d2a5291a" : undefined }}
+                            aria-pressed={selectedCategory === category.id}
                           >
                             {category.name}
                           </button>
                         ))}
                       </div>
                     </div>
-                    
                     <div>
                       <h3 className="font-medium text-royal-800 mb-2">Years</h3>
                       <div className="flex flex-wrap gap-2">
@@ -305,11 +324,13 @@ const PhotoGallery = () => {
                           <button
                             key={year}
                             onClick={() => setSelectedYear(year)}
-                            className={`px-3 py-1.5 rounded-full text-sm transition-all duration-300 ${
-                              selectedYear === year 
-                                ? 'bg-golden-600 text-white' 
-                                : 'bg-white border border-gray-200 text-gray-700 hover:bg-golden-50'
-                            }`}
+                            className={
+                              `px-3 py-1.5 rounded-full text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-golden-500 focus-visible:ring-offset-2 transition-all duration-300 
+                              ${selectedYear === year 
+                                ? 'bg-golden-700 text-white shadow-inner scale-105 border-golden-700'
+                                : 'bg-white border border-gray-200 text-gray-700 hover:bg-golden-50'}`
+                            }
+                            aria-pressed={selectedYear === year}
                           >
                             {year}
                           </button>
@@ -321,9 +342,9 @@ const PhotoGallery = () => {
               )}
             </AnimatePresence>
           </div>
-          
+
           <div className="mb-8 flex justify-between items-center">
-            <p className="text-gray-600">
+            <p className="text-gray-700">
               Showing {filteredPhotos.length} {filteredPhotos.length === 1 ? 'photo' : 'photos'}
               {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
               {selectedYear !== 'All Years' && ` from ${selectedYear}`}
@@ -346,19 +367,29 @@ const PhotoGallery = () => {
               <motion.div 
                 key={photo.id}
                 variants={photoVariants}
-                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-80 flex flex-col"
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-104 hover:-translate-y-1 cursor-pointer h-80 flex flex-col group focus-within:ring-2 focus-within:ring-golden-400"
+                tabIndex={0}
+                aria-label={photo.caption}
                 onClick={() => openLightbox(photo.id)}
+                onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(photo.id); }}
+                style={{ outline: 'none' }}
               >
-                <div className="h-56 overflow-hidden">
+                <div className="h-56 overflow-hidden relative flex items-center justify-center bg-gray-100">
+                  {loadingImages[photo.id] !== false && (
+                    <Skeleton className="absolute inset-0 w-full h-full z-10" />
+                  )}
                   <img 
                     src={photo.src}
                     alt={photo.alt}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    style={{ opacity: loadingImages[photo.id] === false ? 1 : 0 }}
                     loading="lazy"
+                    onLoadStart={() => handleImgLoadStart(photo.id)}
+                    onLoad={() => handleImgLoad(photo.id)}
                   />
                 </div>
                 <div className="p-4 flex flex-col flex-grow">
-                  <p className="text-xs text-golden-600 font-medium">{photo.year} · {photo.category}</p>
+                  <p className="text-xs text-golden-700 font-medium">{photo.year} · {photo.category}</p>
                   <p className="text-sm text-gray-800 line-clamp-2 mt-1">{photo.caption}</p>
                 </div>
               </motion.div>
@@ -367,17 +398,18 @@ const PhotoGallery = () => {
           
           {filteredPhotos.length === 0 && (
             <div className="text-center py-20">
-              <div className="mb-4 text-gray-400">
-                <Filter size={48} className="mx-auto" />
+              <div className="flex flex-col items-center justify-center mb-4 text-golden-400">
+                <Filter size={48} className="mb-2 animate-pulse" />
+                <span className="block w-12 h-1 bg-gradient-to-r from-golden-300 via-golden-500 to-golden-200 rounded-full mb-2"></span>
               </div>
-              <h3 className="text-xl font-medium text-gray-800 mb-2">No photos found</h3>
+              <h3 className="text-xl font-bold text-royal-800 mb-2">No photos found</h3>
               <p className="text-gray-500 mb-6">Try adjusting your search or filter criteria</p>
               <Button onClick={resetFilters} variant="outline">
                 Clear all filters
               </Button>
             </div>
           )}
-          
+
           {totalPages > 1 && (
             <div className="flex justify-center mt-10">
               <div className="flex items-center space-x-1">
@@ -390,7 +422,7 @@ const PhotoGallery = () => {
                 >
                   <ChevronLeft size={16} />
                 </Button>
-                
+
                 <div className="flex items-center space-x-1">
                   {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
                     let pageNum;
@@ -403,19 +435,21 @@ const PhotoGallery = () => {
                     } else {
                       pageNum = currentPage - 2 + i;
                     }
-                    
+
                     return (
                       <Button
                         key={pageNum}
                         onClick={() => paginate(pageNum)}
                         variant={currentPage === pageNum ? "default" : "outline"}
-                        className={`w-9 h-9 ${currentPage === pageNum ? 'bg-royal-700 hover:bg-royal-800' : ''}`}
+                        className={`w-9 h-9 ${currentPage === pageNum ? 'bg-royal-700 hover:bg-royal-800 text-white' : ''}`}
+                        aria-current={currentPage === pageNum ? "page" : undefined}
+                        tabIndex={0}
                       >
                         {pageNum}
                       </Button>
                     );
                   })}
-                  
+
                   {totalPages > 5 && currentPage < totalPages - 2 && (
                     <>
                       <span className="mx-1">...</span>
@@ -429,7 +463,7 @@ const PhotoGallery = () => {
                     </>
                   )}
                 </div>
-                
+
                 <Button
                   onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
                   disabled={currentPage === totalPages}
@@ -445,7 +479,6 @@ const PhotoGallery = () => {
         </div>
       </section>
       
-      {/* Lightbox */}
       <AnimatePresence>
         {selectedPhoto !== null && currentPhoto && (
           <motion.div 
@@ -489,7 +522,7 @@ const PhotoGallery = () => {
               
               <button 
                 onClick={closeLightbox}
-                className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-golden-500 focus-visible:ring-offset-2"
                 aria-label="Close lightbox"
               >
                 <X size={24} />
@@ -497,7 +530,7 @@ const PhotoGallery = () => {
               
               <button
                 onClick={() => navigatePhoto('prev')}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white/70 hover:text-white transition-colors"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white/70 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-golden-500"
                 aria-label="Previous photo"
               >
                 <ChevronLeft size={24} />
@@ -505,7 +538,7 @@ const PhotoGallery = () => {
               
               <button
                 onClick={() => navigatePhoto('next')}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white/70 hover:text-white transition-colors"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white/70 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-golden-500"
                 aria-label="Next photo"
               >
                 <ChevronRight size={24} />
