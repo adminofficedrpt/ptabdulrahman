@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import NavbarEnhanced from '@/components/NavbarEnhanced';
+import HeroEnhanced from '@/components/HeroEnhanced';
 import Biography from '@/components/Biography';
 import Timeline from '@/components/Timeline';
 import Books from '@/components/Books';
@@ -12,13 +12,16 @@ import MediaFeatures from '@/components/MediaFeatures';
 import DQAA from '@/components/DQAA';
 import DQAAAdmission from '@/components/DQAAAdmission';
 import DQAADonate from '@/components/DQAADonate';
-import Footer from '@/components/Footer';
+import FooterEnhanced from '@/components/FooterEnhanced';
 import PreLoader from '@/components/PreLoader';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ScrollProgressBar from '@/components/ScrollProgressBar';
+import SectionHeading from '@/components/SectionHeading';
+import AnimatedSection from '@/components/AnimatedSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -269,16 +272,15 @@ const Index = () => {
         </script>
       </Helmet>
       
+      <ScrollProgressBar />
       <PreLoader />
-      <Navbar />
-      <Hero />
+      <NavbarEnhanced />
+      <HeroEnhanced />
       
-      <motion.div 
+      <AnimatedSection 
         className="py-16 bg-white"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        direction="up"
+        delay={0.2}
       >
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto">
@@ -296,7 +298,7 @@ const Index = () => {
             </Button>
           </div>
         </div>
-      </motion.div>
+      </AnimatedSection>
       
       <Biography />
       <Timeline />
@@ -308,7 +310,7 @@ const Index = () => {
       <MediaFeatures />
       <DQAADonate />
       <Legacy />
-      <Footer />
+      <FooterEnhanced />
     </div>
   );
 };
