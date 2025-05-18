@@ -1,51 +1,36 @@
 
 import { useEffect, useState } from 'react';
-import NavbarEnhanced from '@/components/NavbarEnhanced';
-import HeroEnhanced from '@/components/HeroEnhanced';
-import Biography from '@/components/Biography';
+import { Helmet } from 'react-helmet-async';
+import PreLoader from '@/components/PreLoader';
+import NavigationSimplified from '@/components/NavigationSimplified';
+import ModernHero from '@/components/ModernHero';
+import About from '@/components/About';
+import Work from '@/components/Work';
+import MediaHighlights from '@/components/MediaHighlights';
+import Contact from '@/components/Contact';
+import FooterModern from '@/components/FooterModern';
+import ScrollProgressBar from '@/components/ScrollProgressBar';
+
+// These components will be loaded conditionally based on user navigation
 import Timeline from '@/components/Timeline';
 import Books from '@/components/Books';
 import Humanitarian from '@/components/Humanitarian';
 import Awards from '@/components/Awards';
 import Legacy from '@/components/Legacy';
-import MediaFeatures from '@/components/MediaFeatures';
 import DQAA from '@/components/DQAA';
 import DQAAAdmission from '@/components/DQAAAdmission';
 import DQAADonate from '@/components/DQAADonate';
-import FooterEnhanced from '@/components/FooterEnhanced';
-import PreLoader from '@/components/PreLoader';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import ScrollProgressBar from '@/components/ScrollProgressBar';
-import SectionHeading from '@/components/SectionHeading';
-import AnimatedSection from '@/components/AnimatedSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   
   useEffect(() => {
-    // Smooth scroll functionality for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        if (!href) return;
-        
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-          
-          // Update URL without page reload
-          window.history.pushState({}, '', href);
-        }
-      });
-    });
+    // Detect hash from URL for direct section navigation
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      setActiveSection(hash);
+    }
     
     // Preload important images
     const preloadImages = [
@@ -65,16 +50,66 @@ const Index = () => {
       setIsLoading(false);
     }, 2000);
     
+    // Setup intersection observer for section detection
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    };
+    
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          if (id) {
+            setActiveSection(id);
+            window.history.replaceState(null, '', `#${id}`);
+          }
+        }
+      });
+    };
+    
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    document.querySelectorAll('section[id]').forEach(section => {
+      observer.observe(section);
+    });
+    
     return () => {
       clearTimeout(timer);
+      observer.disconnect();
     };
   }, []);
+
+  // Conditionally render detailed section components based on navigation/hash
+  const renderConditionalSection = () => {
+    switch(activeSection) {
+      case 'timeline':
+        return <Timeline />;
+      case 'books':
+        return <Books />;
+      case 'humanitarian':
+        return <Humanitarian />;
+      case 'awards':
+        return <Awards />;
+      case 'legacy':
+        return <Legacy />;
+      case 'dqaa':
+        return <DQAA />;
+      case 'admission':
+        return <DQAAAdmission />;
+      case 'donate':
+        return <DQAADonate />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Dr. P.T. Abdul Rahman - Islamic Scholar UAE | Indian Humanitarian in Dubai</title>
-        <meta name="description" content="Dr. P.T. Abdul Rahman is a distinguished Islamic scholar in UAE, humanitarian in Dubai, author of 'Is the Creation Meaningless?', and Founder Chairman of Darul Quran Abdulla Academy (DQAA)." />
+        <title>Dr. P.T. Abdul Rahman - Islamic Scholar, Educator & Humanitarian</title>
+        <meta name="description" content="Dr. P.T. Abdul Rahman is a distinguished Islamic scholar in UAE, humanitarian in Dubai, author, and Founder Chairman of Darul Quran Abdulla Academy (DQAA)." />
         <meta name="keywords" content="PT Abdul Rahman, Dr PT Abdul Rahman, Islamic scholar UAE, Founder of Darul Quran Abdulla Academy, Indian humanitarian in Dubai, Malayali scholar in UAE, Author of Is the Creation Meaningless, DQAA Kerala, Hafiz program India, Islamic boarding school Kerala, Quran memorization school, Insight Group founder, Dubai Indian Islamic Centre founder, Humanitarian work UAE" />
         
         {/* Canonical URL */}
@@ -85,7 +120,7 @@ const Index = () => {
         <meta property="og:site_name" content="Dr. P.T. Abdul Rahman" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:url" content="https://www.ptabdulrahman.com/" />
-        <meta property="og:title" content="Dr. P.T. Abdul Rahman - Islamic Scholar UAE & DQAA Founder" />
+        <meta property="og:title" content="Dr. P.T. Abdul Rahman - Islamic Scholar, Educator & Humanitarian" />
         <meta property="og:description" content="Distinguished Islamic scholar in UAE, Indian humanitarian in Dubai, and founder of Darul Quran Abdulla Academy (DQAA)." />
         <meta property="og:image" content="https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" />
         <meta property="og:image:width" content="1200" />
@@ -97,7 +132,7 @@ const Index = () => {
         <meta name="twitter:description" content="Distinguished Islamic scholar, Malayali humanitarian in Dubai, author of 'Is the Creation Meaningless?', and founder of Darul Quran Abdulla Academy." />
         <meta name="twitter:image" content="https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" />
         
-        {/* Structured Data - Person */}
+        {/* Schema markup - kept and expanded for SEO */}
         <script type="application/ld+json">
           {`
             {
@@ -272,45 +307,16 @@ const Index = () => {
         </script>
       </Helmet>
       
+      {isLoading && <PreLoader />}
       <ScrollProgressBar />
-      <PreLoader />
-      <NavbarEnhanced />
-      <HeroEnhanced />
-      
-      <AnimatedSection 
-        className="py-16 bg-white"
-        direction="up"
-        delay={0.2}
-      >
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-golden-50 text-golden-700 mb-6">
-              <span className="text-sm font-medium">Explore the Visual Journey</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-royal-800 mb-6 font-playfair">Discover Dr. P.T. Abdul Rahman's Impact Through Images</h2>
-            <p className="text-gray-600 mb-10">Browse through our comprehensive photo gallery showcasing moments from humanitarian work, DQAA activities, and more.</p>
-            
-            <Button asChild className="bg-gradient-to-r from-golden-500 to-golden-600 hover:from-golden-600 hover:to-golden-700 text-white px-8 py-6 rounded-md shadow-md hover:shadow-lg transition-all duration-300">
-              <Link to="/gallery" className="inline-flex items-center justify-center">
-                View Photo Gallery
-                <ArrowUpRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </AnimatedSection>
-      
-      <Biography />
-      <Timeline />
-      <DQAA />
-      <DQAAAdmission />
-      <Books />
-      <Humanitarian />
-      <Awards />
-      <MediaFeatures />
-      <DQAADonate />
-      <Legacy />
-      <FooterEnhanced />
+      <NavigationSimplified />
+      <ModernHero />
+      <About />
+      <Work />
+      {renderConditionalSection()}
+      <MediaHighlights />
+      <Contact />
+      <FooterModern />
     </div>
   );
 };
