@@ -1,18 +1,25 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 interface TypewriterProps {
   texts: string[];
   typingSpeed?: number;
   deletingSpeed?: number;
   delayBetween?: number;
+  className?: string;
+  cursorClassName?: string;
+  textClassName?: string;
 }
 
 const Typewriter = ({ 
   texts, 
   typingSpeed = 100, 
   deletingSpeed = 50, 
-  delayBetween = 2000 
+  delayBetween = 2000,
+  className,
+  cursorClassName,
+  textClassName
 }: TypewriterProps) => {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
@@ -54,12 +61,14 @@ const Typewriter = ({
   }, [displayedText, index, phase, texts, typingSpeed, deletingSpeed, delayBetween]);
   
   return (
-    <span className="relative">
-      {displayedText}
+    <span className={cn("relative", className)}>
+      <span className={cn("transition-all duration-75", textClassName)}>
+        {displayedText}
+      </span>
       <span 
-        className="absolute -right-4 top-0 inline-block w-1 h-7 bg-golden-300 animate-cursor-blink"
+        className={cn("absolute -right-4 top-0 inline-block w-1 h-7 bg-golden-300 animate-cursor-blink", cursorClassName)}
+        aria-hidden="true"
       ></span>
-      {/* We'll use Tailwind's animation utilities instead of inline styles */}
     </span>
   );
 };
