@@ -1,5 +1,5 @@
-
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -136,6 +136,10 @@ export default {
 					'0%': { transform: 'scale(0.9)', opacity: '0' },
 					'100%': { transform: 'scale(1)', opacity: '1' }
 				},
+				"cursor-blink": {
+					"0%, 100%": { opacity: "1" },
+					"50%": { opacity: "0" }
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -144,6 +148,7 @@ export default {
 				'fade-right': 'fade-right 0.5s ease-out forwards',
 				'fade-left': 'fade-left 0.5s ease-out forwards',
 				'scale-in': 'scale-in 0.4s ease-out forwards',
+				"cursor-blink": "cursor-blink 1s step-end infinite"
 			},
 		}
 	},

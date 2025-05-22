@@ -57,15 +57,9 @@ const Typewriter = ({
     <span className="relative">
       {displayedText}
       <span 
-        className="absolute -right-4 top-0 inline-block w-1 h-7 bg-golden-300"
-        style={{ animation: 'blink 1s step-end infinite' }}
+        className="absolute -right-4 top-0 inline-block w-1 h-7 bg-golden-300 animate-cursor-blink"
       ></span>
-      <style jsx>{`
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-      `}</style>
+      {/* We'll use Tailwind's animation utilities instead of inline styles */}
     </span>
   );
 };
