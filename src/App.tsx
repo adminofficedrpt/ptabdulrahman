@@ -9,6 +9,7 @@ import { LazyMotion, domAnimation } from "framer-motion";
 import Index from "./pages/Index";
 import PhotoGallery from "./pages/PhotoGallery";
 import NotFound from "./pages/NotFound";
+import NavbarModern from "./components/NavbarModern";
 
 // Create a client
 const queryClient = new QueryClient({
@@ -28,6 +29,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <NavbarModern />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/gallery" element={<PhotoGallery />} />

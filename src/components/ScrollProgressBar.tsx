@@ -1,34 +1,39 @@
 
-import { useEffect, useState } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 
-const ScrollProgressBar = () => {
+interface ScrollProgressBarProps {
+  color?: string;
+  height?: number;
+}
+
+const ScrollProgressBar = ({ 
+  color = "#D2A114",
+  height = 4
+}: ScrollProgressBarProps) => {
   const { scrollYProgress } = useScroll();
-  const [isVisible, setIsVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
-      // Only show progress bar after scrolling down a bit
-      if (window.scrollY > 200) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
-  if (!isVisible) return null;
+
+  if (!isScrolled) return null;
   
   return (
-    <motion.div 
-      className="fixed top-0 left-0 right-0 h-1 bg-golden-500/30 z-[100]"
-      style={{ scaleX: scrollYProgress }}
-      initial={{ originX: 0 }}
+    <motion.div
+      className="fixed top-0 left-0 right-0 z-[100] origin-left"
+      style={{
+        height,
+        backgroundColor: color,
+        scaleX: scrollYProgress,
+        transformOrigin: "left",
+      }}
     />
   );
 };
