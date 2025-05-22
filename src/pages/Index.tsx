@@ -1,15 +1,15 @@
-
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import PreLoader from '@/components/PreLoader';
-import NavigationSimplified from '@/components/NavigationSimplified';
-import ModernHero from '@/components/ModernHero';
+import HeroEnhanced from '@/components/HeroEnhanced';
 import About from '@/components/About';
 import Work from '@/components/Work';
 import MediaHighlights from '@/components/MediaHighlights';
 import Contact from '@/components/Contact';
 import FooterModern from '@/components/FooterModern';
-import ScrollProgressBar from '@/components/ScrollProgressBar';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import SectionHeading from '@/components/SectionHeading';
 
 // These components will be loaded conditionally based on user navigation
 import Timeline from '@/components/Timeline';
@@ -25,11 +25,28 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   
+  // References for scroll animations
+  const mainRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll({ target: mainRef });
+  
+  // InView hooks for section animations
+  const [aboutRef, aboutInView] = useInView({ threshold: 0.25, triggerOnce: true });
+  const [workRef, workInView] = useInView({ threshold: 0.25, triggerOnce: true });
+  const [mediaRef, mediaInView] = useInView({ threshold: 0.25, triggerOnce: true });
+  const [contactRef, contactInView] = useInView({ threshold: 0.25, triggerOnce: true });
+  
   useEffect(() => {
     // Detect hash from URL for direct section navigation
     const hash = window.location.hash.replace('#', '');
     if (hash) {
       setActiveSection(hash);
+      // Smooth scroll to the section after a brief delay
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
     }
     
     // Preload important images
@@ -81,6 +98,10 @@ const Index = () => {
     };
   }, []);
 
+  // Create scroll-based animations
+  const opacity = useTransform(scrollY, [0, 200], [1, 0]);
+  const scale = useTransform(scrollY, [0, 200], [1, 0.95]);
+
   // Conditionally render detailed section components based on navigation/hash
   const renderConditionalSection = () => {
     switch(activeSection) {
@@ -105,8 +126,21 @@ const Index = () => {
     }
   };
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" ref={mainRef}>
       <Helmet>
         <title>Dr. P.T. Abdul Rahman - Islamic Scholar, Educator & Humanitarian</title>
         <meta name="description" content="Dr. P.T. Abdul Rahman is a distinguished Islamic scholar in UAE, humanitarian in Dubai, author, and Founder Chairman of Darul Quran Abdulla Academy (DQAA)." />
@@ -308,14 +342,92 @@ const Index = () => {
       </Helmet>
       
       {isLoading && <PreLoader />}
-      <ScrollProgressBar />
-      <NavigationSimplified />
-      <ModernHero />
-      <About />
-      <Work />
-      {renderConditionalSection()}
-      <MediaHighlights />
-      <Contact />
+      
+      {/* Enhanced Hero Section */}
+      <motion.div style={{ opacity, scale }}>
+        <HeroEnhanced />
+      </motion.div>
+      
+      {/* About Section with Animation */}
+      <motion.div 
+        ref={aboutRef}
+        initial="hidden"
+        animate={aboutInView ? "visible" : "hidden"}
+        variants={fadeInUp}
+        className="py-20"
+        id="biography"
+      >
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="Biography" 
+            subtitle="A lifetime dedicated to education, faith, and humanitarian service"
+          />
+          <About />
+        </div>
+      </motion.div>
+      
+      {/* Work Section with Animation */}
+      <motion.div 
+        ref={workRef}
+        initial="hidden"
+        animate={workInView ? "visible" : "hidden"}
+        variants={fadeInUp}
+        className="py-20 bg-gray-50"
+        id="work"
+      >
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="Professional Journey" 
+            subtitle="Decades of leadership, scholarship, and community impact"
+          />
+          <Work />
+        </div>
+      </motion.div>
+      
+      {/* Conditional Content Section */}
+      <div className="py-20">
+        <div className="container mx-auto px-4">
+          {renderConditionalSection()}
+        </div>
+      </div>
+      
+      {/* Media Highlights with Animation */}
+      <motion.div 
+        ref={mediaRef}
+        initial="hidden"
+        animate={mediaInView ? "visible" : "hidden"}
+        variants={fadeInUp}
+        className="py-20 bg-gray-50"
+        id="media"
+      >
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="Media Highlights" 
+            subtitle="Recognition and features across prestigious publications"
+          />
+          <MediaHighlights />
+        </div>
+      </motion.div>
+      
+      {/* Contact Section with Animation */}
+      <motion.div 
+        ref={contactRef}
+        initial="hidden"
+        animate={contactInView ? "visible" : "hidden"}
+        variants={fadeInUp}
+        className="py-20"
+        id="contact"
+      >
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="Get in Touch" 
+            subtitle="Reach out for collaborations, speaking engagements, or inquiries"
+          />
+          <Contact />
+        </div>
+      </motion.div>
+      
+      {/* Modern Footer */}
       <FooterModern />
     </div>
   );

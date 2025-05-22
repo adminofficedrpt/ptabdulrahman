@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import PhotoGallery from "./pages/PhotoGallery";
 import NotFound from "./pages/NotFound";
 import NavbarModern from "./components/NavbarModern";
+import ScrollProgressBar from "./components/ScrollProgressBar";
 
 // Create a client
 const queryClient = new QueryClient({
@@ -30,6 +31,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <NavbarModern />
+            <ScrollProgressBar />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/gallery" element={<PhotoGallery />} />

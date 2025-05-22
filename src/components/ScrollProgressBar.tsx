@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 interface ScrollProgressBarProps {
   color?: string;
@@ -14,12 +14,19 @@ const ScrollProgressBar = ({
   const { scrollYProgress } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   
+  // Use spring animation for smoother progress
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -31,7 +38,7 @@ const ScrollProgressBar = ({
       style={{
         height,
         backgroundColor: color,
-        scaleX: scrollYProgress,
+        scaleX,
         transformOrigin: "left",
       }}
     />
