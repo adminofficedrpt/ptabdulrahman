@@ -9,7 +9,7 @@ import { LazyMotion, domAnimation } from "framer-motion";
 import Index from "./pages/Index";
 import PhotoGallery from "./pages/PhotoGallery";
 import NotFound from "./pages/NotFound";
-import NavbarModern from "./components/NavbarModern";
+import StoryNavigation from "./components/modern/StoryNavigation";
 import ScrollProgressBar from "./components/ScrollProgressBar";
 
 // Create a client
@@ -30,7 +30,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <NavbarModern />
+            <StoryNavigation />
             <ScrollProgressBar />
             <Routes>
               <Route path="/" element={<Index />} />

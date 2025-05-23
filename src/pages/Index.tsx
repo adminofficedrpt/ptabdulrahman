@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import PreLoader from '@/components/PreLoader';
-import HeroEnhanced from '@/components/HeroEnhanced';
+import EnhancedHero from '@/components/modern/EnhancedHero';
+import SectionContainer from '@/components/design-system/SectionContainer';
 import About from '@/components/About';
 import Work from '@/components/Work';
 import MediaHighlights from '@/components/MediaHighlights';
@@ -106,21 +107,53 @@ const Index = () => {
   const renderConditionalSection = () => {
     switch(activeSection) {
       case 'timeline':
-        return <Timeline />;
+        return (
+          <SectionContainer variant="accent" pattern>
+            <Timeline />
+          </SectionContainer>
+        );
       case 'books':
-        return <Books />;
+        return (
+          <SectionContainer variant="default" pattern>
+            <Books />
+          </SectionContainer>
+        );
       case 'humanitarian':
-        return <Humanitarian />;
+        return (
+          <SectionContainer variant="accent">
+            <Humanitarian />
+          </SectionContainer>
+        );
       case 'awards':
-        return <Awards />;
+        return (
+          <SectionContainer variant="default">
+            <Awards />
+          </SectionContainer>
+        );
       case 'legacy':
-        return <Legacy />;
+        return (
+          <SectionContainer variant="dark" pattern>
+            <Legacy />
+          </SectionContainer>
+        );
       case 'dqaa':
-        return <DQAA />;
+        return (
+          <SectionContainer variant="accent" pattern>
+            <DQAA />
+          </SectionContainer>
+        );
       case 'admission':
-        return <DQAAAdmission />;
+        return (
+          <SectionContainer variant="default">
+            <DQAAAdmission />
+          </SectionContainer>
+        );
       case 'donate':
-        return <DQAADonate />;
+        return (
+          <SectionContainer variant="accent">
+            <DQAADonate />
+          </SectionContainer>
+        );
       default:
         return null;
     }
@@ -345,86 +378,78 @@ const Index = () => {
       
       {/* Enhanced Hero Section */}
       <motion.div style={{ opacity, scale }}>
-        <HeroEnhanced />
+        <EnhancedHero />
       </motion.div>
       
-      {/* About Section with Animation */}
+      {/* About Section with Modern Container */}
       <motion.div 
         ref={aboutRef}
         initial="hidden"
         animate={aboutInView ? "visible" : "hidden"}
         variants={fadeInUp}
-        className="py-20"
         id="biography"
       >
-        <div className="container mx-auto px-4">
+        <SectionContainer variant="default" pattern>
           <SectionHeading 
             title="Biography" 
             subtitle="A lifetime dedicated to education, faith, and humanitarian service"
           />
           <About />
-        </div>
+        </SectionContainer>
       </motion.div>
       
-      {/* Work Section with Animation */}
+      {/* Work Section */}
       <motion.div 
         ref={workRef}
         initial="hidden"
         animate={workInView ? "visible" : "hidden"}
         variants={fadeInUp}
-        className="py-20 bg-gray-50"
         id="work"
       >
-        <div className="container mx-auto px-4">
+        <SectionContainer variant="accent">
           <SectionHeading 
             title="Professional Journey" 
             subtitle="Decades of leadership, scholarship, and community impact"
           />
           <Work />
-        </div>
+        </SectionContainer>
       </motion.div>
       
       {/* Conditional Content Section */}
-      <div className="py-20">
-        <div className="container mx-auto px-4">
-          {renderConditionalSection()}
-        </div>
-      </div>
+      {renderConditionalSection()}
       
-      {/* Media Highlights with Animation */}
+      {/* Media Highlights */}
       <motion.div 
         ref={mediaRef}
         initial="hidden"
         animate={mediaInView ? "visible" : "hidden"}
         variants={fadeInUp}
-        className="py-20 bg-gray-50"
         id="media"
       >
-        <div className="container mx-auto px-4">
+        <SectionContainer variant="default" pattern>
           <SectionHeading 
             title="Media Highlights" 
             subtitle="Recognition and features across prestigious publications"
           />
           <MediaHighlights />
-        </div>
+        </SectionContainer>
       </motion.div>
       
-      {/* Contact Section with Animation */}
+      {/* Contact Section */}
       <motion.div 
         ref={contactRef}
         initial="hidden"
         animate={contactInView ? "visible" : "hidden"}
         variants={fadeInUp}
-        className="py-20"
         id="contact"
       >
-        <div className="container mx-auto px-4">
+        <SectionContainer variant="accent">
           <SectionHeading 
             title="Get in Touch" 
             subtitle="Reach out for collaborations, speaking engagements, or inquiries"
           />
           <Contact />
-        </div>
+        </SectionContainer>
       </motion.div>
       
       {/* Modern Footer */}
