@@ -21,6 +21,9 @@ import Legacy from '@/components/Legacy';
 import DQAA from '@/components/DQAA';
 import DQAAAdmission from '@/components/DQAAAdmission';
 import DQAADonate from '@/components/DQAADonate';
+import InteractiveBiography from '@/components/modern/InteractiveBiography';
+import ImmersiveBookGallery from '@/components/modern/ImmersiveBookGallery';
+import AwardsRecognitionWall from '@/components/modern/AwardsRecognitionWall';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -112,22 +115,16 @@ const Index = () => {
             <Timeline />
           </SectionContainer>
         );
+      case 'biography':
+        return <InteractiveBiography />;
       case 'books':
-        return (
-          <SectionContainer variant="default" pattern>
-            <Books />
-          </SectionContainer>
-        );
+        return <ImmersiveBookGallery />;
+      case 'awards':
+        return <AwardsRecognitionWall />;
       case 'humanitarian':
         return (
           <SectionContainer variant="accent">
             <Humanitarian />
-          </SectionContainer>
-        );
-      case 'awards':
-        return (
-          <SectionContainer variant="default">
-            <Awards />
           </SectionContainer>
         );
       case 'legacy':
