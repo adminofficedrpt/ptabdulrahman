@@ -1,12 +1,11 @@
 
-# Allow all search engines and crawlers
+# Robots.txt for Dr. P.T. Abdul Rahman Official Website
+# Optimized for maximum search engine visibility
+
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://www.ptabdulrahman.com/sitemap.xml
-
-# Search engine specific rules - ensure full access
+# Specific search engine optimization
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
@@ -28,7 +27,7 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
-# Allow social media crawlers for proper previews
+# Social media crawlers for rich previews
 User-agent: Twitterbot
 Allow: /
 
@@ -44,6 +43,10 @@ Allow: /
 User-agent: Discordbot
 Allow: /
 
-# Only block error pages and PDF files - keep this limited
+# Only block unnecessary paths
 Disallow: /error
 Disallow: /*.pdf$
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.ptabdulrahman.com/sitemap.xml

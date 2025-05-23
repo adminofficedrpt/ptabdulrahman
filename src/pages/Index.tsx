@@ -8,9 +8,10 @@ import { preloadImages, heroImages } from '@/utils/imagePreloader';
 import ConditionalSections from '@/components/sections/ConditionalSections';
 import SEOMetadata from '@/components/seo/SEOMetadata';
 import NavigationSystem from '@/components/navigation/NavigationSystem';
-import ClearHero from '@/components/hero/ClearHero';
-import AboutSection from '@/components/sections/AboutSection';
-import BooksShowcase from '@/components/showcase/BooksShowcase';
+import HeroSlideshow from '@/components/hero/HeroSlideshow';
+import ComprehensiveAbout from '@/components/about/ComprehensiveAbout';
+import BooksGallery from '@/components/books/BooksGallery';
+import EnhancedTimeline from '@/components/timeline/EnhancedTimeline';
 import Work from '@/components/Work';
 import MediaHighlights from '@/components/MediaHighlights';
 import Contact from '@/components/Contact';
@@ -48,17 +49,22 @@ const Index = () => {
       {/* Navigation */}
       <NavigationSystem />
       
-      {/* Clear Hero Section */}
-      <ClearHero />
+      {/* Hero Slideshow */}
+      <HeroSlideshow />
       
-      {/* About Section */}
-      <AboutSection />
+      {/* Comprehensive About Section */}
+      <ComprehensiveAbout />
       
-      {/* Books Showcase */}
-      <BooksShowcase />
+      {/* Timeline Section */}
+      <SectionContainer variant="accent" id="timeline">
+        <EnhancedTimeline />
+      </SectionContainer>
+      
+      {/* Books Gallery */}
+      <BooksGallery />
       
       {/* Work Section */}
-      <SectionContainer variant="accent" id="work">
+      <SectionContainer variant="default" pattern id="work">
         <SectionHeading 
           title="Professional Journey" 
           subtitle="Decades of leadership, scholarship, and community impact"
@@ -67,20 +73,16 @@ const Index = () => {
       </SectionContainer>
       
       {/* Media Highlights */}
-      <SectionContainer variant="default" pattern id="media">
+      <SectionContainer variant="accent" id="media">
         <SectionHeading 
-          title="Media Highlights" 
-          subtitle="Recognition and features across prestigious publications"
+          title="Media Recognition" 
+          subtitle="Features and coverage across prestigious publications worldwide"
         />
         <MediaHighlights />
       </SectionContainer>
       
       {/* Contact Section */}
-      <SectionContainer variant="accent" id="contact">
-        <SectionHeading 
-          title="Get in Touch" 
-          subtitle="Reach out for collaborations, speaking engagements, or inquiries"
-        />
+      <SectionContainer variant="default" id="contact">
         <Contact />
       </SectionContainer>
       
