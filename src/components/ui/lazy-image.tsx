@@ -1,10 +1,10 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
 
-interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface LazyImageProps {
   src: string;
   alt: string;
   className?: string;
@@ -24,7 +24,6 @@ const LazyImage: React.FC<LazyImageProps> = ({
   priority = false,
   onLoad,
   onError,
-  ...props
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isInView, setIsInView] = useState(priority);
@@ -101,7 +100,6 @@ const LazyImage: React.FC<LazyImageProps> = ({
             scale: 1 
           }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          {...props}
         />
       )}
 
