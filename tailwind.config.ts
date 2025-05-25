@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
@@ -111,6 +112,33 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			spacing: {
+				// Fluid spacing utilities
+				'fluid-xs': 'clamp(0.5rem, 1vw, 1rem)',
+				'fluid-sm': 'clamp(1rem, 2vw, 1.5rem)',
+				'fluid-md': 'clamp(1.5rem, 3vw, 2.5rem)',
+				'fluid-lg': 'clamp(2rem, 4vw, 4rem)',
+				'fluid-xl': 'clamp(3rem, 6vw, 6rem)',
+				'fluid-2xl': 'clamp(4rem, 8vw, 8rem)',
+				'fluid-3xl': 'clamp(6rem, 10vw, 12rem)',
+			},
+			fontSize: {
+				// Fluid typography
+				'fluid-xs': ['clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem)', { lineHeight: '1.4' }],
+				'fluid-sm': ['clamp(0.875rem, 0.8rem + 0.375vw, 1rem)', { lineHeight: '1.5' }],
+				'fluid-base': ['clamp(1rem, 0.9rem + 0.5vw, 1.125rem)', { lineHeight: '1.6' }],
+				'fluid-lg': ['clamp(1.125rem, 1rem + 0.625vw, 1.25rem)', { lineHeight: '1.5' }],
+				'fluid-xl': ['clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)', { lineHeight: '1.4' }],
+				'fluid-2xl': ['clamp(1.5rem, 1.3rem + 1vw, 2rem)', { lineHeight: '1.3' }],
+				'fluid-3xl': ['clamp(1.875rem, 1.6rem + 1.375vw, 2.5rem)', { lineHeight: '1.2' }],
+				'fluid-4xl': ['clamp(2.25rem, 1.9rem + 1.75vw, 3rem)', { lineHeight: '1.1' }],
+				'fluid-5xl': ['clamp(3rem, 2.5rem + 2.5vw, 4rem)', { lineHeight: '1' }],
+				'fluid-6xl': ['clamp(3.75rem, 3rem + 3.75vw, 5rem)', { lineHeight: '1' }],
+			},
+			maxWidth: {
+				'8xl': '88rem',
+				'9xl': '96rem',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: { height: '0' },
@@ -139,7 +167,15 @@ export default {
 				"cursor-blink": {
 					"0%, 100%": { opacity: "1" },
 					"50%": { opacity: "0" }
-				}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -148,7 +184,9 @@ export default {
 				'fade-right': 'fade-right 0.5s ease-out forwards',
 				'fade-left': 'fade-left 0.5s ease-out forwards',
 				'scale-in': 'scale-in 0.4s ease-out forwards',
-				"cursor-blink": "cursor-blink 1s step-end infinite"
+				"cursor-blink": "cursor-blink 1s step-end infinite",
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
 			},
 		}
 	},
