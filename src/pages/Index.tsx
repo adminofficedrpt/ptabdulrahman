@@ -10,13 +10,14 @@ import SEOMetadata from '@/components/seo/SEOMetadata';
 import NavigationSystem from '@/components/navigation/NavigationSystem';
 import HeroSlideshow from '@/components/hero/HeroSlideshow';
 import ComprehensiveAbout from '@/components/about/ComprehensiveAbout';
-import BooksGallery from '@/components/books/BooksGallery';
-import EnhancedTimeline from '@/components/timeline/EnhancedTimeline';
+import EnhancedBooksGallery from '@/components/books/EnhancedBooksGallery';
+import HorizontalTimeline from '@/components/timeline/HorizontalTimeline';
 import Work from '@/components/Work';
 import MediaHighlights from '@/components/MediaHighlights';
 import Contact from '@/components/Contact';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import FluidTypography from '@/components/typography/FluidTypography';
+import ScrollProgressBar from '@/components/ScrollProgressBar';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,10 @@ const Index = () => {
   const mainRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({ target: mainRef });
   
+  // Smooth parallax effects
+  const heroOffset = useTransform(scrollY, [0, 1000], [0, -200]);
+  const aboutOffset = useTransform(scrollY, [0, 1500], [0, -100]);
+
   useEffect(() => {
     // Preload important images
     preloadImages(heroImages);
@@ -43,54 +48,40 @@ const Index = () => {
   return (
     <div className="min-h-screen" ref={mainRef}>
       <SEOMetadata />
+      <ScrollProgressBar />
       
       {isLoading && <PreLoader />}
       
       {/* Navigation */}
       <NavigationSystem />
       
-      {/* Hero Slideshow with improved sizing */}
-      <section className="min-h-screen relative">
+      {/* Hero Slideshow with parallax */}
+      <motion.section 
+        className="min-h-screen relative"
+        style={{ y: heroOffset }}
+      >
         <HeroSlideshow />
-      </section>
+      </motion.section>
       
       {/* Comprehensive About Section */}
-      <section id="about" className="py-[clamp(4rem,8vw,8rem)] relative">
+      <motion.section 
+        id="about" 
+        className="py-[clamp(4rem,8vw,8rem)] relative bg-white"
+        style={{ y: aboutOffset }}
+      >
         <ResponsiveContainer size="xl" padding="lg">
           <ComprehensiveAbout />
         </ResponsiveContainer>
+      </motion.section>
+      
+      {/* Enhanced Horizontal Timeline */}
+      <section id="timeline" className="relative">
+        <HorizontalTimeline />
       </section>
       
-      {/* Timeline Section with enhanced layout */}
-      <section id="timeline" className="py-[clamp(4rem,8vw,8rem)] bg-gradient-to-br from-royal-50 to-golden-50 relative overflow-hidden">
-        <ResponsiveContainer size="2xl" padding="lg">
-          <div className="text-center mb-[clamp(3rem,6vw,6rem)]">
-            <FluidTypography variant="h2" color="royal" className="mb-6">
-              Journey of Impact
-            </FluidTypography>
-            <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto">
-              Spanning three decades, Dr. Rahman's journey has been marked by significant milestones 
-              in education, interfaith unity, humanitarian service, and community development.
-            </FluidTypography>
-          </div>
-          <EnhancedTimeline />
-        </ResponsiveContainer>
-      </section>
-      
-      {/* Books Gallery with improved spacing */}
-      <section id="books" className="py-[clamp(4rem,8vw,8rem)] relative">
-        <ResponsiveContainer size="xl" padding="lg">
-          <div className="text-center mb-[clamp(3rem,6vw,6rem)]">
-            <FluidTypography variant="h2" color="royal" className="mb-6">
-              Literary Contributions
-            </FluidTypography>
-            <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto">
-              Explore Dr. Rahman's scholarly works that bridge Islamic philosophy with contemporary thought, 
-              touching minds across cultures and generations.
-            </FluidTypography>
-          </div>
-          <BooksGallery />
-        </ResponsiveContainer>
+      {/* Enhanced Books Gallery */}
+      <section id="books" className="relative">
+        <EnhancedBooksGallery />
       </section>
       
       {/* Work Section with responsive layout */}
@@ -110,7 +101,7 @@ const Index = () => {
       </section>
       
       {/* Media Highlights with enhanced spacing */}
-      <section id="media" className="py-[clamp(4rem,8vw,8rem)] relative">
+      <section id="media" className="py-[clamp(4rem,8vw,8rem)] relative bg-white">
         <ResponsiveContainer size="xl" padding="lg">
           <div className="text-center mb-[clamp(3rem,6vw,6rem)]">
             <FluidTypography variant="h2" color="royal" className="mb-6">
