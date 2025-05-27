@@ -37,7 +37,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full overflow-x-hidden">
       <AggressiveSEO />
       <ScrollProgressBar />
       
@@ -75,18 +75,18 @@ const Index = () => {
       </section>
       
       {/* Epilogue: Connect (Enhanced Contact) */}
-      <section id="connect" className="py-[clamp(4rem,8vw,8rem)] bg-gradient-to-br from-royal-50 to-golden-50 relative">
+      <section id="connect" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-royal-50 to-golden-50 relative">
         <ResponsiveContainer size="lg" padding="lg">
-          <div className="text-center mb-[clamp(3rem,6vw,6rem)]">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <div className="inline-block mb-4">
-              <span className="text-sm font-light tracking-[0.2em] uppercase text-golden-600">
+              <span className="text-xs sm:text-sm font-light tracking-[0.2em] uppercase text-golden-600">
                 Epilogue
               </span>
             </div>
-            <FluidTypography variant="h2" color="royal" className="mb-6">
+            <FluidTypography variant="h2" color="royal" className="mb-4 sm:mb-6">
               Connect with Dr. P.T. Abdul Rahman
             </FluidTypography>
-            <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto">
+            <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto px-4">
               Join the conversation and become part of a global community dedicated to 
               educational excellence and humanitarian service.
             </FluidTypography>

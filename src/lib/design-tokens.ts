@@ -1,19 +1,19 @@
 
-// Design tokens for consistent sizing and typography
+// Design tokens for consistent sizing and typography with mobile-first approach
 export const designTokens = {
-  // Typography scale - fluid responsive sizing
+  // Typography scale - fluid responsive sizing with improved mobile ranges
   typography: {
     scale: {
-      xs: 'clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem)',
-      sm: 'clamp(0.875rem, 0.8rem + 0.375vw, 1rem)',
-      base: 'clamp(1rem, 0.9rem + 0.5vw, 1.125rem)',
-      lg: 'clamp(1.125rem, 1rem + 0.625vw, 1.25rem)',
-      xl: 'clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)',
-      '2xl': 'clamp(1.5rem, 1.3rem + 1vw, 2rem)',
-      '3xl': 'clamp(1.875rem, 1.6rem + 1.375vw, 2.5rem)',
-      '4xl': 'clamp(2.25rem, 1.9rem + 1.75vw, 3rem)',
-      '5xl': 'clamp(3rem, 2.5rem + 2.5vw, 4rem)',
-      '6xl': 'clamp(3.75rem, 3rem + 3.75vw, 5rem)',
+      xs: 'clamp(0.75rem, 2vw, 0.875rem)',
+      sm: 'clamp(0.875rem, 2.5vw, 1rem)',
+      base: 'clamp(1rem, 3vw, 1.125rem)',
+      lg: 'clamp(1.125rem, 3.5vw, 1.25rem)',
+      xl: 'clamp(1.25rem, 4vw, 1.5rem)',
+      '2xl': 'clamp(1.5rem, 5vw, 2rem)',
+      '3xl': 'clamp(1.875rem, 6vw, 2.5rem)',
+      '4xl': 'clamp(2.25rem, 7vw, 3rem)',
+      '5xl': 'clamp(2.5rem, 8vw, 4rem)',
+      '6xl': 'clamp(3rem, 10vw, 5rem)',
     },
     weight: {
       light: 300,
@@ -32,14 +32,14 @@ export const designTokens = {
     },
   },
   
-  // Consistent spacing system
+  // Mobile-first spacing system
   spacing: {
     section: {
-      xs: 'clamp(2rem, 4vw, 3rem)',
-      sm: 'clamp(3rem, 5vw, 4rem)',
-      md: 'clamp(4rem, 6vw, 6rem)',
-      lg: 'clamp(6rem, 8vw, 8rem)',
-      xl: 'clamp(8rem, 10vw, 12rem)',
+      xs: 'clamp(1.5rem, 4vw, 2rem)',
+      sm: 'clamp(2rem, 5vw, 3rem)',
+      md: 'clamp(3rem, 6vw, 4rem)',
+      lg: 'clamp(4rem, 8vw, 6rem)',
+      xl: 'clamp(5rem, 10vw, 8rem)',
     },
     container: {
       xs: '1rem',
@@ -49,18 +49,18 @@ export const designTokens = {
       xl: '3rem',
     },
     component: {
-      xs: '0.5rem',
-      sm: '0.75rem',
-      md: '1rem',
-      lg: '1.5rem',
-      xl: '2rem',
-      '2xl': '3rem',
+      xs: 'clamp(0.5rem, 1vw, 0.75rem)',
+      sm: 'clamp(0.75rem, 1.5vw, 1rem)',
+      md: 'clamp(1rem, 2vw, 1.5rem)',
+      lg: 'clamp(1.5rem, 3vw, 2rem)',
+      xl: 'clamp(2rem, 4vw, 3rem)',
+      '2xl': 'clamp(2.5rem, 5vw, 4rem)',
     },
   },
   
-  // Responsive breakpoints
+  // Mobile-optimized breakpoints
   breakpoints: {
-    xs: '475px',
+    xs: '320px',
     sm: '640px',
     md: '768px',
     lg: '1024px',
@@ -85,7 +85,7 @@ export const designTokens = {
     },
   },
   
-  // Layout constraints
+  // Mobile-optimized layout constraints
   layout: {
     maxWidth: {
       sm: '640px',
@@ -96,15 +96,15 @@ export const designTokens = {
       full: '100%',
     },
     hero: {
-      minHeight: '100vh',
+      minHeight: '100svh', // Use dynamic viewport height for mobile
       maxHeight: '120vh',
     },
     section: {
-      minHeight: '60vh',
+      minHeight: '50vh', // Reduced for mobile
     },
   },
   
-  // Z-index scale
+  // Z-index scale with mobile considerations
   zIndex: {
     hide: -1,
     auto: 'auto',
@@ -119,6 +119,30 @@ export const designTokens = {
     skipLink: 1600,
     toast: 1700,
     tooltip: 1800,
+    navigation: 1900, // High priority for mobile navigation
+  },
+  
+  // Touch target sizes for mobile accessibility
+  touch: {
+    minSize: '44px', // iOS and Android minimum touch target
+    recommendedSize: '48px',
+    comfortableSize: '56px',
+  },
+  
+  // Mobile-specific spacing
+  mobile: {
+    safeArea: {
+      top: 'env(safe-area-inset-top)',
+      bottom: 'env(safe-area-inset-bottom)',
+      left: 'env(safe-area-inset-left)',
+      right: 'env(safe-area-inset-right)',
+    },
+    padding: {
+      xs: '0.75rem',
+      sm: '1rem',
+      md: '1.25rem',
+      lg: '1.5rem',
+    },
   },
 };
 
@@ -136,4 +160,13 @@ export const getResponsiveValue = (values: Record<string, string | number>) => {
       return `@screen ${breakpoint} { ${value} }`;
     })
     .join(' ');
+};
+
+// Mobile-first helper functions
+export const getMobileFluidSize = (mobile: number, desktop: number) => {
+  return `clamp(${mobile}px, ${mobile}px + (${desktop - mobile}) * ((100vw - 320px) / (1200 - 320)), ${desktop}px)`;
+};
+
+export const getTouchTarget = (size: 'min' | 'recommended' | 'comfortable' = 'min') => {
+  return designTokens.touch[`${size}Size`];
 };
