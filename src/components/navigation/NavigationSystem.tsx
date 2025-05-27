@@ -1,50 +1,45 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { useScrollNavigation } from '@/hooks/useScrollNavigation';
 
 const NavigationSystem = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
+  const { activeSection, scrollToSection } = useScrollNavigation();
 
-  // Navigation structure with clear sections
+  // Navigation structure with chapter-based sections
   const navigationItems = [
     {
-      name: "About Dr. Rahman",
-      path: "#about",
-      description: "Learn about his life and mission"
+      name: "The Visionary",
+      path: "visionary",
+      description: "Philosophy and vision for Islamic education"
     },
     {
-      name: "Timeline", 
-      path: "#timeline",
-      description: "Journey through key milestones"
+      name: "The Bridge Builder", 
+      path: "bridge-builder",
+      description: "Community service and interfaith dialogue"
     },
     {
-      name: "Books & Publications",
-      path: "#books", 
-      description: "Literary contributions and works"
+      name: "The Educator",
+      path: "educator", 
+      description: "DQAA Academy and educational innovation"
     },
     {
-      name: "DQAA Academy",
-      path: "#dqaa",
-      description: "Educational institution he founded"
+      name: "The Scholar",
+      path: "scholar",
+      description: "Books, publications, and intellectual contributions"
     },
     {
-      name: "Awards & Recognition",
-      path: "#awards",
-      description: "Global recognition and honors"
+      name: "The Legacy",
+      path: "legacy",
+      description: "Timeline of achievements and impact"
     },
     {
-      name: "Humanitarian Work",
-      path: "#humanitarian", 
-      description: "Community service and impact"
-    },
-    {
-      name: "Contact",
-      path: "#contact",
-      description: "Get in touch"
+      name: "Connect",
+      path: "connect",
+      description: "Get in touch and join the community"
     }
   ];
 
@@ -57,23 +52,9 @@ const NavigationSystem = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    e.preventDefault();
+  const handleNavClick = (path: string) => {
     setIsOpen(false);
-    
-    if (path.startsWith('#')) {
-      const elementId = path.replace('#', '');
-      const element = document.getElementById(elementId);
-      
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start' 
-        });
-        // Update URL without page reload
-        window.history.pushState({}, '', path);
-      }
-    }
+    scrollToSection(path);
   };
 
   return (
@@ -91,33 +72,40 @@ const NavigationSystem = () => {
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
-          <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="relative z-10">
+          <button onClick={() => scrollToSection('hero')} className="relative z-10">
             <motion.img
               src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png"
               alt="Dr. P.T. Abdul Rahman"
               className={`h-12 transition-all duration-300 ${
-                !isScrolled && location.pathname === '/' ? 'filter brightness-0 invert' : ''
+                !isScrolled ? 'filter brightness-0 invert' : ''
               }`}
               whileHover={{ scale: 1.05 }}
             />
-          </a>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navigationItems.slice(0, 5).map((item) => (
-              <a
+            {navigationItems.slice(0, 4).map((item) => (
+              <button
                 key={item.name}
-                href={item.path}
-                onClick={(e) => handleNavClick(e, item.path)}
-                className={`text-sm font-medium transition-colors duration-300 ${
-                  isScrolled || location.pathname !== '/'
+                onClick={() => handleNavClick(item.path)}
+                className={`text-sm font-medium transition-colors duration-300 relative ${
+                  isScrolled
                     ? 'text-royal-800 hover:text-golden-600'
                     : 'text-white hover:text-golden-300'
+                } ${
+                  activeSection === item.path ? 'text-golden-600' : ''
                 }`}
                 title={item.description}
               >
                 {item.name}
-              </a>
+                {activeSection === item.path && (
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-golden-600"
+                    layoutId="activeIndicator"
+                  />
+                )}
+              </button>
             ))}
           </div>
 
@@ -125,7 +113,7 @@ const NavigationSystem = () => {
           <motion.button
             onClick={() => setIsOpen(true)}
             className={`lg:hidden p-2 rounded-full transition-colors ${
-              isScrolled || location.pathname !== '/' 
+              isScrolled 
                 ? 'text-royal-800 hover:bg-gray-100' 
                 : 'text-white hover:bg-white/10'
             }`}
@@ -157,7 +145,7 @@ const NavigationSystem = () => {
 
               <div className="flex-1 overflow-y-auto">
                 <h2 className="text-2xl font-playfair font-bold text-royal-900 mb-8">
-                  Explore Dr. Rahman's Journey
+                  Journey Through Dr. P.T.'s Legacy
                 </h2>
 
                 <div className="space-y-6">
@@ -169,16 +157,15 @@ const NavigationSystem = () => {
                       transition={{ delay: index * 0.1 }}
                       className="border-b border-gray-100 pb-4"
                     >
-                      <a
-                        href={item.path}
-                        onClick={(e) => handleNavClick(e, item.path)}
-                        className="block group"
+                      <button
+                        onClick={() => handleNavClick(item.path)}
+                        className="block w-full text-left group"
                       >
-                        <h3 className="text-xl font-playfair font-semibold text-royal-800 group-hover:text-golden-600 transition-colors">
-                          {item.name}
+                        <h3 className="text-xl font-playfair font-semibold text-royal-800 group-hover:text-golden-600 transition-colors mb-1">
+                          Chapter {index < 5 ? index + 1 : ''} {item.name}
                         </h3>
-                        <p className="text-gray-600 text-sm mt-1">{item.description}</p>
-                      </a>
+                        <p className="text-gray-600 text-sm">{item.description}</p>
+                      </button>
                     </motion.div>
                   ))}
                 </div>
