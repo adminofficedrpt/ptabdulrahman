@@ -4,7 +4,7 @@ import PreLoader from '@/components/PreLoader';
 import FooterModern from '@/components/FooterModern';
 import { motion } from 'framer-motion';
 import { preloadImages, heroImages } from '@/utils/imagePreloader';
-import SEOMetadata from '@/components/seo/SEOMetadata';
+import AggressiveSEO from '@/components/seo/AggressiveSEO';
 import NavigationSystem from '@/components/navigation/NavigationSystem';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
 import CinematicHero from '@/components/modern/CinematicHero';
@@ -12,8 +12,9 @@ import ChapterNavigation from '@/components/modern/ChapterNavigation';
 import ChapterOne from '@/components/chapters/ChapterOne';
 import ChapterTwo from '@/components/chapters/ChapterTwo';
 import ChapterThree from '@/components/chapters/ChapterThree';
-import EnhancedBooksGallery from '@/components/books/EnhancedBooksGallery';
-import HorizontalTimeline from '@/components/timeline/HorizontalTimeline';
+import InteractiveBookExperience from '@/components/books/InteractiveBookExperience';
+import ImmersiveTimeline from '@/components/timeline/ImmersiveTimeline';
+import GlobalImpactVisualization from '@/components/impact/GlobalImpactVisualization';
 import Contact from '@/components/Contact';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import FluidTypography from '@/components/typography/FluidTypography';
@@ -37,7 +38,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <SEOMetadata />
+      <AggressiveSEO />
       <ScrollProgressBar />
       
       {isLoading && <PreLoader />}
@@ -60,14 +61,17 @@ const Index = () => {
       {/* Chapter 3: The Educator */}
       <ChapterThree />
       
-      {/* Chapter 4: The Scholar (Enhanced Books Gallery) */}
+      {/* Chapter 4: The Scholar (Interactive Books Experience) */}
       <section id="scholar" className="relative">
-        <EnhancedBooksGallery />
+        <InteractiveBookExperience />
       </section>
       
-      {/* Chapter 5: The Legacy (Enhanced Horizontal Timeline) */}
+      {/* Global Impact Visualization */}
+      <GlobalImpactVisualization />
+      
+      {/* Chapter 5: The Legacy (Immersive Timeline) */}
       <section id="legacy" className="relative">
-        <HorizontalTimeline />
+        <ImmersiveTimeline />
       </section>
       
       {/* Epilogue: Connect (Enhanced Contact) */}

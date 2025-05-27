@@ -1,11 +1,12 @@
 
-# Robots.txt for Dr. P.T. Abdul Rahman Official Website
-# Optimized for maximum search engine visibility
+# Enhanced Robots.txt for Dr. P.T. Abdul Rahman Official Website
+# Optimized for maximum search engine visibility and international reach
 
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Specific search engine optimization
+# Major search engines - explicit permissions
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
@@ -20,33 +21,134 @@ Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Baiduspider
 Allow: /
+Crawl-delay: 2
 
-User-agent: Yandex
+User-agent: YandexBot
 Allow: /
+Crawl-delay: 2
 
-# Social media crawlers for rich previews
+# Regional search engines for better international reach
+User-agent: Sogou
+Allow: /
+Crawl-delay: 2
+
+User-agent: NaverBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: AppleBot
+Allow: /
+Crawl-delay: 1
+
+# Social media crawlers for rich previews and social SEO
 User-agent: Twitterbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: facebookexternalhit
 Allow: /
+Crawl-delay: 1
 
 User-agent: LinkedInBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: WhatsApp
 Allow: /
+Crawl-delay: 1
 
 User-agent: Discordbot
 Allow: /
+Crawl-delay: 1
 
-# Only block unnecessary paths
-Disallow: /error
-Disallow: /*.pdf$
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: TelegramBot
+Allow: /
+Crawl-delay: 1
+
+# Academic and research crawlers
+User-agent: ia_archiver
+Allow: /
+
+User-agent: Wayback
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+# News and media crawlers
+User-agent: CCBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Academic citation crawlers
+User-agent: CiteSeerXBot
+Allow: /
+
+User-agent: SemanticScholarBot
+Allow: /
+
+# Only block unnecessary paths and sensitive areas
+Disallow: /admin/
 Disallow: /private/
+Disallow: /error/
+Disallow: /404/
+Disallow: /temp/
+Disallow: /.well-known/
+Disallow: /api/
+Disallow: /*.pdf$ 
+Disallow: /downloads/private/
+Disallow: /staff-only/
 
-# Sitemap location
+# Allow important resource types for SEO
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.ico$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ttf$
+Allow: /*.pdf$
+
+# Enhanced sitemap declarations
 Sitemap: https://www.ptabdulrahman.com/sitemap.xml
+Sitemap: https://www.ptabdulrahman.com/sitemap-images.xml
+Sitemap: https://www.ptabdulrahman.com/sitemap-news.xml
+
+# Host declaration for international SEO
+Host: https://www.ptabdulrahman.com
+
+# Crawl optimization directives
+Request-rate: 1/10s
+Visit-time: 0600-2300
+
+# Additional SEO optimization
+# Encourage indexing of key educational and humanitarian content
+# Optimized for searches related to:
+# - Islamic education UAE
+# - Humanitarian work Dubai  
+# - DQAA founder
+# - Islamic philosophy author
+# - Interfaith dialogue leader
+# - Community development UAE
+# - Educational innovation Islamic
+# - Dr PT Abdul Rahman achievements
+# - Darul Quran Abdulla Academy
+# - Islamic scholarship global
