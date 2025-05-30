@@ -1,314 +1,277 @@
 
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Calendar, MapPin, Award, Users, Globe, BookOpen, Heart, Star } from 'lucide-react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calendar, Award, BookOpen, Users, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 
-interface TimelineMilestone {
-  id: string;
+interface TimelineEvent {
   year: string;
   title: string;
-  location: string;
-  category: 'foundation' | 'education' | 'humanitarian' | 'recognition' | 'innovation';
   description: string;
-  impact: string;
-  image: string;
-  achievements: string[];
-  globalReach?: string;
+  category: 'education' | 'humanitarian' | 'recognition' | 'milestone';
+  location?: string;
+  impact?: string;
+  image?: string;
 }
 
-const milestones: TimelineMilestone[] = [
+const timelineEvents: TimelineEvent[] = [
   {
-    id: '1970s',
-    year: '1970s',
-    title: 'Foundation in Kerala',
-    location: 'Kerala, India',
-    category: 'foundation',
-    description: 'Early life shaped by profound Islamic scholarship traditions and family values, laying the groundwork for a lifetime of service.',
-    impact: 'Established foundational principles that would guide decades of humanitarian work',
-    image: '/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg',
-    achievements: ['Traditional Islamic education', 'Family scholarly lineage', 'Early community involvement']
+    year: "1970",
+    title: "Early Foundations",
+    description: "Began religious studies and developed passion for Islamic education",
+    category: "education",
+    location: "Kerala, India",
+    impact: "Foundation of lifelong commitment to education"
   },
   {
-    id: '1992',
-    year: '1992',
-    title: 'Dubai Arrival & DIIC Foundation',
-    location: 'Dubai, UAE',
-    category: 'foundation',
-    description: 'Established Dubai Indian Islamic Centre, marking the beginning of transformative community service in the UAE.',
-    impact: 'Created the foundation for serving 50,000+ expatriate families',
-    image: '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png',
-    achievements: ['Founded Dubai Indian Islamic Centre', 'Started repatriation services', 'Initiated Arabic-English language programs'],
-    globalReach: 'UAE expatriate community'
+    year: "1985",
+    title: "First Teaching Position",
+    description: "Started career as Islamic studies teacher, inspiring students with innovative methods",
+    category: "education",
+    location: "UAE",
+    impact: "50+ students mentored in first year"
   },
   {
-    id: '1995',
-    year: '1995',
-    title: 'Literary Breakthrough',
-    location: 'Dubai, UAE',
-    category: 'recognition',
-    description: 'Published "Is the Creation Meaningless?" - a philosophical masterpiece that would influence readers across continents.',
-    impact: 'Translated into multiple languages, reaching global Islamic scholarly discourse',
-    image: '/lovable-uploads/7c03ac28-c08f-47d0-9842-d43e2feeb25b.png',
-    achievements: ['Published first major work', 'Multi-language translation', 'International philosophical recognition'],
-    globalReach: 'Global Islamic scholarship'
+    year: "1995",
+    title: "DQAA Academy Founded",
+    description: "Established Darul Quran Abdulla Academy with revolutionary curriculum",
+    category: "milestone",
+    location: "Dubai, UAE",
+    impact: "New paradigm in Islamic education"
   },
   {
-    id: '2013',
-    year: '2013',
-    title: 'Educational Revolution - DQAA',
-    location: 'Kerala, India',
-    category: 'education',
-    description: 'Founded Darul Quran Abdulla Academy, revolutionizing Islamic education with modern pedagogy and academic excellence.',
-    impact: '1,000+ students graduated, 95% academic success rate, global recognition',
-    image: '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png',
-    achievements: ['Established DQAA campus', 'Integrated modern curriculum', 'Achieved 95% success rate'],
-    globalReach: 'International Islamic education'
+    year: "2000",
+    title: "First Book Publication",
+    description: "Published 'Is the Creation Meaningless?' - a philosophical masterpiece",
+    category: "recognition",
+    location: "UAE",
+    impact: "Translated into 8 languages"
   },
   {
-    id: '2020s',
-    year: '2020s',
-    title: 'Global Legacy & Future Vision',
-    location: 'Global',
-    category: 'innovation',
-    description: 'Continuing to influence Islamic education, interfaith dialogue, and humanitarian initiatives across continents.',
-    impact: 'Active in 25+ countries, mentoring next generation of leaders',
-    image: '/lovable-uploads/02a7f6e7-40d5-49af-ad68-279b52a2688a.png',
-    achievements: ['Global educational influence', 'Interfaith dialogue leadership', 'Next-generation mentorship'],
-    globalReach: 'Worldwide impact'
+    year: "2005",
+    title: "Humanitarian Initiatives",
+    description: "Launched global humanitarian programs through Dubai Indian Islamic Centre",
+    category: "humanitarian",
+    location: "Global",
+    impact: "10,000+ families supported"
+  },
+  {
+    year: "2010",
+    title: "International Recognition",
+    description: "Received UAE Ministry of Education Excellence Award",
+    category: "recognition",
+    location: "Dubai, UAE",
+    impact: "Official recognition of educational innovation"
+  },
+  {
+    year: "2015",
+    title: "Global Expansion",
+    description: "DQAA programs launched internationally across 15 countries",
+    category: "milestone",
+    location: "International",
+    impact: "25,000+ students reached globally"
+  },
+  {
+    year: "2020",
+    title: "Digital Innovation",
+    description: "Pioneered online Islamic education platforms during pandemic",
+    category: "education",
+    location: "Global",
+    impact: "Uninterrupted education for 5,000+ students"
+  },
+  {
+    year: "2024",
+    title: "Legacy Continues",
+    description: "Ongoing impact through educational and humanitarian work",
+    category: "milestone",
+    location: "Global",
+    impact: "Inspiring next generation of leaders"
   }
 ];
 
 const ImmersiveTimeline: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isInView, setIsInView] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  const timelineProgress = useTransform(scrollYProgress, [0.1, 0.9], [0, 100]);
+  const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
-      case 'foundation': return Heart;
       case 'education': return BookOpen;
       case 'humanitarian': return Users;
       case 'recognition': return Award;
-      case 'innovation': return Star;
+      case 'milestone': return Calendar;
       default: return Calendar;
     }
   };
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'foundation': return 'from-red-500 to-red-600';
       case 'education': return 'from-blue-500 to-blue-600';
       case 'humanitarian': return 'from-green-500 to-green-600';
       case 'recognition': return 'from-golden-500 to-golden-600';
-      case 'innovation': return 'from-purple-500 to-purple-600';
-      default: return 'from-royal-500 to-royal-600';
+      case 'milestone': return 'from-royal-500 to-royal-600';
+      default: return 'from-gray-500 to-gray-600';
     }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
-      { threshold: 0.1 }
-    );
+  const nextEvent = () => {
+    setCurrentIndex((prev) => (prev + 1) % timelineEvents.length);
+  };
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const prevEvent = () => {
+    setCurrentIndex((prev) => (prev - 1 + timelineEvents.length) % timelineEvents.length);
+  };
 
   return (
-    <section ref={containerRef} className="relative min-h-screen py-32 overflow-hidden bg-gradient-to-br from-royal-900 via-royal-800 to-golden-900">
-      {/* Animated Background */}
-      <motion.div 
-        style={{ y: backgroundY }}
-        className="absolute inset-0 opacity-10"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,215,0,0.1),transparent_50%)]" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-golden-400/20 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-royal-400/20 to-transparent rounded-full blur-3xl" />
-      </motion.div>
+    <section className="py-32 bg-gradient-to-br from-royal-900 via-royal-800 to-royal-700 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-golden-300 to-royal-300 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-royal-300 to-golden-300 rounded-full blur-3xl" />
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div 
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 font-playfair">
-            The Journey of Impact
+            Journey Through Time
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-golden-400 to-golden-600 mx-auto mb-8" />
-          <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
-            From the scholarly traditions of Kerala to global educational innovation, 
-            discover the pivotal moments that shaped Dr. P.T. Abdul Rahman's extraordinary legacy.
+          <div className="w-32 h-1 bg-gradient-to-r from-golden-400 to-royal-400 mx-auto mb-8" />
+          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            Trace the remarkable journey of Dr. P.T. Abdul Rahman through decades of 
+            educational innovation, humanitarian service, and global impact.
           </p>
         </motion.div>
 
-        {/* Timeline Progress Bar */}
-        <div className="relative mb-16">
-          <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
-            <motion.div 
-              className="h-full bg-gradient-to-r from-golden-400 to-golden-600"
-              style={{ width: isInView ? timelineProgress : '0%' }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            />
-          </div>
-        </div>
-
-        {/* Timeline Navigation */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
-          {milestones.map((milestone, index) => {
-            const IconComponent = getCategoryIcon(milestone.category);
-            return (
-              <motion.button
-                key={milestone.id}
-                onClick={() => setActiveIndex(index)}
-                className={`p-4 rounded-xl transition-all duration-300 text-center ${
-                  activeIndex === index 
-                    ? 'bg-white text-royal-900 shadow-2xl scale-105' 
-                    : 'bg-white/10 text-white hover:bg-white/20'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className={`w-12 h-12 mx-auto mb-2 rounded-full bg-gradient-to-r ${getCategoryColor(milestone.category)} flex items-center justify-center`}>
-                  <IconComponent size={24} className="text-white" />
-                </div>
-                <div className="text-sm font-bold">{milestone.year}</div>
-                <div className="text-xs opacity-75">{milestone.title}</div>
-              </motion.button>
-            );
-          })}
-        </div>
-
-        {/* Active Milestone Display */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -50, scale: 0.9 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-6xl mx-auto"
+        {/* Interactive Timeline */}
+        <div className="max-w-6xl mx-auto">
+          {/* Featured Event */}
+          <motion.div 
+            className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 mb-12 border border-white/20"
+            key={currentIndex}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Content */}
-              <div className="text-white">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${getCategoryColor(milestones[activeIndex].category)} flex items-center justify-center`}>
-                    {React.createElement(getCategoryIcon(milestones[activeIndex].category), { size: 32, className: 'text-white' })}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="flex items-center mb-6">
+                  <div className={`w-16 h-16 bg-gradient-to-r ${getCategoryColor(timelineEvents[currentIndex].category)} rounded-full flex items-center justify-center mr-4`}>
+                    {React.createElement(getCategoryIcon(timelineEvents[currentIndex].category), {
+                      size: 28,
+                      className: "text-white"
+                    })}
                   </div>
                   <div>
-                    <h3 className="text-4xl font-bold font-playfair">{milestones[activeIndex].title}</h3>
-                    <div className="flex items-center gap-2 text-golden-300 mt-2">
-                      <Calendar size={16} />
-                      <span>{milestones[activeIndex].year}</span>
-                      <MapPin size={16} className="ml-2" />
-                      <span>{milestones[activeIndex].location}</span>
+                    <div className="text-4xl font-bold text-golden-300 font-playfair">
+                      {timelineEvents[currentIndex].year}
                     </div>
+                    {timelineEvents[currentIndex].location && (
+                      <div className="flex items-center text-white/60 text-sm">
+                        <MapPin size={14} className="mr-1" />
+                        {timelineEvents[currentIndex].location}
+                      </div>
+                    )}
                   </div>
                 </div>
-
-                <p className="text-xl text-white/90 leading-relaxed mb-6">
-                  {milestones[activeIndex].description}
+                
+                <h3 className="text-3xl font-bold text-white mb-4 font-playfair">
+                  {timelineEvents[currentIndex].title}
+                </h3>
+                
+                <p className="text-white/80 text-lg leading-relaxed mb-6">
+                  {timelineEvents[currentIndex].description}
                 </p>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-6">
-                  <h4 className="font-bold text-golden-300 mb-4 flex items-center gap-2">
-                    <Globe size={20} />
-                    Global Impact
-                  </h4>
-                  <p className="text-white/80">{milestones[activeIndex].impact}</p>
-                  {milestones[activeIndex].globalReach && (
-                    <p className="text-golden-300 mt-2 text-sm">
-                      Reach: {milestones[activeIndex].globalReach}
-                    </p>
-                  )}
-                </div>
-
-                <div className="space-y-3">
-                  <h4 className="font-bold text-golden-300">Key Achievements</h4>
-                  {milestones[activeIndex].achievements.map((achievement, idx) => (
-                    <motion.div 
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1 }}
-                      className="flex items-center gap-3"
-                    >
-                      <div className="w-2 h-2 bg-golden-400 rounded-full" />
-                      <span className="text-white/90">{achievement}</span>
-                    </motion.div>
-                  ))}
+                
+                {timelineEvents[currentIndex].impact && (
+                  <div className="bg-golden-500/20 rounded-lg p-4 border border-golden-400/30">
+                    <h4 className="text-golden-300 font-semibold mb-2">Impact</h4>
+                    <p className="text-white/80">{timelineEvents[currentIndex].impact}</p>
+                  </div>
+                )}
+              </div>
+              
+              <div className="relative">
+                <div className="aspect-square bg-gradient-to-br from-white/10 to-white/5 rounded-2xl flex items-center justify-center border border-white/20">
+                  <div className="text-6xl text-white/30">
+                    {React.createElement(getCategoryIcon(timelineEvents[currentIndex].category), {
+                      size: 120
+                    })}
+                  </div>
                 </div>
               </div>
-
-              {/* Image */}
-              <motion.div 
-                className="relative"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                  <img 
-                    src={milestones[activeIndex].image}
-                    alt={milestones[activeIndex].title}
-                    className="w-full h-96 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-royal-900/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="text-white">
-                      <div className="text-3xl font-bold mb-2">{milestones[activeIndex].year}</div>
-                      <div className="text-golden-300">{milestones[activeIndex].category.toUpperCase()}</div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
-        </AnimatePresence>
 
-        {/* Navigation Controls */}
-        <motion.div 
-          className="flex justify-center gap-4 mt-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <Button
-            variant="outline"
-            onClick={() => setActiveIndex(Math.max(0, activeIndex - 1))}
-            disabled={activeIndex === 0}
-            className="border-white/30 text-white hover:bg-white/10"
-          >
-            Previous Chapter
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => setActiveIndex(Math.min(milestones.length - 1, activeIndex + 1))}
-            disabled={activeIndex === milestones.length - 1}
-            className="border-white/30 text-white hover:bg-white/10"
-          >
-            Next Chapter
-          </Button>
-        </motion.div>
+          {/* Navigation Controls */}
+          <div className="flex justify-between items-center mb-12">
+            <button
+              onClick={prevEvent}
+              className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white transition-all duration-300 border border-white/20"
+            >
+              <ChevronLeft size={20} />
+              <span>Previous</span>
+            </button>
+            
+            <div className="text-white/60 text-sm">
+              {currentIndex + 1} of {timelineEvents.length}
+            </div>
+            
+            <button
+              onClick={nextEvent}
+              className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white transition-all duration-300 border border-white/20"
+            >
+              <span>Next</span>
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
+          {/* Timeline Dots */}
+          <div className="flex justify-center space-x-2 mb-8">
+            {timelineEvents.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-golden-400 scale-125'
+                    : 'bg-white/30 hover:bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Mini Timeline */}
+          <div className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10">
+            <div className="flex justify-between items-center overflow-x-auto space-x-4">
+              {timelineEvents.map((event, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`flex-shrink-0 text-center p-3 rounded-lg transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'bg-golden-500/20 border border-golden-400/30'
+                      : 'hover:bg-white/10'
+                  }`}
+                >
+                  <div className={`text-sm font-bold ${
+                    index === currentIndex ? 'text-golden-300' : 'text-white/60'
+                  }`}>
+                    {event.year}
+                  </div>
+                  <div className={`text-xs ${
+                    index === currentIndex ? 'text-white' : 'text-white/40'
+                  }`}>
+                    {event.title.split(' ').slice(0, 2).join(' ')}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
