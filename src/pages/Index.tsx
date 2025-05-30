@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 import PreLoader from '@/components/PreLoader';
 import FooterModern from '@/components/FooterModern';
 import { motion } from 'framer-motion';
-import { preloadImages, heroImages } from '@/utils/imagePreloader';
-import AggressiveSEO from '@/components/seo/AggressiveSEO';
+import { preloadImages, preloadCriticalImages } from '@/utils/imagePreloader';
+import EnhancedSEO from '@/components/seo/EnhancedSEO';
 import NavigationSystem from '@/components/navigation/NavigationSystem';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
-import CinematicHero from '@/components/modern/CinematicHero';
+import AdvancedHero from '@/components/features/AdvancedHero';
 import ChapterNavigation from '@/components/modern/ChapterNavigation';
 import ChapterOne from '@/components/chapters/ChapterOne';
 import ChapterTwo from '@/components/chapters/ChapterTwo';
@@ -18,27 +18,60 @@ import GlobalImpactVisualization from '@/components/impact/GlobalImpactVisualiza
 import Contact from '@/components/Contact';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import FluidTypography from '@/components/typography/FluidTypography';
+import TestimonialsWall from '@/components/trust/TestimonialsWall';
+import PressWall from '@/components/trust/PressWall';
+
+// Hero images for preloading
+const criticalImages = [
+  '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png', // Dr. PT portrait
+  '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png', // Logo
+  '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png',  // DQAA logo
+];
+
+// Secondary images
+const heroImages = [
+  '/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg',
+  // Additional images
+];
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [imagesPreloaded, setImagesPreloaded] = useState(false);
 
   useEffect(() => {
-    // Preload important images
-    preloadImages(heroImages);
+    // Immediately start preloading critical images
+    preloadCriticalImages(criticalImages);
     
-    // Set loading to false after a brief delay
+    // Then preload secondary images
+    const preloadSecondary = async () => {
+      await preloadImages(heroImages);
+      setImagesPreloaded(true);
+    };
+    
+    preloadSecondary();
+    
+    // Set loading to false after a brief delay or when images are loaded
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+      if (imagesPreloaded) {
+        setIsLoading(false);
+      } else {
+        // Force loading to end after max delay
+        const maxWaitTimer = setTimeout(() => {
+          setIsLoading(false);
+        }, 3000);
+        
+        return () => clearTimeout(maxWaitTimer);
+      }
+    }, 1800);
     
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [imagesPreloaded]);
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      <AggressiveSEO />
+      <EnhancedSEO />
       <ScrollProgressBar />
       
       {isLoading && <PreLoader />}
@@ -49,14 +82,20 @@ const Index = () => {
       {/* Chapter Navigation */}
       <ChapterNavigation />
       
-      {/* Cinematic Hero */}
-      <CinematicHero />
+      {/* Advanced Hero Section */}
+      <AdvancedHero />
       
       {/* Chapter 1: The Visionary */}
       <ChapterOne />
       
+      {/* Press Wall */}
+      <PressWall />
+      
       {/* Chapter 2: The Bridge Builder */}
       <ChapterTwo />
+      
+      {/* Testimonials Wall */}
+      <TestimonialsWall />
       
       {/* Chapter 3: The Educator */}
       <ChapterThree />
@@ -75,7 +114,7 @@ const Index = () => {
       </section>
       
       {/* Epilogue: Connect (Enhanced Contact) */}
-      <section id="connect" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-royal-50 to-golden-50 relative">
+      <section id="connect" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50 relative">
         <ResponsiveContainer size="lg" padding="lg">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <div className="inline-block mb-4">
