@@ -138,7 +138,7 @@ const AdvancedHero: React.FC = () => {
                   transition={{ delay: 0.6 }}
                   className="mb-8"
                 >
-                  <FluidTypography variant="lg" className="text-gray-200 leading-relaxed max-w-2xl lg:max-w-none">
+                  <FluidTypography variant="lead" className="text-gray-200 leading-relaxed max-w-2xl lg:max-w-none">
                     {heroSlides[currentSlide].description}
                   </FluidTypography>
                 </motion.div>
