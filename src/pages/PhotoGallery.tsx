@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import GalleryHero from '@/components/GalleryHero';
 import MasonryGallery from '@/components/MasonryGallery';
 import FooterModern from '@/components/FooterModern';
+import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
 
 const PhotoGallery = () => {
   useEffect(() => {
@@ -43,9 +44,17 @@ const PhotoGallery = () => {
         </script>
       </Helmet>
 
-      <GalleryHero />
-      <MasonryGallery />
-      <FooterModern />
+      <SectionErrorBoundary sectionName="Gallery Hero">
+        <GalleryHero />
+      </SectionErrorBoundary>
+      
+      <SectionErrorBoundary sectionName="Photo Gallery">
+        <MasonryGallery />
+      </SectionErrorBoundary>
+      
+      <SectionErrorBoundary sectionName="Footer">
+        <FooterModern />
+      </SectionErrorBoundary>
     </>
   );
 };

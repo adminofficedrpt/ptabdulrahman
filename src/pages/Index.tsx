@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import PreLoader from '@/components/PreLoader';
 import FooterModern from '@/components/FooterModern';
@@ -20,6 +19,8 @@ import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import FluidTypography from '@/components/typography/FluidTypography';
 import TestimonialsWall from '@/components/trust/TestimonialsWall';
 import PressWall from '@/components/trust/PressWall';
+import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
+import LoadingState from '@/components/ui/loading-state';
 
 // Hero images for preloading
 const criticalImages = [
@@ -69,73 +70,101 @@ const Index = () => {
     };
   }, [imagesPreloaded]);
 
+  if (isLoading) {
+    return <PreLoader />;
+  }
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       <EnhancedSEO />
       <ScrollProgressBar />
       
-      {isLoading && <PreLoader />}
-      
       {/* Navigation */}
-      <NavigationSystem />
+      <SectionErrorBoundary sectionName="Navigation">
+        <NavigationSystem />
+      </SectionErrorBoundary>
       
       {/* Chapter Navigation */}
-      <ChapterNavigation />
+      <SectionErrorBoundary sectionName="Chapter Navigation">
+        <ChapterNavigation />
+      </SectionErrorBoundary>
       
       {/* Advanced Hero Section */}
-      <AdvancedHero />
+      <SectionErrorBoundary sectionName="Hero Section">
+        <AdvancedHero />
+      </SectionErrorBoundary>
       
       {/* Chapter 1: The Visionary */}
-      <ChapterOne />
+      <SectionErrorBoundary sectionName="Chapter 1">
+        <ChapterOne />
+      </SectionErrorBoundary>
       
       {/* Press Wall */}
-      <PressWall />
+      <SectionErrorBoundary sectionName="Press Coverage">
+        <PressWall />
+      </SectionErrorBoundary>
       
       {/* Chapter 2: The Bridge Builder */}
-      <ChapterTwo />
+      <SectionErrorBoundary sectionName="Chapter 2">
+        <ChapterTwo />
+      </SectionErrorBoundary>
       
       {/* Testimonials Wall */}
-      <TestimonialsWall />
+      <SectionErrorBoundary sectionName="Testimonials">
+        <TestimonialsWall />
+      </SectionErrorBoundary>
       
       {/* Chapter 3: The Educator */}
-      <ChapterThree />
+      <SectionErrorBoundary sectionName="Chapter 3">
+        <ChapterThree />
+      </SectionErrorBoundary>
       
-      {/* Chapter 4: The Scholar (Interactive Books Experience) */}
-      <section id="scholar" className="relative">
-        <InteractiveBookExperience />
-      </section>
+      {/* Chapter 4: The Scholar */}
+      <SectionErrorBoundary sectionName="Interactive Books">
+        <section id="scholar" className="relative">
+          <InteractiveBookExperience />
+        </section>
+      </SectionErrorBoundary>
       
       {/* Global Impact Visualization */}
-      <GlobalImpactVisualization />
+      <SectionErrorBoundary sectionName="Global Impact">
+        <GlobalImpactVisualization />
+      </SectionErrorBoundary>
       
-      {/* Chapter 5: The Legacy (Immersive Timeline) */}
-      <section id="legacy" className="relative">
-        <ImmersiveTimeline />
-      </section>
+      {/* Chapter 5: The Legacy */}
+      <SectionErrorBoundary sectionName="Timeline">
+        <section id="legacy" className="relative">
+          <ImmersiveTimeline />
+        </section>
+      </SectionErrorBoundary>
       
-      {/* Epilogue: Connect (Enhanced Contact) */}
-      <section id="connect" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50 relative">
-        <ResponsiveContainer size="lg" padding="lg">
-          <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-block mb-4">
-              <span className="text-xs sm:text-sm font-light tracking-[0.2em] uppercase text-golden-600">
-                Epilogue
-              </span>
+      {/* Epilogue: Connect */}
+      <SectionErrorBoundary sectionName="Contact Section">
+        <section id="connect" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50 relative">
+          <ResponsiveContainer size="lg" padding="lg">
+            <div className="text-center mb-12 sm:mb-16 md:mb-20">
+              <div className="inline-block mb-4">
+                <span className="text-xs sm:text-sm font-light tracking-[0.2em] uppercase text-golden-600">
+                  Epilogue
+                </span>
+              </div>
+              <FluidTypography variant="h2" color="royal" className="mb-4 sm:mb-6">
+                Connect with Dr. P.T. Abdul Rahman
+              </FluidTypography>
+              <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto px-4">
+                Join the conversation and become part of a global community dedicated to 
+                educational excellence and humanitarian service.
+              </FluidTypography>
             </div>
-            <FluidTypography variant="h2" color="royal" className="mb-4 sm:mb-6">
-              Connect with Dr. P.T. Abdul Rahman
-            </FluidTypography>
-            <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto px-4">
-              Join the conversation and become part of a global community dedicated to 
-              educational excellence and humanitarian service.
-            </FluidTypography>
-          </div>
-          <Contact />
-        </ResponsiveContainer>
-      </section>
+            <Contact />
+          </ResponsiveContainer>
+        </section>
+      </SectionErrorBoundary>
       
       {/* Modern Footer */}
-      <FooterModern />
+      <SectionErrorBoundary sectionName="Footer">
+        <FooterModern />
+      </SectionErrorBoundary>
     </div>
   );
 };

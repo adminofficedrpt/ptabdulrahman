@@ -10,37 +10,41 @@ import Index from "./pages/Index";
 import PhotoGallery from "./pages/PhotoGallery";
 import NotFound from "./pages/NotFound";
 import ScrollProgressBar from "./components/ScrollProgressBar";
+import ErrorBoundary from "./components/error/ErrorBoundary";
 
 // Create a client
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      retry: 1
+      retry: 1,
+      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
     },
   },
 });
 
 const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <LazyMotion features={domAnimation}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollProgressBar />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/gallery" element={<PhotoGallery />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </LazyMotion>
-    </QueryClientProvider>
-  </HelmetProvider>
+  <ErrorBoundary>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <LazyMotion features={domAnimation}>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <ScrollProgressBar />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/gallery" element={<PhotoGallery />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </TooltipProvider>
+        </LazyMotion>
+      </QueryClientProvider>
+    </HelmetProvider>
+  </ErrorBoundary>
 );
 
 export default App;
