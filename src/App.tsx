@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { LazyMotion, domAnimation } from "framer-motion";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import Index from "./pages/Index";
 import PhotoGallery from "./pages/PhotoGallery";
 import NotFound from "./pages/NotFound";
@@ -25,25 +26,27 @@ const queryClient = new QueryClient({
 
 const App = () => (
   <ErrorBoundary>
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <LazyMotion features={domAnimation}>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <ScrollProgressBar />
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/gallery" element={<PhotoGallery />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </TooltipProvider>
-        </LazyMotion>
-      </QueryClientProvider>
-    </HelmetProvider>
+    <ThemeProvider defaultTheme="system" storageKey="pt-abdul-rahman-theme">
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <LazyMotion features={domAnimation}>
+            <TooltipProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <ScrollProgressBar />
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/gallery" element={<PhotoGallery />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
+            </TooltipProvider>
+          </LazyMotion>
+        </QueryClientProvider>
+      </HelmetProvider>
+    </ThemeProvider>
   </ErrorBoundary>
 );
 
