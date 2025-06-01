@@ -2,33 +2,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChapterContainer from './ChapterContainer';
-import { Eye, Lightbulb, Target, Compass } from 'lucide-react';
+import { Pen, BookOpen, Globe2, Users } from 'lucide-react';
 
 const ChapterOne: React.FC = () => {
-  const visionPillars = [
+  const literaryPillars = [
     {
-      icon: Eye,
-      title: "Clear Vision",
-      description: "Seeing beyond the present to envision a future where Islamic education bridges tradition and modernity",
-      quote: "Education is the foundation upon which we build our tomorrow"
+      icon: Pen,
+      title: "Literary Excellence",
+      description: "Crafting transformative narratives that bridge cultural divides and inspire social consciousness across global audiences",
+      quote: "Words have the power to heal divisions and build understanding between communities"
     },
     {
-      icon: Lightbulb,
-      title: "Innovation",
-      description: "Pioneering new methodologies that honor Islamic principles while embracing educational excellence",
-      quote: "In every challenge lies an opportunity for growth and innovation"
+      icon: BookOpen,
+      title: "Intellectual Authority",
+      description: "Establishing thought leadership through compelling works that challenge conventional thinking and propose innovative solutions",
+      quote: "True wisdom lies not in knowing all the answers, but in asking the right questions"
     },
     {
-      icon: Target,
-      title: "Purpose-Driven",
-      description: "Every initiative stems from a deep commitment to serving humanity through knowledge and compassion",
-      quote: "Purpose without action is merely intention; action without purpose is mere motion"
+      icon: Globe2,
+      title: "Global Impact",
+      description: "Reaching millions of readers worldwide through translated works that resonate across cultures and generations",
+      quote: "Literature transcends borders; it speaks the universal language of human experience"
     },
     {
-      icon: Compass,
-      title: "Guidance",
-      description: "Providing moral and intellectual direction for future generations of Muslim leaders",
-      quote: "True leadership is not about commanding followers, but about creating more leaders"
+      icon: Users,
+      title: "Social Influence",
+      description: "Inspiring positive change through written works that advocate for justice, equality, and human dignity",
+      quote: "The pen that writes for justice is mightier than any sword raised in anger"
     }
   ];
 
@@ -36,8 +36,8 @@ const ChapterOne: React.FC = () => {
     <ChapterContainer
       id="visionary"
       chapterNumber={1}
-      title="The Visionary"
-      subtitle="A forward-thinking leader who sees possibilities where others see obstacles"
+      title="The Literary Pioneer"
+      subtitle="A transformative author whose words inspire social change and bridge cultural understanding"
       variant="light"
     >
       {/* Opening Statement */}
@@ -49,15 +49,15 @@ const ChapterOne: React.FC = () => {
         viewport={{ once: true }}
       >
         <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          Dr. P.T. Abdul Rahman's visionary approach to Islamic education has transformed 
-          countless lives across the globe. His ability to see beyond traditional boundaries 
-          while honoring Islamic principles has created a new paradigm for educational excellence.
+          Dr. P.T. Abdul Rahman's literary journey spans over three decades, producing influential works 
+          that have shaped discourse on social justice, education, and human rights. His books, translated 
+          into eight languages, continue to inspire readers and activists worldwide.
         </p>
       </motion.div>
 
-      {/* Vision Pillars Grid */}
+      {/* Literary Pillars Grid */}
       <div className="grid md:grid-cols-2 gap-8 mb-20">
-        {visionPillars.map((pillar, index) => (
+        {literaryPillars.map((pillar, index) => (
           <motion.div
             key={pillar.title}
             className="bg-white rounded-xl p-8 shadow-lg border border-royal-100 hover:shadow-xl transition-all duration-300 group"
@@ -86,7 +86,7 @@ const ChapterOne: React.FC = () => {
         ))}
       </div>
 
-      {/* Core Philosophy Section */}
+      {/* Literary Achievement Section */}
       <motion.div 
         className="bg-gradient-to-r from-royal-900 to-royal-800 rounded-2xl p-8 md:p-12 text-white"
         initial={{ y: 60, opacity: 0 }}
@@ -95,29 +95,29 @@ const ChapterOne: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-center mb-8">
-          The Visionary Philosophy
+          Literary Legacy & Impact
         </h3>
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="text-center">
             <div className="text-4xl font-bold text-golden-300 mb-2">1995</div>
-            <div className="text-lg font-medium mb-2">Vision Born</div>
-            <div className="text-white/80 text-sm">DQAA Academy founded</div>
+            <div className="text-lg font-medium mb-2">First Publication</div>
+            <div className="text-white/80 text-sm">"Is the Creation Meaningless?" launched</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">25+</div>
-            <div className="text-lg font-medium mb-2">Countries Reached</div>
-            <div className="text-white/80 text-sm">Global educational impact</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">8</div>
+            <div className="text-lg font-medium mb-2">Languages</div>
+            <div className="text-white/80 text-sm">Global literary reach</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">50K+</div>
-            <div className="text-lg font-medium mb-2">Lives Transformed</div>
-            <div className="text-white/80 text-sm">Through education and service</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">2M+</div>
+            <div className="text-lg font-medium mb-2">Readers Worldwide</div>
+            <div className="text-white/80 text-sm">Lives touched through literature</div>
           </div>
         </div>
         
         <blockquote className="text-xl md:text-2xl font-light italic text-center text-white/90 mb-4">
-          "A true visionary doesn't just see what is possible—they make the impossible inevitable through unwavering dedication and divine guidance."
+          "A true author doesn't just write books—they write the future, one transformative idea at a time."
         </blockquote>
         <cite className="block text-center text-golden-300 font-medium">Dr. P.T. Abdul Rahman</cite>
       </motion.div>

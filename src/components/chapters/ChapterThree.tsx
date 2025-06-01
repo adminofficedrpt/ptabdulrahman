@@ -8,23 +8,23 @@ const ChapterThree: React.FC = () => {
   const achievements = [
     {
       year: "1995",
-      title: "DQAA Foundation",
-      description: "Established Darul Quran Abdulla Academy with a vision for holistic Islamic education"
+      title: "Progressive Education Foundation",
+      description: "Established an innovative educational model focused on holistic learning and social consciousness"
     },
     {
       year: "2005",
-      title: "International Recognition",
-      description: "Received UAE Ministry of Education accreditation for innovative curriculum"
+      title: "Educational Excellence Recognition",
+      description: "Received UAE Ministry of Education accreditation for pioneering progressive curriculum"
     },
     {
       year: "2015",
-      title: "Global Expansion",
-      description: "Launched international programs reaching students across 15 countries"
+      title: "Global Learning Network",
+      description: "Launched international programs reaching students across 15 countries with transformative education"
     },
     {
       year: "2023",
-      title: "Digital Innovation",
-      description: "Pioneered online Islamic education platforms for global accessibility"
+      title: "Digital Learning Innovation",
+      description: "Pioneered accessible online educational platforms promoting global knowledge exchange"
     }
   ];
 
@@ -32,11 +32,11 @@ const ChapterThree: React.FC = () => {
     <ChapterContainer
       id="educator"
       chapterNumber={3}
-      title="The Educator"
-      subtitle="Revolutionizing Islamic education through DQAA Academy and innovative pedagogical approaches"
+      title="The Educational Innovator"
+      subtitle="Revolutionizing learning through progressive educational models and transformative pedagogy"
       variant="gradient"
     >
-      {/* DQAA Introduction */}
+      {/* Educational Vision Introduction */}
       <motion.div 
         className="max-w-5xl mx-auto mb-20"
         initial={{ y: 40, opacity: 0 }}
@@ -47,17 +47,16 @@ const ChapterThree: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-3xl font-playfair font-bold text-royal-900 mb-6">
-              Darul Quran Abdulla Academy
+              Progressive Education Foundation
             </h3>
             <p className="text-lg text-royal-700 leading-relaxed mb-6">
-              Founded with the vision of creating a new paradigm in Islamic education, DQAA represents 
-              Dr. P.T. Abdul Rahman's commitment to nurturing both the spiritual and intellectual 
-              development of students.
+              Founded with the vision of reimagining educational paradigms, the Progressive Education Foundation 
+              represents Dr. P.T. Abdul Rahman's commitment to nurturing both intellectual and social development 
+              in students.
             </p>
             <p className="text-royal-700 leading-relaxed mb-8">
-              The academy seamlessly integrates traditional Islamic scholarship with modern educational 
-              methodologies, preparing students to become thoughtful, engaged citizens of the world 
-              while remaining firmly rooted in their faith.
+              The foundation integrates modern educational methodologies with values of social responsibility, 
+              preparing students to become thoughtful, engaged citizens committed to positive social transformation.
             </p>
             
             <div className="flex space-x-6">
@@ -84,14 +83,14 @@ const ChapterThree: React.FC = () => {
                     <GraduationCap size={28} className="text-white" />
                   </div>
                   <h4 className="font-semibold text-royal-900 mb-2">Excellence</h4>
-                  <p className="text-sm text-royal-600">Academic & Spiritual</p>
+                  <p className="text-sm text-royal-600">Intellectual & Social</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-royal-500 to-golden-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Star size={28} className="text-white" />
                   </div>
                   <h4 className="font-semibold text-royal-900 mb-2">Innovation</h4>
-                  <p className="text-sm text-royal-600">Modern Methods</p>
+                  <p className="text-sm text-royal-600">Progressive Methods</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-royal-500 to-golden-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -105,7 +104,7 @@ const ChapterThree: React.FC = () => {
                     <BookOpen size={28} className="text-white" />
                   </div>
                   <h4 className="font-semibold text-royal-900 mb-2">Curriculum</h4>
-                  <p className="text-sm text-royal-600">Comprehensive</p>
+                  <p className="text-sm text-royal-600">Transformative</p>
                 </div>
               </div>
             </div>
@@ -122,7 +121,7 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-royal-900 text-center mb-12">
-          Educational Milestones
+          Educational Innovation Milestones
         </h3>
         
         <div className="max-w-4xl mx-auto">
@@ -171,7 +170,7 @@ const ChapterThree: React.FC = () => {
         </h3>
         
         <blockquote className="text-xl md:text-2xl font-light italic text-royal-800 leading-relaxed text-center mb-8">
-          "Education is not preparation for life; education is life itself. Through DQAA, we don't just teach about Islam—we live it, breathe it, and inspire others to find their own authentic connection with their faith."
+          "Education is not mere preparation for life; it is the continuous process of social transformation. We don't just teach—we inspire critical thinking, social consciousness, and the courage to create positive change."
         </blockquote>
         <cite className="block text-center text-golden-600 font-medium">Dr. P.T. Abdul Rahman</cite>
       </motion.div>
