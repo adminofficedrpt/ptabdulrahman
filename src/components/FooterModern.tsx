@@ -80,16 +80,7 @@ const FooterModern = () => {
             </p>
             
             {/* AI8TY Credit */}
-            <div className="mt-8 p-4 bg-black/30 rounded-lg border border-white/10">
-              <div className="flex items-center space-x-2 mb-2">
-                <div className="w-2 h-2 bg-gradient-to-r from-golden-400 to-royal-400 rounded-full animate-pulse" />
-                <span className="text-xs text-white/80">Website Built & Managed by</span>
-              </div>
-              <a href="https://ai8ty.com" target="_blank" rel="noopener noreferrer" className="text-lg font-bold bg-gradient-to-r from-golden-400 to-royal-400 bg-clip-text text-transparent hover:from-golden-300 hover:to-royal-300 transition-all duration-300">
-                AI8TY Creative Agency
-              </a>
-              
-            </div>
+            
           </motion.div>
 
           {/* Navigation Columns */}
