@@ -5,30 +5,30 @@ import ChapterContainer from './ChapterContainer';
 import { Pen, BookOpen, Globe2, Users } from 'lucide-react';
 
 const ChapterOne: React.FC = () => {
-  const literaryPillars = [
+  const literaryJourney = [
     {
       icon: Pen,
-      title: "Literary Excellence",
-      description: "Crafting transformative narratives that bridge cultural divides and inspire social consciousness across global audiences",
-      quote: "Words have the power to heal divisions and build understanding between communities"
+      title: "The Writer's Path",
+      description: "By Allah's grace, my writing journey began with a simple desire to share knowledge and understanding. Each book has been a trust (amanah) to convey meaningful messages.",
+      quote: "Every word I write is a prayer that it may benefit someone, somewhere"
     },
     {
       icon: BookOpen,
-      title: "Intellectual Authority",
-      description: "Establishing thought leadership through compelling works that challenge conventional thinking and propose innovative solutions",
-      quote: "True wisdom lies not in knowing all the answers, but in asking the right questions"
+      title: "Books as Bridges",
+      description: "Alhamdulillah, my 15+ books have reached readers across 8 languages. I never imagined these humble efforts would travel so far, but Allah's plans are always greater.",
+      quote: "True knowledge should build bridges, not walls between communities"
     },
     {
       icon: Globe2,
-      title: "Global Impact",
-      description: "Reaching millions of readers worldwide through translated works that resonate across cultures and generations",
-      quote: "Literature transcends borders; it speaks the universal language of human experience"
+      title: "Global Connections",
+      description: "What humbles me most is hearing from readers worldwide who found comfort or guidance in these writings. SubhanAllah, how Allah connects hearts through words.",
+      quote: "A book carries the author's heart to every reader who opens it"
     },
     {
       icon: Users,
-      title: "Social Influence",
-      description: "Inspiring positive change through written works that advocate for justice, equality, and human dignity",
-      quote: "The pen that writes for justice is mightier than any sword raised in anger"
+      title: "Writing for Change",
+      description: "My hope has always been that these writings might inspire positive action. If even one person is moved to help another, the effort is worthwhile, Insha'Allah.",
+      quote: "The pen that serves humanity serves Allah"
     }
   ];
 
@@ -36,11 +36,11 @@ const ChapterOne: React.FC = () => {
     <ChapterContainer
       id="visionary"
       chapterNumber={1}
-      title="The Literary Pioneer"
-      subtitle="A transformative author whose words inspire social change and bridge cultural understanding"
+      title="My Journey as a Writer"
+      subtitle="Sharing thoughts and reflections through the written word, by Allah's grace"
       variant="light"
     >
-      {/* Opening Statement */}
+      {/* Personal Opening */}
       <motion.div 
         className="max-w-4xl mx-auto text-center mb-20"
         initial={{ y: 40, opacity: 0 }}
@@ -49,17 +49,18 @@ const ChapterOne: React.FC = () => {
         viewport={{ once: true }}
       >
         <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          Dr. P.T. Abdul Rahman's literary journey spans over three decades, producing influential works 
-          that have shaped discourse on social justice, education, and human rights. His books, translated 
-          into eight languages, continue to inspire readers and activists worldwide.
+          For over three decades, I have been blessed to share my thoughts through writing. 
+          What started as personal reflections has, Alhamdulillah, grown into books that have 
+          reached readers in many countries. This journey has taught me that words, when written 
+          with sincere intention, can touch hearts we may never meet.
         </p>
       </motion.div>
 
-      {/* Literary Pillars Grid */}
+      {/* Writing Journey Grid */}
       <div className="grid md:grid-cols-2 gap-8 mb-20">
-        {literaryPillars.map((pillar, index) => (
+        {literaryJourney.map((chapter, index) => (
           <motion.div
-            key={pillar.title}
+            key={chapter.title}
             className="bg-white rounded-xl p-8 shadow-lg border border-royal-100 hover:shadow-xl transition-all duration-300 group"
             initial={{ y: 60, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -68,17 +69,17 @@ const ChapterOne: React.FC = () => {
           >
             <div className="flex items-start space-x-6 mb-6">
               <div className="w-16 h-16 bg-gradient-to-br from-royal-500 to-golden-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <pillar.icon size={28} className="text-white" />
+                <chapter.icon size={28} className="text-white" />
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-playfair font-semibold text-royal-900 mb-4">
-                  {pillar.title}
+                  {chapter.title}
                 </h3>
                 <p className="text-royal-700 leading-relaxed mb-4">
-                  {pillar.description}
+                  {chapter.description}
                 </p>
                 <blockquote className="italic text-golden-700 font-medium">
-                  "{pillar.quote}"
+                  "{chapter.quote}"
                 </blockquote>
               </div>
             </div>
@@ -86,7 +87,7 @@ const ChapterOne: React.FC = () => {
         ))}
       </div>
 
-      {/* Literary Achievement Section */}
+      {/* Personal Reflection Section */}
       <motion.div 
         className="bg-gradient-to-r from-royal-900 to-royal-800 rounded-2xl p-8 md:p-12 text-white"
         initial={{ y: 60, opacity: 0 }}
@@ -95,29 +96,30 @@ const ChapterOne: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-center mb-8">
-          Literary Legacy & Impact
+          A Humble Reflection on Writing
         </h3>
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="text-center">
             <div className="text-4xl font-bold text-golden-300 mb-2">1995</div>
             <div className="text-lg font-medium mb-2">First Publication</div>
-            <div className="text-white/80 text-sm">"Is the Creation Meaningless?" launched</div>
+            <div className="text-white/80 text-sm">When Allah opened this door</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-golden-300 mb-2">15+</div>
+            <div className="text-lg font-medium mb-2">Books Published</div>
+            <div className="text-white/80 text-sm">Each one a trust and responsibility</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-golden-300 mb-2">8</div>
             <div className="text-lg font-medium mb-2">Languages</div>
-            <div className="text-white/80 text-sm">Global literary reach</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">2M+</div>
-            <div className="text-lg font-medium mb-2">Readers Worldwide</div>
-            <div className="text-white/80 text-sm">Lives touched through literature</div>
+            <div className="text-white/80 text-sm">Reaching hearts across cultures</div>
           </div>
         </div>
         
         <blockquote className="text-xl md:text-2xl font-light italic text-center text-white/90 mb-4">
-          "A true author doesn't just write books—they write the future, one transformative idea at a time."
+          "I never write thinking I am teaching others. Rather, I write hoping that Allah will 
+          use these words to benefit whoever needs them most."
         </blockquote>
         <cite className="block text-center text-golden-300 font-medium">Dr. P.T. Abdul Rahman</cite>
       </motion.div>

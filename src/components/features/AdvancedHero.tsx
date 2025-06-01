@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, BookOpen, Users, Globe, Pen } from 'lucide-react';
+import { ChevronDown, BookOpen, Users, Globe, Pen, Heart } from 'lucide-react';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import IslamicPattern from '@/components/design-system/IslamicPattern';
 import HeroSlideshow from '@/components/hero/HeroSlideshow';
@@ -12,38 +12,38 @@ import VideoModal from '@/components/hero/VideoModal';
 const heroSlides = [
   {
     id: 1,
-    title: "Acclaimed Author & Literary Pioneer",
-    subtitle: "Transforming Lives Through the Power of Written Word",
-    description: "Dr. P.T. Abdul Rahman has authored over 15 influential books that bridge cultures and inspire social change. His literary works, translated into multiple languages, have reached millions of readers worldwide, establishing him as a prominent voice in contemporary social discourse.",
+    title: "Welcome to My Journey",
+    subtitle: "Alhamdulillah - Through Words and Service to Humanity",
+    description: "I am Dr. P.T. Abdul Rahman, and by Allah's grace, I have been blessed to serve through writing and community work for over three decades. This website shares my humble journey as an author of 15+ books and my ongoing commitment to supporting families and communities worldwide.",
     image: "/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png",
     stats: [
-      { icon: BookOpen, value: "15+", label: "Published Works" },
+      { icon: BookOpen, value: "15+", label: "Books Published" },
       { icon: Globe, value: "8", label: "Languages" },
-      { icon: Users, value: "2M+", label: "Readers Reached" }
+      { icon: Heart, value: "Countless", label: "Lives Touched" }
     ]
   },
   {
     id: 2,
-    title: "Visionary Social Activist",
-    subtitle: "Championing Social Justice and Community Empowerment",
-    description: "For over three decades, Dr. Abdul Rahman has been at the forefront of social transformation, leading humanitarian initiatives that have touched countless lives. His work in education reform, community development, and cultural bridge-building continues to inspire positive change.",
+    title: "A Life of Service",
+    subtitle: "Standing with Communities Through Challenges",
+    description: "Through many adversities and with Allah's guidance, I've dedicated my life to serving others. From supporting families in crisis to establishing educational initiatives, every step has been a blessing and responsibility I carry with deep gratitude.",
     image: "/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png",
     stats: [
-      { icon: Users, value: "100K+", label: "Lives Impacted" },
+      { icon: Users, value: "30+", label: "Years of Service" },
       { icon: Globe, value: "25+", label: "Countries Reached" },
-      { icon: Pen, value: "30+", label: "Years of Service" }
+      { icon: Heart, value: "Ongoing", label: "Mission" }
     ]
   },
   {
     id: 3,
-    title: "Educational Innovator & Thought Leader",
-    subtitle: "Revolutionizing Learning for Future Generations",
-    description: "Through the establishment of progressive educational institutions and innovative pedagogical approaches, Dr. Abdul Rahman has redefined how knowledge is shared and wisdom is cultivated, creating lasting impact across communities worldwide.",
+    title: "Education & Legacy",
+    subtitle: "Building Tomorrow Through Proper Upbringing",
+    description: "As I enter my sixties, I remain committed to education and proper upbringing. Through DQAA and other initiatives, I pray that the knowledge and values we share today will benefit generations to come, Insha'Allah.",
     image: "/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg",
     stats: [
-      { icon: Users, value: "5000+", label: "Students Mentored" },
-      { icon: BookOpen, value: "50+", label: "Programs Launched" },
-      { icon: Globe, value: "15+", label: "Institutions" }
+      { icon: Users, value: "Thousands", label: "Students Guided" },
+      { icon: BookOpen, value: "Multiple", label: "Institutions" },
+      { icon: Globe, value: "Continuing", label: "Legacy" }
     ]
   }
 ];
@@ -98,6 +98,32 @@ const AdvancedHero: React.FC = () => {
           <HeroPortrait />
         </div>
       </ResponsiveContainer>
+
+      {/* AI8TY Credit - Technologically Advanced */}
+      <motion.div
+        className="absolute bottom-4 right-4 z-20"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 2, duration: 0.8 }}
+      >
+        <div className="group relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-golden-400/20 to-royal-400/20 rounded-lg blur-lg group-hover:blur-xl transition-all duration-300" />
+          <div className="relative bg-black/70 backdrop-blur-md border border-white/10 rounded-lg px-4 py-2 text-xs text-white/90 hover:text-white transition-all duration-300">
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-gradient-to-r from-golden-400 to-royal-400 rounded-full animate-pulse" />
+              <span className="font-medium">Built & Managed by</span>
+              <a 
+                href="https://ai8ty.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-bold bg-gradient-to-r from-golden-400 to-royal-400 bg-clip-text text-transparent hover:from-golden-300 hover:to-royal-300 transition-all duration-300"
+              >
+                AI8TY
+              </a>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.button

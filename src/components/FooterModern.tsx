@@ -7,27 +7,27 @@ const FooterModern = () => {
 
   const footerSections = [
     {
-      title: "Journey",
+      title: "My Journey",
       links: [
-        { name: "Biography", path: "/#biography" },
+        { name: "About My Story", path: "/#biography" },
         { name: "Timeline", path: "/#timeline" },
-        { name: "Legacy", path: "/#legacy" },
+        { name: "My Legacy", path: "/#legacy" },
       ]
     },
     {
-      title: "Initiatives",
+      title: "My Work",
       links: [
-        { name: "DQAA", path: "/#dqaa" },
-        { name: "Humanitarian", path: "/#humanitarian" },
-        { name: "Admission", path: "/#admission" },
+        { name: "DQAA Academy", path: "/#dqaa" },
+        { name: "Community Service", path: "/#humanitarian" },
+        { name: "Academy Admission", path: "/#admission" },
       ]
     },
     {
-      title: "Media",
+      title: "Resources",
       links: [
-        { name: "Books", path: "/#books" },
-        { name: "Awards", path: "/#awards" },
-        { name: "Gallery", path: "/gallery" },
+        { name: "My Books", path: "/#books" },
+        { name: "Recognition", path: "/#awards" },
+        { name: "Photo Gallery", path: "/gallery" },
       ]
     },
   ];
@@ -39,7 +39,6 @@ const FooterModern = () => {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-        // Update URL without page reload - helps with analytics and bookmarking
         window.history.pushState({}, '', href);
       } else {
         window.location.href = href;
@@ -68,11 +67,26 @@ const FooterModern = () => {
               />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Dr. PT Abdul Rahman is a renowned scholar, educator, and humanitarian committed to 
-              educational excellence and community development.
+              This is my personal website where I share my journey as an author, social activist, 
+              and educator. Alhamdulillah for the opportunity to serve and connect with people 
+              from around the world.
             </p>
-            <div className="flex space-x-4">
-              {/* Social icons would go here */}
+            
+            {/* AI8TY Credit */}
+            <div className="mt-8 p-4 bg-black/30 rounded-lg border border-white/10">
+              <div className="flex items-center space-x-2 mb-2">
+                <div className="w-2 h-2 bg-gradient-to-r from-golden-400 to-royal-400 rounded-full animate-pulse" />
+                <span className="text-xs text-white/80">Website Built & Managed by</span>
+              </div>
+              <a 
+                href="https://ai8ty.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-lg font-bold bg-gradient-to-r from-golden-400 to-royal-400 bg-clip-text text-transparent hover:from-golden-300 hover:to-royal-300 transition-all duration-300"
+              >
+                AI8TY Creative Agency
+              </a>
+              <p className="text-xs text-white/60 mt-1">Premium Digital Experience</p>
             </div>
           </motion.div>
 
@@ -121,12 +135,11 @@ const FooterModern = () => {
           className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-white/70 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Dr. P.T. Abdul Rahman. All rights reserved.
+            &copy; {currentYear} Dr. P.T. Abdul Rahman. All rights reserved. | Barakallahu feekum
           </p>
           <div className="flex space-x-6">
-            <a href="#privacy" className="text-white/70 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#terms" className="text-white/70 hover:text-white text-sm transition-colors">Terms of Use</a>
             <a href="#contact" className="text-white/70 hover:text-white text-sm transition-colors">Contact</a>
+            <a href="https://ai8ty.com" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white text-sm transition-colors">Website by AI8TY</a>
           </div>
         </motion.div>
       </div>

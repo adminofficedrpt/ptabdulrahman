@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import PreLoader from '@/components/PreLoader';
 import FooterModern from '@/components/FooterModern';
@@ -20,6 +21,8 @@ import FluidTypography from '@/components/typography/FluidTypography';
 import TestimonialsWall from '@/components/trust/TestimonialsWall';
 import PressWall from '@/components/trust/PressWall';
 import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
+import ScrollTriggeredQuotes from '@/components/modern/ScrollTriggeredQuotes';
+import PrayerTimeWidget from '@/components/modern/PrayerTimeWidget';
 import LoadingState from '@/components/ui/loading-state';
 
 // Hero images for preloading
@@ -79,6 +82,10 @@ const Index = () => {
       <EnhancedSEO />
       <ScrollProgressBar />
       
+      {/* Interactive Features */}
+      <ScrollTriggeredQuotes />
+      <PrayerTimeWidget />
+      
       {/* Navigation */}
       <SectionErrorBoundary sectionName="Navigation">
         <NavigationSystem />
@@ -94,7 +101,7 @@ const Index = () => {
         <AdvancedHero />
       </SectionErrorBoundary>
       
-      {/* Chapter 1: The Visionary */}
+      {/* Chapter 1: My Writing Journey */}
       <SectionErrorBoundary sectionName="Chapter 1">
         <ChapterOne />
       </SectionErrorBoundary>
@@ -104,7 +111,7 @@ const Index = () => {
         <PressWall />
       </SectionErrorBoundary>
       
-      {/* Chapter 2: The Bridge Builder */}
+      {/* Chapter 2: My Service Journey */}
       <SectionErrorBoundary sectionName="Chapter 2">
         <ChapterTwo />
       </SectionErrorBoundary>
@@ -114,12 +121,12 @@ const Index = () => {
         <TestimonialsWall />
       </SectionErrorBoundary>
       
-      {/* Chapter 3: The Educator */}
+      {/* Chapter 3: Education & Legacy */}
       <SectionErrorBoundary sectionName="Chapter 3">
         <ChapterThree />
       </SectionErrorBoundary>
       
-      {/* Chapter 4: The Scholar */}
+      {/* Chapter 4: My Books */}
       <SectionErrorBoundary sectionName="Interactive Books">
         <section id="scholar" className="relative">
           <InteractiveBookExperience />
@@ -131,29 +138,29 @@ const Index = () => {
         <GlobalImpactVisualization />
       </SectionErrorBoundary>
       
-      {/* Chapter 5: The Legacy */}
+      {/* Chapter 5: My Timeline */}
       <SectionErrorBoundary sectionName="Timeline">
         <section id="legacy" className="relative">
           <ImmersiveTimeline />
         </section>
       </SectionErrorBoundary>
       
-      {/* Epilogue: Connect */}
+      {/* Connect with Me */}
       <SectionErrorBoundary sectionName="Contact Section">
         <section id="connect" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50 relative">
           <ResponsiveContainer size="lg" padding="lg">
             <div className="text-center mb-12 sm:mb-16 md:mb-20">
               <div className="inline-block mb-4">
                 <span className="text-xs sm:text-sm font-light tracking-[0.2em] uppercase text-golden-600">
-                  Epilogue
+                  Let's Connect
                 </span>
               </div>
               <FluidTypography variant="h2" color="royal" className="mb-4 sm:mb-6">
-                Connect with Dr. P.T. Abdul Rahman
+                Join Me on This Journey
               </FluidTypography>
               <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto px-4">
-                Join the conversation and become part of a global community dedicated to 
-                educational excellence and humanitarian service.
+                I welcome connections with fellow writers, educators, community workers, and anyone 
+                interested in making a positive difference. May Allah bless our shared efforts.
               </FluidTypography>
             </div>
             <Contact />
