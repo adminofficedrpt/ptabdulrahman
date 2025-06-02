@@ -188,7 +188,7 @@ const ProfessionalTimeline: React.FC = () => {
 
                 {/* Content Card */}
                 <div className={`w-5/12 ${isEven ? 'pr-12' : 'pl-12'}`}>
-                  <div className="bg-white shadow-lg border border-royal-100 hover:shadow-xl transition-all duration-300 mx-0 my-0 px-[26px] py-[24px] rounded-lg w-fit max-w-full break-words">
+                  <div className="bg-white shadow-lg border border-royal-100 hover:shadow-xl transition-all duration-300 mx-0 my-0 px-[26px] py-[24px] rounded-lg w-full min-w-0 break-words">
                     {/* Year Badge */}
                     <div className="flex items-center mb-4">
                       <Calendar size={16} className="text-golden-600 mr-2" />
