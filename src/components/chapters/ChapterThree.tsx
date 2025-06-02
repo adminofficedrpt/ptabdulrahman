@@ -8,27 +8,27 @@ const ChapterThree: React.FC = () => {
   const educationPillars = [
     {
       icon: GraduationCap,
-      title: "Proper Upbringing",
-      description: "Education is not just about academic knowledge. It's about raising children with strong character, good values, and deep faith. This is what I've tried to provide for my own family and all the students who come to our institutions.",
-      impact: "Holistic development approach"
+      title: "DQAA Academy Foundation",
+      description: "In 2013, I founded Darul Quran Abdulla Educational Academy in Kerala - a revolutionary initiative that promoted the Quran as a survival necessity across India. Alhamdulillah, one of our students even represented India at the Dubai International Holy Quran Award.",
+      impact: "Educational excellence with Islamic values"
     },
     {
       icon: BookOpen,
-      title: "DQAA Academy",
-      description: "Establishing Darul Quran Abdulla Academy was a dream that Allah made possible. It's a place where children can grow academically while strengthening their Islamic identity and character. Alhamdulillah for every student who walks through our doors.",
-      impact: "Center of learning excellence"
+      title: "ABR Academy Leadership",
+      description: "As Founder President of ABR Academy for Education and Islamic Culture since 2017, I continue working to bridge traditional Islamic education with modern pedagogical approaches. Every student is a trust (amanah) we must nurture carefully.",
+      impact: "Cultural preservation through education"
     },
     {
       icon: Users,
-      title: "Generational Impact",
-      description: "Now in my sixties, I see the fruits of this educational mission. Students have become teachers, parents, and community leaders. They carry forward not just knowledge, but the values and principles we tried to instill.",
-      impact: "Legacy of guided leaders"
+      title: "Academic Contributions",
+      description: "I've had the privilege to serve as visiting lecturer at prestigious institutions including Moulana Azad Foundation University, Darul Huda Islamic University, and Wafi College of Islamic Studies. Each lecture is an opportunity to plant seeds of knowledge.",
+      impact: "University-level Islamic scholarship"
     },
     {
       icon: Heart,
-      title: "Family Foundation",
-      description: "My greatest pride is seeing how Allah blessed our family's next generation with proper education and strong values. They understand that knowledge is a trust to be shared and that success means serving others.",
-      impact: "Strong family legacy"
+      title: "Multilingual Teaching",
+      description: "By Allah's blessing, I speak Arabic, English, Hindi, Urdu, Malayalam, and Tamil. This allows me to conduct Arabic classes for Indian diplomats and reach students across linguistic barriers. Language is the bridge to hearts and minds.",
+      impact: "Cross-cultural educational access"
     }
   ];
 
@@ -36,9 +36,9 @@ const ChapterThree: React.FC = () => {
     <ChapterContainer
       id="educator"
       chapterNumber={3}
-      title="Education & Legacy"
-      subtitle="Building tomorrow through proper upbringing and meaningful learning, Insha'Allah"
-      variant="accent"
+      title="Educational Innovation & Legacy"
+      subtitle="Building institutions that nurture both academic excellence and spiritual growth, Alhamdulillah"
+      variant="gradient"
     >
       {/* Personal Opening */}
       <motion.div 
@@ -49,10 +49,10 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          As I reflect on decades of involvement in education, I'm reminded that teaching is the most 
-          noble profession our Prophet (PBUH) engaged in. Through DQAA and other educational efforts, 
-          I've tried to create spaces where young minds can flourish while staying rooted in their values. 
-          The greatest reward is seeing our students become beacons of knowledge and character in their communities.
+          After completing my M.A. in Sociology from University of Mysore and serving in various professional roles, 
+          I realized that true change begins with education. Through DQAA Academy and other initiatives, 
+          I've tried to create learning environments where young minds can excel academically while staying 
+          rooted in their Islamic identity and values.
         </p>
       </motion.div>
 
@@ -87,7 +87,7 @@ const ChapterThree: React.FC = () => {
         ))}
       </div>
 
-      {/* DQAA Highlight Section */}
+      {/* DQAA & Academic Credentials Highlight */}
       <motion.div 
         className="bg-gradient-to-r from-royal-900 to-royal-800 rounded-2xl p-8 md:p-12 text-white mb-16"
         initial={{ y: 60, opacity: 0 }}
@@ -96,30 +96,30 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-center mb-8">
-          Darul Quran Abdulla Academy
+          Academic Credentials & Institutions
         </h3>
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">1995</div>
-            <div className="text-lg font-medium mb-2">Established</div>
-            <div className="text-white/80 text-sm">A dream Allah made possible</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">M.A.</div>
+            <div className="text-lg font-medium mb-2">Sociology</div>
+            <div className="text-white/80 text-sm">University of Mysore</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">Thousands</div>
-            <div className="text-lg font-medium mb-2">Students Served</div>
-            <div className="text-white/80 text-sm">Each one precious and unique</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">6</div>
+            <div className="text-lg font-medium mb-2">Languages</div>
+            <div className="text-white/80 text-sm">Arabic, English, Hindi, Urdu, Malayalam, Tamil</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">Ongoing</div>
-            <div className="text-lg font-medium mb-2">Mission</div>
-            <div className="text-white/80 text-sm">For generations to come</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">Multiple</div>
+            <div className="text-lg font-medium mb-2">Universities</div>
+            <div className="text-white/80 text-sm">Visiting lecturer positions</div>
           </div>
         </div>
         
         <blockquote className="text-xl md:text-2xl font-light italic text-center text-white/90 mb-4">
-          "DQAA is not just a school - it's a place where we nurture both the mind and the soul, 
-          preparing young people to be successful in this world while never forgetting their purpose in the next."
+          "Education is not just about acquiring knowledge - it's about nurturing character, 
+          building bridges between cultures, and preparing young people to serve humanity with wisdom and compassion."
         </blockquote>
         <cite className="block text-center text-golden-300 font-medium">Dr. P.T. Abdul Rahman</cite>
       </motion.div>
@@ -133,18 +133,19 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <h4 className="text-2xl font-playfair font-semibold text-royal-900 mb-4">
-          Continue the Journey
+          Continue the Educational Mission
         </h4>
         <p className="text-royal-700 mb-6 max-w-2xl mx-auto">
-          If you're interested in learning more about DQAA's programs or would like to contribute 
-          to our educational mission, we welcome you to be part of this blessed work.
+          If you're interested in supporting our educational initiatives at DQAA Academy or ABR Academy, 
+          or would like to learn more about our programs that blend Islamic values with academic excellence, 
+          we welcome you to be part of this blessed work.
         </p>
         <motion.button
           className="bg-gradient-to-r from-royal-600 to-golden-600 text-white px-8 py-3 rounded-lg font-medium hover:from-royal-700 hover:to-golden-700 transition-all duration-300"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Learn About DQAA
+          Learn About Our Academies
         </motion.button>
       </motion.div>
     </ChapterContainer>

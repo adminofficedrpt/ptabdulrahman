@@ -2,42 +2,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChapterContainer from './ChapterContainer';
-import { Pen, BookOpen, Globe2, Users } from 'lucide-react';
+import { Pen, BookOpen, Globe2, Users, Award, Languages } from 'lucide-react';
 
 const ChapterOne: React.FC = () => {
   const literaryJourney = [
     {
       icon: Pen,
-      title: "The Writer's Path",
-      description: "By Allah's grace, my writing journey began with a simple desire to share knowledge and understanding. Each book has been a trust (amanah) to convey meaningful messages.",
-      quote: "Every word I write is a prayer that it may benefit someone, somewhere"
+      title: "First Major Publication",
+      description: "In 1995, I published 'Is the Creation Meaningless?' - a philosophical work that would reach readers in Malayalam, Arabic, and English through the Department of Islamic Affairs. SubhanAllah, this book opened doors I never imagined.",
+      achievement: "Multi-language philosophical work"
+    },
+    {
+      icon: Languages,
+      title: "Multilingual Scholarship",
+      description: "By Allah's blessing, I write and translate in six languages: Arabic, English, Hindi, Urdu, Malayalam, and Tamil. This has allowed me to serve as Arabic-English translator and conduct classes for Indian diplomats in Dubai.",
+      achievement: "Cross-cultural communication bridge"
     },
     {
       icon: BookOpen,
-      title: "Books as Bridges",
-      description: "Alhamdulillah, my 15+ books have reached readers across 8 languages. I never imagined these humble efforts would travel so far, but Allah's plans are always greater.",
-      quote: "True knowledge should build bridges, not walls between communities"
+      title: "Diverse Literary Contributions",
+      description: "From 'The Address to Know How to Address' (Arabic learning guide) to 'The Sun of Scholars' (404-page biography in Arabic), each book serves a purpose. I've also contributed to Khaleej Times, Suprabhatam, and Al-Diya magazine.",
+      achievement: "Academic and popular publications"
     },
     {
       icon: Globe2,
-      title: "Global Connections",
-      description: "What humbles me most is hearing from readers worldwide who found comfort or guidance in these writings. SubhanAllah, how Allah connects hearts through words.",
-      quote: "A book carries the author's heart to every reader who opens it"
-    },
-    {
-      icon: Users,
-      title: "Writing for Change",
-      description: "My hope has always been that these writings might inspire positive action. If even one person is moved to help another, the effort is worthwhile, Insha'Allah.",
-      quote: "The pen that serves humanity serves Allah"
+      title: "Television & Media Pioneer",
+      description: "I had the honor of creating the first Islamic TV program on Indian channel Asianet (2001-2003), titled 'The Guidance - Dharma Reka.' It promoted peace among Islam, Christianity, and Hinduism - inspiring other Malayalam channels to follow.",
+      achievement: "Interfaith dialogue pioneer"
     }
+  ];
+
+  const publications = [
+    { title: "Is the Creation Meaningless?", languages: "Malayalam, Arabic, English", year: "1995" },
+    { title: "Towards the Creator", languages: "English, Malayalam", year: "Multiple editions" },
+    { title: "The Address to Know How to Address", languages: "Arabic learning guide", year: "Educational" },
+    { title: "The Sun of Scholars", languages: "Arabic (404 pages)", year: "2015" }
   ];
 
   return (
     <ChapterContainer
       id="visionary"
       chapterNumber={1}
-      title="My Journey as a Writer"
-      subtitle="Sharing thoughts and reflections through the written word, by Allah's grace"
+      title="My Literary & Media Journey"
+      subtitle="Sharing knowledge across languages and cultures, by Allah's guidance"
       variant="light"
     >
       {/* Personal Opening */}
@@ -49,14 +56,14 @@ const ChapterOne: React.FC = () => {
         viewport={{ once: true }}
       >
         <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          For over three decades, I have been blessed to share my thoughts through writing. 
-          What started as personal reflections has, Alhamdulillah, grown into books that have 
-          reached readers in many countries. This journey has taught me that words, when written 
-          with sincere intention, can touch hearts we may never meet.
+          My writing journey began with a desire to share the wisdom I've gained through my studies, 
+          including my M.A. in Sociology from University of Mysore. What started as personal reflections 
+          has, Alhamdulillah, grown into books published in multiple languages and media programs 
+          that reached audiences across cultures and faiths.
         </p>
       </motion.div>
 
-      {/* Writing Journey Grid */}
+      {/* Literary Journey Grid */}
       <div className="grid md:grid-cols-2 gap-8 mb-20">
         {literaryJourney.map((chapter, index) => (
           <motion.div
@@ -72,56 +79,91 @@ const ChapterOne: React.FC = () => {
                 <chapter.icon size={28} className="text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-playfair font-semibold text-royal-900 mb-4">
+                <h3 className="text-2xl font-playfair font-semibold text-royal-900 mb-2">
                   {chapter.title}
                 </h3>
-                <p className="text-royal-700 leading-relaxed mb-4">
+                <div className="inline-block bg-golden-100 text-golden-700 text-sm font-medium px-3 py-1 rounded-full mb-4">
+                  {chapter.achievement}
+                </div>
+                <p className="text-royal-700 leading-relaxed">
                   {chapter.description}
                 </p>
-                <blockquote className="italic text-golden-700 font-medium">
-                  "{chapter.quote}"
-                </blockquote>
               </div>
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Personal Reflection Section */}
+      {/* Publications Showcase */}
       <motion.div 
-        className="bg-gradient-to-r from-royal-900 to-royal-800 rounded-2xl p-8 md:p-12 text-white"
+        className="bg-gradient-to-r from-royal-900 to-royal-800 rounded-2xl p-8 md:p-12 text-white mb-16"
         initial={{ y: 60, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-center mb-8">
-          A Humble Reflection on Writing
+          Published Works & Contributions
         </h3>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {publications.map((book, index) => (
+            <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <h4 className="text-xl font-semibold text-golden-300 mb-2">{book.title}</h4>
+              <p className="text-white/80 text-sm mb-1">Languages: {book.languages}</p>
+              <p className="text-white/60 text-xs">{book.year}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">1995</div>
-            <div className="text-lg font-medium mb-2">First Publication</div>
-            <div className="text-white/80 text-sm">When Allah opened this door</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">6</div>
+            <div className="text-lg font-medium mb-2">Languages</div>
+            <div className="text-white/80 text-sm">Written & spoken fluently</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-golden-300 mb-2">15+</div>
-            <div className="text-lg font-medium mb-2">Books Published</div>
-            <div className="text-white/80 text-sm">Each one a trust and responsibility</div>
+            <div className="text-lg font-medium mb-2">Published Works</div>
+            <div className="text-white/80 text-sm">Books and articles</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">8</div>
-            <div className="text-lg font-medium mb-2">Languages</div>
-            <div className="text-white/80 text-sm">Reaching hearts across cultures</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">2001</div>
+            <div className="text-lg font-medium mb-2">TV Pioneer</div>
+            <div className="text-white/80 text-sm">First Islamic program on Asianet</div>
           </div>
         </div>
         
         <blockquote className="text-xl md:text-2xl font-light italic text-center text-white/90 mb-4">
-          "I never write thinking I am teaching others. Rather, I write hoping that Allah will 
-          use these words to benefit whoever needs them most."
+          "Every word I write is a prayer that it may benefit someone, somewhere. 
+          Knowledge is a trust from Allah, and we must share it responsibly."
         </blockquote>
         <cite className="block text-center text-golden-300 font-medium">Dr. P.T. Abdul Rahman</cite>
+      </motion.div>
+
+      {/* Media Contributions */}
+      <motion.div 
+        className="text-center bg-gradient-to-br from-golden-50 to-royal-50 rounded-xl p-8"
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h4 className="text-2xl font-playfair font-semibold text-royal-900 mb-4">
+          Media Publications & Recognition
+        </h4>
+        <p className="text-royal-700 mb-6 max-w-2xl mx-auto">
+          My articles have appeared in prestigious publications including Khaleej Times, 
+          Gulf News, Al-Diya (Department of Islamic Affairs), and various Indian magazines. 
+          Each contribution aims to promote understanding, education, and community welfare.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-royal-600">
+          <span className="bg-white px-3 py-1 rounded-full">Khaleej Times</span>
+          <span className="bg-white px-3 py-1 rounded-full">Gulf News</span>
+          <span className="bg-white px-3 py-1 rounded-full">Al-Diya Magazine</span>
+          <span className="bg-white px-3 py-1 rounded-full">Suprabhatam</span>
+          <span className="bg-white px-3 py-1 rounded-full">Various Indian Publications</span>
+        </div>
       </motion.div>
     </ChapterContainer>
   );
