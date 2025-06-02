@@ -188,7 +188,7 @@ const ProfessionalTimeline: React.FC = () => {
 
                 {/* Content Card */}
                 <div className={`w-5/12 ${isEven ? 'pr-12' : 'pl-12'}`}>
-                  <div className="bg-white shadow-lg border border-royal-100 hover:shadow-xl transition-all duration-300 mx-0 my-0 px-[26px] py-[24px] rounded-lg w-[160px] break-words">
+                  <div className="bg-white shadow-lg border border-royal-100 hover:shadow-xl transition-all duration-300 my-0 rounded-lg w-[160px] break-words px-[14px] py-[25px] mx-[2px]">
                     {/* Year Badge */}
                     <div className="flex items-center mb-4">
                       <Calendar size={16} className="text-golden-600 mr-2" />
@@ -196,27 +196,27 @@ const ProfessionalTimeline: React.FC = () => {
                     </div>
 
                     {/* Title and Organization */}
-                    <h3 className="text-xl font-playfair font-semibold text-royal-900 mb-2">
+                    <h3 className="font-playfair font-semibold text-royal-900 mb-2 text-sm">
                       {event.title}
                     </h3>
-                    <h4 className="text-lg font-medium text-royal-700 mb-2">
+                    <h4 className="font-medium text-royal-700 mb-2 text-xs">
                       {event.organization}
                     </h4>
 
                     {/* Location */}
                     <div className="flex items-center mb-4">
                       <MapPin size={14} className="text-royal-500 mr-2" />
-                      <span className="text-royal-600 text-sm">{event.location}</span>
+                      <span className="text-royal-600 text-xs">{event.location}</span>
                     </div>
 
                     {/* Description */}
-                    <p className="text-royal-700 mb-4 leading-relaxed">
+                    <p className="text-royal-700 mb-4 leading-relaxed text-xs">
                       {event.description}
                     </p>
 
                     {/* Achievements */}
                     <div>
-                      <h5 className="font-semibold text-royal-800 mb-2 text-sm">Key Achievements:</h5>
+                      <h5 className="font-semibold text-royal-800 mb-2 text-xs">Key Achievements:</h5>
                       <ul className="space-y-1">
                         {event.achievements.map((achievement, achievementIndex) => <li key={achievementIndex} className="text-royal-600 text-sm flex items-start">
                             <span className="text-golden-500 mr-2 mt-1">•</span>
