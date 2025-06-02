@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, BookOpen, Users, Globe, GraduationCap, Heart, Building } from 'lucide-react';
+import { ChevronDown, BookOpen, Users, Globe, GraduationCap, Building, Award } from 'lucide-react';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import IslamicPattern from '@/components/design-system/IslamicPattern';
 import HeroSlideshow from '@/components/hero/HeroSlideshow';
@@ -11,14 +11,14 @@ import VideoModal from '@/components/hero/VideoModal';
 
 const heroSlides = [{
   id: 1,
-  title: "Assalamu Alaikum - Welcome to My Journey",
-  subtitle: "Three Decades of Service to Humanity, Alhamdulillah",
-  description: "I am Dr. P.T. Abdul Rahman, and by Allah's grace, I have been blessed to serve through education, humanitarian work, and community building for over thirty years. From my early days in Kerala to establishing institutions in the UAE, this website shares my humble journey as an author, educator, and social activist.",
+  title: "Building Generations Through Vision and Compassion",
+  subtitle: "Visionary Educator & Humanitarian Leader",
+  description: "For over three decades, Dr. P.T. Abdul Rahman has transformed lives through educational innovation and humanitarian service. As the founder of Darul Quran Abdulla Academy and a multilingual author of 15+ books, his vision extends from the classrooms of Kerala to the global stage of humanitarian impact.",
   image: "/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png",
   stats: [{
     icon: GraduationCap,
     value: "M.A.",
-    label: "Sociology - Mysore"
+    label: "Sociology - University of Mysore"
   }, {
     icon: Globe,
     value: "6",
@@ -30,40 +30,40 @@ const heroSlides = [{
   }]
 }, {
   id: 2,
-  title: "Professional Service & Leadership",
-  subtitle: "From Military Administration to Educational Innovation",
-  description: "Starting with the Central Military Command UAE (1992-1996), then serving as a researcher with the Department of Islamic Affairs (1996-2005), I've had diverse roles including Chairman & MD of multiple companies. Each position taught me valuable lessons about leadership, community service, and the importance of ethical business practices.",
+  title: "Founder of Darul Quran Abdulla Academy",
+  subtitle: "Where Values and Excellence Meet",
+  description: "In 2013, Dr. Rahman founded DQAA - a revolutionary educational institution that bridges traditional values with modern pedagogical excellence. His vision has mentored students to represent India at international competitions and created a model that inspires educational innovation across the region.",
   image: "/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png",
   stats: [{
     icon: Building,
-    value: "1992",
-    label: "Started in UAE"
+    value: "2013",
+    label: "DQAA Academy Founded"
   }, {
     icon: Users,
-    value: "Multiple",
-    label: "Leadership Roles"
+    value: "1000s",
+    label: "Lives Transformed"
   }, {
-    icon: Heart,
-    value: "Ongoing",
-    label: "Service Mission"
+    icon: Award,
+    value: "Global",
+    label: "Recognition"
   }]
 }, {
   id: 3,
-  title: "Educational Legacy & Humanitarian Impact",
-  subtitle: "Building Institutions That Transform Lives",
-  description: "In 2013, I founded Darul Quran Abdulla Educational Academy in Kerala - a revolutionary initiative. I also established the Indian Islamic Center Dubai in 1992 and have been blessed to mentor students, conduct TV programs promoting interfaith harmony, and provide humanitarian assistance to countless families.",
+  title: "Three Decades of Transformative Service",
+  subtitle: "From Military Administration to Educational Innovation",
+  description: "From his early role with the Central Military Command UAE (1992-1996) to establishing multiple institutions, Dr. Rahman's journey exemplifies visionary leadership. His humanitarian work includes legal aid for prisoners, healthcare camps, and founding the Indian Islamic Center Dubai - touching countless lives across continents.",
   image: "/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg",
   stats: [{
     icon: Users,
-    value: "1992",
-    label: "Indian Islamic Center"
+    value: "30+",
+    label: "Years of Service"
   }, {
-    icon: BookOpen,
-    value: "2013",
-    label: "DQAA Academy"
+    icon: Building,
+    value: "Multiple",
+    label: "Institutions Founded"
   }, {
     icon: Globe,
-    value: "Continuing",
+    value: "Global",
     label: "Impact"
   }]
 }];
@@ -117,7 +117,7 @@ const AdvancedHero: React.FC = () => {
         </div>
       </ResponsiveContainer>
 
-      {/* AI8TY Credit - Premium Tech Integration */}
+      {/* Enhanced AI8TY Credit - Premium Creative Agency */}
       <motion.div 
         className="absolute bottom-4 right-4 z-20"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -125,36 +125,36 @@ const AdvancedHero: React.FC = () => {
         transition={{ delay: 2, duration: 0.8 }}
       >
         <div className="group relative">
-          {/* Animated background glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-golden-400/30 to-royal-400/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-500 animate-pulse" />
+          {/* Sophisticated background glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-golden-400/40 via-royal-400/30 to-golden-300/40 rounded-xl blur-lg group-hover:blur-xl transition-all duration-700 animate-pulse" />
           
-          {/* Main credit container */}
-          <div className="relative bg-black/80 backdrop-blur-xl border border-white/20 rounded-xl px-6 py-3 text-sm text-white/95 hover:text-white transition-all duration-500 shadow-2xl">
-            <div className="flex items-center space-x-3">
-              {/* Animated indicator */}
+          {/* Premium credit container */}
+          <div className="relative bg-black/85 backdrop-blur-xl border border-white/25 rounded-xl px-7 py-4 text-sm text-white/95 hover:text-white transition-all duration-700 shadow-2xl hover:shadow-golden-500/20">
+            <div className="flex items-center space-x-4">
+              {/* Premium animated indicator */}
               <div className="relative">
-                <div className="w-3 h-3 bg-gradient-to-r from-golden-400 to-royal-400 rounded-full animate-pulse" />
-                <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-golden-400 to-royal-400 rounded-full animate-ping opacity-20" />
+                <div className="w-3.5 h-3.5 bg-gradient-to-r from-golden-400 via-golden-300 to-royal-400 rounded-full animate-pulse" />
+                <div className="absolute inset-0 w-3.5 h-3.5 bg-gradient-to-r from-golden-400 via-golden-300 to-royal-400 rounded-full animate-ping opacity-20" />
               </div>
               
-              {/* Credit text */}
+              {/* Enhanced credit text */}
               <div className="flex items-center space-x-2">
-                <span className="font-medium text-white/90">Built & Managed by</span>
+                <span className="font-medium text-white/90">Crafted & Managed by</span>
                 <a 
                   href="https://ai8ty.com" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="font-bold bg-gradient-to-r from-golden-400 via-golden-300 to-royal-400 bg-clip-text text-transparent hover:from-golden-300 hover:via-golden-200 hover:to-royal-300 transition-all duration-500 transform hover:scale-105"
+                  className="font-bold bg-gradient-to-r from-golden-400 via-golden-300 to-royal-400 bg-clip-text text-transparent hover:from-golden-300 hover:via-golden-200 hover:to-royal-300 transition-all duration-700 transform hover:scale-105"
                 >
                   AI8TY
                 </a>
-                <span className="text-white/70 text-xs">Creative Agency</span>
+                <span className="text-white/70 text-xs font-light">Creative Agency</span>
               </div>
             </div>
             
-            {/* Subtle tech indicator */}
-            <div className="mt-1 text-xs text-white/60 text-center">
-              Premium Digital Experience
+            {/* Premium agency indicator */}
+            <div className="mt-1.5 text-xs text-white/60 text-center font-light">
+              Premium Digital Experience & Strategic Positioning
             </div>
           </div>
         </div>

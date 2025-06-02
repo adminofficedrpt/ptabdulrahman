@@ -2,45 +2,52 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChapterContainer from './ChapterContainer';
-import { GraduationCap, BookOpen, Users, Heart } from 'lucide-react';
+import { GraduationCap, BookOpen, Users, Building, Award, Globe } from 'lucide-react';
 
 const ChapterThree: React.FC = () => {
   const educationPillars = [
     {
-      icon: GraduationCap,
-      title: "DQAA Academy Foundation",
-      description: "In 2013, I founded Darul Quran Abdulla Educational Academy in Kerala - a revolutionary initiative that promoted the Quran as a survival necessity across India. Alhamdulillah, one of our students even represented India at the Dubai International Holy Quran Award.",
-      impact: "Educational excellence with Islamic values"
+      icon: Building,
+      title: "DQAA Academy - Revolutionary Vision",
+      description: "In 2013, Dr. Rahman founded Darul Quran Abdulla Educational Academy, revolutionizing Islamic education in Kerala. This institution bridges traditional Quranic studies with modern pedagogical excellence, mentoring students who represent India at international competitions including the Dubai International Holy Quran Award.",
+      impact: "Educational model that inspires nationwide"
     },
     {
-      icon: BookOpen,
+      icon: Award,
       title: "ABR Academy Leadership",
-      description: "As Founder President of ABR Academy for Education and Islamic Culture since 2017, I continue working to bridge traditional Islamic education with modern pedagogical approaches. Every student is a trust (amanah) we must nurture carefully.",
-      impact: "Cultural preservation through education"
+      description: "As Founder President of ABR Academy for Education and Islamic Culture since 2017, Dr. Rahman continues advancing educational innovation. His leadership demonstrates how traditional values can enhance modern learning, creating graduates who excel academically while maintaining strong ethical foundations.",
+      impact: "Values-based educational excellence"
     },
     {
       icon: Users,
-      title: "Academic Contributions",
-      description: "I've had the privilege to serve as visiting lecturer at prestigious institutions including Moulana Azad Foundation University, Darul Huda Islamic University, and Wafi College of Islamic Studies. Each lecture is an opportunity to plant seeds of knowledge.",
-      impact: "University-level Islamic scholarship"
+      title: "Academic Leadership",
+      description: "Dr. Rahman serves as visiting lecturer at prestigious institutions including Moulana Azad Foundation University, Darul Huda Islamic University, and Wafi College of Islamic Studies. His expertise in sociology and multilingual capabilities make him a sought-after educator and thought leader.",
+      impact: "University-level influence and mentorship"
     },
     {
-      icon: Heart,
-      title: "Multilingual Teaching",
-      description: "By Allah's blessing, I speak Arabic, English, Hindi, Urdu, Malayalam, and Tamil. This allows me to conduct Arabic classes for Indian diplomats and reach students across linguistic barriers. Language is the bridge to hearts and minds.",
-      impact: "Cross-cultural educational access"
+      icon: Globe,
+      title: "Diplomatic Education",
+      description: "His expertise extends to conducting Arabic language classes for Indian diplomats at the Consulate General of India, Dubai. This unique role demonstrates his ability to bridge cultures and facilitate international understanding through education and linguistic excellence.",
+      impact: "International diplomatic education"
     }
+  ];
+
+  const institutions = [
+    { name: "Darul Quran Abdulla Educational Academy", year: "2013", role: "Founder", impact: "Revolutionary Islamic education model" },
+    { name: "ABR Academy for Education and Islamic Culture", year: "2017", role: "Founder President", impact: "Values-based modern education" },
+    { name: "Indian Islamic Center Dubai", year: "1992", role: "Founder & President", impact: "Community education and welfare" },
+    { name: "Multiple Universities", year: "Ongoing", role: "Visiting Lecturer", impact: "Academic thought leadership" }
   ];
 
   return (
     <ChapterContainer
       id="educator"
       chapterNumber={3}
-      title="Educational Innovation & Legacy"
-      subtitle="Building institutions that nurture both academic excellence and spiritual growth, Alhamdulillah"
+      title="Educational Innovation & Institutional Building"
+      subtitle="Creating tomorrow's leaders through visionary educational excellence"
       variant="gradient"
     >
-      {/* Personal Opening */}
+      {/* Enhanced Opening */}
       <motion.div 
         className="max-w-4xl mx-auto text-center mb-20"
         initial={{ y: 40, opacity: 0 }}
@@ -49,10 +56,9 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          After completing my M.A. in Sociology from University of Mysore and serving in various professional roles, 
-          I realized that true change begins with education. Through DQAA Academy and other initiatives, 
-          I've tried to create learning environments where young minds can excel academically while staying 
-          rooted in their Islamic identity and values.
+          Dr. Rahman's educational philosophy transcends traditional boundaries, creating institutions that prepare 
+          students for global success while preserving cultural identity. His M.A. in Sociology from University of Mysore 
+          provided the academic foundation for educational innovations that now serve as models across India and beyond.
         </p>
       </motion.div>
 
@@ -87,7 +93,7 @@ const ChapterThree: React.FC = () => {
         ))}
       </div>
 
-      {/* DQAA & Academic Credentials Highlight */}
+      {/* Institutional Legacy */}
       <motion.div 
         className="bg-gradient-to-r from-royal-900 to-royal-800 rounded-2xl p-8 md:p-12 text-white mb-16"
         initial={{ y: 60, opacity: 0 }}
@@ -96,8 +102,21 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-center mb-8">
-          Academic Credentials & Institutions
+          Institutional Legacy & Academic Credentials
         </h3>
+        
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {institutions.map((institution, index) => (
+            <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <h4 className="text-xl font-semibold text-golden-300 mb-2">{institution.name}</h4>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-white/80 text-sm">{institution.role}</span>
+                <span className="text-white/60 text-xs">{institution.year}</span>
+              </div>
+              <p className="text-golden-200 text-sm font-medium">{institution.impact}</p>
+            </div>
+          ))}
+        </div>
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="text-center">
@@ -106,20 +125,20 @@ const ChapterThree: React.FC = () => {
             <div className="text-white/80 text-sm">University of Mysore</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">6</div>
-            <div className="text-lg font-medium mb-2">Languages</div>
-            <div className="text-white/80 text-sm">Arabic, English, Hindi, Urdu, Malayalam, Tamil</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">Multiple</div>
+            <div className="text-lg font-medium mb-2">Institutions</div>
+            <div className="text-white/80 text-sm">Founded & led to success</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">Multiple</div>
-            <div className="text-lg font-medium mb-2">Universities</div>
-            <div className="text-white/80 text-sm">Visiting lecturer positions</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">Global</div>
+            <div className="text-lg font-medium mb-2">Recognition</div>
+            <div className="text-white/80 text-sm">International impact</div>
           </div>
         </div>
         
         <blockquote className="text-xl md:text-2xl font-light italic text-center text-white/90 mb-4">
-          "Education is not just about acquiring knowledge - it's about nurturing character, 
-          building bridges between cultures, and preparing young people to serve humanity with wisdom and compassion."
+          "True education doesn't just fill minds with knowledge—it shapes character, builds bridges between 
+          cultures, and prepares young people to lead with wisdom, compassion, and excellence."
         </blockquote>
         <cite className="block text-center text-golden-300 font-medium">Dr. P.T. Abdul Rahman</cite>
       </motion.div>
@@ -133,19 +152,19 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <h4 className="text-2xl font-playfair font-semibold text-royal-900 mb-4">
-          Continue the Educational Mission
+          See His Vision in Action
         </h4>
         <p className="text-royal-700 mb-6 max-w-2xl mx-auto">
-          If you're interested in supporting our educational initiatives at DQAA Academy or ABR Academy, 
-          or would like to learn more about our programs that blend Islamic values with academic excellence, 
-          we welcome you to be part of this blessed work.
+          Experience the transformative power of visionary education at DQAA Academy and ABR Academy. 
+          Join thousands of students who have benefited from Dr. Rahman's innovative approach to learning that 
+          combines academic excellence with character development.
         </p>
         <motion.button
           className="bg-gradient-to-r from-royal-600 to-golden-600 text-white px-8 py-3 rounded-lg font-medium hover:from-royal-700 hover:to-golden-700 transition-all duration-300"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Learn About Our Academies
+          Explore His Educational Legacy
         </motion.button>
       </motion.div>
     </ChapterContainer>
