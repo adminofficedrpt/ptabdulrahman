@@ -80,7 +80,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ currentSlide, onVideoOpen, on
               onClick={onScrollToContent}
               className="bg-gradient-to-r from-golden-500 to-golden-600 text-white px-8 py-4 rounded-lg hover:from-golden-600 hover:to-golden-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 min-h-[56px]"
             >
-              Explore His Legacy
+              Explore His Educational Legacy
             </button>
             <button
               onClick={onVideoOpen}
@@ -111,7 +111,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ currentSlide, onVideoOpen, on
                 </FluidTypography>
               </div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </AnimatePresence>
     </div>
