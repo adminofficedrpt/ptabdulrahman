@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, BookOpen, Users, Globe, GraduationCap, Building, Award } from 'lucide-react';
@@ -8,7 +7,6 @@ import HeroSlideshow from '@/components/hero/HeroSlideshow';
 import HeroContent from '@/components/hero/HeroContent';
 import HeroPortrait from '@/components/hero/HeroPortrait';
 import VideoModal from '@/components/hero/VideoModal';
-
 const heroSlides = [{
   id: 1,
   title: "Building Generations Through Vision and Compassion",
@@ -67,18 +65,15 @@ const heroSlides = [{
     label: "Impact"
   }]
 }];
-
 const AdvancedHero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % heroSlides.length);
     }, 8000);
     return () => clearInterval(interval);
   }, []);
-
   const scrollToContent = () => {
     const nextSection = document.getElementById('visionary');
     if (nextSection) {
@@ -87,15 +82,13 @@ const AdvancedHero: React.FC = () => {
       });
     }
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-royal-900 via-royal-800 to-royal-700">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-royal-900 via-royal-800 to-royal-700">
       {/* Background Patterns */}
       <div className="absolute inset-0 opacity-10">
         <div className="grid grid-cols-8 gap-12 h-full rotate-12 transform scale-150">
-          {Array.from({ length: 64 }).map((_, i) => (
-            <IslamicPattern key={i} variant="geometric" size="md" animate />
-          ))}
+          {Array.from({
+          length: 64
+        }).map((_, i) => <IslamicPattern key={i} variant="geometric" size="md" animate />)}
         </div>
       </div>
 
@@ -106,11 +99,7 @@ const AdvancedHero: React.FC = () => {
       <ResponsiveContainer size="xl" padding="lg" className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-screen py-20">
           {/* Text Content */}
-          <HeroContent 
-            currentSlide={heroSlides[currentSlide]} 
-            onVideoOpen={() => setIsVideoModalOpen(true)} 
-            onScrollToContent={scrollToContent} 
-          />
+          <HeroContent currentSlide={heroSlides[currentSlide]} onVideoOpen={() => setIsVideoModalOpen(true)} onScrollToContent={scrollToContent} />
 
           {/* Featured Portrait */}
           <HeroPortrait />
@@ -118,62 +107,37 @@ const AdvancedHero: React.FC = () => {
       </ResponsiveContainer>
 
       {/* Enhanced AI8TY Credit - Premium Creative Agency */}
-      <motion.div 
-        className="absolute bottom-4 right-4 z-20"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 2, duration: 0.8 }}
-      >
+      <motion.div className="absolute bottom-4 right-4 z-20" initial={{
+      opacity: 0,
+      scale: 0.8
+    }} animate={{
+      opacity: 1,
+      scale: 1
+    }} transition={{
+      delay: 2,
+      duration: 0.8
+    }}>
         <div className="group relative">
           {/* Sophisticated background glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-golden-400/40 via-royal-400/30 to-golden-300/40 rounded-xl blur-lg group-hover:blur-xl transition-all duration-700 animate-pulse" />
           
           {/* Premium credit container */}
-          <div className="relative bg-black/85 backdrop-blur-xl border border-white/25 rounded-xl px-7 py-4 text-sm text-white/95 hover:text-white transition-all duration-700 shadow-2xl hover:shadow-golden-500/20">
-            <div className="flex items-center space-x-4">
-              {/* Premium animated indicator */}
-              <div className="relative">
-                <div className="w-3.5 h-3.5 bg-gradient-to-r from-golden-400 via-golden-300 to-royal-400 rounded-full animate-pulse" />
-                <div className="absolute inset-0 w-3.5 h-3.5 bg-gradient-to-r from-golden-400 via-golden-300 to-royal-400 rounded-full animate-ping opacity-20" />
-              </div>
-              
-              {/* Enhanced credit text */}
-              <div className="flex items-center space-x-2">
-                <span className="font-medium text-white/90">Crafted & Managed by</span>
-                <a 
-                  href="https://ai8ty.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="font-bold bg-gradient-to-r from-golden-400 via-golden-300 to-royal-400 bg-clip-text text-transparent hover:from-golden-300 hover:via-golden-200 hover:to-royal-300 transition-all duration-700 transform hover:scale-105"
-                >
-                  AI8TY
-                </a>
-                <span className="text-white/70 text-xs font-light">Creative Agency</span>
-              </div>
-            </div>
-            
-            {/* Premium agency indicator */}
-            <div className="mt-1.5 text-xs text-white/60 text-center font-light">
-              Premium Digital Experience & Strategic Positioning
-            </div>
-          </div>
+          
         </div>
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.button
-        onClick={scrollToContent}
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-golden-400 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-      >
+      <motion.button onClick={scrollToContent} animate={{
+      y: [0, 10, 0]
+    }} transition={{
+      duration: 2,
+      repeat: Infinity
+    }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-golden-400 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
         <ChevronDown className="h-8 w-8" />
       </motion.button>
 
       {/* Video Modal */}
       <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} />
-    </section>
-  );
+    </section>;
 };
-
 export default AdvancedHero;
