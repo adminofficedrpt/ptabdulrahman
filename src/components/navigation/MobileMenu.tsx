@@ -1,8 +1,9 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Home, User, BookOpen, GraduationCap, Building, MessageCircle, Phone } from 'lucide-react';
+import { X, Home, User, BookOpen, GraduationCap, Building, MessageCircle, Phone, Heart } from 'lucide-react';
 import ProgressiveImage from '@/components/ui/progressive-image';
+import { Link } from 'react-router-dom';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -11,18 +12,23 @@ interface MobileMenuProps {
 }
 
 const navigationItems = [
-  { icon: Home, label: 'Home', path: 'hero', description: 'Back to top' },
-  { icon: User, label: 'Visionary Author', path: 'visionary', description: 'Literary journey' },
-  { icon: Building, label: 'Humanitarian Leader', path: 'bridge-builder', description: 'Service & impact' },
-  { icon: GraduationCap, label: 'Educational Pioneer', path: 'educator', description: 'Innovation & institutions' },
-  { icon: BookOpen, label: 'Published Works', path: 'scholar', description: 'Books & writings' },
-  { icon: MessageCircle, label: 'Legacy Timeline', path: 'legacy', description: 'Career journey' },
-  { icon: Phone, label: 'Connect', path: 'connect', description: 'Get in touch' },
+  { icon: Home, label: 'Home', path: 'hero', description: 'Back to top', type: 'scroll' },
+  { icon: User, label: 'Visionary Author', path: 'visionary', description: 'Literary journey', type: 'scroll' },
+  { icon: Building, label: 'Humanitarian Leader', path: 'bridge-builder', description: 'Service & impact', type: 'scroll' },
+  { icon: GraduationCap, label: 'Educational Pioneer', path: 'educator', description: 'Innovation & institutions', type: 'scroll' },
+  { icon: BookOpen, label: 'Published Works', path: 'scholar', description: 'Books & writings', type: 'scroll' },
+  { icon: MessageCircle, label: 'Legacy Timeline', path: 'legacy', description: 'Career journey', type: 'scroll' },
+  { icon: Phone, label: 'Connect', path: 'connect', description: 'Get in touch', type: 'scroll' },
+  { icon: Heart, label: 'Eid Greetings', path: '/eid', description: 'Eid ul Adha card', type: 'link' },
 ];
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onNavClick }) => {
-  const handleNavClick = (path: string) => {
-    onNavClick(path);
+  const handleNavClick = (path: string, type: string) => {
+    if (type === 'scroll') {
+      onNavClick(path);
+    } else {
+      onClose();
+    }
   };
 
   return (
@@ -73,28 +79,51 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onNavClick }) 
             <div className="overflow-y-auto flex-1 py-6">
               <nav className="px-4">
                 {navigationItems.map((item, index) => (
-                  <motion.button
+                  <motion.div
                     key={item.path}
-                    onClick={() => handleNavClick(item.path)}
-                    className="w-full flex items-center space-x-4 p-4 rounded-xl hover:bg-royal-50 transition-all duration-200 text-left group min-h-[64px]"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.3 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-royal-500 to-golden-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                      <item.icon size={20} className="text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-royal-800 text-base group-hover:text-royal-700">
-                        {item.label}
-                      </h4>
-                      <p className="text-sm text-royal-600 group-hover:text-royal-500">
-                        {item.description}
-                      </p>
-                    </div>
-                  </motion.button>
+                    {item.type === 'scroll' ? (
+                      <button
+                        onClick={() => handleNavClick(item.path, item.type)}
+                        className="w-full flex items-center space-x-4 p-4 rounded-xl hover:bg-royal-50 transition-all duration-200 text-left group min-h-[64px]"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="w-12 h-12 bg-gradient-to-br from-royal-500 to-golden-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                          <item.icon size={20} className="text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-royal-800 text-base group-hover:text-royal-700">
+                            {item.label}
+                          </h4>
+                          <p className="text-sm text-royal-600 group-hover:text-royal-500">
+                            {item.description}
+                          </p>
+                        </div>
+                      </button>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        onClick={() => handleNavClick(item.path, item.type)}
+                        className="w-full flex items-center space-x-4 p-4 rounded-xl hover:bg-royal-50 transition-all duration-200 text-left group min-h-[64px]"
+                      >
+                        <div className="w-12 h-12 bg-gradient-to-br from-royal-500 to-golden-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                          <item.icon size={20} className="text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-royal-800 text-base group-hover:text-royal-700">
+                            {item.label}
+                          </h4>
+                          <p className="text-sm text-royal-600 group-hover:text-royal-500">
+                            {item.description}
+                          </p>
+                        </div>
+                      </Link>
+                    )}
+                  </motion.div>
                 ))}
               </nav>
             </div>
