@@ -12,6 +12,7 @@
 /gallery-page       /gallery           301
 /photos             /gallery           301
 /image-gallery      /gallery           301
+/eid    /eid.html    200
 
 # Ensure SPA routing works correctly with status 200
 /*                  /index.html        200
