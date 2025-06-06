@@ -53,7 +53,7 @@ const EidGreeting = () => {
   <meta property="og:url" content="https://www.ptabdulrahman.com/eid" />
   <meta property="og:title" content="Eid ul Adha 2025 - Dr. P.T. Abdul Rahman | عيد الأضحى مبارك بيتي" />
   <meta property="og:description" content="Eid Mubarak! Blessed greetings from Dr. P.T. Abdul Rahman. عيد مبارك من الدكتور عبد الرحمن بيتي" />
-  <meta property="og:image" content="https://www.ptabdulrahman.com/eid-thumbnail.jpg" />
+<meta property="og:image" content="https://www.ptabdulrahman.com/eid-thumbnail-v2.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
@@ -62,7 +62,7 @@ const EidGreeting = () => {
   <meta name="twitter:url" content="https://www.ptabdulrahman.com/eid" />
   <meta name="twitter:title" content="Eid ul Adha 2025 - Dr. P.T. Abdul Rahman" />
   <meta name="twitter:description" content="Eid Mubarak! Blessed greetings from Dr. P.T. Abdul Rahman" />
-  <meta name="twitter:image" content="https://www.ptabdulrahman.com/eid-thumbnail.jpg" />
+  <meta name="twitter:image" content="https://www.ptabdulrahman.com/eid-thumbnail-v2.jpg" />
 
   {/* Language alternatives */}
   <link rel="alternate" hrefLang="en" href="https://www.ptabdulrahman.com/eid?lang=en" />
