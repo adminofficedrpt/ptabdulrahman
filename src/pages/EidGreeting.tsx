@@ -44,35 +44,39 @@ const EidGreeting = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Eid ul Adha 2025 - Greetings from Dr. P.T. Abdul Rahman | عيد الأضحى مبارك</title>
-        <meta name="description" content="Eid Mubarak from Dr. P.T. Abdul Rahman. May this blessed Eid bring peace and prosperity. عيد مبارك من الدكتور عبد الرحمن" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.ptabdulrahman.com/eid" />
-        <meta property="og:title" content="Eid ul Adha 2025 - Dr. P.T. Abdul Rahman | عيد الأضحى مبارك" />
-        <meta property="og:description" content="Eid Mubarak! Blessed greetings from Dr. P.T. Abdul Rahman. عيد مبارك من الدكتور عبد الرحمن" />
-        <meta property="og:image" content="https://www.ptabdulrahman.com/eid-thumbnail.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://www.ptabdulrahman.com/eid" />
-        <meta name="twitter:title" content="Eid ul Adha 2025 - Dr. P.T. Abdul Rahman" />
-        <meta name="twitter:description" content="Eid Mubarak! Blessed greetings from Dr. P.T. Abdul Rahman" />
-        <meta name="twitter:image" content="https://www.ptabdulrahman.com/eid-thumbnail.jpg" />
-        
-        {/* Language alternatives */}
-        <link rel="alternate" hrefLang="en" href="https://www.ptabdulrahman.com/eid?lang=en" />
-        <link rel="alternate" hrefLang="ar" href="https://www.ptabdulrahman.com/eid?lang=ar" />
-        
-        {/* Mobile optimization */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-      </Helmet>
+    <Helmet>
+  <title>Eid ul Adha 2025 - Greetings from Dr. P.T. Abdul Rahman | عيد الأضحى مبارك بيتي</title>
+  <meta name="description" content="Eid Mubarak from Dr. P.T. Abdul Rahman. May this blessed Eid bring peace and prosperity. عيد مبارك من الدكتور عبد الرحمن بيتي" />
+
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.ptabdulrahman.com/eid" />
+  <meta property="og:title" content="Eid ul Adha 2025 - Dr. P.T. Abdul Rahman | عيد الأضحى مبارك بيتي" />
+  <meta property="og:description" content="Eid Mubarak! Blessed greetings from Dr. P.T. Abdul Rahman. عيد مبارك من الدكتور عبد الرحمن بيتي" />
+  <meta property="og:image" content="https://www.ptabdulrahman.com/eid-thumbnail.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.ptabdulrahman.com/eid" />
+  <meta name="twitter:title" content="Eid ul Adha 2025 - Dr. P.T. Abdul Rahman" />
+  <meta name="twitter:description" content="Eid Mubarak! Blessed greetings from Dr. P.T. Abdul Rahman" />
+  <meta name="twitter:image" content="https://www.ptabdulrahman.com/eid-thumbnail.jpg" />
+
+  {/* Language alternatives */}
+  <link rel="alternate" hrefLang="en" href="https://www.ptabdulrahman.com/eid?lang=en" />
+  <link rel="alternate" hrefLang="ar" href="https://www.ptabdulrahman.com/eid?lang=ar" />
+
+  {/* Mobile optimization */}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  {/* SEO robots */}
+  <meta name="robots" content="index, follow" />
+</Helmet>
+
 
       <div 
         className={`min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 ${isRTL ? 'rtl' : 'ltr'}`}
