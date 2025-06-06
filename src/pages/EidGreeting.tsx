@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -23,7 +22,7 @@ const EidGreeting = () => {
 
   const content = {
     en: {
-      title: "Eid ul Adha Mubarak 2024",
+      title: "Eid ul Adha Mubarak 2025",
       greeting: "Eid Mubarak!",
       message: "May this blessed Eid ul Adha bring peace, prosperity, and countless blessings to you and your loved ones.",
       signature: "— Dr. P.T. Abdul Rahman",
@@ -31,7 +30,7 @@ const EidGreeting = () => {
       shareText: "Eid Mubarak from Dr. P.T. Abdul Rahman"
     },
     ar: {
-      title: "عيد الأضحى المبارك ٢٠٢٤",
+      title: "عيد الأضحى المبارك ٢٠٢٥",
       greeting: "عيد مبارك!",
       message: "نسأل الله أن يعيد هذا العيد عليكم بالخير والسلام والبركات الوفيرة.",
       signature: "— د. عبد الرحمن",
@@ -46,13 +45,13 @@ const EidGreeting = () => {
   return (
     <>
       <Helmet>
-        <title>Eid ul Adha 2024 - Greetings from Dr. P.T. Abdul Rahman | عيد الأضحى مبارك</title>
+        <title>Eid ul Adha 2025 - Greetings from Dr. P.T. Abdul Rahman | عيد الأضحى مبارك</title>
         <meta name="description" content="Eid Mubarak from Dr. P.T. Abdul Rahman. May this blessed Eid bring peace and prosperity. عيد مبارك من الدكتور عبد الرحمن" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.ptabdulrahman.com/eid" />
-        <meta property="og:title" content="Eid ul Adha 2024 - Dr. P.T. Abdul Rahman | عيد الأضحى مبارك" />
+        <meta property="og:title" content="Eid ul Adha 2025 - Dr. P.T. Abdul Rahman | عيد الأضحى مبارك" />
         <meta property="og:description" content="Eid Mubarak! Blessed greetings from Dr. P.T. Abdul Rahman. عيد مبارك من الدكتور عبد الرحمن" />
         <meta property="og:image" content="https://www.ptabdulrahman.com/eid-thumbnail.jpg" />
         <meta property="og:image:width" content="1200" />
@@ -61,7 +60,7 @@ const EidGreeting = () => {
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.ptabdulrahman.com/eid" />
-        <meta name="twitter:title" content="Eid ul Adha 2024 - Dr. P.T. Abdul Rahman" />
+        <meta name="twitter:title" content="Eid ul Adha 2025 - Dr. P.T. Abdul Rahman" />
         <meta name="twitter:description" content="Eid Mubarak! Blessed greetings from Dr. P.T. Abdul Rahman" />
         <meta name="twitter:image" content="https://www.ptabdulrahman.com/eid-thumbnail.jpg" />
         
