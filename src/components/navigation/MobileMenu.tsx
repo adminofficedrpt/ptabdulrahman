@@ -86,7 +86,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onNavClick }) 
                     transition={{ delay: index * 0.1, duration: 0.3 }}
                   >
                     {item.type === 'scroll' ? (
-                      <button
+                      <motion.button
                         onClick={() => handleNavClick(item.path, item.type)}
                         className="w-full flex items-center space-x-4 p-4 rounded-xl hover:bg-royal-50 transition-all duration-200 text-left group min-h-[64px]"
                         whileHover={{ scale: 1.02 }}
@@ -103,7 +103,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onNavClick }) 
                             {item.description}
                           </p>
                         </div>
-                      </button>
+                      </motion.button>
                     ) : (
                       <Link
                         to={item.path}
