@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import PreLoader from '@/components/PreLoader';
 import FooterModern from '@/components/FooterModern';
@@ -7,9 +8,18 @@ import EnhancedSEO from '@/components/seo/EnhancedSEO';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
 import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
 
-// New simplified components
+// Enhanced navigation and hero
 import SimplifiedNavbar from '@/components/navigation/SimplifiedNavbar';
 import EnhancedHeroSection from '@/components/sections/EnhancedHeroSection';
+
+// New Phase 1 components
+import MomentsThatShaped from '@/components/storytelling/MomentsThatShaped';
+import ComprehensiveMediaWall from '@/components/media/ComprehensiveMediaWall';
+import InteractiveAudioTimeline from '@/components/timeline/InteractiveAudioTimeline';
+import TransformedLivesShowcase from '@/components/impact/TransformedLivesShowcase';
+import ThoughtLeadershipBlog from '@/components/blog/ThoughtLeadershipBlog';
+
+// Enhanced existing sections
 import QuickStatsSection from '@/components/sections/QuickStatsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CallToActionSection from '@/components/sections/CallToActionSection';
@@ -89,11 +99,31 @@ const Index = () => {
         <QuickStatsSection />
       </SectionErrorBoundary>
       
+      {/* Phase 1: Enhanced Storytelling - Moments That Shaped Me */}
+      <SectionErrorBoundary sectionName="Moments That Shaped">
+        <MomentsThatShaped />
+      </SectionErrorBoundary>
+      
       {/* About Section - Simplified Biography */}
       <SectionErrorBoundary sectionName="About Section">
         <section id="about" className="relative">
           <InteractiveBiography />
         </section>
+      </SectionErrorBoundary>
+      
+      {/* Phase 1: Interactive Timeline with Audio */}
+      <SectionErrorBoundary sectionName="Interactive Timeline">
+        <InteractiveAudioTimeline />
+      </SectionErrorBoundary>
+      
+      {/* Phase 1: Comprehensive Media Wall */}
+      <SectionErrorBoundary sectionName="Media Wall">
+        <ComprehensiveMediaWall />
+      </SectionErrorBoundary>
+      
+      {/* Phase 1: Transformed Lives Showcase */}
+      <SectionErrorBoundary sectionName="Transformed Lives">
+        <TransformedLivesShowcase />
       </SectionErrorBoundary>
       
       {/* Testimonials - Social Proof */}
@@ -119,6 +149,13 @@ const Index = () => {
       <SectionErrorBoundary sectionName="Impact Section">
         <section id="impact" className="relative">
           <GlobalImpactVisualization />
+        </section>
+      </SectionErrorBoundary>
+      
+      {/* Phase 1: Thought Leadership Blog */}
+      <SectionErrorBoundary sectionName="Blog Section">
+        <section id="blog" className="relative">
+          <ThoughtLeadershipBlog />
         </section>
       </SectionErrorBoundary>
       
