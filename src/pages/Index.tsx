@@ -7,6 +7,7 @@ import { preloadImages, preloadCriticalImages } from '@/utils/imagePreloader';
 import EnhancedSEO from '@/components/seo/EnhancedSEO';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
 import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 // Enhanced navigation and hero
 import SimplifiedNavbar from '@/components/navigation/SimplifiedNavbar';
@@ -18,6 +19,10 @@ import ComprehensiveMediaWall from '@/components/media/ComprehensiveMediaWall';
 import InteractiveAudioTimeline from '@/components/timeline/InteractiveAudioTimeline';
 import TransformedLivesShowcase from '@/components/impact/TransformedLivesShowcase';
 import ThoughtLeadershipBlog from '@/components/blog/ThoughtLeadershipBlog';
+
+// Phase 2: DQAA Integration & Multilingual
+import DQAAShowcase from '@/components/dqaa/DQAAShowcase';
+import AdmissionInquiry from '@/components/dqaa/AdmissionInquiry';
 
 // Enhanced existing sections
 import QuickStatsSection from '@/components/sections/QuickStatsSection';
@@ -80,118 +85,132 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
-      <EnhancedSEO />
-      <ScrollProgressBar />
-      
-      {/* Simplified Navigation */}
-      <SectionErrorBoundary sectionName="Navigation">
-        <SimplifiedNavbar />
-      </SectionErrorBoundary>
-      
-      {/* Enhanced Hero Section */}
-      <SectionErrorBoundary sectionName="Hero Section">
-        <EnhancedHeroSection />
-      </SectionErrorBoundary>
-      
-      {/* Quick Stats - Immediate Impact */}
-      <SectionErrorBoundary sectionName="Quick Stats">
-        <QuickStatsSection />
-      </SectionErrorBoundary>
-      
-      {/* Phase 1: Enhanced Storytelling - Moments That Shaped Me */}
-      <SectionErrorBoundary sectionName="Moments That Shaped">
-        <MomentsThatShaped />
-      </SectionErrorBoundary>
-      
-      {/* About Section - Simplified Biography */}
-      <SectionErrorBoundary sectionName="About Section">
-        <section id="about" className="relative">
-          <InteractiveBiography />
-        </section>
-      </SectionErrorBoundary>
-      
-      {/* Phase 1: Interactive Timeline with Audio */}
-      <SectionErrorBoundary sectionName="Interactive Timeline">
-        <InteractiveAudioTimeline />
-      </SectionErrorBoundary>
-      
-      {/* Phase 1: Comprehensive Media Wall */}
-      <SectionErrorBoundary sectionName="Media Wall">
-        <ComprehensiveMediaWall />
-      </SectionErrorBoundary>
-      
-      {/* Phase 1: Transformed Lives Showcase */}
-      <SectionErrorBoundary sectionName="Transformed Lives">
-        <TransformedLivesShowcase />
-      </SectionErrorBoundary>
-      
-      {/* Testimonials - Social Proof */}
-      <SectionErrorBoundary sectionName="Testimonials">
-        <TestimonialsSection />
-      </SectionErrorBoundary>
-      
-      {/* Books Section */}
-      <SectionErrorBoundary sectionName="Books Section">
-        <section id="books" className="relative">
-          <InteractiveBookExperience />
-        </section>
-      </SectionErrorBoundary>
-      
-      {/* Academy Section - DQAA */}
-      <SectionErrorBoundary sectionName="Academy Section">
-        <section id="academy" className="relative">
-          <ChapterThree />
-        </section>
-      </SectionErrorBoundary>
-      
-      {/* Impact Section - Global Visualization */}
-      <SectionErrorBoundary sectionName="Impact Section">
-        <section id="impact" className="relative">
-          <GlobalImpactVisualization />
-        </section>
-      </SectionErrorBoundary>
-      
-      {/* Phase 1: Thought Leadership Blog */}
-      <SectionErrorBoundary sectionName="Blog Section">
-        <section id="blog" className="relative">
-          <ThoughtLeadershipBlog />
-        </section>
-      </SectionErrorBoundary>
-      
-      {/* Call to Action */}
-      <SectionErrorBoundary sectionName="Call to Action">
-        <CallToActionSection />
-      </SectionErrorBoundary>
-      
-      {/* Contact Section */}
-      <SectionErrorBoundary sectionName="Contact Section">
-        <section id="contact" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50 relative">
-          <ResponsiveContainer size="lg" padding="lg">
-            <div className="text-center mb-12 sm:mb-16 md:mb-20">
-              <div className="inline-block mb-4">
-                <span className="text-xs sm:text-sm font-light tracking-[0.2em] uppercase text-golden-600">
-                  Get In Touch
-                </span>
+    <LanguageProvider>
+      <div className="min-h-screen w-full overflow-x-hidden">
+        <EnhancedSEO />
+        <ScrollProgressBar />
+        
+        {/* Simplified Navigation */}
+        <SectionErrorBoundary sectionName="Navigation">
+          <SimplifiedNavbar />
+        </SectionErrorBoundary>
+        
+        {/* Enhanced Hero Section */}
+        <SectionErrorBoundary sectionName="Hero Section">
+          <EnhancedHeroSection />
+        </SectionErrorBoundary>
+        
+        {/* Quick Stats - Immediate Impact */}
+        <SectionErrorBoundary sectionName="Quick Stats">
+          <QuickStatsSection />
+        </SectionErrorBoundary>
+        
+        {/* Phase 1: Enhanced Storytelling - Moments That Shaped Me */}
+        <SectionErrorBoundary sectionName="Moments That Shaped">
+          <MomentsThatShaped />
+        </SectionErrorBoundary>
+        
+        {/* About Section - Simplified Biography */}
+        <SectionErrorBoundary sectionName="About Section">
+          <section id="about" className="relative">
+            <InteractiveBiography />
+          </section>
+        </SectionErrorBoundary>
+        
+        {/* Phase 1: Interactive Timeline with Audio */}
+        <SectionErrorBoundary sectionName="Interactive Timeline">
+          <InteractiveAudioTimeline />
+        </SectionErrorBoundary>
+        
+        {/* Phase 2: Enhanced DQAA Showcase */}
+        <SectionErrorBoundary sectionName="DQAA Showcase">
+          <section id="dqaa" className="relative">
+            <DQAAShowcase />
+          </section>
+        </SectionErrorBoundary>
+        
+        {/* Phase 2: Admission Inquiry */}
+        <SectionErrorBoundary sectionName="Admission Inquiry">
+          <AdmissionInquiry />
+        </SectionErrorBoundary>
+        
+        {/* Phase 1: Comprehensive Media Wall */}
+        <SectionErrorBoundary sectionName="Media Wall">
+          <ComprehensiveMediaWall />
+        </SectionErrorBoundary>
+        
+        {/* Phase 1: Transformed Lives Showcase */}
+        <SectionErrorBoundary sectionName="Transformed Lives">
+          <TransformedLivesShowcase />
+        </SectionErrorBoundary>
+        
+        {/* Testimonials - Social Proof */}
+        <SectionErrorBoundary sectionName="Testimonials">
+          <TestimonialsSection />
+        </SectionErrorBoundary>
+        
+        {/* Books Section */}
+        <SectionErrorBoundary sectionName="Books Section">
+          <section id="books" className="relative">
+            <InteractiveBookExperience />
+          </section>
+        </SectionErrorBoundary>
+        
+        {/* Academy Section - DQAA Legacy */}
+        <SectionErrorBoundary sectionName="Academy Section">
+          <section id="academy" className="relative">
+            <ChapterThree />
+          </section>
+        </SectionErrorBoundary>
+        
+        {/* Impact Section - Global Visualization */}
+        <SectionErrorBoundary sectionName="Impact Section">
+          <section id="impact" className="relative">
+            <GlobalImpactVisualization />
+          </section>
+        </SectionErrorBoundary>
+        
+        {/* Phase 1: Thought Leadership Blog */}
+        <SectionErrorBoundary sectionName="Blog Section">
+          <section id="blog" className="relative">
+            <ThoughtLeadershipBlog />
+          </section>
+        </SectionErrorBoundary>
+        
+        {/* Call to Action */}
+        <SectionErrorBoundary sectionName="Call to Action">
+          <CallToActionSection />
+        </SectionErrorBoundary>
+        
+        {/* Contact Section */}
+        <SectionErrorBoundary sectionName="Contact Section">
+          <section id="contact" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50 relative">
+            <ResponsiveContainer size="lg" padding="lg">
+              <div className="text-center mb-12 sm:mb-16 md:mb-20">
+                <div className="inline-block mb-4">
+                  <span className="text-xs sm:text-sm font-light tracking-[0.2em] uppercase text-golden-600">
+                    Get In Touch
+                  </span>
+                </div>
+                <FluidTypography variant="h2" color="royal" className="mb-4 sm:mb-6">
+                  Connect with Dr. Rahman
+                </FluidTypography>
+                <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto px-4">
+                  For collaborations, speaking engagements, or inquiries about DQAA, 
+                  Dr. Rahman welcomes connections with educators and community leaders.
+                </FluidTypography>
               </div>
-              <FluidTypography variant="h2" color="royal" className="mb-4 sm:mb-6">
-                Connect with Dr. Rahman
-              </FluidTypography>
-              <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto px-4">
-                For collaborations, speaking engagements, or inquiries about DQAA, 
-                Dr. Rahman welcomes connections with educators and community leaders.
-              </FluidTypography>
-            </div>
-            <Contact />
-          </ResponsiveContainer>
-        </section>
-      </SectionErrorBoundary>
-      
-      {/* Footer */}
-      <SectionErrorBoundary sectionName="Footer">
-        <FooterModern />
-      </SectionErrorBoundary>
-    </div>
+              <Contact />
+            </ResponsiveContainer>
+          </section>
+        </SectionErrorBoundary>
+        
+        {/* Footer */}
+        <SectionErrorBoundary sectionName="Footer">
+          <FooterModern />
+        </SectionErrorBoundary>
+      </div>
+    </LanguageProvider>
   );
 };
 
