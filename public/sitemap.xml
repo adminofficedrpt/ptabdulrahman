@@ -5,7 +5,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   
-  <!-- Homepage - Primary landing page with enhanced targeting -->
+  <!-- Homepage - Primary landing page -->
   <url>
     <loc>https://www.ptabdulrahman.com/</loc>
     <lastmod>2025-01-27</lastmod>
@@ -13,13 +13,46 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png</image:loc>
-      <image:caption>Dr. P.T. Abdul Rahman - Distinguished Islamic Scholar, Educator and Humanitarian Leader in UAE</image:caption>
+      <image:caption>Dr. P.T. Abdul Rahman - Distinguished Islamic Scholar, Author, and Educational Innovator</image:caption>
       <image:title>Dr. PT Abdul Rahman Official Portrait</image:title>
-      <image:geo_location>Dubai, UAE</image:geo_location>
     </image:image>
   </url>
 
-  <!-- Chapter Pages for SEO -->
+  <!-- Individual Book Pages for Enhanced SEO -->
+  <url>
+    <loc>https://www.ptabdulrahman.com/books/is-the-creation-meaningless</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/7c03ac28-c08f-47d0-9842-d43e2feeb25b.png</image:loc>
+      <image:caption>Is the Creation Meaningless? - Dr. P.T. Abdul Rahman's flagship Islamic philosophy book</image:caption>
+      <image:title>Islamic Philosophy Book - Is the Creation Meaningless</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.ptabdulrahman.com/books/towards-the-creator</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ptabdulrahman.com/books/the-sun-of-scholars</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ptabdulrahman.com/books/the-address-to-know-how-to-address</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Chapter Sections for Deep Indexing -->
   <url>
     <loc>https://www.ptabdulrahman.com/#visionary</loc>
     <lastmod>2025-01-27</lastmod>
@@ -46,25 +79,71 @@
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Institutional Pages -->
+  <url>
+    <loc>https://www.ptabdulrahman.com/institutions/dqaa</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/7c03ac28-c08f-47d0-9842-d43e2feeb25b.png</image:loc>
-      <image:caption>Is the Creation Meaningless? - Dr. P.T. Abdul Rahman's flagship Islamic philosophy book</image:caption>
-      <image:title>Islamic Philosophy Book Cover - Is the Creation Meaningless</image:title>
+      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png</image:loc>
+      <image:caption>Darul Quran Abdulla Academy (DQAA) - Innovative Islamic Educational Institution</image:caption>
+      <image:title>DQAA Educational Campus</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://www.ptabdulrahman.com/#legacy</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/#connect</loc>
+    <loc>https://www.ptabdulrahman.com/institutions/diic</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Awards and Recognition -->
+  <url>
+    <loc>https://www.ptabdulrahman.com/recognition/uae-golden-visa</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ptabdulrahman.com/recognition/educational-excellence-award</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Media Coverage Archive -->
+  <url>
+    <loc>https://www.ptabdulrahman.com/media/khaleej-times-coverage</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ptabdulrahman.com/media/gulf-news-coverage</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Academic and Professional -->
+  <url>
+    <loc>https://www.ptabdulrahman.com/academic/university-of-mysore</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ptabdulrahman.com/academic/visiting-professor</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Photo Gallery -->
@@ -72,83 +151,12 @@
     <loc>https://www.ptabdulrahman.com/gallery</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://www.ptabdulrahman.com/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png</image:loc>
-      <image:caption>Darul Quran Abdulla Academy (DQAA) campus - Islamic education excellence in Kerala</image:caption>
-      <image:title>DQAA Educational Institution Campus</image:title>
-    </image:image>
-  </url>
-
-  <!-- Key Achievement Pages -->
-  <url>
-    <loc>https://www.ptabdulrahman.com/achievements/dqaa-founder</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/achievements/diic-founder</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/achievements/humanitarian-leader</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Publication Pages -->
-  <url>
-    <loc>https://www.ptabdulrahman.com/books/is-creation-meaningless</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/books/towards-the-creator</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/books/address-to-know-how-to-address</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Educational Initiatives -->
-  <url>
-    <loc>https://www.ptabdulrahman.com/education/dqaa-academy</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/education/hafiz-program</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/education/admissions</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <!-- Humanitarian Work -->
   <url>
-    <loc>https://www.ptabdulrahman.com/humanitarian/community-services</loc>
+    <loc>https://www.ptabdulrahman.com/humanitarian/community-development</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -161,79 +169,15 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Media and Recognition -->
-  <url>
-    <loc>https://www.ptabdulrahman.com/media/interviews</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/media/articles</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/recognition/awards</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Speaking Engagements -->
-  <url>
-    <loc>https://www.ptabdulrahman.com/speaking-engagements</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Support and Donations -->
-  <url>
-    <loc>https://www.ptabdulrahman.com/support/donate</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/support/volunteer</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Regional Pages for International SEO -->
-  <url>
-    <loc>https://www.ptabdulrahman.com/regions/uae</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/regions/kerala</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ptabdulrahman.com/regions/global</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
   <!-- Language Versions -->
   <url>
     <loc>https://www.ptabdulrahman.com/ar/</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ptabdulrahman.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ptabdulrahman.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://www.ptabdulrahman.com/ml/" />
   </url>
 
   <url>
@@ -241,6 +185,9 @@
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ptabdulrahman.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ptabdulrahman.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://www.ptabdulrahman.com/ml/" />
   </url>
 
 </urlset>
