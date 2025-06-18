@@ -1,17 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import HeroEnhanced from '@/components/HeroEnhanced';
-import About from '@/components/About';
 import Work from '@/components/Work';
 import MediaHighlights from '@/components/MediaHighlights';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
-import QuickStatsSection from '@/components/sections/QuickStatsSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CallToActionSection from '@/components/sections/CallToActionSection';
 import SEOMetadata from '@/components/seo/SEOMetadata';
+
+// New enhanced components
+import CinematicHeroV2 from '@/components/modern/CinematicHeroV2';
+import VisionarySection from '@/components/narrative/VisionarySection';
+import InteractiveTimeline from '@/components/narrative/InteractiveTimeline';
+import BooksShowcase from '@/components/narrative/BooksShowcase';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +21,7 @@ const Index = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -30,9 +32,9 @@ const Index = () => {
           <img 
             src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" 
             alt="Loading" 
-            className="h-16 w-auto mx-auto mb-4 animate-pulse"
+            className="h-20 w-auto mx-auto mb-6 animate-pulse"
           />
-          <div className="text-golden-300 text-sm">Loading...</div>
+          <div className="text-golden-300 text-lg font-light">Preparing the Journey...</div>
         </div>
       </div>
     );
@@ -42,16 +44,16 @@ const Index = () => {
     <div className="min-h-screen">
       <SEOMetadata />
       <Helmet>
-        <title>Dr. P.T. Abdul Rahman - Islamic Scholar, Author & Educational Innovator</title>
-        <meta name="description" content="Dr. P.T. Abdul Rahman - Distinguished Islamic scholar, founder of DQAA, author of 15+ books, UAE Golden Visa recipient. M.A. Sociology from University of Mysore." />
+        <title>Dr. P.T. Abdul Rahman - Visionary Islamic Scholar, Educator & Humanitarian Leader</title>
+        <meta name="description" content="Explore the transformative journey of Dr. P.T. Abdul Rahman - founder of DQAA, author of 15+ influential works, UAE Golden Visa recipient, and architect of educational renaissance bridging Kerala's heritage with global Islamic scholarship." />
       </Helmet>
       
       <Navigation />
-      <HeroEnhanced />
-      <QuickStatsSection />
-      <About />
+      <CinematicHeroV2 />
+      <VisionarySection />
+      <InteractiveTimeline />
+      <BooksShowcase />
       <Work />
-      <TestimonialsSection />
       <MediaHighlights />
       <CallToActionSection />
       <Contact />
