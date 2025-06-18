@@ -5,7 +5,7 @@ import Work from '@/components/Work';
 import MediaHighlights from '@/components/MediaHighlights';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import Navigation from '@/components/Navigation';
+import NavigationSystem from '@/components/navigation/NavigationSystem';
 import CallToActionSection from '@/components/sections/CallToActionSection';
 import SEOMetadata from '@/components/seo/SEOMetadata';
 
@@ -48,7 +48,7 @@ const Index = () => {
         <meta name="description" content="Explore the transformative journey of Dr. P.T. Abdul Rahman - founder of DQAA, author of 15+ influential works, UAE Golden Visa recipient, and architect of educational renaissance bridging Kerala's heritage with global Islamic scholarship." />
       </Helmet>
       
-      <Navigation />
+      <NavigationSystem />
       <CinematicHeroV2 />
       <VisionarySection />
       <InteractiveTimeline />
