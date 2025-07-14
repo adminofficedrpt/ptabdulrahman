@@ -101,14 +101,14 @@ const ModernCinematicHero = () => {
                 />
               </motion.div>
 
-              {/* Modern Typography */}
+              {/* Modern Typography - Mobile Optimized */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="mb-6"
               >
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-4 leading-[1.1] tracking-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light text-white mb-4 leading-[1.1] tracking-tight">
                   Dr. P.T. Abdul
                   <span className="block font-bold bg-gradient-to-r from-white to-golden-300 bg-clip-text text-transparent">
                     Rahman
@@ -117,17 +117,17 @@ const ModernCinematicHero = () => {
                 <div className="w-16 h-px bg-gradient-to-r from-golden-400 to-transparent mb-6" />
               </motion.div>
 
-              {/* Contemporary Tagline */}
+              {/* Contemporary Tagline - Mobile Optimized */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
                 className="mb-8"
               >
-                <p className="text-xl md:text-2xl text-gray-200 font-light mb-4 leading-relaxed">
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-200 font-light mb-4 leading-relaxed">
                   Architect of Educational Renaissance
                 </p>
-                <p className="text-lg text-gray-300 font-light leading-relaxed max-w-2xl">
+                <p className="text-base sm:text-lg text-gray-300 font-light leading-relaxed max-w-2xl">
                   Three decades of transforming lives through Islamic scholarship, 
                   bridging cultures through education, and building tomorrow's leaders.
                 </p>
@@ -152,39 +152,39 @@ const ModernCinematicHero = () => {
                 </button>
               </motion.div>
 
-              {/* Achievement Pills */}
+              {/* Achievement Pills - Mobile Optimized */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.5 }}
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-2 sm:gap-4"
               >
                 {achievements.map((achievement, index) => (
                   <div 
                     key={achievement.label}
-                    className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
+                    className="flex items-center space-x-2 sm:space-x-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-3 sm:px-4 py-2"
                   >
-                    <div className="w-8 h-8 bg-golden-400/20 rounded-full flex items-center justify-center">
-                      <achievement.icon className="w-4 h-4 text-golden-400" />
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-golden-400/20 rounded-full flex items-center justify-center">
+                      <achievement.icon className="w-3 h-3 sm:w-4 sm:h-4 text-golden-400" />
                     </div>
                     <div>
-                      <div className="text-white text-sm font-medium">{achievement.label}</div>
-                      <div className="text-gray-400 text-xs">{achievement.sublabel}</div>
+                      <div className="text-white text-xs sm:text-sm font-medium">{achievement.label}</div>
+                      <div className="text-gray-400 text-xs hidden sm:block">{achievement.sublabel}</div>
                     </div>
                   </div>
                 ))}
               </motion.div>
             </div>
 
-            {/* Right Content - Portrait */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            {/* Right Content - Portrait - Mobile Optimized */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end mt-8 lg:mt-0">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.8 }}
                 className="relative"
               >
-                <div className="relative w-80 h-96 md:w-96 md:h-[28rem] rounded-3xl overflow-hidden">
+                <div className="relative w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] rounded-3xl overflow-hidden">
                   <img
                     src="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png"
                     alt="Dr. P.T. Abdul Rahman"
@@ -193,13 +193,13 @@ const ModernCinematicHero = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 </div>
                 
-                {/* Floating Quote */}
+                {/* Floating Quote - Mobile Optimized */}
                 <motion.div
                   animate={{ y: [-5, 5, -5] }}
                   transition={{ duration: 6, repeat: Infinity }}
-                  className="absolute -bottom-8 -left-8 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 max-w-sm"
+                  className="absolute -bottom-6 sm:-bottom-8 -left-4 sm:-left-8 bg-white/10 backdrop-blur-md p-4 sm:p-6 rounded-2xl border border-white/20 max-w-xs sm:max-w-sm"
                 >
-                  <p className="text-white text-sm italic leading-relaxed">
+                  <p className="text-white text-xs sm:text-sm italic leading-relaxed">
                     "True education awakens the soul to its divine purpose and infinite potential."
                   </p>
                 </motion.div>

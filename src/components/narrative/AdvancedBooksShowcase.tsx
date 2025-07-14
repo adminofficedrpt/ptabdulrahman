@@ -145,12 +145,12 @@ const AdvancedBooksShowcase = () => {
                     )}
                   </div>
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-lg font-bold mb-2 line-clamp-2">{book.title}</h3>
-                    <p className="text-sm text-white/80 mb-2">{book.category}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                    <h3 className="text-base sm:text-lg font-bold mb-2 line-clamp-2">{book.title}</h3>
+                    <p className="text-xs sm:text-sm text-white/80 mb-2">{book.category}</p>
                     <div className="flex items-center justify-between text-xs text-white/70">
                       <span>{book.year}</span>
-                      <span>{book.pages} pages</span>
+                      <span className="hidden sm:inline">{book.pages} pages</span>
                     </div>
                   </div>
                 </div>
@@ -166,9 +166,9 @@ const AdvancedBooksShowcase = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-8 border border-white/20"
             >
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-12 items-center">
                 
                 {/* Book Details */}
                 <div>

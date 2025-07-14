@@ -146,7 +146,7 @@ const TestimonialsWall = () => {
               </div>
 
               {/* Quote */}
-              <blockquote className="text-gray-700 italic leading-relaxed mb-6 text-sm md:text-base">
+              <blockquote className="text-gray-700 italic leading-relaxed mb-6 text-sm md:text-base line-clamp-4">
                 "{testimonial.quote}"
               </blockquote>
 
