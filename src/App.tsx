@@ -9,7 +9,6 @@ import { LazyMotion, domAnimation } from "framer-motion";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import Index from "./pages/Index";
 import PhotoGallery from "./pages/PhotoGallery";
-import EidGreeting from "./pages/EidGreeting";
 import NotFound from "./pages/NotFound";
 import ScrollProgressBar from "./components/ScrollProgressBar";
 import ErrorBoundary from "./components/error/ErrorBoundary";
@@ -39,7 +38,6 @@ const App = () => (
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/gallery" element={<PhotoGallery />} />
-                  <Route path="/eid" element={<EidGreeting />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>

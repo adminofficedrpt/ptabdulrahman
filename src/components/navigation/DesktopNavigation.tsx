@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useScrollNavigation } from '@/hooks/useScrollNavigation';
-import { Link } from 'react-router-dom';
 
 const navigationItems = [
   {
@@ -70,19 +69,6 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ isScrolled, onNav
           )}
         </button>
       ))}
-      
-      {/* Eid Greeting Link */}
-      <Link
-        to="/eid"
-        className={`text-sm font-medium transition-colors duration-300 relative whitespace-nowrap px-4 py-2 rounded-full min-h-[44px] flex items-center ${
-          isScrolled
-            ? 'text-royal-800 hover:text-golden-600 hover:bg-gray-50'
-            : 'text-white hover:text-golden-300 hover:bg-white/10'
-        }`}
-        title="Eid ul Adha greeting card"
-      >
-        <span>Eid Greetings</span>
-      </Link>
     </div>
   );
 };

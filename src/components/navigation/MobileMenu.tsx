@@ -1,9 +1,49 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Home, User, BookOpen, GraduationCap, Building, MessageCircle, Phone, Heart } from 'lucide-react';
+import { X, ChevronRight, Home } from 'lucide-react';
 import ProgressiveImage from '@/components/ui/progressive-image';
-import { Link } from 'react-router-dom';
+import IslamicPattern from '@/components/design-system/IslamicPattern';
+import { useScrollNavigation } from '@/hooks/useScrollNavigation';
+
+const navigationItems = [
+  {
+    name: "The Visionary",
+    path: "visionary",
+    description: "Philosophy and vision for Islamic education",
+    icon: Home
+  },
+  {
+    name: "The Bridge Builder", 
+    path: "bridge-builder",
+    description: "Community service and interfaith dialogue",
+    icon: Home
+  },
+  {
+    name: "The Educator",
+    path: "educator", 
+    description: "DQAA Academy and educational innovation",
+    icon: Home
+  },
+  {
+    name: "The Scholar",
+    path: "scholar",
+    description: "Books, publications, and intellectual contributions",
+    icon: Home
+  },
+  {
+    name: "The Legacy",
+    path: "legacy",
+    description: "Timeline of achievements and impact",
+    icon: Home
+  },
+  {
+    name: "Connect",
+    path: "connect",
+    description: "Get in touch and join the community",
+    icon: Home
+  }
+];
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -11,141 +51,113 @@ interface MobileMenuProps {
   onNavClick: (path: string) => void;
 }
 
-const navigationItems = [
-  { icon: Home, label: 'Home', path: 'hero', description: 'Back to top', type: 'scroll' },
-  { icon: User, label: 'Visionary Author', path: 'visionary', description: 'Literary journey', type: 'scroll' },
-  { icon: Building, label: 'Humanitarian Leader', path: 'bridge-builder', description: 'Service & impact', type: 'scroll' },
-  { icon: GraduationCap, label: 'Educational Pioneer', path: 'educator', description: 'Innovation & institutions', type: 'scroll' },
-  { icon: BookOpen, label: 'Published Works', path: 'scholar', description: 'Books & writings', type: 'scroll' },
-  { icon: MessageCircle, label: 'Legacy Timeline', path: 'legacy', description: 'Career journey', type: 'scroll' },
-  { icon: Phone, label: 'Connect', path: 'connect', description: 'Get in touch', type: 'scroll' },
-  { icon: Heart, label: 'Eid Greetings', path: '/eid', description: 'Eid ul Adha card', type: 'link' },
-];
-
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onNavClick }) => {
-  const handleNavClick = (path: string, type: string) => {
-    if (type === 'scroll') {
-      onNavClick(path);
-    } else {
-      onClose();
-    }
+  const { activeSection } = useScrollNavigation();
+
+  const handleNavClick = (path: string) => {
+    onNavClick(path);
+    onClose();
   };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={onClose}
-          />
-
-          {/* Mobile Menu */}
-          <motion.div
-            className="fixed inset-y-0 right-0 w-full max-w-sm bg-white z-50 shadow-2xl lg:hidden"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 bg-gradient-to-r from-royal-800 to-royal-700 text-white">
-              <div className="flex items-center space-x-3">
+        <motion.div
+          className="fixed inset-0 bg-white z-50 lg:hidden overflow-hidden"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -50 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        >
+          <div className="h-full flex flex-col overflow-hidden">
+            {/* Mobile Menu Header */}
+            <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 sticky top-0 bg-white z-10">
+              <div className="flex items-center">
                 <ProgressiveImage
                   src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png"
                   alt="Dr. P.T. Abdul Rahman"
-                  className="h-8 w-auto"
+                  className="h-8 sm:h-10 w-auto mr-3"
+                  priority={true}
                 />
-                <div>
-                  <h3 className="font-semibold text-sm">Dr. P.T. Abdul Rahman</h3>
-                  <p className="text-xs text-royal-200">Visionary Educator & Leader</p>
-                </div>
+                <h2 className="text-lg font-playfair font-bold text-royal-900">
+                  Menu
+                </h2>
               </div>
               <button
                 onClick={onClose}
-                className="p-2 rounded-full hover:bg-white/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="p-3 text-royal-800 hover:bg-gray-100 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Close Menu"
               >
                 <X size={24} />
               </button>
             </div>
 
-            {/* Navigation Items */}
-            <div className="overflow-y-auto flex-1 py-6">
-              <nav className="px-4">
-                {navigationItems.map((item, index) => (
-                  <motion.div
-                    key={item.path}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
-                  >
-                    {item.type === 'scroll' ? (
-                      <motion.button
-                        onClick={() => handleNavClick(item.path, item.type)}
-                        className="w-full flex items-center space-x-4 p-4 rounded-xl hover:bg-royal-50 transition-all duration-200 text-left group min-h-[64px]"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <div className="w-12 h-12 bg-gradient-to-br from-royal-500 to-golden-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                          <item.icon size={20} className="text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-royal-800 text-base group-hover:text-royal-700">
-                            {item.label}
-                          </h4>
-                          <p className="text-sm text-royal-600 group-hover:text-royal-500">
-                            {item.description}
-                          </p>
-                        </div>
-                      </motion.button>
-                    ) : (
-                      <Link
-                        to={item.path}
-                        onClick={() => handleNavClick(item.path, item.type)}
-                        className="w-full flex items-center space-x-4 p-4 rounded-xl hover:bg-royal-50 transition-all duration-200 text-left group min-h-[64px]"
-                      >
-                        <div className="w-12 h-12 bg-gradient-to-br from-royal-500 to-golden-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                          <item.icon size={20} className="text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-royal-800 text-base group-hover:text-royal-700">
-                            {item.label}
-                          </h4>
-                          <p className="text-sm text-royal-600 group-hover:text-royal-500">
-                            {item.description}
-                          </p>
-                        </div>
-                      </Link>
-                    )}
-                  </motion.div>
+            {/* Background Pattern */}
+            <div className="absolute inset-0 -z-10 opacity-5">
+              <div className="grid grid-cols-4 gap-4 h-full">
+                {Array.from({ length: 16 }).map((_, i) => (
+                  <IslamicPattern key={i} variant="tessellation" size="md" animate />
                 ))}
-              </nav>
-            </div>
-
-            {/* Footer */}
-            <div className="p-6 bg-gray-50 border-t border-gray-100">
-              <p className="text-xs text-gray-500 text-center mb-3">
-                Crafted & Managed by AI8TY Creative Agency
-              </p>
-              <div className="flex justify-center">
-                <a 
-                  href="https://ai8ty.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-xs text-golden-600 hover:text-golden-700 transition-colors"
-                >
-                  Premium Digital Experience
-                </a>
               </div>
             </div>
-          </motion.div>
-        </>
+
+            {/* Navigation Items */}
+            <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6">
+              <div className="space-y-3 sm:space-y-4">
+                {navigationItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                    className="border-b border-gray-100 pb-3 sm:pb-4"
+                  >
+                    <button
+                      onClick={() => handleNavClick(item.path)}
+                      className={`flex items-center w-full text-left group py-2 pr-2 rounded-lg transition-all duration-300 min-h-[56px] ${
+                        activeSection === item.path 
+                          ? 'bg-gradient-to-r from-royal-50 to-golden-50 text-royal-800'
+                          : 'hover:bg-gray-50'
+                      }`}
+                    >
+                      <div className={`flex items-center justify-center min-w-[56px] h-12 mx-2 rounded-full ${
+                        activeSection === item.path
+                          ? 'bg-gradient-to-r from-golden-500 to-golden-600 text-white'
+                          : 'bg-gray-100 text-royal-600 group-hover:bg-gray-200'
+                      }`}>
+                        <item.icon size={22} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-playfair font-semibold text-royal-800">
+                          {item.name}
+                        </h3>
+                        <p className="text-gray-600 text-sm">{item.description}</p>
+                      </div>
+                      <ChevronRight size={20} className={`mr-2 ${
+                        activeSection === item.path ? 'text-golden-600' : 'text-gray-400'
+                      }`} />
+                    </button>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Menu Footer */}
+            <div className="p-4 sm:p-6 border-t border-gray-100 bg-gradient-to-r from-royal-50 to-golden-50">
+              <div className="flex justify-between items-center">
+                <p className="text-sm text-gray-600">
+                  © 2024 Dr. P.T. Abdul Rahman
+                </p>
+                <button
+                  onClick={() => handleNavClick('connect')}
+                  className="text-sm font-medium text-royal-800 hover:text-golden-600 min-h-[44px] flex items-center"
+                >
+                  Contact <ChevronRight size={16} className="ml-1" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

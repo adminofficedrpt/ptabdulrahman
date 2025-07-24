@@ -69,7 +69,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ currentSlide, onVideoOpen, on
             </FluidTypography>
           </motion.div>
 
-          {/* Enhanced Action Buttons */}
+          {/* Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,14 +80,14 @@ const HeroContent: React.FC<HeroContentProps> = ({ currentSlide, onVideoOpen, on
               onClick={onScrollToContent}
               className="bg-gradient-to-r from-golden-500 to-golden-600 text-white px-8 py-4 rounded-lg hover:from-golden-600 hover:to-golden-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 min-h-[56px]"
             >
-              Explore His Educational Legacy
+              Explore His Journey
             </button>
             <button
               onClick={onVideoOpen}
               className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-royal-800 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 min-h-[56px]"
             >
               <Play className="h-5 w-5" />
-              <span>See His Vision in Action</span>
+              <span>Watch Story</span>
             </button>
           </motion.div>
 
