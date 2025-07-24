@@ -5,30 +5,30 @@ import ChapterContainer from './ChapterContainer';
 import { Heart, Handshake, Building, Users2 } from 'lucide-react';
 
 const ChapterTwo: React.FC = () => {
-  const bridgeInitiatives = [
+  const activismInitiatives = [
     {
       icon: Heart,
-      title: "Humanitarian Outreach",
-      description: "Organizing relief efforts and community support programs across the UAE and internationally",
-      impact: "50,000+ lives touched"
+      title: "Community Empowerment",
+      description: "Leading grassroots movements that strengthen communities through education, healthcare access, and economic opportunity",
+      impact: "50,000+ families supported"
     },
     {
       icon: Handshake,
-      title: "Interfaith Dialogue",
-      description: "Facilitating meaningful conversations between different religious communities",
-      impact: "100+ dialogue sessions"
+      title: "Social Justice Advocacy",
+      description: "Championing equality, human rights, and social reform through policy advocacy and community organizing",
+      impact: "100+ policy initiatives"
     },
     {
       icon: Building,
-      title: "Community Centers",
-      description: "Establishing centers that serve as hubs for education, worship, and cultural exchange",
-      impact: "15+ centers established"
+      title: "Institutional Development",
+      description: "Establishing sustainable organizations that continue the mission of social transformation and community service",
+      impact: "15+ institutions founded"
     },
     {
       icon: Users2,
-      title: "Youth Empowerment",
-      description: "Mentoring young leaders to become agents of positive change in their communities",
-      impact: "5,000+ youth mentored"
+      title: "Leadership Development",
+      description: "Mentoring the next generation of social activists and change-makers to carry forward the vision of equality",
+      impact: "5,000+ leaders trained"
     }
   ];
 
@@ -36,8 +36,8 @@ const ChapterTwo: React.FC = () => {
     <ChapterContainer
       id="bridge-builder"
       chapterNumber={2}
-      title="The Bridge Builder"
-      subtitle="Connecting communities, cultures, and hearts through compassionate action and understanding"
+      title="The Social Activist"
+      subtitle="Championing justice, equality, and human dignity through transformative social action"
       variant="light"
     >
       {/* Opening Statement */}
@@ -49,15 +49,15 @@ const ChapterTwo: React.FC = () => {
         viewport={{ once: true }}
       >
         <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          Dr. P.T. Abdul Rahman has spent decades building bridges—between traditions and modernity, 
-          between different faith communities, and between humanitarian ideals and practical action. 
-          His work demonstrates that true Islamic values are expressed through service to all humanity.
+          Dr. P.T. Abdul Rahman's commitment to social justice has driven three decades of transformative 
+          activism. From grassroots organizing to international advocacy, his work demonstrates that 
+          sustainable change comes through empowering communities and building bridges of understanding.
         </p>
       </motion.div>
 
-      {/* Bridge Initiatives Grid */}
+      {/* Activism Initiatives Grid */}
       <div className="grid md:grid-cols-2 gap-8 mb-20">
-        {bridgeInitiatives.map((initiative, index) => (
+        {activismInitiatives.map((initiative, index) => (
           <motion.div
             key={initiative.title}
             className="bg-gradient-to-br from-white to-royal-50 rounded-xl p-8 border border-royal-100 hover:shadow-xl transition-all duration-300 group"
@@ -87,7 +87,7 @@ const ChapterTwo: React.FC = () => {
         ))}
       </div>
 
-      {/* Cultural Impact Section */}
+      {/* Social Impact Section */}
       <motion.div 
         className="bg-royal-900 rounded-2xl p-8 md:p-12 text-white"
         initial={{ y: 60, opacity: 0 }}
@@ -98,24 +98,24 @@ const ChapterTwo: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8 text-center">
           <div>
             <div className="text-4xl font-bold text-golden-300 mb-2">30+</div>
-            <div className="text-lg font-medium mb-2">Years of Service</div>
-            <div className="text-white/80 text-sm">Dedicated to community building</div>
+            <div className="text-lg font-medium mb-2">Years of Activism</div>
+            <div className="text-white/80 text-sm">Dedicated to social transformation</div>
           </div>
           <div>
             <div className="text-4xl font-bold text-golden-300 mb-2">100K+</div>
-            <div className="text-lg font-medium mb-2">Lives Impacted</div>
-            <div className="text-white/80 text-sm">Through educational and humanitarian work</div>
+            <div className="text-lg font-medium mb-2">Lives Transformed</div>
+            <div className="text-white/80 text-sm">Through direct action and advocacy</div>
           </div>
           <div>
             <div className="text-4xl font-bold text-golden-300 mb-2">25+</div>
             <div className="text-lg font-medium mb-2">Countries Reached</div>
-            <div className="text-white/80 text-sm">Global humanitarian initiatives</div>
+            <div className="text-white/80 text-sm">Global social impact initiatives</div>
           </div>
         </div>
         
         <div className="mt-12 text-center">
           <blockquote className="text-xl italic text-white/90 mb-4">
-            "In serving others, we find the true essence of our faith. In building bridges, we discover our shared humanity."
+            "True activism is not about fighting against something—it's about building toward a better tomorrow for all humanity."
           </blockquote>
           <cite className="text-golden-300">Dr. P.T. Abdul Rahman</cite>
         </div>

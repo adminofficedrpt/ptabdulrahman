@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Award, BookOpen, Users, Globe } from 'lucide-react';
+import { ChevronDown, BookOpen, Users, Globe, Pen } from 'lucide-react';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import IslamicPattern from '@/components/design-system/IslamicPattern';
 import HeroSlideshow from '@/components/hero/HeroSlideshow';
@@ -12,38 +12,38 @@ import VideoModal from '@/components/hero/VideoModal';
 const heroSlides = [
   {
     id: 1,
-    title: "Distinguished Islamic Scholar",
-    subtitle: "Bridging Traditional Wisdom with Modern Excellence",
-    description: "Dr. P.T. Abdul Rahman has dedicated over three decades to advancing Islamic education, fostering interfaith dialogue, and serving humanitarian causes across the globe.",
+    title: "Acclaimed Author & Literary Pioneer",
+    subtitle: "Transforming Lives Through the Power of Written Word",
+    description: "Dr. P.T. Abdul Rahman has authored over 15 influential books that bridge cultures and inspire social change. His literary works, translated into multiple languages, have reached millions of readers worldwide, establishing him as a prominent voice in contemporary social discourse.",
     image: "/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png",
     stats: [
-      { icon: Users, value: "500+", label: "Students Graduated" },
-      { icon: BookOpen, value: "15+", label: "Books Published" },
-      { icon: Globe, value: "25+", label: "Countries Reached" }
+      { icon: BookOpen, value: "15+", label: "Published Works" },
+      { icon: Globe, value: "8", label: "Languages" },
+      { icon: Users, value: "2M+", label: "Readers Reached" }
     ]
   },
   {
     id: 2,
-    title: "Founder of DQAA",
-    subtitle: "Revolutionizing Islamic Education",
-    description: "The Darul Quran Abdulla Academy represents a groundbreaking approach to Islamic education, combining Quranic memorization with comprehensive academic excellence.",
+    title: "Visionary Social Activist",
+    subtitle: "Championing Social Justice and Community Empowerment",
+    description: "For over three decades, Dr. Abdul Rahman has been at the forefront of social transformation, leading humanitarian initiatives that have touched countless lives. His work in education reform, community development, and cultural bridge-building continues to inspire positive change.",
     image: "/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png",
     stats: [
-      { icon: Award, value: "100%", label: "Success Rate" },
-      { icon: Users, value: "50+", label: "Faculty Members" },
-      { icon: BookOpen, value: "12", label: "Grade Levels" }
+      { icon: Users, value: "100K+", label: "Lives Impacted" },
+      { icon: Globe, value: "25+", label: "Countries Reached" },
+      { icon: Pen, value: "30+", label: "Years of Service" }
     ]
   },
   {
     id: 3,
-    title: "Global Humanitarian",
-    subtitle: "Serving Communities Worldwide",
-    description: "Through the Dubai Indian Islamic Centre and various humanitarian initiatives, Dr. Abdul Rahman has touched countless lives across continents.",
+    title: "Educational Innovator & Thought Leader",
+    subtitle: "Revolutionizing Learning for Future Generations",
+    description: "Through the establishment of progressive educational institutions and innovative pedagogical approaches, Dr. Abdul Rahman has redefined how knowledge is shared and wisdom is cultivated, creating lasting impact across communities worldwide.",
     image: "/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg",
     stats: [
-      { icon: Globe, value: "1000+", label: "Families Helped" },
-      { icon: Users, value: "50+", label: "Community Programs" },
-      { icon: Award, value: "30+", label: "Years of Service" }
+      { icon: Users, value: "5000+", label: "Students Mentored" },
+      { icon: BookOpen, value: "50+", label: "Programs Launched" },
+      { icon: Globe, value: "15+", label: "Institutions" }
     ]
   }
 ];
