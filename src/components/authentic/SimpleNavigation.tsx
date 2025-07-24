@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const SimpleNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,12 +25,12 @@ const SimpleNavigation = () => {
   };
 
   const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Journey', id: 'journey' },
-    { label: 'Institutions', id: 'institutions' },
-    { label: 'Publications', id: 'publications' },
-    { label: 'Media', id: 'media' },
-    { label: 'Contact', id: 'contact' }
+    { label: 'About', href: '/about' },
+    { label: 'Journey', href: '/journey' },
+    { label: 'Institutions', href: '/#institutions' },
+    { label: 'Publications', href: '/#publications' },
+    { label: 'Media', href: '/#media' },
+    { label: 'Contact', href: '/#contact' }
   ];
 
   return (
