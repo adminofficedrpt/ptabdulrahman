@@ -1,137 +1,134 @@
-
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
 const FooterModern = () => {
   const currentYear = new Date().getFullYear();
-
-  const footerSections = [
-    {
-      title: "Journey",
-      links: [
-        { name: "Biography", path: "/#biography" },
-        { name: "Timeline", path: "/#timeline" },
-        { name: "Legacy", path: "/#legacy" },
-      ]
-    },
-    {
-      title: "Initiatives",
-      links: [
-        { name: "DQAA", path: "/#dqaa" },
-        { name: "Humanitarian", path: "/#humanitarian" },
-        { name: "Admission", path: "/#admission" },
-      ]
-    },
-    {
-      title: "Media",
-      links: [
-        { name: "Books", path: "/#books" },
-        { name: "Awards", path: "/#awards" },
-        { name: "Gallery", path: "/gallery" },
-      ]
-    },
-  ];
-
+  const footerSections = [{
+    title: "My Journey",
+    links: [{
+      name: "About My Story",
+      path: "/#biography"
+    }, {
+      name: "Timeline",
+      path: "/#timeline"
+    }, {
+      name: "My Legacy",
+      path: "/#legacy"
+    }]
+  }, {
+    title: "My Work",
+    links: [{
+      name: "DQAA Academy",
+      path: "/#dqaa"
+    }, {
+      name: "Community Service",
+      path: "/#humanitarian"
+    }, {
+      name: "Academy Admission",
+      path: "/#admission"
+    }]
+  }, {
+    title: "Resources",
+    links: [{
+      name: "My Books",
+      path: "/#books"
+    }, {
+      name: "Recognition",
+      path: "/#awards"
+    }, {
+      name: "Photo Gallery",
+      path: "/gallery"
+    }]
+  }];
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/#')) {
       e.preventDefault();
       const id = href.replace('/#', '');
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        // Update URL without page reload - helps with analytics and bookmarking
+        element.scrollIntoView({
+          behavior: 'smooth'
+        });
         window.history.pushState({}, '', href);
       } else {
         window.location.href = href;
       }
     }
   };
-
-  return (
-    <footer className="bg-royal-900 text-white pt-16 pb-10">
+  return <footer className="bg-royal-900 text-white pt-16 pb-10">
       <div className="container mx-auto px-4">
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="lg:col-span-1"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.5
+        }} viewport={{
+          once: true
+        }} className="lg:col-span-1">
             <Link to="/" aria-label="Homepage">
-              <img 
-                src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" 
-                alt="Dr. P.T. Abdul Rahman Logo" 
-                className="h-16 filter brightness-0 invert mb-4"
-              />
+              <img src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" alt="Dr. P.T. Abdul Rahman Logo" className="h-16 filter brightness-0 invert mb-4" />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Dr. PT Abdul Rahman is a renowned scholar, educator, and humanitarian committed to 
-              educational excellence and community development.
+              This is my personal website where I share my journey as an author, social activist, 
+              and educator. Alhamdulillah for the opportunity to serve and connect with people 
+              from around the world.
             </p>
-            <div className="flex space-x-4">
-              {/* Social icons would go here */}
-            </div>
+            
+            {/* AI8TY Credit */}
+            
           </motion.div>
 
           {/* Navigation Columns */}
-          {footerSections.map((section, index) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+          {footerSections.map((section, index) => <motion.div key={section.title} initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.5,
+          delay: index * 0.1
+        }} viewport={{
+          once: true
+        }}>
               <h3 className="text-golden-300 font-medium mb-4">{section.title}</h3>
               <ul className="space-y-3">
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    {link.path.startsWith('/#') ? (
-                      <a 
-                        href={link.path}
-                        onClick={(e) => handleNavClick(e, link.path)}
-                        className="text-white/70 hover:text-golden-300 transition-colors text-sm"
-                      >
+                {section.links.map(link => <li key={link.name}>
+                    {link.path.startsWith('/#') ? <a href={link.path} onClick={e => handleNavClick(e, link.path)} className="text-white/70 hover:text-golden-300 transition-colors text-sm">
                         {link.name}
-                      </a>
-                    ) : (
-                      <Link 
-                        to={link.path}
-                        className="text-white/70 hover:text-golden-300 transition-colors text-sm"
-                      >
+                      </a> : <Link to={link.path} className="text-white/70 hover:text-golden-300 transition-colors text-sm">
                         {link.name}
-                      </Link>
-                    )}
-                  </li>
-                ))}
+                      </Link>}
+                  </li>)}
               </ul>
-            </motion.div>
-          ))}
+            </motion.div>)}
         </div>
 
         {/* Bottom Bar with Copyright */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center"
-        >
+        <motion.div initial={{
+        opacity: 0
+      }} whileInView={{
+        opacity: 1
+      }} transition={{
+        duration: 0.5,
+        delay: 0.4
+      }} viewport={{
+        once: true
+      }} className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Dr. P.T. Abdul Rahman. All rights reserved.
+            &copy; {currentYear} Dr. P.T. Abdul Rahman. All rights reserved. | Barakallahu feekum
           </p>
           <div className="flex space-x-6">
-            <a href="#privacy" className="text-white/70 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#terms" className="text-white/70 hover:text-white text-sm transition-colors">Terms of Use</a>
             <a href="#contact" className="text-white/70 hover:text-white text-sm transition-colors">Contact</a>
+            <a href="https://ai8ty.com" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white text-sm transition-colors">Website by AI8TY</a>
           </div>
         </motion.div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default FooterModern;
