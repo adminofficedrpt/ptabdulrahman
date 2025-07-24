@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import PreLoader from '@/components/PreLoader';
 import FooterModern from '@/components/FooterModern';
@@ -14,7 +13,6 @@ import ChapterTwo from '@/components/chapters/ChapterTwo';
 import ChapterThree from '@/components/chapters/ChapterThree';
 import InteractiveBookExperience from '@/components/books/InteractiveBookExperience';
 import ImmersiveTimeline from '@/components/timeline/ImmersiveTimeline';
-import ProfessionalTimeline from '@/components/timeline/ProfessionalTimeline';
 import GlobalImpactVisualization from '@/components/impact/GlobalImpactVisualization';
 import Contact from '@/components/Contact';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
@@ -22,8 +20,7 @@ import FluidTypography from '@/components/typography/FluidTypography';
 import TestimonialsWall from '@/components/trust/TestimonialsWall';
 import PressWall from '@/components/trust/PressWall';
 import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
-import ScrollTriggeredQuotes from '@/components/modern/ScrollTriggeredQuotes';
-import PrayerTimeWidget from '@/components/modern/PrayerTimeWidget';
+import LoadingState from '@/components/ui/loading-state';
 
 // Hero images for preloading
 const criticalImages = [
@@ -82,51 +79,47 @@ const Index = () => {
       <EnhancedSEO />
       <ScrollProgressBar />
       
-      {/* Interactive Features - Optimized for Mobile */}
-      <ScrollTriggeredQuotes />
-      <PrayerTimeWidget />
-      
-      {/* Navigation - Enhanced Mobile Experience */}
+      {/* Navigation */}
       <SectionErrorBoundary sectionName="Navigation">
         <NavigationSystem />
       </SectionErrorBoundary>
       
-      {/* Chapter Navigation - Mobile Optimized */}
+      {/* Chapter Navigation */}
       <SectionErrorBoundary sectionName="Chapter Navigation">
         <ChapterNavigation />
       </SectionErrorBoundary>
       
-      {/* Advanced Hero Section - Mobile Responsive */}
+      {/* Advanced Hero Section */}
       <SectionErrorBoundary sectionName="Hero Section">
         <AdvancedHero />
       </SectionErrorBoundary>
       
-      {/* Chapter 1: Visionary Author & Media Pioneer */}
+      {/* Chapter 1: The Visionary */}
       <SectionErrorBoundary sectionName="Chapter 1">
         <ChapterOne />
       </SectionErrorBoundary>
       
-      {/* Press Wall - Professional Media Coverage */}
+      {/* Press Wall */}
       <SectionErrorBoundary sectionName="Press Coverage">
         <PressWall />
       </SectionErrorBoundary>
       
-      {/* Chapter 2: Humanitarian Leadership & Service */}
+      {/* Chapter 2: The Bridge Builder */}
       <SectionErrorBoundary sectionName="Chapter 2">
         <ChapterTwo />
       </SectionErrorBoundary>
       
-      {/* Testimonials Wall - Professional Endorsements */}
+      {/* Testimonials Wall */}
       <SectionErrorBoundary sectionName="Testimonials">
         <TestimonialsWall />
       </SectionErrorBoundary>
       
-      {/* Chapter 3: Educational Innovation & Institution Building */}
+      {/* Chapter 3: The Educator */}
       <SectionErrorBoundary sectionName="Chapter 3">
         <ChapterThree />
       </SectionErrorBoundary>
       
-      {/* Chapter 4: Published Works & Literary Legacy */}
+      {/* Chapter 4: The Scholar */}
       <SectionErrorBoundary sectionName="Interactive Books">
         <section id="scholar" className="relative">
           <InteractiveBookExperience />
@@ -138,37 +131,29 @@ const Index = () => {
         <GlobalImpactVisualization />
       </SectionErrorBoundary>
       
-      {/* Professional Timeline - Career Journey */}
-      <SectionErrorBoundary sectionName="Professional Timeline">
-        <section id="timeline" className="relative">
-          <ProfessionalTimeline />
-        </section>
-      </SectionErrorBoundary>
-      
-      {/* Chapter 5: Immersive Legacy Timeline */}
-      <SectionErrorBoundary sectionName="Legacy Timeline">
+      {/* Chapter 5: The Legacy */}
+      <SectionErrorBoundary sectionName="Timeline">
         <section id="legacy" className="relative">
           <ImmersiveTimeline />
         </section>
       </SectionErrorBoundary>
       
-      {/* Connect with Dr. Rahman - Professional Contact */}
+      {/* Epilogue: Connect */}
       <SectionErrorBoundary sectionName="Contact Section">
         <section id="connect" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50 relative">
           <ResponsiveContainer size="lg" padding="lg">
             <div className="text-center mb-12 sm:mb-16 md:mb-20">
               <div className="inline-block mb-4">
                 <span className="text-xs sm:text-sm font-light tracking-[0.2em] uppercase text-golden-600">
-                  Professional Connections
+                  Epilogue
                 </span>
               </div>
               <FluidTypography variant="h2" color="royal" className="mb-4 sm:mb-6">
-                Connect with Dr. Rahman
+                Connect with Dr. P.T. Abdul Rahman
               </FluidTypography>
               <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto px-4">
-                For professional collaborations, educational partnerships, speaking engagements, 
-                or humanitarian initiatives, Dr. Rahman welcomes connections with fellow educators, 
-                community leaders, and institutions committed to positive change.
+                Join the conversation and become part of a global community dedicated to 
+                educational excellence and humanitarian service.
               </FluidTypography>
             </div>
             <Contact />
@@ -176,7 +161,7 @@ const Index = () => {
         </section>
       </SectionErrorBoundary>
       
-      {/* Modern Footer - Enhanced Professional Information */}
+      {/* Modern Footer */}
       <SectionErrorBoundary sectionName="Footer">
         <FooterModern />
       </SectionErrorBoundary>

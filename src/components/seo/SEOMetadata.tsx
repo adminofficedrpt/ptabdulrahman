@@ -5,9 +5,9 @@ import { Helmet } from 'react-helmet-async';
 const SEOMetadata = () => {
   return (
     <Helmet>
-      <title>Dr. P.T. Abdul Rahman - Renowned Author, Social Activist & Educational Innovator</title>
-      <meta name="description" content="Dr. P.T. Abdul Rahman is a distinguished author, social activist, and educational innovator. Founder of progressive institutions, his literary works have transformed lives across 25+ countries." />
-      <meta name="keywords" content="PT Abdul Rahman author, Dr PT Abdul Rahman social activist, educational innovator UAE, humanitarian leader Dubai, Malayali author, social justice advocate, community empowerment leader,  author of Is the Creation Meaningless, educational reform advocate, cultural bridge-builder, humanitarian work UAE, global thought leader" />
+      <title>Dr. P.T. Abdul Rahman - Islamic Scholar, Educator & Humanitarian</title>
+      <meta name="description" content="Dr. P.T. Abdul Rahman is a distinguished Islamic scholar in UAE, humanitarian in Dubai, author, and Founder Chairman of Darul Quran Abdulla Academy (DQAA)." />
+      <meta name="keywords" content="PT Abdul Rahman, Dr PT Abdul Rahman, Islamic scholar UAE, Founder of Darul Quran Abdulla Academy, Indian humanitarian in Dubai, Malayali scholar in UAE, Author of Is the Creation Meaningless, DQAA Kerala, Hafiz program India, Islamic boarding school Kerala, Quran memorization school, Insight Group founder, Dubai Indian Islamic Centre founder, Humanitarian work UAE" />
       
       {/* Canonical URL */}
       <link rel="canonical" href="https://www.ptabdulrahman.com/" />
@@ -17,19 +17,19 @@ const SEOMetadata = () => {
       <meta property="og:site_name" content="Dr. P.T. Abdul Rahman" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:url" content="https://www.ptabdulrahman.com/" />
-      <meta property="og:title" content="Dr. P.T. Abdul Rahman - Renowned Author & Social Activist" />
-      <meta property="og:description" content="Distinguished author and social activist whose literary works and humanitarian leadership have transformed communities and inspired positive change globally." />
+      <meta property="og:title" content="Dr. P.T. Abdul Rahman - Islamic Scholar, Educator & Humanitarian" />
+      <meta property="og:description" content="Distinguished Islamic scholar in UAE, Indian humanitarian in Dubai, and founder of Darul Quran Abdulla Academy (DQAA)." />
       <meta property="og:image" content="https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Dr. P.T. Abdul Rahman - Acclaimed Author & Social Activist" />
-      <meta name="twitter:description" content="Transforming communities through powerful writing and impactful social activism. Author of 'Is the Creation Meaningless?' and founder of progressive educational institutions." />
+      <meta name="twitter:title" content="Dr. P.T. Abdul Rahman - Islamic Scholar UAE" />
+      <meta name="twitter:description" content="Distinguished Islamic scholar, Malayali humanitarian in Dubai, author of 'Is the Creation Meaningless?', and founder of Darul Quran Abdulla Academy." />
       <meta name="twitter:image" content="https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png" />
       
-      {/* Schema markup - updated for author and social activist */}
+      {/* Schema markup - kept and expanded for SEO */}
       <script type="application/ld+json">
         {`
           {
@@ -38,7 +38,7 @@ const SEOMetadata = () => {
             "@id": "https://www.ptabdulrahman.com/#person",
             "name": "Dr. P.T. Abdul Rahman",
             "alternateName": "PT Abdul Rahman",
-            "description": "Renowned author, social activist, and educational innovator whose work spans over three decades of literary excellence and community transformation",
+            "description": "Distinguished Islamic scholar in UAE, humanitarian, author, and founder of Darul Quran Abdulla Academy",
             "image": "https://www.ptabdulrahman.com/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png",
             "url": "https://www.ptabdulrahman.com/",
             "sameAs": [
@@ -47,11 +47,11 @@ const SEOMetadata = () => {
               "https://www.facebook.com/abdulrahman.peetee",
               "https://instagram.com/drpt7"
             ],
-            "jobTitle": "Author & Social Activist",
+            "jobTitle": "Founder Chairman",
             "worksFor": {
               "@type": "Organization",
               "@id": "https://www.darul-quran.com/#organization",
-              "name": "Progressive Education Foundation",
+              "name": "Darul Quran Abdulla Academy",
               "url": "https://www.darul-quran.com/"
             },
             "alumniOf": {
@@ -64,17 +64,17 @@ const SEOMetadata = () => {
         `}
       </script>
 
-      {/* Structured Data - Organization (reframed) */}
+      {/* Structured Data - Organization (DQAA) */}
       <script type="application/ld+json">
         {`
           {
             "@context": "https://schema.org",
             "@type": "Organization",
             "@id": "https://www.darul-quran.com/#organization",
-            "name": "Progressive Education Foundation",
+            "name": "Darul Quran Abdulla Academy",
             "url": "https://www.darul-quran.com/",
             "logo": "https://www.ptabdulrahman.com/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png",
-            "description": "An innovative educational institution founded by Dr. P.T. Abdul Rahman that integrates comprehensive learning with progressive values and holistic development",
+            "description": "An educational institution founded by Dr. P.T. Abdul Rahman that integrates Quranic memorization with modern academic excellence",
             "founder": {
               "@type": "Person",
               "@id": "https://www.ptabdulrahman.com/#person"
@@ -92,7 +92,7 @@ const SEOMetadata = () => {
         `}
       </script>
 
-      {/* Structured Data - Books (reframed) */}
+      {/* Structured Data - Books */}
       <script type="application/ld+json">
         {`
           {
@@ -108,8 +108,7 @@ const SEOMetadata = () => {
                   "@id": "https://www.ptabdulrahman.com/#person"
                 },
                 "inLanguage": "English",
-                "datePublished": "1995",
-                "about": "Philosophy, Ethics, Social Responsibility"
+                "datePublished": "1995"
               },
               {
                 "@type": "Book",
@@ -119,8 +118,7 @@ const SEOMetadata = () => {
                   "@type": "Person",
                   "@id": "https://www.ptabdulrahman.com/#person"
                 },
-                "inLanguage": "English",
-                "about": "Social Justice, Community Development, Ethical Leadership"
+                "inLanguage": "English"
               },
               {
                 "@type": "Book",
@@ -130,15 +128,14 @@ const SEOMetadata = () => {
                   "@type": "Person",
                   "@id": "https://www.ptabdulrahman.com/#person"
                 },
-                "inLanguage": "English",
-                "about": "Cultural Understanding, Bridge Building, Social Harmony"
+                "inLanguage": "English"
               }
             ]
           }
         `}
       </script>
 
-      {/* Structured Data - News Articles (reframed) */}
+      {/* Structured Data - News Articles */}
       <script type="application/ld+json">
         {`
           {
@@ -148,7 +145,7 @@ const SEOMetadata = () => {
               {
                 "@type": "NewsArticle",
                 "position": 1,
-                "headline": "Author presents innovative perspective on social responsibility",
+                "headline": "Book presents Islamic view on creation",
                 "url": "https://www.khaleejtimes.com/uae/book-presents-islamic-view-on-creation",
                 "publisher": {
                   "@type": "Organization",
@@ -162,7 +159,7 @@ const SEOMetadata = () => {
               {
                 "@type": "NewsArticle",
                 "position": 2,
-                "headline": "Community center launches initiative for UAE expatriate families",
+                "headline": "Islamic centre to launch scheme for Indian expats",
                 "url": "https://gulfnews.com/uae/islamic-centre-to-launch-scheme-for-indian-expats-1.424474",
                 "publisher": {
                   "@type": "Organization",
@@ -176,11 +173,25 @@ const SEOMetadata = () => {
               {
                 "@type": "NewsArticle",
                 "position": 3,
-                "headline": "Social activist organizes free healthcare access in Ajman",
+                "headline": "DIIC to hold free medical camp in Ajman",
                 "url": "https://www.khaleejtimes.com/uae/diic-to-hold-free-medical-camp-in-ajman",
                 "publisher": {
                   "@type": "Organization",
                   "name": "Khaleej Times"
+                },
+                "about": {
+                  "@type": "Person",
+                  "@id": "https://www.ptabdulrahman.com/#person"
+                }
+              },
+              {
+                "@type": "NewsArticle",
+                "position": 4,
+                "headline": "8th Inter-School Quran and Educational Competition in Dubai",
+                "url": "https://iqna.ir/en/news/1925695/8th-inter-school-quran-and-educational-competition-in-dubai-",
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "IQNA"
                 },
                 "about": {
                   "@type": "Person",
