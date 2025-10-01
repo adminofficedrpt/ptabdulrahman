@@ -7,24 +7,24 @@ import { GraduationCap, Star, Award, BookOpen } from 'lucide-react';
 const ChapterThree: React.FC = () => {
   const achievements = [
     {
-      year: "1995",
-      title: "Progressive Education Foundation",
-      description: "Established an innovative educational model focused on holistic learning and social consciousness"
+      year: "1990s",
+      title: "DQAA Founded",
+      description: "Established Darul Quran Abdulla Academy in Dubai for Quranic education"
     },
     {
-      year: "2005",
-      title: "Educational Excellence Recognition",
-      description: "Received UAE Ministry of Education accreditation for pioneering progressive curriculum"
+      year: "2002",
+      title: "Community Website",
+      description: "Launched Samavayam.com for the Keralite community"
     },
     {
-      year: "2015",
-      title: "Global Learning Network",
-      description: "Launched international programs reaching students across 15 countries with transformative education"
+      year: "2009",
+      title: "Medical Camps",
+      description: "Organized free medical check-ups for low-income workers through DIIC"
     },
     {
-      year: "2023",
-      title: "Digital Learning Innovation",
-      description: "Pioneered accessible online educational platforms promoting global knowledge exchange"
+      year: "2014",
+      title: "Educational Competition",
+      description: "Hosted 8th Inter-School Quran and Educational Competition"
     }
   ];
 
@@ -32,8 +32,8 @@ const ChapterThree: React.FC = () => {
     <ChapterContainer
       id="educator"
       chapterNumber={3}
-      title="The Educational Innovator"
-      subtitle="Revolutionizing learning through progressive educational models and transformative pedagogy"
+      title="The Educator"
+      subtitle="Founding educational institutions and organizing community learning programs"
       variant="gradient"
     >
       {/* Educational Vision Introduction */}
@@ -47,30 +47,30 @@ const ChapterThree: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-3xl font-playfair font-bold text-royal-900 mb-6">
-              Progressive Education Foundation
+              Darul Quran Abdulla Academy
             </h3>
             <p className="text-lg text-royal-700 leading-relaxed mb-6">
-              Founded with the vision of reimagining educational paradigms, the Progressive Education Foundation 
-              represents Dr. P.T. Abdul Rahman's commitment to nurturing both intellectual and social development 
-              in students.
+              Founded in Dubai, Darul Quran Abdulla Academy (DQAA) provides Islamic education with a focus 
+              on Quranic memorization and Arabic language instruction. The academy serves students from the 
+              expatriate community.
             </p>
             <p className="text-royal-700 leading-relaxed mb-8">
-              The foundation integrates modern educational methodologies with values of social responsibility, 
-              preparing students to become thoughtful, engaged citizens committed to positive social transformation.
+              The institution combines traditional Islamic teaching methods with structured curriculum, 
+              preparing students in both religious and academic subjects.
             </p>
             
             <div className="flex space-x-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-royal-900">2,500+</div>
-                <div className="text-sm text-royal-600">Graduates</div>
+                <div className="text-2xl font-bold text-royal-900">1990s</div>
+                <div className="text-sm text-royal-600">Established</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-royal-900">95%</div>
-                <div className="text-sm text-royal-600">Success Rate</div>
+                <div className="text-2xl font-bold text-royal-900">Dubai</div>
+                <div className="text-sm text-royal-600">Location</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-royal-900">15</div>
-                <div className="text-sm text-royal-600">Countries</div>
+                <div className="text-2xl font-bold text-royal-900">DIIC</div>
+                <div className="text-sm text-royal-600">Affiliated</div>
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-royal-900 text-center mb-12">
-          Educational Innovation Milestones
+          Educational & Community Milestones
         </h3>
         
         <div className="max-w-4xl mx-auto">
@@ -166,13 +166,13 @@ const ChapterThree: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-royal-900 mb-8 text-center">
-          Educational Philosophy
+          Educational Focus
         </h3>
         
-        <blockquote className="text-xl md:text-2xl font-light italic text-royal-800 leading-relaxed text-center mb-8">
-          "Education is not mere preparation for life; it is the continuous process of social transformation. We don't just teach—we inspire critical thinking, social consciousness, and the courage to create positive change."
-        </blockquote>
-        <cite className="block text-center text-golden-600 font-medium">Dr. P.T. Abdul Rahman</cite>
+        <p className="text-xl md:text-2xl text-royal-800 leading-relaxed text-center">
+          Combining traditional Islamic education with structured curriculum to serve the educational 
+          needs of the expatriate community in Dubai and surrounding areas.
+        </p>
       </motion.div>
     </ChapterContainer>
   );

@@ -12,38 +12,38 @@ import VideoModal from '@/components/hero/VideoModal';
 const heroSlides = [
   {
     id: 1,
-    title: "Acclaimed Author & Literary Pioneer",
-    subtitle: "Transforming Lives Through the Power of Written Word",
-    description: "Dr. P.T. Abdul Rahman has authored over 15 influential books that bridge cultures and inspire social change. His literary works, translated into multiple languages, have reached millions of readers worldwide, establishing him as a prominent voice in contemporary social discourse.",
+    title: "Author & Scholar",
+    subtitle: "Writing on Islamic Philosophy and Social Issues",
+    description: "P.T. Abdul Rahman has authored books exploring Islamic philosophy, education, and contemporary social questions. His writings address topics ranging from the purpose of creation to community development, published in Malayalam, Arabic, and English.",
     image: "/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png",
     stats: [
-      { icon: BookOpen, value: "15+", label: "Published Works" },
-      { icon: Globe, value: "8", label: "Languages" },
-      { icon: Users, value: "2M+", label: "Readers Reached" }
+      { icon: BookOpen, value: "30+", label: "Years Writing" },
+      { icon: Globe, value: "Multiple", label: "Languages" },
+      { icon: Pen, value: "Dubai", label: "Based in UAE" }
     ]
   },
   {
     id: 2,
-    title: "Visionary Social Activist",
-    subtitle: "Championing Social Justice and Community Empowerment",
-    description: "For over three decades, Dr. Abdul Rahman has been at the forefront of social transformation, leading humanitarian initiatives that have touched countless lives. His work in education reform, community development, and cultural bridge-building continues to inspire positive change.",
+    title: "Community Leader",
+    subtitle: "Serving Expatriate Communities in the UAE",
+    description: "As President of the Dubai Indian Islamic Centre, P.T. Abdul Rahman has organized medical camps, welfare schemes, and cultural programs for the Indian expatriate community. His work includes advocating for community welfare and promoting cultural heritage.",
     image: "/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png",
     stats: [
-      { icon: Users, value: "100K+", label: "Lives Impacted" },
-      { icon: Globe, value: "25+", label: "Countries Reached" },
-      { icon: Pen, value: "30+", label: "Years of Service" }
+      { icon: Users, value: "DIIC", label: "President" },
+      { icon: Globe, value: "UAE", label: "Based" },
+      { icon: Pen, value: "30+", label: "Years Service" }
     ]
   },
   {
     id: 3,
-    title: "Educational Innovator & Thought Leader",
-    subtitle: "Revolutionizing Learning for Future Generations",
-    description: "Through the establishment of progressive educational institutions and innovative pedagogical approaches, Dr. Abdul Rahman has redefined how knowledge is shared and wisdom is cultivated, creating lasting impact across communities worldwide.",
+    title: "Educator & Founder",
+    subtitle: "Establishing Educational Institutions",
+    description: "Founded Darul Quran Abdulla Academy (DQAA) in Dubai, providing Islamic education with focus on Quranic memorization and Arabic instruction. The academy serves students from the expatriate community in the UAE.",
     image: "/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg",
     stats: [
-      { icon: Users, value: "5000+", label: "Students Mentored" },
-      { icon: BookOpen, value: "50+", label: "Programs Launched" },
-      { icon: Globe, value: "15+", label: "Institutions" }
+      { icon: BookOpen, value: "DQAA", label: "Founder" },
+      { icon: Users, value: "Islamic", label: "Education" },
+      { icon: Globe, value: "Dubai", label: "Location" }
     ]
   }
 ];

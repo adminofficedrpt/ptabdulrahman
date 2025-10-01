@@ -8,27 +8,23 @@ const ChapterTwo: React.FC = () => {
   const activismInitiatives = [
     {
       icon: Heart,
-      title: "Community Empowerment",
-      description: "Leading grassroots movements that strengthen communities through education, healthcare access, and economic opportunity",
-      impact: "50,000+ families supported"
+      title: "Community Service",
+      description: "Organizing medical camps and welfare programs for expatriate communities in the UAE"
     },
     {
       icon: Handshake,
-      title: "Social Justice Advocacy",
-      description: "Championing equality, human rights, and social reform through policy advocacy and community organizing",
-      impact: "100+ policy initiatives"
+      title: "Cultural Engagement",
+      description: "Promoting Kerala Muslim cultural heritage and fostering interfaith understanding"
     },
     {
       icon: Building,
-      title: "Institutional Development",
-      description: "Establishing sustainable organizations that continue the mission of social transformation and community service",
-      impact: "15+ institutions founded"
+      title: "Institutional Leadership",
+      description: "Serving as President of Dubai Indian Islamic Centre, coordinating community initiatives"
     },
     {
       icon: Users2,
-      title: "Leadership Development",
-      description: "Mentoring the next generation of social activists and change-makers to carry forward the vision of equality",
-      impact: "5,000+ leaders trained"
+      title: "Advocacy Work",
+      description: "Supporting expatriate welfare and representing community interests with government bodies"
     }
   ];
 
@@ -36,8 +32,8 @@ const ChapterTwo: React.FC = () => {
     <ChapterContainer
       id="bridge-builder"
       chapterNumber={2}
-      title="The Social Activist"
-      subtitle="Championing justice, equality, and human dignity through transformative social action"
+      title="Community Leader"
+      subtitle="Serving expatriate communities through welfare programs and cultural initiatives"
       variant="light"
     >
       {/* Opening Statement */}
@@ -49,9 +45,9 @@ const ChapterTwo: React.FC = () => {
         viewport={{ once: true }}
       >
         <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          Dr. P.T. Abdul Rahman's commitment to social justice has driven three decades of transformative 
-          activism. From grassroots organizing to international advocacy, his work demonstrates that 
-          sustainable change comes through empowering communities and building bridges of understanding.
+          As President of the Dubai Indian Islamic Centre, P.T. Abdul Rahman has organized medical camps, 
+          welfare schemes, and cultural programs serving the Indian expatriate community in the UAE. His work 
+          focuses on community development, cultural preservation, and supporting those in need.
         </p>
       </motion.div>
 
@@ -71,12 +67,9 @@ const ChapterTwo: React.FC = () => {
                 <initiative.icon size={28} className="text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-playfair font-semibold text-royal-900 mb-2">
+                <h3 className="text-xl font-playfair font-semibold text-royal-900">
                   {initiative.title}
                 </h3>
-                <div className="inline-block bg-golden-100 text-golden-700 text-sm font-medium px-3 py-1 rounded-full">
-                  {initiative.impact}
-                </div>
               </div>
             </div>
             
@@ -95,29 +88,17 @@ const ChapterTwo: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="grid md:grid-cols-3 gap-8 text-center">
+        <div className="grid md:grid-cols-2 gap-8 text-center">
           <div>
             <div className="text-4xl font-bold text-golden-300 mb-2">30+</div>
-            <div className="text-lg font-medium mb-2">Years of Activism</div>
-            <div className="text-white/80 text-sm">Dedicated to social transformation</div>
+            <div className="text-lg font-medium mb-2">Years of Service</div>
+            <div className="text-white/80 text-sm">Community leadership in UAE</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-golden-300 mb-2">100K+</div>
-            <div className="text-lg font-medium mb-2">Lives Transformed</div>
-            <div className="text-white/80 text-sm">Through direct action and advocacy</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">DIIC</div>
+            <div className="text-lg font-medium mb-2">President</div>
+            <div className="text-white/80 text-sm">Dubai Indian Islamic Centre</div>
           </div>
-          <div>
-            <div className="text-4xl font-bold text-golden-300 mb-2">25+</div>
-            <div className="text-lg font-medium mb-2">Countries Reached</div>
-            <div className="text-white/80 text-sm">Global social impact initiatives</div>
-          </div>
-        </div>
-        
-        <div className="mt-12 text-center">
-          <blockquote className="text-xl italic text-white/90 mb-4">
-            "True activism is not about fighting against something—it's about building toward a better tomorrow for all humanity."
-          </blockquote>
-          <cite className="text-golden-300">Dr. P.T. Abdul Rahman</cite>
         </div>
       </motion.div>
     </ChapterContainer>

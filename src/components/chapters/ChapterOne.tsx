@@ -8,27 +8,23 @@ const ChapterOne: React.FC = () => {
   const literaryPillars = [
     {
       icon: Pen,
-      title: "Literary Excellence",
-      description: "Crafting transformative narratives that bridge cultural divides and inspire social consciousness across global audiences",
-      quote: "Words have the power to heal divisions and build understanding between communities"
+      title: "Literary Work",
+      description: "Authoring books that explore Islamic philosophy, social issues, and the intersection of faith and modern life"
     },
     {
       icon: BookOpen,
-      title: "Intellectual Authority",
-      description: "Establishing thought leadership through compelling works that challenge conventional thinking and propose innovative solutions",
-      quote: "True wisdom lies not in knowing all the answers, but in asking the right questions"
+      title: "Philosophical Inquiry",
+      description: "Examining fundamental questions about creation, purpose, and human existence from an Islamic perspective"
     },
     {
       icon: Globe2,
-      title: "Global Impact",
-      description: "Reaching millions of readers worldwide through translated works that resonate across cultures and generations",
-      quote: "Literature transcends borders; it speaks the universal language of human experience"
+      title: "Cultural Engagement",
+      description: "Writing in multiple languages to reach diverse communities across the Gulf region and South Asia"
     },
     {
       icon: Users,
-      title: "Social Influence",
-      description: "Inspiring positive change through written works that advocate for justice, equality, and human dignity",
-      quote: "The pen that writes for justice is mightier than any sword raised in anger"
+      title: "Educational Focus",
+      description: "Publishing works that support religious education and promote thoughtful discourse on contemporary issues"
     }
   ];
 
@@ -36,8 +32,8 @@ const ChapterOne: React.FC = () => {
     <ChapterContainer
       id="visionary"
       chapterNumber={1}
-      title="The Literary Pioneer"
-      subtitle="A transformative author whose words inspire social change and bridge cultural understanding"
+      title="The Author"
+      subtitle="Writing on Islamic philosophy, education, and social issues"
       variant="light"
     >
       {/* Opening Statement */}
@@ -49,9 +45,9 @@ const ChapterOne: React.FC = () => {
         viewport={{ once: true }}
       >
         <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          Dr. P.T. Abdul Rahman's literary journey spans over three decades, producing influential works 
-          that have shaped discourse on social justice, education, and human rights. His books, translated 
-          into eight languages, continue to inspire readers and activists worldwide.
+          P.T. Abdul Rahman has authored books on Islamic philosophy, education, and contemporary social issues. 
+          His works include writings in Malayalam, Arabic, and English, addressing topics ranging from religious 
+          education to community development.
         </p>
       </motion.div>
 
@@ -74,12 +70,9 @@ const ChapterOne: React.FC = () => {
                 <h3 className="text-2xl font-playfair font-semibold text-royal-900 mb-4">
                   {pillar.title}
                 </h3>
-                <p className="text-royal-700 leading-relaxed mb-4">
+                <p className="text-royal-700 leading-relaxed">
                   {pillar.description}
                 </p>
-                <blockquote className="italic text-golden-700 font-medium">
-                  "{pillar.quote}"
-                </blockquote>
               </div>
             </div>
           </motion.div>
@@ -95,31 +88,21 @@ const ChapterOne: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-3xl font-playfair font-bold text-center mb-8">
-          Literary Legacy & Impact
+          Published Works
         </h3>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-8">
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">1995</div>
-            <div className="text-lg font-medium mb-2">First Publication</div>
-            <div className="text-white/80 text-sm">"Is the Creation Meaningless?" launched</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">30+</div>
+            <div className="text-lg font-medium mb-2">Years Writing</div>
+            <div className="text-white/80 text-sm">Decades of literary contribution</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">8</div>
+            <div className="text-4xl font-bold text-golden-300 mb-2">Multiple</div>
             <div className="text-lg font-medium mb-2">Languages</div>
-            <div className="text-white/80 text-sm">Global literary reach</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">2M+</div>
-            <div className="text-lg font-medium mb-2">Readers Worldwide</div>
-            <div className="text-white/80 text-sm">Lives touched through literature</div>
+            <div className="text-white/80 text-sm">Malayalam, Arabic, English</div>
           </div>
         </div>
-        
-        <blockquote className="text-xl md:text-2xl font-light italic text-center text-white/90 mb-4">
-          "A true author doesn't just write books—they write the future, one transformative idea at a time."
-        </blockquote>
-        <cite className="block text-center text-golden-300 font-medium">Dr. P.T. Abdul Rahman</cite>
       </motion.div>
     </ChapterContainer>
   );
