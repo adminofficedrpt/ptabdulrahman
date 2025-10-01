@@ -23,69 +23,25 @@ interface Recognition {
 const recognitions: Recognition[] = [
   {
     id: '1',
-    title: 'UAE Golden Visa',
-    organization: 'UAE Government',
-    year: '2022',
-    category: 'visa',
-    location: 'Dubai, UAE',
-    description: 'Awarded the prestigious UAE Golden Visa in recognition of creative cultural contributions and lasting impact on society.',
-    significance: 'national',
-    icon: 'star'
-  },
-  {
-    id: '2',
-    title: 'Leadership Commendation',
-    organization: 'Dubai Islamic Affairs',
-    year: '2020',
-    category: 'honor',
-    location: 'Dubai, UAE',
-    description: 'Special recognition for outstanding leadership in promoting interfaith dialogue and cultural understanding.',
-    significance: 'regional',
-    icon: 'trophy'
-  },
-  {
-    id: '3',
-    title: 'Excellence in Education',
-    organization: 'Kerala Education Board',
-    year: '2018',
+    title: 'Appreciation Award',
+    organization: 'Ruler\'s Court of Ajman',
+    year: '2010',
     category: 'award',
-    location: 'Kerala, India',
-    description: 'Honored for revolutionary contributions to Islamic education through DQAA and innovative teaching methodologies.',
+    location: 'Ajman, UAE',
+    description: 'H.E. Sheikh Dr. Majid Bin Saeed Al Nuaimi presented an Appreciation Award for the role as Founder and Secretary General of the Dubai Indian Islamic Centre.',
     significance: 'national',
     icon: 'award'
   },
   {
-    id: '4',
-    title: 'Cultural Bridge Builder',
-    organization: 'International Islamic Centre',
-    year: '2019',
+    id: '2',
+    title: 'Loka Kerala Sabha Member',
+    organization: 'Government of Kerala',
+    year: '2022',
     category: 'recognition',
-    location: 'Dubai, UAE',
-    description: 'Recognized for exceptional work in building bridges between diverse communities and fostering mutual understanding.',
-    significance: 'international',
-    icon: 'globe'
-  },
-  {
-    id: '5',
-    title: 'Humanitarian Service Certificate',
-    organization: 'Red Crescent Society',
-    year: '2017',
-    category: 'certificate',
-    location: 'UAE',
-    description: 'Certificate of appreciation for organizing medical camps and humanitarian services for the expatriate community.',
+    location: 'Kerala, India',
+    description: 'Official delegate and member of the Loka Kerala Sabha, a global platform connecting the Keralite diaspora.',
     significance: 'national',
-    icon: 'shield'
-  },
-  {
-    id: '6',
-    title: 'Literary Excellence Award',
-    organization: 'Malayalam Literary Society',
-    year: '2016',
-    category: 'award',
-    location: 'Dubai, UAE',
-    description: 'Recognition for outstanding contributions to Malayalam literature and philosophical discourse.',
-    significance: 'regional',
-    icon: 'trophy'
+    icon: 'globe'
   }
 ];
 
@@ -170,12 +126,11 @@ const AwardsRecognitionWall = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-royal-800 mb-6 font-playfair">
-            Wall of Recognition
+            Recognition
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-royal-500 to-golden-500 mx-auto mb-8"></div>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            A testament to decades of service, leadership, and contributions that have earned recognition 
-            from institutions across the UAE, India, and beyond.
+            Official recognitions received for community service and educational contributions.
           </p>
         </motion.div>
 
@@ -312,10 +267,8 @@ const AwardsRecognitionWall = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
         >
           {[
-            { label: 'Total Recognitions', value: recognitions.length, icon: Award },
             { label: 'Years of Service', value: '30+', icon: Calendar },
-            { label: 'Countries', value: '3', icon: Globe },
-            { label: 'Impact Level', value: 'Global', icon: Star }
+            { label: 'Community Focus', value: 'UAE & India', icon: Globe }
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

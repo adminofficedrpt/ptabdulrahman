@@ -20,49 +20,83 @@ interface PressItem {
 const pressItems: PressItem[] = [
   {
     id: '1',
-    publication: 'Khaleej Times',
-    title: 'Book presents Islamic view on creation',
-    excerpt: 'Dr. P.T. Abdul Rahman\'s philosophical work examines the divine purpose behind creation from an Islamic perspective.',
-    date: '2023',
-    url: 'https://www.khaleejtimes.com/uae/book-presents-islamic-view-on-creation',
+    publication: 'Gulf News',
+    title: 'Islamic centre to launch scheme for Indian expats',
+    excerpt: 'As President of DIIC, P.T. Abdul Rahman announced the launch of a model welfare scheme for the Indian expatriate community in the UAE.',
+    date: '2009',
+    url: 'https://gulfnews.com/uae/islamic-centre-to-launch-scheme-for-indian-expats-1.424474',
     category: 'featured'
   },
   {
     id: '2',
-    publication: 'Gulf News',
-    title: 'Islamic centre to launch scheme for Indian expats',
-    excerpt: 'Dr. Abdul Rahman announces new initiatives to support the Indian expatriate community in the UAE.',
-    date: '2023',
-    url: 'https://gulfnews.com/uae/islamic-centre-to-launch-scheme-for-indian-expats-1.424474',
-    category: 'interview'
+    publication: 'Khaleej Times',
+    title: 'Book presents Islamic view on creation',
+    excerpt: 'P.T. Abdul Rahman participated in the launch of "The Universe and the Creator," presenting an Islamic perspective on creation in light of modern scientific discoveries.',
+    date: '2010',
+    url: 'https://www.khaleejtimes.com/uae/book-presents-islamic-view-on-creation',
+    category: 'mention'
   },
   {
     id: '3',
-    publication: 'IQNA',
-    title: '8th Inter-School Quran and Educational Competition in Dubai',
-    excerpt: 'Annual competition organized by DQAA showcases excellence in Quranic education and academic achievement.',
-    date: '2024',
-    url: 'https://iqna.ir/en/news/1925695/8th-inter-school-quran-and-educational-competition-in-dubai-',
+    publication: 'Gulf News',
+    title: 'Islamic centre provides free medical check-up for 800',
+    excerpt: 'The Dubai Indian Islamic Centre, under P.T. Abdul Rahman\'s presidency, organized a free medical camp providing check-ups for 800 low-income workers.',
+    date: '2009',
+    url: 'https://gulfnews.com/uae/islamic-centre-provides-free-medical-check-up-for-800-1.421491',
     category: 'mention'
   },
   {
     id: '4',
-    publication: 'Emirates 24/7',
-    title: 'Educational Pioneer Bridges Traditional and Modern Learning',
-    excerpt: 'Profile of Dr. P.T. Abdul Rahman\'s innovative approach to Islamic education in the UAE.',
-    date: '2024',
-    url: '#',
-    category: 'featured'
+    publication: 'Gulf News',
+    title: 'Indian expats urge Delhi to take initiative',
+    excerpt: 'In his capacity as DIIC President, P.T. Abdul Rahman urged the Indian government to take proactive measures to support distressed expatriates.',
+    date: '2009',
+    url: 'https://gulfnews.com/uae/indian-expats-urge-delhi-to-take-initiative-1.438168',
+    category: 'mention'
+  },
+  {
+    id: '5',
+    publication: 'IQNA',
+    title: '8th Inter-School Quran and Educational Competition in Dubai',
+    excerpt: 'Under P.T. Abdul Rahman\'s leadership as founder, the DIIC hosted its 8th annual Inter-School Quran and Educational Competition, with students from 40 schools participating.',
+    date: '2014',
+    url: 'https://iqna.ir/en/news/1925695/8th-inter-school-quran-and-educational-competition-in-dubai',
+    category: 'mention'
+  },
+  {
+    id: '6',
+    publication: 'Khaleej Times',
+    title: 'Holy Quran teaches religious tolerance',
+    excerpt: 'P.T. Abdul Rahman, President of DIIC, emphasized that Islam advocates for respecting other religions and their places of worship.',
+    date: '2011',
+    url: 'https://www.khaleejtimes.com/uae/holy-quran-teaches-religious-tolerance',
+    category: 'mention'
+  },
+  {
+    id: '7',
+    publication: 'Khaleej Times',
+    title: 'Kerala Muslim art forms get a big boost in Dubai',
+    excerpt: 'The Centre played an active role in promoting traditional Kerala Muslim art forms in Dubai.',
+    date: '2010',
+    url: 'https://www.khaleejtimes.com/uae/kerala-muslim-art-forms-get-a-big-boost-in-dubai',
+    category: 'mention'
+  },
+  {
+    id: '8',
+    publication: 'Gulf News',
+    title: 'Community site for Keralites',
+    excerpt: 'Identified as a Dubai-based poet, P.T. Abdul Rahman inaugurated Samavayam.com, a community website for Keralites.',
+    date: '2002',
+    url: 'https://gulfnews.com/uae/community-site-for-keralites-1.425842',
+    category: 'mention'
   }
 ];
 
 const mediaLogos = [
   { name: 'Khaleej Times', width: 120 },
   { name: 'Gulf News', width: 100 },
-  { name: 'Emirates 24/7', width: 110 },
   { name: 'IQNA', width: 80 },
-  { name: 'Al Arabiya', width: 100 },
-  { name: 'Zawya', width: 90 }
+  { name: 'Thumbay', width: 100 }
 ];
 
 const PressWall: React.FC = () => {
@@ -88,11 +122,10 @@ const PressWall: React.FC = () => {
             </span>
           </motion.div>
           <FluidTypography variant="h2" color="royal" className="mb-6">
-            Global Media Coverage
+            Press Coverage
           </FluidTypography>
           <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto">
-            Dr. P.T. Abdul Rahman's work and achievements have been recognized 
-            by leading publications across the Middle East and beyond.
+            Media coverage of community initiatives, educational programs, and humanitarian work.
           </FluidTypography>
         </div>
 
@@ -146,10 +179,10 @@ const PressWall: React.FC = () => {
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
           <div className="text-center mb-8">
             <FluidTypography variant="h5" color="royal" className="mb-2">
-              Featured In
+              Media Mentions
             </FluidTypography>
             <FluidTypography variant="body" color="muted" className="text-sm">
-              Trusted by leading media organizations
+              Coverage across regional publications
             </FluidTypography>
           </div>
 
@@ -184,17 +217,16 @@ const PressWall: React.FC = () => {
           <div className="bg-gradient-to-r from-royal-50 to-golden-50 rounded-2xl p-8">
             <Globe className="h-12 w-12 text-royal-600 mx-auto mb-4" />
             <FluidTypography variant="h5" color="royal" className="mb-4">
-              Media Inquiries Welcome
+              Get in Touch
             </FluidTypography>
             <FluidTypography variant="body" color="muted" className="mb-6 max-w-2xl mx-auto">
-              For interviews, speaking engagements, or expert commentary on Islamic education 
-              and humanitarian affairs, please contact our media relations team.
+              For inquiries about educational programs or community initiatives.
             </FluidTypography>
             <a
               href="#connect"
               className="inline-flex items-center bg-gradient-to-r from-royal-600 to-royal-700 text-white px-6 py-3 rounded-lg hover:from-royal-700 hover:to-royal-800 transition-all duration-300 font-medium min-h-[44px]"
             >
-              Contact Media Team
+              Contact Us
             </a>
           </div>
         </motion.div>

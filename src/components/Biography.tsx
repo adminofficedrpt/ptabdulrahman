@@ -39,7 +39,7 @@ const Biography = () => {
               <span className="block w-40 h-1 bg-gradient-to-r from-golden-300 via-golden-500 to-golden-300 mx-auto mt-6"></span>
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              A distinguished Islamic scholar in UAE, visionary leader, and Indian humanitarian in Dubai whose influence spans continents.
+              An Islamic scholar, educator, and community leader based in the UAE.
             </p>
           </motion.div>
 
@@ -59,21 +59,21 @@ const Biography = () => {
               <div>
                 <h3 className="text-2xl font-bold text-royal-800 font-playfair mb-4">Early Life & Education</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Dr. P.T. Abdul Rahman, native to Kerala, India, emerged from a lineage characterized by profound Islamic erudition and cultural tradition. The premature demise of his father notwithstanding, he exhibited extraordinary fortitude and an unyielding dedication to intellectual pursuits. Under the aegis of his grandmother, he confronted challenges with remarkable tenacity, beginning a journey that would establish him as a renowned Islamic scholar in the UAE.
+                  Born in Kerala, India, P.T. Abdul Rahman grew up in a family with strong Islamic traditions. Despite losing his father at a young age, he pursued his education with dedication under the guidance of his grandmother. His formative years in Kerala shaped his commitment to Islamic scholarship and education.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-royal-800 font-playfair mb-4">Academic Pursuits</h3>
+                <h3 className="text-2xl font-bold text-royal-800 font-playfair mb-4">Academic Background</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  His formative education was conducted in Palakkod, Kothakurushi, and Ananganadi, subsequent to which he undertook advanced theological studies (Dars) at venerable institutions such as Palakkod East Masjid and Edakazhiyoor Juma Masjid. Under the instruction of eminent scholars, notably T.P. Muhammad Musliar and Kallur Abdullah Musliar, he cultivated a comprehensive comprehension of Islamic jurisprudence and philosophy, establishing the foundation for his future as an influential Malayali scholar in the UAE.
+                  He completed his early education in Palakkod, Kothakurushi, and Ananganadi before pursuing advanced theological studies (Dars) at Palakkod East Masjid and Edakazhiyoor Juma Masjid. He studied under respected scholars including T.P. Muhammad Musliar and Kallur Abdullah Musliar, developing a strong foundation in Islamic jurisprudence and philosophy.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-royal-800 font-playfair mb-4">Linguistic Mastery</h3>
+                <h3 className="text-2xl font-bold text-royal-800 font-playfair mb-4">Education & Languages</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Dr. P.T. Abdul Rahman possesses a Master of Arts in Sociology from the University of Mysore, India. His multilingual proficiency, encompassing Arabic, English, Hindi, Urdu, Malayalam, and Tamil, facilitates engagement with disparate communities and intellectual fora globally, contributing significantly to his reputation as a leading Islamic scholar from Kerala based in the UAE.
+                  Dr. P.T. Abdul Rahman holds a Master of Arts in Sociology from the University of Mysore, India. He is fluent in Arabic, English, Hindi, Urdu, Malayalam, and Tamil, enabling him to engage with diverse communities across the Gulf region.
                 </p>
               </div>
 

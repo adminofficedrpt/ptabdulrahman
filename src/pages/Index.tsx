@@ -13,11 +13,11 @@ import ChapterTwo from '@/components/chapters/ChapterTwo';
 import ChapterThree from '@/components/chapters/ChapterThree';
 import InteractiveBookExperience from '@/components/books/InteractiveBookExperience';
 import ImmersiveTimeline from '@/components/timeline/ImmersiveTimeline';
-import GlobalImpactVisualization from '@/components/impact/GlobalImpactVisualization';
+
 import Contact from '@/components/Contact';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import FluidTypography from '@/components/typography/FluidTypography';
-import TestimonialsWall from '@/components/trust/TestimonialsWall';
+
 import PressWall from '@/components/trust/PressWall';
 import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
 import LoadingState from '@/components/ui/loading-state';
@@ -109,11 +109,6 @@ const Index = () => {
         <ChapterTwo />
       </SectionErrorBoundary>
       
-      {/* Testimonials Wall */}
-      <SectionErrorBoundary sectionName="Testimonials">
-        <TestimonialsWall />
-      </SectionErrorBoundary>
-      
       {/* Chapter 3: The Educator */}
       <SectionErrorBoundary sectionName="Chapter 3">
         <ChapterThree />
@@ -124,11 +119,6 @@ const Index = () => {
         <section id="scholar" className="relative">
           <InteractiveBookExperience />
         </section>
-      </SectionErrorBoundary>
-      
-      {/* Global Impact Visualization */}
-      <SectionErrorBoundary sectionName="Global Impact">
-        <GlobalImpactVisualization />
       </SectionErrorBoundary>
       
       {/* Chapter 5: The Legacy */}

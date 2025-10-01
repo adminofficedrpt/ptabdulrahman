@@ -15,76 +15,67 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    year: "1970",
-    title: "Early Foundations",
-    description: "Began religious studies and developed passion for Islamic education",
+    year: "1970s",
+    title: "Early Education",
+    description: "Completed formative education in Palakkod, Kothakurushi, and Ananganadi",
     category: "education",
-    location: "Kerala, India",
-    impact: "Foundation of lifelong commitment to education"
+    location: "Kerala, India"
   },
   {
-    year: "1985",
-    title: "First Teaching Position",
-    description: "Started career as Islamic studies teacher, inspiring students with innovative methods",
+    year: "1980s",
+    title: "Advanced Studies",
+    description: "Pursued theological studies (Dars) at Palakkod East Masjid and Edakazhiyoor Juma Masjid under eminent scholars",
     category: "education",
-    location: "UAE",
-    impact: "50+ students mentored in first year"
+    location: "Kerala, India"
   },
   {
-    year: "1995",
+    year: "1990s",
     title: "DQAA Academy Founded",
-    description: "Established Darul Quran Abdulla Academy with revolutionary curriculum",
+    description: "Established Darul Quran Abdulla Academy in Dubai",
     category: "milestone",
-    location: "Dubai, UAE",
-    impact: "New paradigm in Islamic education"
+    location: "Dubai, UAE"
   },
   {
-    year: "2000",
-    title: "First Book Publication",
-    description: "Published 'Is the Creation Meaningless?' - a philosophical masterpiece",
-    category: "recognition",
-    location: "UAE",
-    impact: "Translated into 8 languages"
+    year: "2002",
+    title: "Community Website Launch",
+    description: "Inaugurated Samavayam.com, a community website for Keralites",
+    category: "milestone",
+    location: "Dubai, UAE"
   },
   {
-    year: "2005",
-    title: "Humanitarian Initiatives",
-    description: "Launched global humanitarian programs through Dubai Indian Islamic Centre",
+    year: "2009",
+    title: "Welfare Initiatives",
+    description: "As DIIC President, launched welfare schemes and medical camps for the Indian expatriate community",
     category: "humanitarian",
-    location: "Global",
-    impact: "10,000+ families supported"
+    location: "Dubai, UAE"
   },
   {
     year: "2010",
-    title: "International Recognition",
-    description: "Received UAE Ministry of Education Excellence Award",
+    title: "Recognition from Ajman",
+    description: "Received Appreciation Award from H.E. Sheikh Dr. Majid Bin Saeed Al Nuaimi, Chairman of the Ruler's Court of Ajman",
     category: "recognition",
-    location: "Dubai, UAE",
-    impact: "Official recognition of educational innovation"
+    location: "Ajman, UAE"
   },
   {
-    year: "2015",
-    title: "Global Expansion",
-    description: "DQAA programs launched internationally across 15 countries",
-    category: "milestone",
-    location: "International",
-    impact: "25,000+ students reached globally"
-  },
-  {
-    year: "2020",
-    title: "Digital Innovation",
-    description: "Pioneered online Islamic education platforms during pandemic",
+    year: "2014",
+    title: "Educational Programs",
+    description: "DIIC hosted 8th annual Inter-School Quran and Educational Competition",
     category: "education",
-    location: "Global",
-    impact: "Uninterrupted education for 5,000+ students"
+    location: "Dubai, UAE"
   },
   {
-    year: "2024",
-    title: "Legacy Continues",
-    description: "Ongoing impact through educational and humanitarian work",
+    year: "2022",
+    title: "Loka Kerala Sabha",
+    description: "Appointed as member of Loka Kerala Sabha, connecting the Keralite diaspora",
+    category: "recognition",
+    location: "Kerala, India"
+  },
+  {
+    year: "Present",
+    title: "Continued Service",
+    description: "Ongoing work in education, community welfare, and interfaith dialogue",
     category: "milestone",
-    location: "Global",
-    impact: "Inspiring next generation of leaders"
+    location: "Dubai, UAE"
   }
 ];
 
@@ -137,12 +128,11 @@ const ImmersiveTimeline: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 font-playfair">
-            Journey Through Time
+            Life & Service
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-golden-400 to-royal-400 mx-auto mb-8" />
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Trace the remarkable journey of Dr. P.T. Abdul Rahman through decades of 
-            educational innovation, humanitarian service, and global impact.
+            Key milestones in a life dedicated to education, community service, and cultural engagement.
           </p>
         </motion.div>
 
@@ -186,12 +176,6 @@ const ImmersiveTimeline: React.FC = () => {
                   {timelineEvents[currentIndex].description}
                 </p>
                 
-                {timelineEvents[currentIndex].impact && (
-                  <div className="bg-golden-500/20 rounded-lg p-4 border border-golden-400/30">
-                    <h4 className="text-golden-300 font-semibold mb-2">Impact</h4>
-                    <p className="text-white/80">{timelineEvents[currentIndex].impact}</p>
-                  </div>
-                )}
               </div>
               
               <div className="relative">
