@@ -1,13 +1,13 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { designTokens } from '@/lib/design-tokens';
 
 interface FluidTypographyProps {
   children: React.ReactNode;
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body' | 'lead' | 'caption' | 'overline' | 'display';
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
   weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold';
-  color?: 'primary' | 'secondary' | 'accent' | 'muted' | 'white' | 'royal' | 'golden';
+  color?: 'primary' | 'accent' | 'neutral' | 'muted';
   align?: 'left' | 'center' | 'right' | 'justify';
   className?: string;
   as?: keyof JSX.IntrinsicElements;
@@ -80,18 +80,17 @@ const FluidTypography: React.FC<FluidTypographyProps> = ({
   const finalSize = size || sizeMap[variant];
   const finalWeight = weight || weightMap[variant];
 
-  // Enhanced fluid typography with better mobile scaling
   const sizeClasses = {
-    xs: 'text-[clamp(0.75rem,0.7rem+0.25vw,0.875rem)]',
-    sm: 'text-[clamp(0.875rem,0.8rem+0.375vw,1rem)]',
-    base: 'text-[clamp(1rem,0.9rem+0.5vw,1.125rem)]',
-    lg: 'text-[clamp(1.125rem,1rem+0.625vw,1.25rem)]',
-    xl: 'text-[clamp(1.25rem,1.125rem+0.75vw,1.5rem)]',
-    '2xl': 'text-[clamp(1.5rem,1.25rem+1vw,1.875rem)]',
-    '3xl': 'text-[clamp(1.75rem,1.5rem+1.25vw,2.25rem)]',
-    '4xl': 'text-[clamp(2rem,1.75rem+1.5vw,2.75rem)]',
-    '5xl': 'text-[clamp(2.25rem,1.75rem+2.5vw,3.5rem)]',
-    '6xl': 'text-[clamp(2.75rem,2.25rem+3vw,4.5rem)]',
+    xs: `text-[${designTokens.typography.scale.xs}]`,
+    sm: `text-[${designTokens.typography.scale.sm}]`,
+    base: `text-[${designTokens.typography.scale.base}]`,
+    lg: `text-[${designTokens.typography.scale.lg}]`,
+    xl: `text-[${designTokens.typography.scale.xl}]`,
+    '2xl': `text-[${designTokens.typography.scale['2xl']}]`,
+    '3xl': `text-[${designTokens.typography.scale['3xl']}]`,
+    '4xl': `text-[${designTokens.typography.scale['4xl']}]`,
+    '5xl': `text-[${designTokens.typography.scale['5xl']}]`,
+    '6xl': `text-[${designTokens.typography.scale['6xl']}]`,
   };
 
   const weightClasses = {
@@ -103,15 +102,11 @@ const FluidTypography: React.FC<FluidTypographyProps> = ({
     extrabold: 'font-extrabold',
   };
 
-  // Enhanced color system with better accessibility and contrast
   const colorClasses = {
-    primary: 'text-foreground',
-    secondary: 'text-muted-foreground',
-    accent: 'text-royal-800',
-    muted: 'text-gray-600 dark:text-gray-400',
-    white: 'text-white',
-    royal: 'text-royal-800',
-    golden: 'text-golden-600',
+    primary: `text-${designTokens.colors.primary.DEFAULT}`,
+    accent: `text-${designTokens.colors.accent.DEFAULT}`,
+    neutral: `text-${designTokens.colors.neutral.DEFAULT}`,
+    muted: `text-${designTokens.colors.neutral[500]}`, // Using a neutral shade for muted
   };
 
   const alignClasses = {
@@ -132,7 +127,7 @@ const FluidTypography: React.FC<FluidTypographyProps> = ({
     <Component
       className={cn(
         // Font family based on variant
-        variant === 'display' || variant.startsWith('h') ? 'font-playfair' : 'font-sans',
+        variant === 'display' || variant.startsWith('h') ? designTokens.typography.fontFamily.heading.map(f => `font-[${f}]`).join(' ') : designTokens.typography.fontFamily.body.map(f => `font-[${f}]`).join(' '),
         // Size with mobile optimization
         sizeClasses[finalSize as keyof typeof sizeClasses],
         // Weight
@@ -146,7 +141,7 @@ const FluidTypography: React.FC<FluidTypographyProps> = ({
         variant === 'h1' ? 'leading-[1.15]' :
         variant === 'h2' ? 'leading-[1.2]' :
         variant === 'h3' ? 'leading-[1.25]' :
-        variant.startsWith('h') ? 'leading-tight' : 
+        variant.startsWith('h') ? 'leading-tight' :
         variant === 'lead' ? 'leading-relaxed' : 'leading-normal',
         // Truncation
         truncate && 'truncate',
