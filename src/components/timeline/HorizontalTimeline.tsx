@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 import { ChevronLeft, ChevronRight, MapPin, Award, Briefcase, Building2, BookOpen, Handshake, Gavel } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -110,13 +110,6 @@ const HorizontalTimeline = () => {
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: scrollContainerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
 
   const scrollToEvent = (index: number) => {
     if (scrollContainerRef.current) {
@@ -161,8 +154,7 @@ const HorizontalTimeline = () => {
   return (
     <motion.section 
       id="career"
-      className={`py-${designTokens.spacing.section.md} bg-gradient-to-br from-primary-50 to-neutral-50 overflow-hidden`}
-      style={{ opacity, scale }}
+      className={`py-${designTokens.spacing.section.md} bg-gradient-to-br from-primary-900 to-primary-800 overflow-hidden`}
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -171,11 +163,11 @@ const HorizontalTimeline = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className={`text-fluid-4xl md:text-fluid-5xl font-heading font-bold text-primary-900 mb-4`}>
+          <h2 className={`text-fluid-4xl md:text-fluid-5xl font-heading font-bold text-neutral-50 mb-4`}>
             A Legacy Unfolding: Career & Leadership Timeline
           </h2>
-          <div className={`w-24 h-1 bg-gradient-to-r from-accent-500 to-primary-500 mx-auto mb-6`}></div>
-          <p className={`text-fluid-lg ${designTokens.typography.fontFamily.body.join(",")} text-primary-700 max-w-3xl mx-auto`}>
+          <div className={`w-24 h-1 bg-gradient-to-r from-accent-400 to-accent-500 mx-auto mb-6`}></div>
+          <p className={`text-fluid-lg ${designTokens.typography.fontFamily.body.join(",")} text-neutral-300 max-w-3xl mx-auto`}>
             Explore the pivotal moments and significant contributions that define Dr. P.T. Abdul Rahman's distinguished career and leadership journey.
           </p>
         </motion.div>
@@ -187,7 +179,7 @@ const HorizontalTimeline = () => {
             size="sm"
             onClick={handlePrevious}
             disabled={currentIndex === 0}
-            className={`rounded-full border-primary-200 text-primary-700 hover:bg-primary-100 hover:text-primary-900`}
+            className={`rounded-full border-neutral-600 text-neutral-300 hover:bg-neutral-700 hover:text-neutral-50`}
           >
             <ChevronLeft className="w-4 h-4" />
           </Button>
@@ -198,7 +190,7 @@ const HorizontalTimeline = () => {
                 key={index}
                 onClick={() => scrollToEvent(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-accent-500' : 'bg-primary-300'
+                  index === currentIndex ? 'bg-accent-400' : 'bg-neutral-600'
                 }`}
               />
             ))}
@@ -209,7 +201,7 @@ const HorizontalTimeline = () => {
             size="sm"
             onClick={handleNext}
             disabled={currentIndex === timelineEvents.length - 1}
-            className={`rounded-full border-primary-200 text-primary-700 hover:bg-primary-100 hover:text-primary-900`}
+            className={`rounded-full border-neutral-600 text-neutral-300 hover:bg-neutral-700 hover:text-neutral-50`}
           >
             <ChevronRight className="w-4 h-4" />
           </Button>
@@ -233,7 +225,7 @@ const HorizontalTimeline = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className={`h-full bg-white border border-primary-100 shadow-lg hover:shadow-xl transition-all duration-300 group`}>
+                  <Card className={`h-full bg-neutral-800/50 border border-neutral-700 shadow-lg hover:shadow-xl transition-all duration-300 group`}>
                     <CardContent className="p-0">
                       {/* Image */}
                       {event.image && (
@@ -244,7 +236,7 @@ const HorizontalTimeline = () => {
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             whileHover={{ scale: 1.05 }}
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                           <div className="absolute top-4 left-4">
                             <Badge className={`${categoryColors[event.category]} text-xs font-semibold px-2 py-1 rounded-full`}>
                               <IconComponent className="w-3 h-3 mr-1" />
@@ -259,23 +251,23 @@ const HorizontalTimeline = () => {
 
                       {/* Content */}
                       <div className="p-6">
-                        <div className={`flex items-center gap-2 mb-3 text-sm ${designTokens.typography.fontFamily.body.join(",")} text-primary-600`}>
-                          <MapPin className="w-4 h-4 text-accent-500" />
+                        <div className={`flex items-center gap-2 mb-3 text-sm ${designTokens.typography.fontFamily.body.join(",")} text-neutral-400`}>
+                          <MapPin className="w-4 h-4 text-accent-400" />
                           {event.location}
                         </div>
 
-                        <h3 className={`text-fluid-xl font-bold ${designTokens.typography.fontFamily.heading.join(",")} text-primary-900 mb-3`}>
+                        <h3 className={`text-fluid-xl font-bold ${designTokens.typography.fontFamily.heading.join(",")} text-neutral-50 mb-3`}>
                           {event.title}
                         </h3>
 
-                        <p className={`text-primary-700 mb-4 line-clamp-3 ${designTokens.typography.fontFamily.body.join(",")}`}>
+                        <p className={`text-neutral-300 mb-4 line-clamp-3 ${designTokens.typography.fontFamily.body.join(",")}`}>
                           {event.description}
                         </p>
 
                         <div className="space-y-2 mb-4">
                           {event.achievements.slice(0, 2).map((achievement, idx) => (
-                            <div key={idx} className={`flex items-start gap-2 text-sm ${designTokens.typography.fontFamily.body.join(",")} text-primary-600`}>
-                              <div className={`w-1.5 h-1.5 bg-accent-500 rounded-full mt-2 flex-shrink-0`}></div>
+                            <div key={idx} className={`flex items-start gap-2 text-sm ${designTokens.typography.fontFamily.body.join(",")} text-neutral-400`}>
+                              <div className={`w-1.5 h-1.5 bg-accent-400 rounded-full mt-2 flex-shrink-0`}></div>
                               <span>{achievement}</span>
                             </div>
                           ))}
@@ -285,7 +277,7 @@ const HorizontalTimeline = () => {
                           variant="ghost"
                           size="sm"
                           onClick={() => setSelectedEvent(selectedEvent === event.id ? null : event.id)}
-                          className={`w-full text-accent-600 hover:text-accent-800 hover:bg-accent-50/10 ${designTokens.typography.fontFamily.body.join(",")}`}
+                          className={`w-full text-accent-400 hover:text-accent-300 hover:bg-neutral-700/50 ${designTokens.typography.fontFamily.body.join(",")}`}
                         >
                           {selectedEvent === event.id ? 'Show Less' : 'Learn More'}
                         </Button>
@@ -297,12 +289,12 @@ const HorizontalTimeline = () => {
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="mt-4 pt-4 border-t border-primary-100"
+                            className="mt-4 pt-4 border-t border-neutral-700"
                           >
-                            <p className={`text-primary-700 text-sm ${designTokens.typography.fontFamily.body.join(",")} leading-relaxed`}>
+                            <p className={`text-neutral-300 text-sm ${designTokens.typography.fontFamily.body.join(",")} leading-relaxed`}>
                               {event.description}
                             </p>
-                            <ul className="list-disc list-inside mt-2 space-y-1 text-primary-600 text-sm">
+                            <ul className="list-disc list-inside mt-2 space-y-1 text-neutral-400 text-sm">
                               {event.achievements.map((achievement, idx) => (
                                 <li key={idx}>{achievement}</li>
                               ))}
