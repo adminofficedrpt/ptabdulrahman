@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Calendar, MapPin, Award, Briefcase, Building2, Users, BookOpen, Tv, Handshake } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPin, Award, Briefcase, Building2, BookOpen, Handshake, Gavel } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -90,20 +90,18 @@ const timelineEvents: TimelineEvent[] = [
 
 const categoryColors = {
   education: 'bg-blue-100 text-blue-800',
-  publication: 'bg-purple-100 text-purple-800',
-  foundation: 'bg-green-100 text-green-800',
-  recognition: 'bg-yellow-100 text-yellow-800',
+  media: 'bg-purple-100 text-purple-800',
   humanitarian: 'bg-red-100 text-red-800',
+  recognition: 'bg-yellow-100 text-yellow-800',
   government: 'bg-gray-100 text-gray-800',
   legal: 'bg-indigo-100 text-indigo-800',
 };
 
 const categoryIcons = {
   education: BookOpen,
-  publication: BookOpen,
-  foundation: Building2,
-  recognition: Award,
+  media: BookOpen,
   humanitarian: Handshake,
+  recognition: Award,
   government: Briefcase,
   legal: Gavel,
 };
@@ -123,7 +121,7 @@ const HorizontalTimeline = () => {
   const scrollToEvent = (index: number) => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const eventWidth = 400; // Card width + gap
+      const eventWidth = 320 + 32; // Card width + gap
       const scrollPosition = index * eventWidth;
       container.scrollTo({
         left: scrollPosition,
@@ -147,7 +145,7 @@ const HorizontalTimeline = () => {
     const handleScroll = () => {
       if (scrollContainerRef.current) {
         const container = scrollContainerRef.current;
-        const eventWidth = 400;
+        const eventWidth = 320 + 32;
         const newIndex = Math.round(container.scrollLeft / eventWidth);
         setCurrentIndex(newIndex);
       }
@@ -162,7 +160,7 @@ const HorizontalTimeline = () => {
 
   return (
     <motion.section 
-      id="timeline"
+      id="career"
       className={`py-${designTokens.spacing.section.md} bg-gradient-to-br from-primary-50 to-neutral-50 overflow-hidden`}
       style={{ opacity, scale }}
     >
@@ -302,7 +300,7 @@ const HorizontalTimeline = () => {
                             className="mt-4 pt-4 border-t border-primary-100"
                           >
                             <p className={`text-primary-700 text-sm ${designTokens.typography.fontFamily.body.join(",")} leading-relaxed`}>
-                              {event.description} {/* Re-using description for brevity, can be expanded with a 'details' field if needed */}
+                              {event.description}
                             </p>
                             <ul className="list-disc list-inside mt-2 space-y-1 text-primary-600 text-sm">
                               {event.achievements.map((achievement, idx) => (
@@ -311,6 +309,7 @@ const HorizontalTimeline = () => {
                             </ul>
                           </motion.div>
                         )}
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
