@@ -14,9 +14,9 @@ import ImmersiveTimeline from '@/components/timeline/ImmersiveTimeline';
 import AwardsRecognitionWall from '@/components/modern/AwardsRecognitionWall';
 import Contact from '@/components/Contact';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
-import FluidTypography from '@/components/typography/FluidTypography';
 import PressWall from '@/components/trust/PressWall';
 import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
+import { designTokens } from '@/lib/design-tokens';
 
 const criticalImages = [
   '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png',
@@ -107,7 +107,7 @@ const Index = () => {
       
       {/* Contact */}
       <SectionErrorBoundary sectionName="Contact">
-        <section id="contact" className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50">
+        <section id="contact" className={`py-${designTokens.spacing.section.md} bg-gradient-to-br from-primary-50 to-accent-50`}>
           <ResponsiveContainer size="lg" padding="lg">
             <Contact />
           </ResponsiveContainer>
