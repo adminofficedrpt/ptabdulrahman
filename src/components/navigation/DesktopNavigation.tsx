@@ -4,36 +4,12 @@ import { motion } from 'framer-motion';
 import { useScrollNavigation } from '@/hooks/useScrollNavigation';
 
 const navigationItems = [
-  {
-    name: "The Visionary",
-    path: "visionary",
-    description: "Philosophy and vision for Islamic education",
-  },
-  {
-    name: "The Bridge Builder", 
-    path: "bridge-builder",
-    description: "Community service and interfaith dialogue",
-  },
-  {
-    name: "The Educator",
-    path: "educator", 
-    description: "DQAA Academy and educational innovation",
-  },
-  {
-    name: "The Scholar",
-    path: "scholar",
-    description: "Books, publications, and intellectual contributions",
-  },
-  {
-    name: "The Legacy",
-    path: "legacy",
-    description: "Timeline of achievements and impact",
-  },
-  {
-    name: "Connect",
-    path: "connect",
-    description: "Get in touch and join the community",
-  }
+  { name: "About", path: "about" },
+  { name: "Community", path: "community" },
+  { name: "Education", path: "education" },
+  { name: "Publications", path: "publications" },
+  { name: "Milestones", path: "milestones" },
+  { name: "Contact", path: "contact" },
 ];
 
 interface DesktopNavigationProps {
@@ -52,12 +28,11 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ isScrolled, onNav
           onClick={() => onNavClick(item.path)}
           className={`text-sm font-medium transition-colors duration-300 relative whitespace-nowrap px-4 py-2 rounded-full min-h-[44px] flex items-center ${
             isScrolled
-              ? 'text-royal-800 hover:text-golden-600 hover:bg-gray-50'
+              ? 'text-royal-800 hover:text-golden-600 hover:bg-royal-50'
               : 'text-white hover:text-golden-300 hover:bg-white/10'
           } ${
             activeSection === item.path ? (isScrolled ? 'text-golden-600' : 'text-golden-400') : ''
           }`}
-          title={item.description}
         >
           <span>{item.name}</span>
           {activeSection === item.path && (

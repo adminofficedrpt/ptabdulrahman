@@ -1,38 +1,30 @@
 import { useEffect, useState } from 'react';
 import PreLoader from '@/components/PreLoader';
 import FooterModern from '@/components/FooterModern';
-import { motion } from 'framer-motion';
 import { preloadImages, preloadCriticalImages } from '@/utils/imagePreloader';
 import EnhancedSEO from '@/components/seo/EnhancedSEO';
 import NavigationSystem from '@/components/navigation/NavigationSystem';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
 import AdvancedHero from '@/components/features/AdvancedHero';
-import ChapterNavigation from '@/components/modern/ChapterNavigation';
 import ChapterOne from '@/components/chapters/ChapterOne';
 import ChapterTwo from '@/components/chapters/ChapterTwo';
 import ChapterThree from '@/components/chapters/ChapterThree';
 import InteractiveBookExperience from '@/components/books/InteractiveBookExperience';
 import ImmersiveTimeline from '@/components/timeline/ImmersiveTimeline';
-
+import AwardsRecognitionWall from '@/components/modern/AwardsRecognitionWall';
 import Contact from '@/components/Contact';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
 import FluidTypography from '@/components/typography/FluidTypography';
-
 import PressWall from '@/components/trust/PressWall';
 import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
-import LoadingState from '@/components/ui/loading-state';
 
-// Hero images for preloading
 const criticalImages = [
-  '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png', // Dr. PT portrait
-  '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png', // Logo
-  '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png',  // DQAA logo
+  '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png',
+  '/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png',
 ];
 
-// Secondary images
 const heroImages = [
   '/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg',
-  // Additional images
 ];
 
 const Index = () => {
@@ -40,34 +32,24 @@ const Index = () => {
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
 
   useEffect(() => {
-    // Immediately start preloading critical images
     preloadCriticalImages(criticalImages);
     
-    // Then preload secondary images
     const preloadSecondary = async () => {
       await preloadImages(heroImages);
       setImagesPreloaded(true);
     };
-    
     preloadSecondary();
     
-    // Set loading to false after a brief delay or when images are loaded
     const timer = setTimeout(() => {
       if (imagesPreloaded) {
         setIsLoading(false);
       } else {
-        // Force loading to end after max delay
-        const maxWaitTimer = setTimeout(() => {
-          setIsLoading(false);
-        }, 3000);
-        
+        const maxWaitTimer = setTimeout(() => setIsLoading(false), 3000);
         return () => clearTimeout(maxWaitTimer);
       }
     }, 1800);
     
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, [imagesPreloaded]);
 
   if (isLoading) {
@@ -79,79 +61,60 @@ const Index = () => {
       <EnhancedSEO />
       <ScrollProgressBar />
       
-      {/* Navigation */}
       <SectionErrorBoundary sectionName="Navigation">
         <NavigationSystem />
       </SectionErrorBoundary>
       
-      {/* Chapter Navigation */}
-      <SectionErrorBoundary sectionName="Chapter Navigation">
-        <ChapterNavigation />
-      </SectionErrorBoundary>
-      
-      {/* Advanced Hero Section */}
-      <SectionErrorBoundary sectionName="Hero Section">
+      {/* Hero */}
+      <SectionErrorBoundary sectionName="Hero">
         <AdvancedHero />
       </SectionErrorBoundary>
       
-      {/* Chapter 1: The Visionary */}
-      <SectionErrorBoundary sectionName="Chapter 1">
+      {/* About */}
+      <SectionErrorBoundary sectionName="About">
         <ChapterOne />
       </SectionErrorBoundary>
       
-      {/* Press Wall */}
-      <SectionErrorBoundary sectionName="Press Coverage">
-        <PressWall />
-      </SectionErrorBoundary>
-      
-      {/* Chapter 2: The Bridge Builder */}
-      <SectionErrorBoundary sectionName="Chapter 2">
+      {/* Community */}
+      <SectionErrorBoundary sectionName="Community">
         <ChapterTwo />
       </SectionErrorBoundary>
       
-      {/* Chapter 3: The Educator */}
-      <SectionErrorBoundary sectionName="Chapter 3">
+      {/* Education */}
+      <SectionErrorBoundary sectionName="Education">
         <ChapterThree />
       </SectionErrorBoundary>
       
-      {/* Chapter 4: The Scholar */}
-      <SectionErrorBoundary sectionName="Interactive Books">
-        <section id="scholar" className="relative">
-          <InteractiveBookExperience />
-        </section>
+      {/* Publications */}
+      <SectionErrorBoundary sectionName="Publications">
+        <InteractiveBookExperience />
       </SectionErrorBoundary>
       
-      {/* Chapter 5: The Legacy */}
-      <SectionErrorBoundary sectionName="Timeline">
-        <section id="legacy" className="relative">
-          <ImmersiveTimeline />
-        </section>
+      {/* Recognition */}
+      <SectionErrorBoundary sectionName="Recognition">
+        <AwardsRecognitionWall />
       </SectionErrorBoundary>
       
-      {/* Epilogue: Connect */}
-      <SectionErrorBoundary sectionName="Contact Section">
-        <section id="connect" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50 relative">
+      {/* Press Coverage */}
+      <SectionErrorBoundary sectionName="Press">
+        <PressWall />
+      </SectionErrorBoundary>
+      
+      {/* Milestones */}
+      <SectionErrorBoundary sectionName="Milestones">
+        <ImmersiveTimeline />
+      </SectionErrorBoundary>
+      
+      {/* Contact */}
+      <SectionErrorBoundary sectionName="Contact">
+        <section id="contact" className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-royal-50 to-golden-50">
           <ResponsiveContainer size="lg" padding="lg">
-            <div className="text-center mb-12 sm:mb-16 md:mb-20">
-              <div className="inline-block mb-4">
-                <span className="text-xs sm:text-sm font-light tracking-[0.2em] uppercase text-golden-600">
-                  Epilogue
-                </span>
-              </div>
-              <FluidTypography variant="h2" color="royal" className="mb-4 sm:mb-6">
-                Connect with Dr. P.T. Abdul Rahman
-              </FluidTypography>
-              <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto px-4">
-                Join the conversation and become part of a global community dedicated to 
-                educational excellence and humanitarian service.
-              </FluidTypography>
-            </div>
             <Contact />
           </ResponsiveContainer>
         </section>
       </SectionErrorBoundary>
       
-      {/* Modern Footer */}
+      {/* Footer */}
       <SectionErrorBoundary sectionName="Footer">
         <FooterModern />
       </SectionErrorBoundary>

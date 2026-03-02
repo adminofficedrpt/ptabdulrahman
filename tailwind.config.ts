@@ -20,9 +20,9 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
+		fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
-				'sans': ['Poppins', 'sans-serif'],
+				'sans': ['Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

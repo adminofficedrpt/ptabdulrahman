@@ -54,7 +54,7 @@ const Contact = () => {
           Get in Touch
         </FluidTypography>
         <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto">
-          For inquiries about Dr. Rahman's work, speaking engagements, or collaboration opportunities
+          For inquiries about educational programs, speaking engagements, or collaboration opportunities
         </FluidTypography>
       </div>
       

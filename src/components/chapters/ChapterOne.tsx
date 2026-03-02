@@ -2,41 +2,59 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChapterContainer from './ChapterContainer';
-import { Pen, BookOpen, Globe2, Users } from 'lucide-react';
+import { Award, Globe2, Languages, Tv, Shield, CreditCard } from 'lucide-react';
+
+const credentials = [
+  {
+    icon: CreditCard,
+    title: "UAE Golden Visa",
+    description: "Awarded the prestigious UAE Golden Visa in recognition of professional contributions"
+  },
+  {
+    icon: Shield,
+    title: "Central Military Command UAE",
+    description: "Role with the Central Military Command of the United Arab Emirates"
+  },
+  {
+    icon: Tv,
+    title: "The Guidance – Dharma Reka",
+    description: "Pioneered Islamic television programming through the TV show 'The Guidance – Dharma Reka'"
+  },
+  {
+    icon: Languages,
+    title: "Six Languages",
+    description: "Proficient in Arabic, English, Hindi, Urdu, Malayalam, and Tamil"
+  },
+  {
+    icon: Globe2,
+    title: "DIIC President",
+    description: "President of the Dubai Indian Islamic Centre, serving the expatriate community"
+  },
+  {
+    icon: Award,
+    title: "Loka Kerala Sabha",
+    description: "Appointed member of the Loka Kerala Sabha, connecting the global Keralite diaspora"
+  }
+];
+
+const languages = [
+  { name: "Arabic", native: "العربية" },
+  { name: "English", native: "English" },
+  { name: "Hindi", native: "हिन्दी" },
+  { name: "Urdu", native: "اردو" },
+  { name: "Malayalam", native: "മലയാളം" },
+  { name: "Tamil", native: "தமிழ்" },
+];
 
 const ChapterOne: React.FC = () => {
-  const literaryPillars = [
-    {
-      icon: Pen,
-      title: "Literary Work",
-      description: "Authoring books that explore Islamic philosophy, social issues, and the intersection of faith and modern life"
-    },
-    {
-      icon: BookOpen,
-      title: "Philosophical Inquiry",
-      description: "Examining fundamental questions about creation, purpose, and human existence from an Islamic perspective"
-    },
-    {
-      icon: Globe2,
-      title: "Cultural Engagement",
-      description: "Writing in multiple languages to reach diverse communities across the Gulf region and South Asia"
-    },
-    {
-      icon: Users,
-      title: "Educational Focus",
-      description: "Publishing works that support religious education and promote thoughtful discourse on contemporary issues"
-    }
-  ];
-
   return (
     <ChapterContainer
-      id="visionary"
-      chapterNumber={1}
-      title="The Author"
-      subtitle="Writing on Islamic philosophy, education, and social issues"
+      id="about"
+      title="About"
+      subtitle="A life dedicated to scholarship, education, and community service"
       variant="light"
     >
-      {/* Opening Statement */}
+      {/* Biography */}
       <motion.div 
         className="max-w-4xl mx-auto text-center mb-20"
         initial={{ y: 40, opacity: 0 }}
@@ -44,64 +62,63 @@ const ChapterOne: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.4 }}
         viewport={{ once: true }}
       >
-        <p className="text-xl md:text-2xl text-royal-700 leading-relaxed">
-          P.T. Abdul Rahman has authored books on Islamic philosophy, education, and contemporary social issues. 
-          His works include writings in Malayalam, Arabic, and English, addressing topics ranging from religious 
-          education to community development.
+        <p className="text-lg md:text-xl text-royal-700 leading-relaxed mb-6">
+          P.T. Abdul Rahman is an Islamic scholar, author, and community leader based in Dubai, UAE. 
+          With over three decades of service, he has dedicated his career to Islamic education, 
+          community welfare, and interfaith understanding.
+        </p>
+        <p className="text-lg text-royal-600 leading-relaxed">
+          Born in Kerala, India, he pursued theological studies (Dars) at Palakkod East Masjid and 
+          Edakazhiyoor Juma Masjid under eminent scholars. He holds an MA and has authored multiple 
+          books on Islamic philosophy, education, and social issues in Malayalam, Arabic, and English.
         </p>
       </motion.div>
 
-      {/* Literary Pillars Grid */}
-      <div className="grid md:grid-cols-2 gap-8 mb-20">
-        {literaryPillars.map((pillar, index) => (
+      {/* Key Credentials Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        {credentials.map((item, index) => (
           <motion.div
-            key={pillar.title}
-            className="bg-white rounded-xl p-8 shadow-lg border border-royal-100 hover:shadow-xl transition-all duration-300 group"
-            initial={{ y: 60, opacity: 0 }}
+            key={item.title}
+            className="bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-royal-100/50 hover:shadow-lg hover:border-golden-200/50 transition-all duration-300 group"
+            initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 * index }}
+            transition={{ duration: 0.5, delay: 0.1 * index }}
             viewport={{ once: true }}
           >
-            <div className="flex items-start space-x-6 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-royal-500 to-golden-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <pillar.icon size={28} className="text-white" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-playfair font-semibold text-royal-900 mb-4">
-                  {pillar.title}
-                </h3>
-                <p className="text-royal-700 leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
+            <div className="w-12 h-12 bg-gradient-to-br from-royal-100 to-golden-100 rounded-xl flex items-center justify-center mb-4 group-hover:from-royal-500 group-hover:to-golden-500 transition-all duration-300">
+              <item.icon size={22} className="text-royal-700 group-hover:text-white transition-colors" />
             </div>
+            <h3 className="text-lg font-semibold text-royal-900 mb-2">{item.title}</h3>
+            <p className="text-royal-600 text-sm leading-relaxed">{item.description}</p>
           </motion.div>
         ))}
       </div>
 
-      {/* Literary Achievement Section */}
+      {/* Language Proficiency */}
       <motion.div 
-        className="bg-gradient-to-r from-royal-900 to-royal-800 rounded-2xl p-8 md:p-12 text-white"
-        initial={{ y: 60, opacity: 0 }}
+        className="bg-gradient-to-r from-royal-900 to-royal-800 rounded-2xl p-8 md:p-12"
+        initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <h3 className="text-3xl font-playfair font-bold text-center mb-8">
-          Published Works
+        <h3 className="text-2xl font-playfair font-bold text-white text-center mb-8">
+          Linguistic Proficiency
         </h3>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">30+</div>
-            <div className="text-lg font-medium mb-2">Years Writing</div>
-            <div className="text-white/80 text-sm">Decades of literary contribution</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-golden-300 mb-2">Multiple</div>
-            <div className="text-lg font-medium mb-2">Languages</div>
-            <div className="text-white/80 text-sm">Malayalam, Arabic, English</div>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {languages.map((lang, index) => (
+            <motion.div
+              key={lang.name}
+              className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.1 * index }}
+              viewport={{ once: true }}
+            >
+              <div className="text-lg font-medium text-golden-300 mb-1">{lang.native}</div>
+              <div className="text-sm text-white/70">{lang.name}</div>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </ChapterContainer>
