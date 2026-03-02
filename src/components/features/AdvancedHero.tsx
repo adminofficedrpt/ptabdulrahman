@@ -18,18 +18,19 @@ const AdvancedHero: React.FC = () => {
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.05]">
         <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }} />
       </div>
 
-      {/* Background image with refined overlay */}
+      {/* Background image with refined overlay for better contrast */}
       <div className="absolute inset-0">
         <img
           src="/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg"
           alt="Dr. P.T. Abdul Rahman"
           className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-800/75 to-primary-700/70" />
+        {/* Increased opacity for the gradient overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/95 via-primary-800/90 to-primary-700/85" />
       </div>
 
       {/* Main Content */}
@@ -44,7 +45,7 @@ const AdvancedHero: React.FC = () => {
               className="mb-6"
             >
               <span className="text-accent-400 text-fluid-sm md:text-fluid-base font-light tracking-[0.25em] uppercase">
-                Visionary Scholar · Global Humanitarian · Business Leader
+                Distinguished Legal Consultant · Scholar · Humanitarian · Leader
               </span>
             </motion.div>
 
@@ -63,7 +64,7 @@ const AdvancedHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-fluid-lg md:text-fluid-xl font-body text-neutral-200 leading-relaxed max-w-2xl lg:max-w-none mb-10"
             >
-              A distinguished Islamic scholar and educator, Dr. Rahman is a pioneer in community development and interfaith understanding, with a profound impact across the UAE and India. His legacy is built on decades of intellectual contribution and humanitarian service.
+              Official digital platform of Dr. P.T. Abdul Rahman: UAE-based Legal Consultant, Islamic Scholar, Humanitarian Leader, Institutional Founder, and Author with 30+ years of global impact.
             </motion.p>
 
             <motion.div
