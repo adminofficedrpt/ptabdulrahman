@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronRight, User, Users, GraduationCap, BookOpen, Clock, Mail } from 'lucide-react';
