@@ -58,7 +58,7 @@ const ChapterThree: React.FC = () => {
               Darul Quran Abdulla Academy (DQAA)
             </h3>
             <p className={`text-fluid-lg ${designTokens.typography.fontFamily.body.join(',')} text-primary-700 leading-relaxed mb-6`}>
-              Founded in Dubai, DQAA stands as a testament to Dr. Rahman's commitment to holistic Islamic education. It provides a robust curriculum focused on Quranic memorization, Arabic language proficiency, and contemporary academic subjects, catering primarily to the expatriate community.
+              DQAA stands as a testament to Dr. PT Abdul Rahman's commitment to holistic Islamic education. It provides a robust curriculum focused on Quranic memorization, Arabic language proficiency, and contemporary academic subjects, catering primarily to the expatriate community.
             </p>
             <p className={`text-fluid-base ${designTokens.typography.fontFamily.body.join(',')} text-primary-600 leading-relaxed mb-8`}>
               DQAA seamlessly integrates traditional Islamic teaching methodologies with modern pedagogical approaches, ensuring students receive a well-rounded education that prepares them for both spiritual and worldly success.
@@ -70,7 +70,7 @@ const ChapterThree: React.FC = () => {
                 <div className={`text-fluid-sm ${designTokens.typography.fontFamily.body.join(',')} text-primary-500`}>Established</div>
               </div>
               <div className="text-center">
-                <div className={`text-fluid-xl font-bold ${designTokens.typography.fontFamily.heading.join(',')} text-primary-900`}>Dubai, UAE</div>
+                <div className={`text-fluid-xl font-bold ${designTokens.typography.fontFamily.heading.join(',')} text-primary-900`}>Kerala, India</div>
                 <div className={`text-fluid-sm ${designTokens.typography.fontFamily.body.join(',')} text-primary-500`}>Location</div>
               </div>
             </div>
