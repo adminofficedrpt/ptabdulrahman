@@ -1,37 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChapterContainer from './ChapterContainer';
-import { Award, BookOpen, Users, Shield, Gavel, Tv, Globe2 } from 'lucide-react'; // Added Gavel for legal, Globe2 for global
+import { Award, BookOpen, Users, Shield, Gavel, Tv } from 'lucide-react';
 import { designTokens } from '@/lib/design-tokens';
 
 const credentials = [
   {
-    icon: Gavel, // Legal consultant icon
+    icon: Gavel,
     title: "Distinguished Legal Consultant",
     description: "Managing Partner at Precedential Legal Consultancy and Senior Legal Consultant at Tasheel Legal Consultancy, with extensive experience in UAE law."
   },
   {
-    icon: Shield, // Military/Government icon
+    icon: Shield,
     title: "Government Service & Leadership",
     description: "Administrator at the Central Military Command, UAE, and Researcher at the Department of Islamic Affairs, Government of Dubai, contributing to public service and policy."
   },
   {
-    icon: Tv, // Media icon
+    icon: Tv,
     title: "Pioneering Media Contributor",
     description: "Creator and presenter of 'The Guidance – Dharma Reka', a groundbreaking Islamic television series on Asianet (2001–2003)."
   },
   {
-    icon: BookOpen, // Author icon
+    icon: BookOpen,
     title: "Prolific Author & Scholar",
     description: "Authored numerous influential books on Islamic philosophy, education, and contemporary social issues, published in multiple languages."
   },
   {
-    icon: Users, // Community/Institutional icon
+    icon: Users,
     title: "Institutional Founder & Leader",
     description: "Founder of Abdulla Educational Academy (India) and President of the Indian Islamic Center (Dubai), establishing key platforms for education and community welfare."
   },
   {
-    icon: Award, // Recognition icon
+    icon: Award,
     title: "Recognized Global Humanitarian",
     description: "Awarded the prestigious UAE Golden Visa for social contributions and recognized by UAE leadership for humanitarian endeavors."
   }
