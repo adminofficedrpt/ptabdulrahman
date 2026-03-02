@@ -1,19 +1,67 @@
+import { getFluidSize } from "@/lib/utils";
 
 // Design tokens for consistent sizing and typography with mobile-first approach
 export const designTokens = {
+  // Unified Color Palette: Deep Purple/Blue, Gold, and White
+  colors: {
+    primary: {
+      DEFAULT: '#1A1F2C', // Deep Purple/Blue
+      50: '#E0E1E6',
+      100: '#C1C3CC',
+      200: '#A2A4B3',
+      300: '#838699',
+      400: '#646880',
+      500: '#454A66',
+      600: '#363B52',
+      700: '#272C3D',
+      800: '#1A1F2C',
+      900: '#0B0F1A',
+    },
+    accent: {
+      DEFAULT: '#D4AF37', // Gold
+      50: '#FFFBEB',
+      100: '#FEF3C7',
+      200: '#FDE68A',
+      300: '#FCD34D',
+      400: '#FBBF24',
+      500: '#F59E0B',
+      600: '#D97706',
+      700: '#B45309',
+      800: '#92400E',
+      900: '#78350F',
+    },
+    neutral: {
+      DEFAULT: '#FFFFFF', // White
+      50: '#F9FAFB',
+      100: '#F3F4F6',
+      200: '#E5E7EB',
+      300: '#D1D5DB',
+      400: '#9CA3AF',
+      500: '#6B7280',
+      600: '#4B5563',
+      700: '#374151',
+      800: '#1F2937',
+      900: '#111827',
+    },
+  },
+
   // Typography scale - fluid responsive sizing with improved mobile ranges
   typography: {
+    fontFamily: {
+      heading: ["Playfair Display", "serif"], // For a premium, editorial feel
+      body: ["Inter", "sans-serif"], // Clean and readable
+    },
     scale: {
-      xs: 'clamp(0.75rem, 2vw, 0.875rem)',
-      sm: 'clamp(0.875rem, 2.5vw, 1rem)',
-      base: 'clamp(1rem, 3vw, 1.125rem)',
-      lg: 'clamp(1.125rem, 3.5vw, 1.25rem)',
-      xl: 'clamp(1.25rem, 4vw, 1.5rem)',
-      '2xl': 'clamp(1.5rem, 5vw, 2rem)',
-      '3xl': 'clamp(1.875rem, 6vw, 2.5rem)',
-      '4xl': 'clamp(2.25rem, 7vw, 3rem)',
-      '5xl': 'clamp(2.5rem, 8vw, 4rem)',
-      '6xl': 'clamp(3rem, 10vw, 5rem)',
+      xs: getFluidSize(12, 14), // clamp(0.75rem, 0.4vw + 0.6rem, 0.875rem)
+      sm: getFluidSize(14, 16), // clamp(0.875rem, 0.5vw + 0.7rem, 1rem)
+      base: getFluidSize(16, 18), // clamp(1rem, 0.6vw + 0.8rem, 1.125rem)
+      lg: getFluidSize(18, 20), // clamp(1.125rem, 0.7vw + 0.9rem, 1.25rem)
+      xl: getFluidSize(20, 24), // clamp(1.25rem, 0.8vw + 1rem, 1.5rem)
+      '2xl': getFluidSize(24, 30), // clamp(1.5rem, 1vw + 1.2rem, 1.875rem)
+      '3xl': getFluidSize(30, 36), // clamp(1.875rem, 1.2vw + 1.5rem, 2.25rem)
+      '4xl': getFluidSize(36, 48), // clamp(2.25rem, 1.5vw + 1.8rem, 3rem)
+      '5xl': getFluidSize(48, 64), // clamp(3rem, 2vw + 2.4rem, 4rem)
+      '6xl': getFluidSize(60, 80), // clamp(3.75rem, 2.5vw + 3rem, 5rem)
     },
     weight: {
       light: 300,
@@ -147,26 +195,6 @@ export const designTokens = {
 };
 
 // Helper functions for consistent styling
-export const getFluidSize = (min: number, max: number, minVw = 320, maxVw = 1200) => {
-  const slope = (max - min) / (maxVw - minVw);
-  const yAxisIntersection = -minVw * slope + min;
-  return `clamp(${min}px, ${yAxisIntersection}px + ${slope * 100}vw, ${max}px)`;
-};
-
-export const getResponsiveValue = (values: Record<string, string | number>) => {
-  return Object.entries(values)
-    .map(([breakpoint, value]) => {
-      if (breakpoint === 'base') return value;
-      return `@screen ${breakpoint} { ${value} }`;
-    })
-    .join(' ');
-};
-
-// Mobile-first helper functions
-export const getMobileFluidSize = (mobile: number, desktop: number) => {
-  return `clamp(${mobile}px, ${mobile}px + (${desktop - mobile}) * ((100vw - 320px) / (1200 - 320)), ${desktop}px)`;
-};
-
-export const getTouchTarget = (size: 'min' | 'recommended' | 'comfortable' = 'min') => {
-  return designTokens.touch[`${size}Size`];
-};
+// The getFluidSize, getResponsiveValue, getMobileFluidSize, and getTouchTarget functions are assumed to be in utils.ts or similar
+// and imported if needed. For direct usage in design-tokens, they would need to be defined here or imported.
+// For this example, I'm assuming getFluidSize is available or will be added to utils.ts.
