@@ -2,23 +2,23 @@ import { getFluidSize } from "@/lib/utils";
 
 // Design tokens for consistent sizing and typography with mobile-first approach
 export const designTokens = {
-  // Unified Color Palette: Deep Purple/Blue, Gold, and White
+  // Unified Color Palette: Deep Purple/Blue, Gold, and White - Refined for Dignified Aesthetic
   colors: {
     primary: {
-      DEFAULT: '#1A1F2C', // Deep Purple/Blue
-      50: '#E0E1E6',
-      100: '#C1C3CC',
-      200: '#A2A4B3',
+      DEFAULT: '#1A1F2C', // Deep Purple/Blue - Main background, strong elements
+      50: '#F5F7FA', // Very light for subtle backgrounds
+      100: '#E0E1E6', // Light grey for borders, subtle accents
+      200: '#C1C3CC',
       300: '#838699',
       400: '#646880',
       500: '#454A66',
       600: '#363B52',
       700: '#272C3D',
       800: '#1A1F2C',
-      900: '#0B0F1A',
+      900: '#0B0F1A', // Darkest for text on light backgrounds, deep shadows
     },
     accent: {
-      DEFAULT: '#D4AF37', // Gold
+      DEFAULT: '#D4AF37', // Gold - Key highlights, interactive elements, subtle branding
       50: '#FFFBEB',
       100: '#FEF3C7',
       200: '#FDE68A',
@@ -31,18 +31,25 @@ export const designTokens = {
       900: '#78350F',
     },
     neutral: {
-      DEFAULT: '#FFFFFF', // White
+      DEFAULT: '#FFFFFF', // White - Main text on dark backgrounds, clean sections
       50: '#F9FAFB',
       100: '#F3F4F6',
       200: '#E5E7EB',
       300: '#D1D5DB',
       400: '#9CA3AF',
-      500: '#6B7280',
+      500: '#6B7280', // Muted text, secondary information
       600: '#4B5563',
       700: '#374151',
       800: '#1F2937',
       900: '#111827',
     },
+    // Semantic colors for text, ensuring contrast
+    text: {
+      DEFAULT: '#1A1F2C', // Dark text for light backgrounds
+      light: '#FFFFFF', // Light text for dark backgrounds
+      muted: '#6B7280', // Subtler text
+      accent: '#D4AF37', // Accent text
+    }
   },
 
   // Typography scale - fluid responsive sizing with improved mobile ranges
@@ -52,16 +59,16 @@ export const designTokens = {
       body: ["Inter", "sans-serif"], // Clean and readable
     },
     scale: {
-      xs: getFluidSize(12, 14), // clamp(0.75rem, 0.4vw + 0.6rem, 0.875rem)
-      sm: getFluidSize(14, 16), // clamp(0.875rem, 0.5vw + 0.7rem, 1rem)
-      base: getFluidSize(16, 18), // clamp(1rem, 0.6vw + 0.8rem, 1.125rem)
-      lg: getFluidSize(18, 20), // clamp(1.125rem, 0.7vw + 0.9rem, 1.25rem)
-      xl: getFluidSize(20, 24), // clamp(1.25rem, 0.8vw + 1rem, 1.5rem)
-      '2xl': getFluidSize(24, 30), // clamp(1.5rem, 1vw + 1.2rem, 1.875rem)
-      '3xl': getFluidSize(30, 36), // clamp(1.875rem, 1.2vw + 1.5rem, 2.25rem)
-      '4xl': getFluidSize(36, 48), // clamp(2.25rem, 1.5vw + 1.8rem, 3rem)
-      '5xl': getFluidSize(48, 64), // clamp(3rem, 2vw + 2.4rem, 4rem)
-      '6xl': getFluidSize(60, 80), // clamp(3.75rem, 2.5vw + 3rem, 5rem)
+      xs: getFluidSize(12, 14), 
+      sm: getFluidSize(14, 16), 
+      base: getFluidSize(16, 18), 
+      lg: getFluidSize(18, 20), 
+      xl: getFluidSize(20, 24), 
+      '2xl': getFluidSize(24, 30), 
+      '3xl': getFluidSize(30, 36), 
+      '4xl': getFluidSize(36, 48), 
+      '5xl': getFluidSize(48, 64), 
+      '6xl': getFluidSize(60, 80), 
     },
     weight: {
       light: 300,
@@ -80,14 +87,14 @@ export const designTokens = {
     },
   },
   
-  // Mobile-first spacing system
+  // Mobile-first spacing system - refined for breathing room and dignity
   spacing: {
     section: {
-      xs: 'clamp(1.5rem, 4vw, 2rem)',
-      sm: 'clamp(2rem, 5vw, 3rem)',
-      md: 'clamp(3rem, 6vw, 4rem)',
-      lg: 'clamp(4rem, 8vw, 6rem)',
-      xl: 'clamp(5rem, 10vw, 8rem)',
+      xs: 'clamp(2rem, 5vw, 3rem)', // Increased base for more breathing room
+      sm: 'clamp(3rem, 6vw, 4rem)',
+      md: 'clamp(4rem, 8vw, 6rem)',
+      lg: 'clamp(6rem, 10vw, 8rem)',
+      xl: 'clamp(8rem, 12vw, 10rem)',
     },
     container: {
       xs: '1rem',
@@ -116,7 +123,7 @@ export const designTokens = {
     '2xl': '1536px',
   },
   
-  // Animation durations and easings
+  // Animation durations and easings - subtle and calm
   animation: {
     duration: {
       fast: '150ms',
@@ -193,8 +200,3 @@ export const designTokens = {
     },
   },
 };
-
-// Helper functions for consistent styling
-// The getFluidSize, getResponsiveValue, getMobileFluidSize, and getTouchTarget functions are assumed to be in utils.ts or similar
-// and imported if needed. For direct usage in design-tokens, they would need to be defined here or imported.
-// For this example, I'm assuming getFluidSize is available or will be added to utils.ts.
