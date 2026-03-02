@@ -1,39 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChapterContainer from './ChapterContainer';
-import { Award, Globe2, Languages, Tv, Shield, CreditCard, BookOpen, Users } from 'lucide-react';
+import { Award, BookOpen, Users, Shield, Gavel, Tv, Globe2 } from 'lucide-react'; // Added Gavel for legal, Globe2 for global
 import { designTokens } from '@/lib/design-tokens';
 
 const credentials = [
   {
-    icon: CreditCard,
-    title: "UAE Golden Visa",
-    description: "Awarded the prestigious UAE Golden Visa for outstanding contributions to society and culture."
+    icon: Gavel, // Legal consultant icon
+    title: "Distinguished Legal Consultant",
+    description: "Managing Partner at Precedential Legal Consultancy and Senior Legal Consultant at Tasheel Legal Consultancy, with extensive experience in UAE law."
   },
   {
-    icon: Shield,
-    title: "Central Military Command UAE",
-    description: "Served with distinction in the Central Military Command of the United Arab Emirates."
+    icon: Shield, // Military/Government icon
+    title: "Government Service & Leadership",
+    description: "Administrator at the Central Military Command, UAE, and Researcher at the Department of Islamic Affairs, Government of Dubai, contributing to public service and policy."
   },
   {
-    icon: Tv,
-    title: "Pioneering TV Program",
-    description: "Creator and presenter of 'The Guidance – Dharma Reka', a groundbreaking Islamic television series on Asianet."
+    icon: Tv, // Media icon
+    title: "Pioneering Media Contributor",
+    description: "Creator and presenter of 'The Guidance – Dharma Reka', a groundbreaking Islamic television series on Asianet (2001–2003)."
   },
   {
-    icon: BookOpen,
-    title: "Prolific Author",
-    description: "Authored numerous influential books on Islamic philosophy, education, and contemporary social issues."
+    icon: BookOpen, // Author icon
+    title: "Prolific Author & Scholar",
+    description: "Authored numerous influential books on Islamic philosophy, education, and contemporary social issues, published in multiple languages."
   },
   {
-    icon: Users,
-    title: "Community Leadership",
-    description: "Founder and President of the Dubai Indian Islamic Centre, fostering community welfare and interfaith harmony."
+    icon: Users, // Community/Institutional icon
+    title: "Institutional Founder & Leader",
+    description: "Founder of Abdulla Educational Academy (India) and President of the Indian Islamic Center (Dubai), establishing key platforms for education and community welfare."
   },
   {
-    icon: Award,
-    title: "Global Recognition",
-    description: "Honored by various international bodies and royal families for his humanitarian and educational endeavors."
+    icon: Award, // Recognition icon
+    title: "Recognized Global Humanitarian",
+    description: "Awarded the prestigious UAE Golden Visa for social contributions and recognized by UAE leadership for humanitarian endeavors."
   }
 ];
 
@@ -50,8 +50,8 @@ const ChapterOne: React.FC = () => {
   return (
     <ChapterContainer
       id="about"
-      title="The Visionary Scholar"
-      subtitle="A life dedicated to intellectual pursuit, humanitarian service, and global understanding."
+      title="An Enduring Legacy of Impact"
+      subtitle="A life defined by intellectual rigor, principled leadership, and profound humanitarian service."
       variant="light"
     >
       {/* Biography */}
@@ -62,11 +62,11 @@ const ChapterOne: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.4 }}
         viewport={{ once: true }}
       >
-        <p className={`text-fluid-lg md:text-fluid-xl ${designTokens.typography.fontFamily.body.join(',')} text-primary-700 leading-relaxed mb-6`}>
-          Dr. P.T. Abdul Rahman is a distinguished Islamic scholar, prolific author, and influential community leader based in Dubai, UAE. With over three decades of unwavering commitment, he has profoundly impacted Islamic education, community welfare, and interfaith dialogue across the globe.
+        <p className={`text-fluid-lg md:text-fluid-xl ${designTokens.typography.fontFamily.body.join(',')} text-primary-800 leading-relaxed mb-6`}>
+          Dr. P.T. Abdul Rahman stands as a distinguished figure with over three decades of impactful contributions across diverse fields. Based in the UAE, his expertise spans legal consultancy, Islamic scholarship, humanitarian leadership, institutional founding, and influential media contributions.
         </p>
-        <p className={`text-fluid-base ${designTokens.typography.fontFamily.body.join(',')} text-primary-600 leading-relaxed`}>
-          Born in the vibrant cultural landscape of Kerala, India, Dr. Rahman pursued rigorous theological studies under eminent scholars. He holds a Master's degree and has penned numerous seminal works on Islamic philosophy, education, and contemporary social issues, published in multiple languages including Malayalam, Arabic, and English.
+        <p className={`text-fluid-base ${designTokens.typography.fontFamily.body.join(',')} text-primary-700 leading-relaxed`}>
+          His journey reflects a steadfast commitment to intellectual growth and community empowerment. From government service and legal advisory to pioneering educational initiatives and fostering interfaith dialogue, Dr. Rahman's work has left an indelible mark on society in both the UAE and India, embodying a rare blend of authoritative knowledge and humble service.
         </p>
       </motion.div>
 
