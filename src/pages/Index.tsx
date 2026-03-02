@@ -9,12 +9,9 @@ import AdvancedHero from '@/components/features/AdvancedHero';
 import ChapterOne from '@/components/chapters/ChapterOne';
 import ChapterTwo from '@/components/chapters/ChapterTwo';
 import ChapterThree from '@/components/chapters/ChapterThree';
-import InteractiveBookExperience from '@/components/books/InteractiveBookExperience';
-import ImmersiveTimeline from '@/components/timeline/ImmersiveTimeline';
-import AwardsRecognitionWall from '@/components/modern/AwardsRecognitionWall';
+import HorizontalTimeline from '@/components/timeline/HorizontalTimeline'; // Using the refined HorizontalTimeline
 import Contact from '@/components/Contact';
 import ResponsiveContainer from '@/components/layout/ResponsiveContainer';
-import PressWall from '@/components/trust/PressWall';
 import SectionErrorBoundary from '@/components/error/SectionErrorBoundary';
 import { designTokens } from '@/lib/design-tokens';
 
@@ -70,39 +67,19 @@ const Index = () => {
         <AdvancedHero />
       </SectionErrorBoundary>
       
-      {/* About */}
+      {/* About / Integrated Identity Overview */}
       <SectionErrorBoundary sectionName="About">
         <ChapterOne />
       </SectionErrorBoundary>
       
-      {/* Community */}
-      <SectionErrorBoundary sectionName="Community">
-        <ChapterTwo />
+      {/* Career Timeline and Institutional Contributions */}
+      <SectionErrorBoundary sectionName="CareerTimeline">
+        <HorizontalTimeline />
       </SectionErrorBoundary>
       
-      {/* Education */}
-      <SectionErrorBoundary sectionName="Education">
+      {/* Publications, Media, and Recognition */}
+      <SectionErrorBoundary sectionName="PublicationsAndRecognition">
         <ChapterThree />
-      </SectionErrorBoundary>
-      
-      {/* Publications */}
-      <SectionErrorBoundary sectionName="Publications">
-        <InteractiveBookExperience />
-      </SectionErrorBoundary>
-      
-      {/* Recognition */}
-      <SectionErrorBoundary sectionName="Recognition">
-        <AwardsRecognitionWall />
-      </SectionErrorBoundary>
-      
-      {/* Press Coverage */}
-      <SectionErrorBoundary sectionName="Press">
-        <PressWall />
-      </SectionErrorBoundary>
-      
-      {/* Milestones */}
-      <SectionErrorBoundary sectionName="Milestones">
-        <ImmersiveTimeline />
       </SectionErrorBoundary>
       
       {/* Contact */}
