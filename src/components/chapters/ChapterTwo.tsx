@@ -1,41 +1,51 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChapterContainer from './ChapterContainer';
-import { Heart, Handshake, Building, Users2 } from 'lucide-react';
+import { Briefcase, Building2, Users, Handshake, BookOpen, Tv } from 'lucide-react'; // Updated icons for relevance
 import { designTokens } from '@/lib/design-tokens';
 
-const initiatives = [
+const careerMilestones = [
   {
-    icon: Heart,
-    title: "Humanitarian Initiatives",
-    description: "Leading and organizing critical medical camps, welfare programs, and support systems for expatriate communities in the UAE."
+    icon: Briefcase,
+    title: "Legal & Professional Leadership",
+    description: "Managing Partner at Precedential Legal Consultancy and Senior Legal Consultant at Tasheel Legal Consultancy, overseeing strategic legal advisory and business development."
+  },
+  {
+    icon: Building2,
+    title: "Government Service & Administration",
+    description: "Administrator at the Central Military Command, UAE, and Researcher at the Department of Islamic Affairs, Government of Dubai, contributing to public service and policy."
+  },
+  {
+    icon: Users,
+    title: "Institutional Founding & Development",
+    description: "Founder of Abdulla Educational Academy (India) and President of the Indian Islamic Center (Dubai), establishing key platforms for education and community welfare."
   },
   {
     icon: Handshake,
-    title: "Interfaith & Cultural Harmony",
-    description: "Promoting rich Kerala Muslim cultural heritage and fostering profound interfaith understanding through dialogue and engagement."
+    title: "Humanitarian & Community Impact",
+    description: "Leading initiatives for prisoner family assistance, repatriation coordination, women's shelter support, and organizing free medical camps, demonstrating profound social responsibility."
   },
   {
-    icon: Building,
-    title: "Institutional Leadership",
-    description: "Serving as the esteemed President of the Dubai Indian Islamic Centre, orchestrating impactful community initiatives and development."
+    icon: Tv,
+    title: "Media & Intellectual Contributions",
+    description: "Host of the Ramadan Television Program on Asianet (2001–2003) and Foreign Media Coordinator for the Dubai International Holy Quran Award, shaping public discourse."
   },
   {
-    icon: Users2,
-    title: "Community Advocacy",
-    description: "Vigorously advocating for expatriate welfare and effectively representing community interests with governmental and international bodies."
+    icon: BookOpen,
+    title: "Prolific Authorship & Scholarship",
+    description: "Author of multiple influential Islamic and educational works, and a columnist for Khaleej Times, contributing significantly to intellectual thought."
   }
 ];
 
 const ChapterTwo: React.FC = () => {
   return (
     <ChapterContainer
-      id="community"
-      title="The Bridge Builder"
-      subtitle="A legacy of fostering unity, welfare, and cultural understanding across diverse communities."
+      id="career"
+      title="A Journey of Leadership & Service"
+      subtitle="Charting a distinguished career across legal, governmental, educational, and humanitarian sectors."
       variant="gradient"
     >
-      {/* Opening */}
+      {/* Opening Statement */}
       <motion.div 
         className="max-w-4xl mx-auto text-center mb-16"
         initial={{ y: 40, opacity: 0 }}
@@ -43,53 +53,47 @@ const ChapterTwo: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.4 }}
         viewport={{ once: true }}
       >
-        <p className={`text-fluid-lg md:text-fluid-xl ${designTokens.typography.fontFamily.body.join(',')} text-primary-700 leading-relaxed`}>
-          As the visionary President of the Dubai Indian Islamic Centre, Dr. P.T. Abdul Rahman has been instrumental in shaping community welfare and cultural integration. His tireless efforts have led to the successful organization of numerous medical camps, welfare schemes, and cultural programs, profoundly benefiting the Indian expatriate community in the UAE.
+        <p className={`text-fluid-lg md:text-fluid-xl ${designTokens.typography.fontFamily.body.join(',')} text-neutral-200 leading-relaxed`}>
+          Dr. P.T. Abdul Rahman's career is a testament to his multifaceted expertise and unwavering dedication. His professional journey is marked by significant leadership roles and impactful contributions that have shaped institutions and uplifted communities.
         </p>
       </motion.div>
 
-      {/* Initiatives Grid */}
-      <div className="grid md:grid-cols-2 gap-6 mb-16">
-        {initiatives.map((item, index) => (
+      {/* Career Milestones Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {careerMilestones.map((item, index) => (
           <motion.div
             key={item.title}
-            className={`bg-neutral-50/70 backdrop-blur-sm rounded-xl p-8 border border-primary-100/50 shadow-md hover:shadow-lg transition-all duration-300 group`}
+            className={`bg-neutral-50/10 backdrop-blur-sm rounded-xl p-8 border border-neutral-50/20 shadow-lg hover:shadow-xl transition-all duration-300 group`}
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.15 * index }}
             viewport={{ once: true }}
           >
-            <div className={`w-14 h-14 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform`}>
-              <item.icon size={26} className={`text-neutral-50`} />
+            <div className={`w-14 h-14 bg-gradient-to-br from-accent-500 to-accent-400 rounded-xl flex items-center justify-center mb-5 group-hover:from-accent-600 group-hover:to-accent-500 transition-all duration-300`}>
+              <item.icon size={26} className={`text-primary-900`} />
             </div>
-            <h3 className={`text-fluid-xl font-heading font-semibold text-primary-900 mb-3`}>
+            <h3 className={`text-fluid-xl font-heading font-semibold text-neutral-50 mb-3`}>
               {item.title}
             </h3>
-            <p className={`text-fluid-base ${designTokens.typography.fontFamily.body.join(',')} text-primary-600 leading-relaxed`}>{item.description}</p>
+            <p className={`text-fluid-base ${designTokens.typography.fontFamily.body.join(',')} text-neutral-300 leading-relaxed`}>{item.description}</p>
           </motion.div>
         ))}
       </div>
 
-      {/* Summary */}
+      {/* Call to Action or Summary of Impact */}
       <motion.div 
-        className={`bg-primary-900 rounded-2xl p-8 md:p-12 text-center shadow-xl`}
+        className={`bg-primary-800 rounded-2xl p-8 md:p-12 text-center shadow-xl`}
         initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <div className={`text-fluid-3xl font-bold ${designTokens.typography.fontFamily.heading.join(',')} text-accent-300 mb-2`}>30+</div>
-            <div className={`text-neutral-50/90 font-medium ${designTokens.typography.fontFamily.body.join(',')} mb-1`}>Years of Dedicated Service</div>
-            <div className={`text-neutral-50/60 text-fluid-sm ${designTokens.typography.fontFamily.body.join(',')} `}>Leadership in Community Welfare in UAE</div>
-          </div>
-          <div>
-            <div className={`text-fluid-3xl font-bold ${designTokens.typography.fontFamily.heading.join(',')} text-accent-300 mb-2`}>DIIC</div>
-            <div className={`text-neutral-50/90 font-medium ${designTokens.typography.fontFamily.body.join(',')} mb-1`}>President</div>
-            <div className={`text-neutral-50/60 text-fluid-sm ${designTokens.typography.fontFamily.body.join(',')} `}>Dubai Indian Islamic Centre</div>
-          </div>
-        </div>
+        <h3 className={`text-fluid-2xl font-heading font-bold text-accent-300 mb-4`}>
+          Decades of Dedicated Service
+        </h3>
+        <p className={`text-fluid-lg ${designTokens.typography.fontFamily.body.join(',')} text-neutral-200 leading-relaxed max-w-3xl mx-auto`}>
+          From legal counsel to community development, Dr. Rahman's influence is deeply woven into the fabric of society, reflecting a profound commitment to justice, education, and human dignity.
+        </p>
       </motion.div>
     </ChapterContainer>
   );
