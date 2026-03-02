@@ -1,96 +1,111 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Calendar, MapPin, Award } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar, MapPin, Award, Briefcase, Building2, Users, BookOpen, Tv, Handshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { useScrollNavigation } from '@/hooks/useScrollNavigation';
+import { designTokens } from '@/lib/design-tokens';
 
 interface TimelineEvent {
   id: string;
   year: string;
   title: string;
   location: string;
-  category: 'education' | 'publication' | 'foundation' | 'recognition' | 'humanitarian';
+  category: 'government' | 'legal' | 'education' | 'media' | 'humanitarian' | 'recognition';
   description: string;
-  details: string;
-  image?: string;
   achievements: string[];
+  image?: string;
 }
 
 const timelineEvents: TimelineEvent[] = [
   {
-    id: '1992',
+    id: '1992-foundation',
     year: '1992',
-    title: 'Foundation & Migration',
+    title: 'Founding the Dubai Indian Islamic Centre',
     location: 'Dubai, UAE',
-    category: 'foundation',
-    description: 'Founded Dubai Indian Islamic Centre and began serving the expatriate community',
-    details: 'A pivotal year marking the beginning of Dr. Rahman\'s institutional contributions to the expatriate community in Dubai, establishing the foundation for decades of community service.',
-    achievements: ['Founded Dubai Indian Islamic Centre', 'Started free repatriation services'],
+    category: 'humanitarian',
+    description: 'Established a pivotal institution for expatriate welfare, initiating decades of community service and support.',
+    achievements: ['Founded Dubai Indian Islamic Centre', 'Pioneered free repatriation services'],
     image: '/lovable-uploads/02a7f6e7-40d5-49af-ad68-279b52a2688a.png'
   },
   {
-    id: '1995',
+    id: '1995-publication',
     year: '1995',
-    title: 'Literary Breakthrough',
+    title: 'Literary Landmark: "Is the Creation Meaningless?"',
     location: 'UAE',
-    category: 'publication',
-    description: 'Published flagship work "Is the Creation Meaningless?" in multiple languages',
-    details: 'This groundbreaking philosophical work established Dr. Rahman as a serious Islamic thinker and was later translated into multiple languages, influencing theological discourse globally.',
-    achievements: ['Published first major work', 'Established presidency of Islamic Development Centre', 'Coordinated Quran competitions'],
+    category: 'media',
+    description: 'Published a seminal philosophical work, establishing his intellectual authority and influencing global theological discourse.',
+    achievements: ['Authored flagship philosophical work', 'Translated into multiple languages'],
     image: '/lovable-uploads/7c03ac28-c08f-47d0-9842-d43e2feeb25b.png'
   },
   {
-    id: '2000',
-    year: '2000-2005',
-    title: 'Media & Education Pioneer',
+    id: '2001-tv-program',
+    year: '2001-2003',
+    title: 'Pioneering Islamic Television Programming',
     location: 'UAE & India',
-    category: 'education',
-    description: 'Pioneered Islamic programming on television and expanded educational initiatives',
-    details: 'Revolutionary period where Dr. Rahman broke new ground in religious media programming while simultaneously expanding educational opportunities for diplomats and students.',
-    achievements: ['First televised Islamic program on Asianet', 'Arabic classes for Indian diplomats', 'Largest humanitarian DSF event'],
+    category: 'media',
+    description: 'Hosted "The Guidance – Dharma Reka" on Asianet, a groundbreaking series that brought Islamic teachings to a wide audience.',
+    achievements: ['Creator and presenter of "The Guidance" TV series', 'Expanded reach of Islamic education through media'],
     image: '/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg'
   },
   {
-    id: '2013',
+    id: '2013-dqaa',
     year: '2013',
-    title: 'Educational Innovation',
+    title: 'Founding Darul Quran Abdulla Academy (DQAA)',
     location: 'Kerala, India',
     category: 'education',
-    description: 'Founded Darul Quran Abdulla Academy with revolutionary education model',
-    details: 'Established a unique educational institution that successfully integrates traditional Islamic education with modern academics, producing students who excel in both domains.',
-    achievements: ['Founded DQAA', 'Innovative curriculum development', 'Hafiz + Academic excellence model'],
+    description: 'Established an innovative educational institution integrating traditional Quranic studies with modern academic excellence.',
+    achievements: ['Founded DQAA', 'Developed unique integrated curriculum', 'Fostered Hafiz + Academic excellence model'],
     image: '/lovable-uploads/83fac78b-1270-459b-82e4-404239c646d7.png'
   },
   {
-    id: '2017',
+    id: '2017-golden-visa',
     year: '2017-Present',
-    title: 'Global Recognition',
+    title: 'UAE Golden Visa & Global Recognition',
     location: 'International',
     category: 'recognition',
-    description: 'Received numerous international awards and expanded global influence',
-    details: 'Period of international recognition for contributions to education, interfaith dialogue, and humanitarian work, cementing Dr. Rahman\'s legacy as a global Islamic thought leader.',
-    achievements: ['Multiple international awards', 'Global speaking engagements', 'Continued literary contributions'],
+    description: 'Awarded the prestigious UAE Golden Visa for social contributions, cementing his legacy as a globally recognized leader.',
+    achievements: ['Received UAE Golden Visa', 'Multiple international awards and honors', 'Continued global speaking engagements'],
     image: '/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png'
-  }
+  },
+  {
+    id: 'legal-consultancy',
+    year: 'Ongoing',
+    title: 'Distinguished Legal Consultancy',
+    location: 'UAE',
+    category: 'legal',
+    description: 'Serving as Managing Partner and Senior Legal Consultant, providing expert legal advisory services in the UAE.',
+    achievements: ['Managing Partner, Precedential Legal Consultancy', 'Senior Legal Consultant, Tasheel Legal Consultancy'],
+  },
+  {
+    id: 'military-command',
+    year: 'Ongoing',
+    title: 'Administrator, Central Military Command',
+    location: 'UAE',
+    category: 'government',
+    description: 'Contributing to national service as an Administrator within the Central Military Command of the United Arab Emirates.',
+    achievements: ['Administrator, Central Military Command, UAE'],
+  },
 ];
 
 const categoryColors = {
   education: 'bg-blue-100 text-blue-800',
   publication: 'bg-purple-100 text-purple-800',
   foundation: 'bg-green-100 text-green-800',
-  recognition: 'bg-golden-100 text-golden-800',
-  humanitarian: 'bg-red-100 text-red-800'
+  recognition: 'bg-yellow-100 text-yellow-800',
+  humanitarian: 'bg-red-100 text-red-800',
+  government: 'bg-gray-100 text-gray-800',
+  legal: 'bg-indigo-100 text-indigo-800',
 };
 
 const categoryIcons = {
-  education: Award,
-  publication: Calendar,
-  foundation: MapPin,
+  education: BookOpen,
+  publication: BookOpen,
+  foundation: Building2,
   recognition: Award,
-  humanitarian: Award
+  humanitarian: Handshake,
+  government: Briefcase,
+  legal: Gavel,
 };
 
 const HorizontalTimeline = () => {
@@ -147,7 +162,8 @@ const HorizontalTimeline = () => {
 
   return (
     <motion.section 
-      className="py-20 bg-gradient-to-br from-slate-50 to-royal-50 overflow-hidden"
+      id="timeline"
+      className={`py-${designTokens.spacing.section.md} bg-gradient-to-br from-primary-50 to-neutral-50 overflow-hidden`}
       style={{ opacity, scale }}
     >
       <div className="container mx-auto px-4">
@@ -157,12 +173,12 @@ const HorizontalTimeline = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-royal-800 mb-6 font-playfair">
-            Journey Through Time
+          <h2 className={`text-fluid-4xl md:text-fluid-5xl font-heading font-bold text-primary-900 mb-4`}>
+            A Legacy Unfolding: Career & Leadership Timeline
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-golden-400 to-royal-400 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Explore the milestone moments that shaped Dr. Rahman's transformative journey
+          <div className={`w-24 h-1 bg-gradient-to-r from-accent-500 to-primary-500 mx-auto mb-6`}></div>
+          <p className={`text-fluid-lg ${designTokens.typography.fontFamily.body.join(",")} text-primary-700 max-w-3xl mx-auto`}>
+            Explore the pivotal moments and significant contributions that define Dr. P.T. Abdul Rahman's distinguished career and leadership journey.
           </p>
         </motion.div>
 
@@ -173,7 +189,7 @@ const HorizontalTimeline = () => {
             size="sm"
             onClick={handlePrevious}
             disabled={currentIndex === 0}
-            className="rounded-full"
+            className={`rounded-full border-primary-200 text-primary-700 hover:bg-primary-100 hover:text-primary-900`}
           >
             <ChevronLeft className="w-4 h-4" />
           </Button>
@@ -184,7 +200,7 @@ const HorizontalTimeline = () => {
                 key={index}
                 onClick={() => scrollToEvent(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-royal-600' : 'bg-gray-300'
+                  index === currentIndex ? 'bg-accent-500' : 'bg-primary-300'
                 }`}
               />
             ))}
@@ -195,7 +211,7 @@ const HorizontalTimeline = () => {
             size="sm"
             onClick={handleNext}
             disabled={currentIndex === timelineEvents.length - 1}
-            className="rounded-full"
+            className={`rounded-full border-primary-200 text-primary-700 hover:bg-primary-100 hover:text-primary-900`}
           >
             <ChevronRight className="w-4 h-4" />
           </Button>
@@ -217,8 +233,9 @@ const HorizontalTimeline = () => {
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  <Card className="h-full bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300 hover:shadow-2xl group cursor-pointer border-0 shadow-lg">
+                  <Card className={`h-full bg-white border border-primary-100 shadow-lg hover:shadow-xl transition-all duration-300 group`}>
                     <CardContent className="p-0">
                       {/* Image */}
                       {event.image && (
@@ -229,38 +246,38 @@ const HorizontalTimeline = () => {
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             whileHover={{ scale: 1.05 }}
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent"></div>
                           <div className="absolute top-4 left-4">
-                            <Badge className={categoryColors[event.category]}>
+                            <Badge className={`${categoryColors[event.category]} text-xs font-semibold px-2 py-1 rounded-full`}>
                               <IconComponent className="w-3 h-3 mr-1" />
-                              {event.category}
+                              {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                             </Badge>
                           </div>
                           <div className="absolute bottom-4 left-4">
-                            <div className="text-white font-bold text-2xl">{event.year}</div>
+                            <div className={`text-neutral-50 font-bold text-fluid-xl ${designTokens.typography.fontFamily.heading.join(",")}`}>{event.year}</div>
                           </div>
                         </div>
                       )}
 
                       {/* Content */}
                       <div className="p-6">
-                        <div className="flex items-center gap-2 mb-3 text-sm text-gray-600">
-                          <MapPin className="w-4 h-4" />
+                        <div className={`flex items-center gap-2 mb-3 text-sm ${designTokens.typography.fontFamily.body.join(",")} text-primary-600`}>
+                          <MapPin className="w-4 h-4 text-accent-500" />
                           {event.location}
                         </div>
 
-                        <h3 className="text-xl font-bold text-royal-800 mb-3 font-playfair">
+                        <h3 className={`text-fluid-xl font-bold ${designTokens.typography.fontFamily.heading.join(",")} text-primary-900 mb-3`}>
                           {event.title}
                         </h3>
 
-                        <p className="text-gray-700 mb-4 line-clamp-3">
+                        <p className={`text-primary-700 mb-4 line-clamp-3 ${designTokens.typography.fontFamily.body.join(",")}`}>
                           {event.description}
                         </p>
 
                         <div className="space-y-2 mb-4">
                           {event.achievements.slice(0, 2).map((achievement, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                              <div className="w-1.5 h-1.5 bg-golden-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div key={idx} className={`flex items-start gap-2 text-sm ${designTokens.typography.fontFamily.body.join(",")} text-primary-600`}>
+                              <div className={`w-1.5 h-1.5 bg-accent-500 rounded-full mt-2 flex-shrink-0`}></div>
                               <span>{achievement}</span>
                             </div>
                           ))}
@@ -270,7 +287,7 @@ const HorizontalTimeline = () => {
                           variant="ghost"
                           size="sm"
                           onClick={() => setSelectedEvent(selectedEvent === event.id ? null : event.id)}
-                          className="w-full text-royal-600 hover:text-royal-800 hover:bg-royal-50"
+                          className={`w-full text-accent-600 hover:text-accent-800 hover:bg-accent-50/10 ${designTokens.typography.fontFamily.body.join(",")}`}
                         >
                           {selectedEvent === event.id ? 'Show Less' : 'Learn More'}
                         </Button>
@@ -281,44 +298,24 @@ const HorizontalTimeline = () => {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="mt-4 pt-4 border-t border-gray-200"
+                            transition={{ duration: 0.3 }}
+                            className="mt-4 pt-4 border-t border-primary-100"
                           >
-                            <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                              {event.details}
+                            <p className={`text-primary-700 text-sm ${designTokens.typography.fontFamily.body.join(",")} leading-relaxed`}>
+                              {event.description} {/* Re-using description for brevity, can be expanded with a 'details' field if needed */}
                             </p>
-                            <div className="space-y-2">
-                              {event.achievements.slice(2).map((achievement, idx) => (
-                                <div key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                                  <div className="w-1.5 h-1.5 bg-golden-500 rounded-full mt-2 flex-shrink-0"></div>
-                                  <span>{achievement}</span>
-                                </div>
+                            <ul className="list-disc list-inside mt-2 space-y-1 text-primary-600 text-sm">
+                              {event.achievements.map((achievement, idx) => (
+                                <li key={idx}>{achievement}</li>
                               ))}
-                            </div>
+                            </ul>
                           </motion.div>
                         )}
-                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
               );
             })}
-          </div>
-        </div>
-
-        {/* Progress Indicator */}
-        <div className="mt-8 max-w-2xl mx-auto">
-          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-gradient-to-r from-golden-500 to-royal-500"
-              style={{
-                width: `${((currentIndex + 1) / timelineEvents.length) * 100}%`
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-          </div>
-          <div className="flex justify-between mt-2 text-sm text-gray-600">
-            <span>1992</span>
-            <span>Present</span>
           </div>
         </div>
       </div>
