@@ -18,7 +18,7 @@ const credentials = [
   {
     icon: Tv,
     title: "Pioneering TV Program",
-    description: "Creator and presenter of \'The Guidance – Dharma Reka\', a groundbreaking Islamic television series on Asianet."
+    description: "Creator and presenter of 'The Guidance – Dharma Reka', a groundbreaking Islamic television series on Asianet."
   },
   {
     icon: BookOpen,
