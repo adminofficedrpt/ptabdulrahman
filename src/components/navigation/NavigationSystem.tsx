@@ -55,7 +55,7 @@ const NavigationSystem = () => {
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'py-2 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
+            ? 'py-2 bg-white/70 backdrop-blur-xl shadow-lg border-b border-white/20' 
             : 'py-3 md:py-4 bg-transparent'
         }`}
         initial={{ y: -100 }}

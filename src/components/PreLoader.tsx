@@ -130,7 +130,7 @@ const PreLoader = ({
                 delay: 0.5
               }}
             >
-              •Educator •Humanitarian •Author
+              Scholar · Educator · Community Leader
             </motion.p>
           </motion.div>
         </motion.div>
