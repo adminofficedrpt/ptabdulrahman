@@ -34,13 +34,13 @@ const FooterModern = () => {
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith(\'/#\')) {
+    if (href.startsWith('/#')) {
       e.preventDefault();
-      const id = href.replace(\'/#\', \'\');
+      const id = href.replace('/#', '');
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: \'smooth\' });
-        window.history.pushState({}, \'\', href);
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState({}, '', href);
       } else {
         window.location.href = href;
       }
@@ -86,7 +86,7 @@ const FooterModern = () => {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    {link.path.startsWith(\'/#\') ? (
+                    {link.path.startsWith('/#') ? (
                       <a 
                         href={link.path}
                         onClick={(e) => handleNavClick(e, link.path)}
