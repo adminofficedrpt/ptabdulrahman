@@ -1,6 +1,5 @@
 
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -20,9 +19,11 @@ export default {
 			}
 		},
 		extend: {
-		fontFamily: {
+			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
 				'sans': ['Inter', 'sans-serif'],
+				'heading': ['Playfair Display', 'serif'],
+				'body': ['Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -30,6 +31,7 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				cream: 'hsl(var(--cream))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -58,16 +60,6 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
 				royal: {
 					50: '#eaf5fe',
 					100: '#d0e7fc',
@@ -93,19 +85,6 @@ export default {
 					800: '#664e12',
 					900: '#3f3009',
 				},
-				earth: {
-					50: '#fcf8f7',
-					100: '#f8f0ec',
-					200: '#f3e2da',
-					300: '#eacbbc',
-					400: '#dea894',
-					500: '#d48c74',
-					600: '#c77054',
-					700: '#bb5a40',
-					800: '#9a4a36',
-					900: '#7e3f30',
-					950: '#421e17',
-				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -113,7 +92,6 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			spacing: {
-				// Fluid spacing utilities
 				'fluid-xs': 'clamp(0.5rem, 1vw, 1rem)',
 				'fluid-sm': 'clamp(1rem, 2vw, 1.5rem)',
 				'fluid-md': 'clamp(1.5rem, 3vw, 2.5rem)',
@@ -123,7 +101,6 @@ export default {
 				'fluid-3xl': 'clamp(6rem, 10vw, 12rem)',
 			},
 			fontSize: {
-				// Fluid typography
 				'fluid-xs': ['clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem)', { lineHeight: '1.4' }],
 				'fluid-sm': ['clamp(0.875rem, 0.8rem + 0.375vw, 1rem)', { lineHeight: '1.5' }],
 				'fluid-base': ['clamp(1rem, 0.9rem + 0.5vw, 1.125rem)', { lineHeight: '1.6' }],
@@ -134,10 +111,9 @@ export default {
 				'fluid-4xl': ['clamp(2.25rem, 1.9rem + 1.75vw, 3rem)', { lineHeight: '1.1' }],
 				'fluid-5xl': ['clamp(3rem, 2.5rem + 2.5vw, 4rem)', { lineHeight: '1' }],
 				'fluid-6xl': ['clamp(3.75rem, 3rem + 3.75vw, 5rem)', { lineHeight: '1' }],
-			},
-			maxWidth: {
-				'8xl': '88rem',
-				'9xl': '96rem',
+				// Massive display sizes for petersand-style hero
+				'display': ['clamp(4rem, 8vw, 10rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+				'display-lg': ['clamp(5rem, 10vw, 14rem)', { lineHeight: '0.85', letterSpacing: '-0.03em' }],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -148,45 +124,10 @@ export default {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' },
 				},
-				'fade-in': {
-					'0%': { opacity: '0', transform: 'translateY(20px)' },
-					'100%': { opacity: '1', transform: 'translateY(0)' }
-				},
-				'fade-right': {
-					'0%': { opacity: '0', transform: 'translateX(-20px)' },
-					'100%': { opacity: '1', transform: 'translateX(0)' }
-				},
-				'fade-left': {
-					'0%': { opacity: '0', transform: 'translateX(20px)' },
-					'100%': { opacity: '1', transform: 'translateX(0)' }
-				},
-				'scale-in': {
-					'0%': { transform: 'scale(0.9)', opacity: '0' },
-					'100%': { transform: 'scale(1)', opacity: '1' }
-				},
-				"cursor-blink": {
-					"0%, 100%": { opacity: "1" },
-					"50%": { opacity: "0" }
-				},
-				'float': {
-					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-10px)' },
-				},
-				'pulse-slow': {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.5' },
-				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'fade-right': 'fade-right 0.5s ease-out forwards',
-				'fade-left': 'fade-left 0.5s ease-out forwards',
-				'scale-in': 'scale-in 0.4s ease-out forwards',
-				"cursor-blink": "cursor-blink 1s step-end infinite",
-				'float': 'float 3s ease-in-out infinite',
-				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
 			},
 		}
 	},

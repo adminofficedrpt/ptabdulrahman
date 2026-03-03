@@ -107,7 +107,7 @@ const TestimonialsWall: React.FC = () => {
               Global Impact
             </span>
           </motion.div>
-          <FluidTypography variant="h2" color="royal" className="mb-6">
+          <FluidTypography variant="h2" color="primary" className="mb-6">
             Voices of Transformation
           </FluidTypography>
           <FluidTypography variant="body" color="muted" className="max-w-3xl mx-auto">
@@ -172,7 +172,7 @@ const TestimonialsWall: React.FC = () => {
 
                 {/* Author Info */}
                 <div>
-                  <FluidTypography variant="h6" color="royal" className="mb-1">
+                  <FluidTypography variant="h6" color="primary" className="mb-1">
                     {filteredTestimonials[activeTestimonial]?.name}
                   </FluidTypography>
                   <FluidTypography variant="body" color="muted" className="text-sm mb-1">
@@ -220,7 +220,7 @@ const TestimonialsWall: React.FC = () => {
               transition={{ delay: index * 0.1 }}
               className="text-center"
             >
-              <FluidTypography variant="h4" color="royal" className="font-bold mb-2">
+              <FluidTypography variant="h4" color="primary" className="font-bold mb-2">
                 {stat.number}
               </FluidTypography>
               <FluidTypography variant="caption" color="muted">

@@ -1,130 +1,71 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { designTokens } from "@/lib/design-tokens";
-import ResponsiveContainer from "@/components/layout/ResponsiveContainer";
 
 const FooterModern = () => {
   const currentYear = new Date().getFullYear();
 
-  const footerSections = [
-    {
-      title: "Journey",
-      links: [
-        { name: "About", path: "/#about" },
-        { name: "Community", path: "/#community" },
-        { name: "Education", path: "/#education" },
-      ]
-    },
-    {
-      title: "Work & Legacy",
-      links: [
-        { name: "Publications", path: "/#publications" },
-        { name: "Milestones", path: "/#milestones" },
-        { name: "Gallery", path: "/gallery" },
-      ]
-    },
-    {
-      title: "Connect",
-      links: [
-        { name: "Contact", path: "/#contact" },
-        { name: "Privacy Policy", path: "/privacy" },
-        { name: "Terms of Use", path: "/terms" },
-      ]
-    },
-  ];
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('/#')) {
-      e.preventDefault();
-      const id = href.replace('/#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        window.history.pushState({}, '', href);
-      } else {
-        window.location.href = href;
-      }
-    } else {
-      // For external links or full page navigations
-      window.location.href = href;
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  const footerLinks = [
+    { name: "About", id: "about" },
+    { name: "Career", id: "career" },
+    { name: "Publications", id: "publications" },
+    { name: "Milestones", id: "milestones" },
+    { name: "Contact", id: "contact" },
+  ];
+
   return (
-    <footer className={`bg-primary-900 text-neutral-50 pt-${designTokens.spacing.section.md} pb-${designTokens.spacing.section.sm}`}>
-      <ResponsiveContainer size="lg" padding="lg">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand & Mission */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <Link to="/" aria-label="Homepage">
-              <img 
-                src="/lovable-uploads/fec01a1d-0c0c-4e56-9f6d-86a55967f5b0.png" 
-                alt="P.T. Abdul Rahman Logo" 
-                className="h-14 filter brightness-0 invert mb-4"
-              />
-            </Link>
-            <p className={`text-neutral-300 text-fluid-sm ${designTokens.typography.fontFamily.body.join(",")} leading-relaxed`}>
-              Dedicated to fostering intellectual growth, community welfare, and interfaith understanding. Dr. P.T. Abdul Rahman's work spans decades, leaving an indelible mark on society.
-            </p>
-          </motion.div>
-
-          {/* Navigation Sections */}
-          {footerSections.map((section, index) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className={`text-accent-300 font-semibold mb-4 text-fluid-base tracking-wider uppercase ${designTokens.typography.fontFamily.heading.join(",")}`}>{section.title}</h3>
-              <ul className="space-y-3">
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    {link.path.startsWith('/#') ? (
-                      <a 
-                        href={link.path}
-                        onClick={(e) => handleNavClick(e, link.path)}
-                        className={`text-neutral-400 hover:text-accent-300 transition-colors text-fluid-sm ${designTokens.typography.fontFamily.body.join(",")}`}
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <Link 
-                        to={link.path}
-                        className={`text-neutral-400 hover:text-accent-300 transition-colors text-fluid-sm ${designTokens.typography.fontFamily.body.join(",")}`}
-                      >
-                        {link.name}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Bottom Section */}
+    <footer className="bg-foreground text-background py-20 md:py-28">
+      <div className="container mx-auto px-6">
+        {/* Name */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className={`mt-${designTokens.spacing.section.sm} pt-6 border-t border-primary-700 flex flex-col md:flex-row justify-between items-center`}
         >
-          <p className={`text-neutral-500 text-fluid-xs ${designTokens.typography.fontFamily.body.join(",")} mb-4 md:mb-0`}>
-            &copy; {currentYear} P.T. Abdul Rahman. All rights reserved.
+          <h2 className="font-playfair text-fluid-4xl md:text-fluid-5xl font-bold mb-4 uppercase">
+            P.T. Abdul Rahman
+          </h2>
+          <p className="text-background/50 text-sm max-w-lg leading-relaxed mb-12">
+            Islamic scholar and educator based in the UAE, dedicated to community service, interfaith understanding, and educational development.
           </p>
-          <div className="flex space-x-4">
-            {/* Social Links can go here if needed */}
-          </div>
         </motion.div>
-      </ResponsiveContainer>
+
+        {/* Nav + Contact */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h3 className="text-xs tracking-[0.2em] uppercase text-background/40 mb-6">Navigation</h3>
+            <div className="flex flex-wrap gap-6">
+              {footerLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => scrollTo(link.id)}
+                  className="text-sm text-background/60 hover:text-background transition-colors"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xs tracking-[0.2em] uppercase text-background/40 mb-6">Contact</h3>
+            <p className="text-sm text-background/60">mail@ptabdulrahman.com</p>
+            <p className="text-sm text-background/60 mt-1">office@darul-quran.com</p>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-background/10 pt-8">
+          <p className="text-xs text-background/30">
+            © {currentYear} P.T. Abdul Rahman. All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
   );
 };
