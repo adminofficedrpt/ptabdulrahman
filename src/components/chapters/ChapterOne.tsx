@@ -1,39 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChapterContainer from './ChapterContainer';
-import { Award, BookOpen, Users, Shield, Gavel, Tv } from 'lucide-react';
-import { designTokens } from '@/lib/design-tokens';
 
 const credentials = [
   {
-    icon: Gavel,
     title: "Distinguished Legal Consultant",
-    description: "Managing Partner at Precedential Legal Consultancy and Senior Legal Consultant at Tasheel Legal Consultancy, with extensive experience in UAE law."
+    description: "Managing Partner at Precedential Legal Consultancy and Senior Legal Consultant at Tasheel Legal Consultancy."
   },
   {
-    icon: Shield,
-    title: "Government Service & Leadership",
-    description: "Administrator at the Central Military Command, UAE, and Researcher at the Department of Islamic Affairs, Government of Dubai, contributing to public service and policy."
+    title: "Government Service",
+    description: "Administrator at the Central Military Command, UAE, and Researcher at the Department of Islamic Affairs, Government of Dubai."
   },
   {
-    icon: Tv,
-    title: "Pioneering Media Contributor",
-    description: "Creator and presenter of 'The Guidance – Dharma Reka', a groundbreaking Islamic television series on Asianet (2001–2003)."
+    title: "Pioneering Media",
+    description: "Creator and presenter of 'The Guidance – Dharma Reka', an Islamic television series on Asianet (2001–2003)."
   },
   {
-    icon: BookOpen,
-    title: "Prolific Author & Scholar",
-    description: "Authored numerous influential books on Islamic philosophy, education, and contemporary social issues, published in multiple languages."
+    title: "Author & Scholar",
+    description: "Authored influential books on Islamic philosophy, education, and contemporary social issues."
   },
   {
-    icon: Users,
-    title: "Institutional Founder & Leader",
-    description: "Founder of Abdulla Educational Academy (India) and President of the Indian Islamic Center (Dubai), establishing key platforms for education and community welfare."
+    title: "Institutional Founder",
+    description: "Founder of Abdulla Educational Academy (India) and President of the Indian Islamic Center (Dubai)."
   },
   {
-    icon: Award,
-    title: "Recognized Global Humanitarian",
-    description: "Awarded the prestigious UAE Golden Visa for social contributions and recognized by UAE leadership for humanitarian endeavors."
+    title: "UAE Golden Visa",
+    description: "Awarded for significant and sustained contributions to the social and cultural fabric of the UAE."
   }
 ];
 
@@ -50,70 +42,90 @@ const ChapterOne: React.FC = () => {
   return (
     <ChapterContainer
       id="about"
-      title="An Enduring Legacy of Impact"
-      subtitle="A life defined by intellectual rigor, principled leadership, and profound humanitarian service."
-      variant="light"
+      title="About"
+      subtitle="A life defined by intellectual rigor, principled leadership, and humanitarian service."
+      sectionKeyword="about"
     >
-      {/* Biography */}
-      <motion.div 
-        className="max-w-4xl mx-auto text-center mb-20"
-        initial={{ y: 40, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        viewport={{ once: true }}
-      >
-        <p className={`text-fluid-lg md:text-fluid-xl ${designTokens.typography.fontFamily.body.join(',')} text-primary-800 leading-relaxed mb-6`}>
-          Dr. P.T. Abdul Rahman stands as a distinguished figure with over three decades of impactful contributions across diverse fields. Based in the UAE, his expertise spans legal consultancy, Islamic scholarship, humanitarian leadership, institutional founding, and influential media contributions.
-        </p>
-        <p className={`text-fluid-base ${designTokens.typography.fontFamily.body.join(',')} text-primary-700 leading-relaxed`}>
-          His journey reflects a steadfast commitment to intellectual growth and community empowerment. From government service and legal advisory to pioneering educational initiatives and fostering interfaith dialogue, Dr. Rahman's work has left an indelible mark on society in both the UAE and India, embodying a rare blend of authoritative knowledge and humble service.
-        </p>
-      </motion.div>
+      {/* Biography with drop cap */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20">
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <p className="drop-cap text-foreground/80 text-fluid-base leading-[1.8] mb-6">
+            P.T. Abdul Rahman stands as a distinguished figure with over three decades of impactful contributions across diverse fields. Based in the UAE, his expertise spans legal consultancy, Islamic scholarship, humanitarian leadership, institutional founding, and influential media contributions.
+          </p>
+          <p className="text-muted-foreground text-fluid-base leading-[1.8]">
+            His journey reflects a steadfast commitment to intellectual growth and community empowerment. From government service and legal advisory to pioneering educational initiatives and fostering interfaith dialogue, his work has left an indelible mark on society in both the UAE and India.
+          </p>
+        </motion.div>
 
-      {/* Key Credentials Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-        {credentials.map((item, index) => (
-          <motion.div
-            key={item.title}
-            className={`bg-neutral-50/70 backdrop-blur-sm rounded-xl p-6 border border-primary-100/50 shadow-md hover:shadow-lg hover:border-accent-200/50 transition-all duration-300 group`}
-            initial={{ y: 40, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 * index }}
-            viewport={{ once: true }}
-          >
-            <div className={`w-12 h-12 bg-gradient-to-br from-primary-100 to-accent-100 rounded-xl flex items-center justify-center mb-4 group-hover:from-primary-500 group-hover:to-accent-500 transition-all duration-300`}>
-              <item.icon size={22} className={`text-primary-700 group-hover:text-neutral-50 transition-colors`} />
-            </div>
-            <h3 className={`text-fluid-lg font-semibold ${designTokens.typography.fontFamily.heading.join(',')} text-primary-900 mb-2`}>{item.title}</h3>
-            <p className={`text-fluid-sm ${designTokens.typography.fontFamily.body.join(',')} text-primary-600 leading-relaxed`}>{item.description}</p>
-          </motion.div>
-        ))}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-muted-foreground text-fluid-base leading-[1.8] mb-6">
+            Born in Kerala, India, he pursued theological studies under eminent scholars before relocating to the UAE. His deep understanding of multiple languages and cultures has enabled him to serve as a bridge between communities, fostering mutual respect and cooperation.
+          </p>
+          <p className="text-muted-foreground text-fluid-base leading-[1.8]">
+            Today, he continues his lifelong mission of education and humanitarian service, guiding institutions and individuals alike with wisdom drawn from decades of experience and an unwavering dedication to the common good.
+          </p>
+        </motion.div>
       </div>
 
-      {/* Language Proficiency */}
-      <motion.div 
-        className={`bg-gradient-to-r from-primary-900 to-primary-800 rounded-2xl p-8 md:p-12 shadow-xl`}
-        initial={{ y: 40, opacity: 0 }}
+      {/* Credentials - clean text blocks */}
+      <motion.div
+        className="border-t border-border pt-16 mb-16"
+        initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <h3 className={`text-fluid-2xl font-heading font-bold text-neutral-50 text-center mb-8`}>
-          Multilingual Mastery
+        <h3 className="font-playfair text-fluid-2xl font-bold text-foreground mb-10">
+          Key Credentials
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {languages.map((lang, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {credentials.map((item, index) => (
             <motion.div
-              key={lang.name}
-              className={`text-center p-4 bg-neutral-50/10 backdrop-blur-sm rounded-xl border border-neutral-50/10 shadow-inner`}
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.1 * index }}
+              key={item.title}
+              className="border-l-2 border-golden-500 pl-6"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 * index }}
               viewport={{ once: true }}
             >
-              <div className={`text-fluid-base font-medium ${designTokens.typography.fontFamily.body.join(',')} text-accent-300 mb-1`}>{lang.native}</div>
-              <div className={`text-fluid-sm ${designTokens.typography.fontFamily.body.join(',')} text-neutral-200`}>{lang.name}</div>
+              <h4 className="font-playfair text-fluid-lg font-semibold text-foreground mb-2">
+                {item.title}
+              </h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {item.description}
+              </p>
             </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Language Proficiency - horizontal list */}
+      <motion.div
+        className="border-t border-border pt-12"
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        viewport={{ once: true }}
+      >
+        <h3 className="font-playfair text-fluid-2xl font-bold text-foreground mb-8">
+          Linguistic Proficiency
+        </h3>
+        <div className="flex flex-wrap gap-6">
+          {languages.map((lang) => (
+            <div key={lang.name} className="text-center">
+              <span className="block text-lg font-playfair text-foreground">{lang.native}</span>
+              <span className="block text-xs tracking-[0.15em] uppercase text-muted-foreground mt-1">{lang.name}</span>
+            </div>
           ))}
         </div>
       </motion.div>

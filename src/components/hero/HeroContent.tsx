@@ -52,7 +52,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ currentSlide, onVideoOpen, on
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <FluidTypography variant="h1" color="white" className="mb-6 font-bold leading-tight">
+            <FluidTypography variant="h1" color="neutral" className="mb-6 font-bold leading-tight">
               {currentSlide.title}
             </FluidTypography>
           </motion.div>
@@ -102,7 +102,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ currentSlide, onVideoOpen, on
               <div key={index} className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start mb-2">
                   <stat.icon className="h-6 w-6 text-golden-400 mr-2" />
-                  <FluidTypography variant="h4" color="white" className="font-bold">
+                  <FluidTypography variant="h4" color="neutral" className="font-bold">
                     {stat.value}
                   </FluidTypography>
                 </div>

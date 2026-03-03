@@ -27,7 +27,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
             className="bg-white rounded-2xl p-8 max-w-2xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <FluidTypography variant="h4" color="royal" className="mb-4">
+            <FluidTypography variant="h4" color="primary" className="mb-4">
               Featured Documentary
             </FluidTypography>
             <FluidTypography variant="body" color="muted" className="mb-6">
