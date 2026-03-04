@@ -8,6 +8,7 @@ import AdvancedHero from '@/components/features/AdvancedHero';
 import ChapterOne from '@/components/chapters/ChapterOne';
 import ChapterTwo from '@/components/chapters/ChapterTwo';
 import ChapterThree from '@/components/chapters/ChapterThree';
+import PhotoGallerySection from '@/components/sections/PhotoGallerySection';
 import ImmersiveTimeline from '@/components/timeline/ImmersiveTimeline';
 import PressWall from '@/components/trust/PressWall';
 import Contact from '@/components/Contact';
@@ -53,6 +54,10 @@ const Index = () => {
 
       <SectionErrorBoundary sectionName="Publications">
         <ChapterThree />
+      </SectionErrorBoundary>
+
+      <SectionErrorBoundary sectionName="Gallery">
+        <PhotoGallerySection />
       </SectionErrorBoundary>
 
       <SectionErrorBoundary sectionName="Press">

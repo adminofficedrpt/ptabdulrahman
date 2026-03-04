@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ProgressiveImage from '@/components/ui/progressive-image';
 import ChapterContainer from './ChapterContainer';
 
 const credentials = [
@@ -46,36 +47,71 @@ const ChapterOne: React.FC = () => {
       subtitle="A life defined by intellectual rigor, principled leadership, and humanitarian service."
       sectionKeyword="about"
     >
-      {/* Biography with drop cap */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20">
+      {/* Hero biography block: text + large portrait */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
+        {/* Left: Biography text */}
         <motion.div
+          className="lg:col-span-7"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <p className="drop-cap text-foreground/80 text-fluid-base leading-[1.8] mb-6">
+          <p className="drop-cap text-foreground/80 text-fluid-lg leading-[1.8] mb-6">
             P.T. Abdul Rahman stands as a distinguished figure with over three decades of impactful contributions across diverse fields. Based in the UAE, his expertise spans legal consultancy, Islamic scholarship, humanitarian leadership, institutional founding, and influential media contributions.
           </p>
-          <p className="text-muted-foreground text-fluid-base leading-[1.8]">
+          <p className="text-muted-foreground text-fluid-base leading-[1.8] mb-6">
             His journey reflects a steadfast commitment to intellectual growth and community empowerment. From government service and legal advisory to pioneering educational initiatives and fostering interfaith dialogue, his work has left an indelible mark on society in both the UAE and India.
+          </p>
+          <p className="text-muted-foreground text-fluid-base leading-[1.8]">
+            Born in Kerala, India, he pursued theological studies under eminent scholars before relocating to the UAE. His deep understanding of multiple languages and cultures has enabled him to serve as a bridge between communities, fostering mutual respect and cooperation.
           </p>
         </motion.div>
 
+        {/* Right: Portrait image */}
         <motion.div
+          className="lg:col-span-5"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <p className="text-muted-foreground text-fluid-base leading-[1.8] mb-6">
-            Born in Kerala, India, he pursued theological studies under eminent scholars before relocating to the UAE. His deep understanding of multiple languages and cultures has enabled him to serve as a bridge between communities, fostering mutual respect and cooperation.
-          </p>
-          <p className="text-muted-foreground text-fluid-base leading-[1.8]">
-            Today, he continues his lifelong mission of education and humanitarian service, guiding institutions and individuals alike with wisdom drawn from decades of experience and an unwavering dedication to the common good.
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <ProgressiveImage
+              src="/lovable-uploads/fb28198e-3760-4921-aaba-ddca06433f3a.jpg"
+              alt="Dr. P.T. Abdul Rahman"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <p className="text-xs text-muted-foreground mt-3 tracking-wide">
+            Dr. P.T. Abdul Rahman — Islamic Scholar & Educator
           </p>
         </motion.div>
       </div>
+
+      {/* Two smaller images side by side */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24"
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <ProgressiveImage
+            src="/lovable-uploads/c970d98e-2e87-4135-815f-de35b2d7eeac.png"
+            alt="Meeting with senior community leaders"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <ProgressiveImage
+            src="/lovable-uploads/4fc15481-16de-4566-94d6-b3f7bc6521cb.png"
+            alt="Official state meeting"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
 
       {/* Credentials - clean text blocks */}
       <motion.div
@@ -120,10 +156,10 @@ const ChapterOne: React.FC = () => {
         <h3 className="font-playfair text-fluid-2xl font-bold text-foreground mb-8">
           Linguistic Proficiency
         </h3>
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap gap-8">
           {languages.map((lang) => (
             <div key={lang.name} className="text-center">
-              <span className="block text-lg font-playfair text-foreground">{lang.native}</span>
+              <span className="block text-2xl font-playfair text-foreground">{lang.native}</span>
               <span className="block text-xs tracking-[0.15em] uppercase text-muted-foreground mt-1">{lang.name}</span>
             </div>
           ))}
