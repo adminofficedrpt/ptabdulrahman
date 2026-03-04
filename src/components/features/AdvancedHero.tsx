@@ -71,46 +71,45 @@ const AdvancedHero: React.FC = () => {
       </motion.nav>
 
       {/* Two-column: Role + Portrait */}
-      <div className="container mx-auto px-6 flex-1 flex items-center py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
-          {/* Left: Role description */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <h2 className="font-playfair text-fluid-5xl md:text-fluid-6xl font-bold text-foreground leading-[1.05] mb-6">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-0">
+        {/* Left: Role description */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="lg:col-span-5 bg-[#EDE8E3] flex items-center px-8 md:px-12 lg:px-16 py-12 lg:py-0"
+        >
+          <div>
+            <h2 className="font-playfair text-fluid-5xl md:text-fluid-6xl font-bold text-foreground leading-[1.05] mb-4">
               Islamic Scholar<br />
               <span className="text-golden-600">&amp; Legal Consultant</span>
             </h2>
-            <p className="text-muted-foreground text-fluid-base leading-relaxed max-w-xl mb-8">
-              An educator based in the UAE with over three decades dedicated to community service, interfaith understanding, and educational development across the Middle East and India.
+            <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-8">
+              Educator · Community Leader · Humanitarian
             </p>
             <button
-              onClick={() => scrollTo('about')}
+              onClick={() => scrollTo('contact')}
               className="bg-foreground text-background px-8 py-4 text-xs tracking-[0.2em] uppercase font-medium hover:bg-foreground/90 transition-colors min-h-[48px]"
             >
-              Explore His Journey
+              Get in Touch
             </button>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Right: Portrait */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative w-80 h-[28rem] md:w-96 md:h-[32rem] overflow-hidden">
-              <ProgressiveImage
-                src="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png"
-                alt="P.T. Abdul Rahman"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                priority
-              />
-            </div>
-          </motion.div>
-        </div>
+        {/* Right: Portrait */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="lg:col-span-7 relative overflow-hidden"
+        >
+          <ProgressiveImage
+            src="/lovable-uploads/1d6707a7-0406-4dc9-84d6-39b112fdab24.png"
+            alt="P.T. Abdul Rahman"
+            className="w-full h-full object-cover grayscale"
+            priority
+          />
+        </motion.div>
       </div>
     </section>
   );
